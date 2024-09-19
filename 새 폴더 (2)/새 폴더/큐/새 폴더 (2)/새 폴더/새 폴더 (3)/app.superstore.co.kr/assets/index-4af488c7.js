@@ -1,0 +1,27189 @@
+var KC = Object.defineProperty;
+var yC = (e, t, o) => t in e ? KC(e, t, {
+    enumerable: !0,
+    configurable: !0,
+    writable: !0,
+    value: o
+}) : e[t] = o;
+var et = (e, t, o) => (yC(e, typeof t != "symbol" ? t + "" : t, o), o);
+import {
+    u as sc,
+    a as so,
+    r as C,
+    d as SC,
+    c as mo,
+    b as X,
+    D as wC,
+    C as ln,
+    p as MC,
+    e as mt,
+    f as bC,
+    g as DC,
+    s as kC,
+    h as xC,
+    i as S,
+    j as s,
+    k as m,
+    l as RC,
+    R as F,
+    F as Ke,
+    S as mi,
+    m as Tt,
+    n as fd,
+    o as Kt,
+    q as AC,
+    t as TC,
+    v as LC,
+    w as vC,
+    x as EC,
+    y as PC,
+    z as IC,
+    A as OC,
+    B as NC,
+    E as gd,
+    G as GC,
+    H as BC,
+    I as UC,
+    J as FC,
+    K as HC,
+    L as $C,
+    M as WC,
+    N as VC,
+    O as YC,
+    P as zC,
+    Q as XC,
+    T as QC,
+    U as md,
+    V as Kd,
+    W as pl,
+    X as jC,
+    Y as qC,
+    Z as ZC,
+    _ as $t,
+    $ as Wt,
+    a0 as JC,
+    a1 as ep,
+    a2 as tp,
+    a3 as op,
+    a4 as La,
+    a5 as np,
+    a6 as ap,
+    a7 as sp,
+    a8 as fl,
+    a9 as rp,
+    aa as ip,
+    ab as zt,
+    ac as Da,
+    ad as cp,
+    ae as gl,
+    af as Hr,
+    ag as ml,
+    ah as Kl,
+    ai as $r,
+    aj as lp,
+    ak as ir,
+    al as dp,
+    am as up,
+    an as yd,
+    ao as Sd,
+    ap as wd,
+    aq as _p,
+    ar as Md,
+    as as hp,
+    at as cr,
+    au as rc,
+    av as bd,
+    aw as ic,
+    ax as Dd,
+    ay as Cp,
+    az as pp,
+    aA as fp,
+    aB as yl,
+    aC as gp,
+    aD as mp,
+    aE as Kp,
+    aF as yp,
+    aG as Ya,
+    aH as Sp,
+    aI as wp,
+    aJ as Mp,
+    aK as kd,
+    aL as lr,
+    aM as bp,
+    aN as Dp,
+    aO as Ko,
+    aP as xd,
+    aQ as kp,
+    aR as xp,
+    aS as Rp,
+    aT as Ap,
+    aU as Tp,
+    aV as Lp,
+    aW as vp,
+    aX as Ep,
+    aY as Pp,
+    aZ as va,
+    a_ as Rd,
+    a$ as Ip,
+    b0 as ro,
+    b1 as Ad,
+    b2 as ka,
+    b3 as Td,
+    b4 as za,
+    b5 as Op,
+    b6 as Sl,
+    b7 as Ld,
+    b8 as Np,
+    b9 as Gp,
+    ba as Bp,
+    bb as Up,
+    bc as Fp,
+    bd as Hp,
+    be as $p,
+    bf as Wp,
+    bg as Vp,
+    bh as Yp,
+    bi as zp,
+    bj as Xp,
+    bk as Qp,
+    bl as jp,
+    bm as qp,
+    bn as Zp
+} from "./vendor-bd85a776.js";
+(function() {
+    const t = document.createElement("link").relList;
+    if (t && t.supports && t.supports("modulepreload")) return;
+    for (const a of document.querySelectorAll('link[rel="modulepreload"]')) n(a);
+    new MutationObserver(a => {
+        for (const r of a)
+            if (r.type === "childList")
+                for (const i of r.addedNodes) i.tagName === "LINK" && i.rel === "modulepreload" && n(i)
+    }).observe(document, {
+        childList: !0,
+        subtree: !0
+    });
+
+    function o(a) {
+        const r = {};
+        return a.integrity && (r.integrity = a.integrity), a.referrerPolicy && (r.referrerPolicy = a.referrerPolicy), a.crossOrigin === "use-credentials" ? r.credentials = "include" : a.crossOrigin === "anonymous" ? r.credentials = "omit" : r.credentials = "same-origin", r
+    }
+
+    function n(a) {
+        if (a.ep) return;
+        a.ep = !0;
+        const r = o(a);
+        fetch(a.href, r)
+    }
+})();
+var Pt = (e => (e[e.Initial = 0] = "Initial", e[e.KeyDown = 1] = "KeyDown", e[e.KeyUp = 2] = "KeyUp", e))(Pt || {}),
+    g = (e => (e[e.DKSA_None = 0] = "DKSA_None", e[e.DKSA_Click = 1] = "DKSA_Click", e[e.DKSA_Press = 2] = "DKSA_Press", e[e.DKSA_Release = 3] = "DKSA_Release", e[e.DKSA_ReleaseClick = 4] = "DKSA_ReleaseClick", e[e.DKSA_ReleasePress = 5] = "DKSA_ReleasePress", e))(g || {}),
+    Ee = (e => (e[e.UnSelect = 0] = "UnSelect", e[e.Keymap = 1] = "Keymap", e[e.Macro = 2] = "Macro", e[e.Save = 3] = "Save", e[e.Color = 4] = "Color", e[e.Performance = 5] = "Performance", e[e.Trigger = 6] = "Trigger", e[e.RapidTrigger = 7] = "RapidTrigger", e[e.Rapid = 8] = "Rapid", e[e.Dks = 9] = "Dks", e))(Ee || {});
+let Wr, Zo, Ki = 1;
+const Vr = .25,
+    wl = .05,
+    Jp = .05,
+    Ml = 1,
+    ef = .05;
+
+function Bs() {
+    return Wr === void 0 && (Wr = new AudioContext), Wr
+}
+
+function tf() {
+    if (Zo === void 0) {
+        const e = Bs();
+        Zo = e.createGain(), Zo.gain.value = Ki, Zo.connect(e.destination)
+    }
+    return Zo
+}
+
+function of (e) {
+    Ki = e, Zo !== void 0 && (Zo.gain.setValueAtTime(Zo.gain.value, Bs().currentTime), Zo.gain.linearRampToValueAtTime(Ki, Bs().currentTime + .2))
+}
+
+function nf(e) {
+    let t = 440;
+    return Math.pow(2, (e - 69) / 12) * t
+}
+class af {
+    constructor(t, o) {
+        et(this, "audioContext");
+        et(this, "osc");
+        et(this, "amp");
+        et(this, "ampSustainTime");
+        et(this, "midiNote");
+        this.midiNote = t, this.audioContext = Bs(), this.osc = new OscillatorNode(this.audioContext, {
+            type: o,
+            frequency: nf(this.midiNote)
+        }), this.ampSustainTime = 0, this.amp = this.audioContext.createGain(), this.amp.gain.value = 0, this.amp.connect(tf()), this.osc.connect(this.amp)
+    }
+    noteOn() {
+        const t = this.audioContext.currentTime;
+        this.osc.start(t), this.ampSustainTime = t + wl + Jp, this.amp.gain.linearRampToValueAtTime(Vr, t + wl), this.amp.gain.linearRampToValueAtTime(Vr * Ml, this.ampSustainTime)
+    }
+    noteOff() {
+        this.audioContext.currentTime >= this.ampSustainTime && this.amp.gain.setValueAtTime(Vr * Ml, this.audioContext.currentTime);
+        const t = Math.max(this.audioContext.currentTime, this.ampSustainTime) + ef;
+        this.osc.stop(t), this.amp.gain.linearRampToValueAtTime(0, t)
+    }
+}
+const p = sc,
+    wt = so;
+var xa = (e => (e[e.Random = 0] = "Random", e[e.WickiHayden = 1] = "WickiHayden", e[e.Chromatic = 2] = "Chromatic", e))(xa || {});
+let Ks = [],
+    Es = {};
+const sf = Math.floor(Math.random() * 1e3),
+    rf = e => ((sf + e) * 9301 + 49297) % 233280 / 233280,
+    cf = (e, t, o, n, a) => {
+        const r = Math.min(4, o - n - 1) + Math.max(0, 5 - o);
+        switch (e) {
+            case 1:
+                return [-18, -19, -14, -9, -4][r] + 72 + t + a * 2;
+            case 2:
+                return [-15, -12, -7, -1, 4][r] + 72 + t + a;
+            case 0:
+            default:
+                return 72 + t + Math.floor(rf(n * 1e3 + a) * 24) - 12
+        }
+    },
+    bl = () => {
+        Object.values(Es).forEach(e => e == null ? void 0 : e.noteOff())
+    },
+    Dl = ({
+        pressedKeys: e
+    }) => {
+        const {
+            waveform: t,
+            volume: o,
+            mode: n,
+            transpose: a
+        } = p(wc);
+        return C.useEffect(() => { of (o / 100)
+        }, [o]), C.useEffect(() => {
+            if (e.length === 0) bl();
+            else {
+                const r = e.length;
+                Ks = e.reduce((i, c, l) => [...i, c.reduce((u, _, h) => {
+                    var L, M;
+                    const f = `${l},${h}`,
+                        K = ((L = Ks == null ? void 0 : Ks.at(l)) == null ? void 0 : L.at(h)) ? ? Pt.KeyUp,
+                        y = _ ? ? Pt.KeyUp;
+                    if (y != K)
+                        if (y == Pt.KeyDown) {
+                            const P = cf(n, a, r, l, h);
+                            Es[f] = new af(P, t), Es[f].noteOn()
+                        } else y == Pt.KeyUp && ((M = Es[f]) == null || M.noteOff());
+                    return [...u, _]
+                }, [])], [])
+            }
+        }, [e]), C.useEffect(() => () => {
+            bl()
+        }, []), null
+    },
+    vd = {
+        RETRO_POINT: {
+            alpha: {
+                c: "#FFFFFF",
+                t: "#000000"
+            },
+            mod: {
+                c: "#A7A8AA",
+                t: "#FFFFFF"
+            },
+            accent: {
+                c: "#A7A8AA",
+                t: "#FFFFFF"
+            },
+            enter: {
+                c: "#C3D6F8",
+                t: "#505557"
+            },
+            space: {
+                c: "#C3D6F8",
+                t: "#505557"
+            },
+            arrow: {
+                c: "#FFFFFF",
+                t: "#505557"
+            }
+        },
+        SURFFY: {
+            alpha: {
+                c: "#FFFFFF",
+                t: "#F0B323"
+            },
+            mod: {
+                c: "#67809A",
+                t: "#FFFFFF"
+            },
+            accent: {
+                c: "#F8C16F",
+                t: "#f3eac3"
+            },
+            enter: {
+                c: "#F8C16F",
+                t: "#D1E0D7"
+            },
+            space: {
+                c: "#9DB1B2",
+                t: "#505557"
+            },
+            arrow: {
+                c: "#82999B",
+                t: "#505557"
+            }
+        },
+        VENUS_NAVY: {
+            alpha: {
+                c: "#353535",
+                t: "#FFFFFF"
+            },
+            mod: {
+                c: "#3B455B",
+                t: "#FFFFFF"
+            },
+            accent: {
+                c: "#FC2319",
+                t: "#000000"
+            },
+            enter: {
+                c: "#FF9D22",
+                t: "#000000"
+            },
+            space: {
+                c: "#FF9D22",
+                t: "#505557"
+            },
+            arrow: {
+                c: "#FC2319",
+                t: "#505557"
+            }
+        },
+        MOCHA_COCOA: {
+            alpha: {
+                c: "#D0CCC4",
+                t: "#864A36"
+            },
+            mod: {
+                c: "#35373B",
+                t: "#B8B8B8"
+            },
+            accent: {
+                c: "#5D4B3E",
+                t: "#EFDBB2"
+            },
+            enter: {
+                c: "#A48C61",
+                t: "#EFDBB2"
+            },
+            space: {
+                c: "#A48C61",
+                t: "#B6A193"
+            },
+            arrow: {
+                c: "#5D4B3E",
+                t: "#B6A193"
+            }
+        }
+    },
+    Us = {
+        OLIVIA_DARK: {
+            alpha: {
+                c: "#363434",
+                t: "#E8C4B8"
+            },
+            mod: {
+                c: "#363434",
+                t: "#E8C4B8"
+            },
+            accent: {
+                c: "#E8C4B8",
+                t: "#363434"
+            }
+        },
+        OLIVE: {
+            alpha: {
+                t: "#66665A",
+                c: "#D9D7C4"
+            },
+            mod: {
+                c: "#66665A",
+                t: "#9DA183"
+            },
+            accent: {
+                c: "#9DA183",
+                t: "#66665A"
+            }
+        },
+        OLIVE_DARK: {
+            alpha: {
+                c: "#66665A",
+                t: "#9DA183"
+            },
+            mod: {
+                c: "#66665A",
+                t: "#9DA183"
+            },
+            accent: {
+                c: "#9DA183",
+                t: "#66665A"
+            }
+        },
+        OLNY: {
+            alpha: {
+                c: "#c20018",
+                t: "#cfa174"
+            },
+            mod: {
+                c: "#c20018",
+                t: "#cfa174"
+            },
+            accent: {
+                t: "#c20018",
+                c: "#cfa174"
+            }
+        },
+        GREG: {
+            alpha: {
+                c: "#f8c200",
+                t: "#393b3b"
+            },
+            mod: {
+                c: "#f7f2ea",
+                t: "#393b3b"
+            },
+            accent: {
+                c: "#171718",
+                t: "#393b3b"
+            }
+        },
+        CARBON_BLACK_A: {
+            alpha: {
+                c: "#788194",
+                t: "#f3f3f3"
+            },
+            mod: {
+                c: "#3b3b3e",
+                t: "#f3f3f3"
+            },
+            accent: {
+                c: "#e66b67",
+                t: "#f3f3f3"
+            }
+        },
+        CARBON_BLACK_B: {
+            alpha: {
+                c: "#3b3b3e",
+                t: "#f3f3f3"
+            },
+            mod: {
+                c: "#788194",
+                t: "#f3f3f3"
+            },
+            accent: {
+                c: "#e66b67",
+                t: "#f3f3f3"
+            }
+        },
+        SILVER_GREY_A: {
+            alpha: {
+                c: "#b2b3b8",
+                t: "#f3f3f3"
+            },
+            mod: {
+                c: "#838589",
+                t: "#f3f3f3"
+            },
+            accent: {
+                c: "#e8db5d",
+                t: "#3d3125"
+            }
+        },
+        SILVER_GREY_B: {
+            alpha: {
+                c: "#838589",
+                t: "#f3f3f3"
+            },
+            mod: {
+                c: "#b2b3b8",
+                t: "#f3f3f3"
+            },
+            accent: {
+                c: "#e8db5d",
+                t: "#3d3125"
+            }
+        },
+        NAVY_BLUE_A: {
+            alpha: {
+                c: "#547be8",
+                t: "#f3f3f3"
+            },
+            mod: {
+                c: "#49599f",
+                t: "#f3f3f3"
+            },
+            accent: {
+                c: "#4dcfe0",
+                t: "#f3f3f3"
+            }
+        },
+        NAVY_BLUE_B: {
+            alpha: {
+                c: "#49599f",
+                t: "#f3f3f3"
+            },
+            mod: {
+                c: "#547be8",
+                t: "#f3f3f3"
+            },
+            accent: {
+                c: "#4dcfe0",
+                t: "#f3f3f3"
+            }
+        },
+        FENDAI: {
+            alpha: {
+                c: "#f0ebec",
+                t: "#07010f"
+            },
+            mod: {
+                c: "#f0ebec",
+                t: "#56395c"
+            },
+            accent: {
+                c: "#fc5d75",
+                t: "#56395c"
+            }
+        },
+        HONEY_MILK: {
+            alpha: {
+                c: "#fffff8",
+                t: "#07010f"
+            },
+            mod: {
+                c: "#fffff8",
+                t: "#07010f"
+            },
+            accent: {
+                c: "#f8b140",
+                t: "#07010f"
+            }
+        },
+        MATCHA: {
+            alpha: {
+                c: "#e8e8df",
+                t: "#4e475c"
+            },
+            mod: {
+                c: "#828572",
+                t: "#4e475c"
+            },
+            accent: {
+                c: "#828572",
+                t: "#4e475c"
+            }
+        },
+        BLACK_GREY: {
+            alpha: {
+                c: "#7e8293",
+                t: "#a5cbe6"
+            },
+            mod: {
+                c: "#364352",
+                t: "#eff3f2"
+            },
+            accent: {
+                c: "#364352",
+                t: "#eff3f2"
+            }
+        },
+        WHITE_GREEN: {
+            alpha: {
+                c: "#fefefe",
+                t: "#272727"
+            },
+            mod: {
+                c: "#275c65",
+                t: "#d0eae8"
+            },
+            accent: {
+                c: "#275c65",
+                t: "#d0eae8"
+            }
+        },
+        WHITE: {
+            alpha: {
+                c: "#fefefe",
+                t: "#272727"
+            },
+            mod: {
+                c: "#fefefe",
+                t: "#272727"
+            },
+            accent: {
+                c: "#fefefe",
+                t: "#272727"
+            }
+        },
+        BLACK: {
+            alpha: {
+                c: "#272727",
+                t: "#fefefe"
+            },
+            mod: {
+                c: "#272727",
+                t: "#fefefe"
+            },
+            accent: {
+                c: "#272727",
+                t: "#fefefe"
+            }
+        },
+        BLACK_AND_WHITE: {
+            alpha: {
+                c: "#fefefe",
+                t: "#272727"
+            },
+            mod: {
+                c: "#272727",
+                t: "#fefefe"
+            },
+            accent: {
+                c: "#272727",
+                t: "#fefefe"
+            }
+        },
+        CLASSIC_GREY: {
+            alpha: {
+                c: "#fcfcfc",
+                t: "#1a1a1a"
+            },
+            mod: {
+                c: "#a0a0a0",
+                t: "#1a1a1a"
+            },
+            accent: {
+                c: "#a0a0a0",
+                t: "#1a1a1a"
+            }
+        }
+    };
+class lf {
+    constructor(t) {
+        et(this, "store");
+        const o = localStorage.getItem("via-app-store");
+        this.store = o ? SC(JSON.parse(o), t) : t
+    }
+    get(t) {
+        return this.store[t]
+    }
+    set(t, o) {
+        const n = { ...this.store,
+            [t]: { ...o
+            }
+        };
+        this.store = n, setTimeout(() => {
+            localStorage.setItem("via-app-store", JSON.stringify(n))
+        }, 0)
+    }
+}
+const Ed = [],
+    Pd = (e, t, o) => {
+        Ed.push({
+            kbAddr: e,
+            request: t,
+            response: o,
+            ts: Date.now()
+        })
+    },
+    df = window.__getLogs = () => Ed;
+window.addEventListener("message", e => {
+    e.data.command === "fetchLogs" && window.postMessage({
+        command: "getLogs",
+        payload: df()
+    }, "*")
+});
+const rn = {},
+    ga = {},
+    uf = e => e.filter(t => {
+        var o;
+        return (o = t.collections) == null ? void 0 : o.some(n => n.usage === 97 && n.usagePage === 65376)
+    }),
+    _f = () => self.crypto && self.crypto.randomUUID && self.crypto.randomUUID() || `via-path:${Math.random()}`,
+    kl = e => {
+        const t = e.__path || _f();
+        e.__path = t;
+        const o = {
+            _device: e,
+            usage: 97,
+            usagePage: 65376,
+            interface: 1,
+            vendorId: e.vendorId ? ? -1,
+            productId: e.productId ? ? -1,
+            path: t,
+            productName: e.productName
+        };
+        return Vn._cache[t] = o
+    },
+    Vn = {
+        _cache: {},
+        requestDevice: async () => {
+            const e = await navigator.hid.requestDevice({
+                filters: [{
+                    vendorId: 1046,
+                    productId: 21840,
+                    usagePage: 65376,
+                    usage: 97
+                }]
+            });
+            return e.forEach(kl), e[0]
+        },
+        getFilteredDevices: async () => {
+            try {
+                return uf(await navigator.hid.getDevices())
+            } catch {
+                return []
+            }
+        },
+        devices: async (e = !1) => {
+            let t = await Vn.getFilteredDevices();
+            if (t.length === 0 || e) {
+                try {
+                    await Vn.requestDevice()
+                } catch {
+                    return []
+                }
+                t = await Vn.getFilteredDevices()
+            }
+            return t.map(kl)
+        },
+        HID: class {
+            constructor(t) {
+                et(this, "_hidDevice");
+                et(this, "interface", -1);
+                et(this, "vendorId", -1);
+                et(this, "productId", -1);
+                et(this, "productName", "");
+                et(this, "path", "");
+                et(this, "openPromise", Promise.resolve());
+                et(this, "readP", hf(t => this.read(t)));
+                if (this._hidDevice = Vn._cache[t], this._hidDevice) this.vendorId = this._hidDevice.vendorId, this.productId = this._hidDevice.productId, this.path = this._hidDevice.path, this.interface = this._hidDevice.interface, this.productName = this._hidDevice.productName, rn[this.path] = rn[this.path] || [], ga[this.path] = ga[this.path] || [], this._hidDevice._device.opened || this.open();
+                else throw new Error("Missing hid device in cache")
+            }
+            async open() {
+                return this._hidDevice && !this._hidDevice._device.opened && (this.openPromise = this._hidDevice._device.open(), this.setupListeners(), await this.openPromise), Promise.resolve()
+            }
+            setupListeners() {
+                this._hidDevice && this._hidDevice._device.addEventListener("inputreport", t => {
+                    ga[this.path].length !== 0 ? ga[this.path].shift()(new Uint8Array(t.data.buffer)) : rn[this.path].push({
+                        currTime: Date.now(),
+                        message: new Uint8Array(t.data.buffer)
+                    })
+                })
+            }
+            read(t) {
+                var o;
+                this.fastForwardGlobalBuffer(Date.now()), rn[this.path].length > 0 ? t(void 0, (o = rn[this.path].shift()) == null ? void 0 : o.message) : ga[this.path].push(n => t(void 0, n))
+            }
+            fastForwardGlobalBuffer(t) {
+                let o = rn[this.path].length;
+                for (; o && (o--, rn[this.path][0].currTime < t);) rn[this.path].shift()
+            }
+            async write(t) {
+                var n;
+                await this.openPromise;
+                const o = new Uint8Array(t.slice(1));
+                await ((n = this._hidDevice) == null ? void 0 : n._device.sendReport(0, o))
+            }
+        }
+    },
+    hf = e => () => new Promise((t, o) => {
+        e((n, a) => {
+            n ? o(n) : t(a)
+        })
+    }),
+    Id = Vn,
+    cn = {},
+    ma = {},
+    Cf = e => e.filter(t => {
+        var o;
+        return (o = t.collections) == null ? void 0 : o.some(n => n.usage === 97 && n.usagePage === 65376)
+    }),
+    pf = () => self.crypto && self.crypto.randomUUID && self.crypto.randomUUID() || `via-path:${Math.random()}`,
+    xl = e => {
+        const t = e.__path || pf();
+        e.__path = t;
+        const o = {
+            _device: e,
+            usage: 97,
+            usagePage: 65376,
+            interface: 1,
+            vendorId: e.vendorId ? ? -1,
+            productId: e.productId ? ? -1,
+            path: t,
+            productName: e.productName
+        };
+        return En._cache[t] = o
+    },
+    ff = e => {
+        const t = En._cache[e.path];
+        if (t) return t._device.forget()
+    },
+    En = {
+        _cache: {},
+        requestDevice: async () => {
+            const e = await navigator.hid.requestDevice({
+                filters: [{
+                    usagePage: 65376,
+                    usage: 97
+                }]
+            });
+            return e.forEach(xl), e[0]
+        },
+        getFilteredDevices: async () => {
+            try {
+                return Cf(await navigator.hid.getDevices())
+            } catch {
+                return []
+            }
+        },
+        devices: async (e = !1) => {
+            let t = await En.getFilteredDevices();
+            if (t.length === 0 || e) {
+                try {
+                    await En.requestDevice()
+                } catch {
+                    return []
+                }
+                t = await En.getFilteredDevices()
+            }
+            return t.map(xl)
+        },
+        HID: class {
+            constructor(t) {
+                et(this, "_hidDevice");
+                et(this, "interface", -1);
+                et(this, "vendorId", -1);
+                et(this, "productId", -1);
+                et(this, "productName", "");
+                et(this, "path", "");
+                et(this, "openPromise", Promise.resolve());
+                et(this, "readP", gf(t => this.read(t)));
+                if (this._hidDevice = En._cache[t], this._hidDevice) this.vendorId = this._hidDevice.vendorId, this.productId = this._hidDevice.productId, this.path = this._hidDevice.path, this.interface = this._hidDevice.interface, this.productName = this._hidDevice.productName, cn[this.path] = cn[this.path] || [], ma[this.path] = ma[this.path] || [], this._hidDevice._device.opened ? this.close() : this.open();
+                else throw new Error("Missing hid device in cache")
+            }
+            async open() {
+                return this._hidDevice && !this._hidDevice._device.opened && (this.openPromise = this._hidDevice._device.open(), this.setupListeners(), await this.openPromise), Promise.resolve()
+            }
+            async close() {
+                return this._hidDevice && this._hidDevice._device.opened && (this.openPromise = this._hidDevice._device.close(), this.setupListeners(), await this.openPromise), Promise.resolve()
+            }
+            setupListeners() {
+                this._hidDevice && this._hidDevice._device.addEventListener("inputreport", t => {
+                    ma[this.path].length !== 0 ? ma[this.path].shift()(new Uint8Array(t.data.buffer)) : cn[this.path].push({
+                        currTime: Date.now(),
+                        message: new Uint8Array(t.data.buffer)
+                    })
+                })
+            }
+            read(t) {
+                var o;
+                this.fastForwardGlobalBuffer(Date.now()), cn[this.path].length > 0 ? t(void 0, (o = cn[this.path].shift()) == null ? void 0 : o.message) : ma[this.path].push(n => t(void 0, n))
+            }
+            fastForwardGlobalBuffer(t) {
+                let o = cn[this.path].length;
+                for (; o && (o--, cn[this.path][0].currTime < t);) cn[this.path].shift()
+            }
+            async write(t) {
+                var n;
+                await this.openPromise;
+                const o = new Uint8Array(t.slice(1));
+                await ((n = this._hidDevice) == null ? void 0 : n._device.sendReport(0, o))
+            }
+        }
+    },
+    gf = e => () => new Promise((t, o) => {
+        e((n, a) => {
+            n ? o(n) : t(a)
+        })
+    }),
+    cc = En,
+    no = class no {
+        static startMonitoring() {
+            this.shouldMonitor = !0, !this.hasMonitored && navigator.hid && (navigator.hid.addEventListener("connect", no.onConnect), navigator.hid.addEventListener("disconnect", no.onDisconnect))
+        }
+        static stopMonitoring() {
+            this.shouldMonitor = !1
+        }
+        static on(t, o) {
+            this._listeners[t] = [...this._listeners[t], o]
+        }
+        static off(t, o) {
+            this._listeners[t] = this._listeners[t].filter(n => n !== o)
+        }
+    };
+et(no, "_listeners", {
+    change: [],
+    remove: []
+}), et(no, "shouldMonitor", !1), et(no, "hasMonitored", !1), et(no, "onConnect", ({
+    device: t
+}) => {
+    no.shouldMonitor && no._listeners.change.forEach(o => o(t))
+}), et(no, "onDisconnect", ({
+    device: t
+}) => {
+    no.shouldMonitor && (no._listeners.change.forEach(o => o(t)), no._listeners.remove.forEach(o => o(t)))
+});
+let Ea = no;
+async function mf(e) {
+    return cc.devices(e)
+}
+async function Kf(e) {
+    return Id.devices(e)
+}
+
+function Rl({
+    path: e
+}) {
+    return new cc.HID(e)
+}
+
+function Al({
+    path: e
+}) {
+    return new Id.HID(e)
+}
+
+function yf() {
+    Ea.startMonitoring()
+}
+const lo = e => ({
+        productId: e.productId,
+        vendorId: e.vendorId,
+        productName: e.productName,
+        protocol: e.protocol
+    }),
+    Sf = {
+        appErrors: []
+    },
+    Tl = () => {
+        const e = new Date;
+        return `${e.toLocaleTimeString([],{hour12:!1})}.${e.getMilliseconds().toString().padStart(3,"0")}`
+    },
+    Od = e => `Command Name: ${e.commandName}
+Command: ${Ll(e.commandBytes)}
+Response: ${Ll(e.responseBytes)}`,
+    Nd = e => e.stack || e.message,
+    Ll = e => e.join(" "),
+    Gd = mo({
+        name: "errors",
+        initialState: Sf,
+        reducers: {
+            logAppError: (e, t) => {
+                e.appErrors.push({ ...t.payload,
+                    timestamp: Tl()
+                })
+            },
+            logKeyboardAPIError: (e, t) => {
+                const {
+                    deviceInfo: o
+                } = t.payload;
+                e.appErrors.push({
+                    timestamp: Tl(),
+                    message: Od(t.payload),
+                    deviceInfo: o
+                })
+            },
+            clearAppErrors: e => {
+                e.appErrors = []
+            }
+        }
+    }),
+    {
+        logKeyboardAPIError: lc,
+        logAppError: xo,
+        clearAppErrors: wf
+    } = Gd.actions,
+    Mf = Gd.reducer,
+    Bd = e => e.errors.appErrors,
+    Ud = 0,
+    Fs = [0, 1];
+var Fd = (e => (e[e.GET_PROTOCOL_VERSION = 1] = "GET_PROTOCOL_VERSION", e[e.GET_KEYBOARD_VALUE = 2] = "GET_KEYBOARD_VALUE", e[e.SET_KEYBOARD_VALUE = 3] = "SET_KEYBOARD_VALUE", e[e.DYNAMIC_KEYMAP_GET_KEYCODE = 4] = "DYNAMIC_KEYMAP_GET_KEYCODE", e[e.DYNAMIC_KEYMAP_SET_KEYCODE = 5] = "DYNAMIC_KEYMAP_SET_KEYCODE", e[e.CUSTOM_MENU_SET_VALUE = 7] = "CUSTOM_MENU_SET_VALUE", e[e.CUSTOM_MENU_GET_VALUE = 8] = "CUSTOM_MENU_GET_VALUE", e[e.CUSTOM_MENU_SAVE = 9] = "CUSTOM_MENU_SAVE", e[e.EEPROM_RESET = 10] = "EEPROM_RESET", e[e.BOOTLOADER_JUMP = 11] = "BOOTLOADER_JUMP", e[e.DYNAMIC_KEYMAP_MACRO_GET_COUNT = 12] = "DYNAMIC_KEYMAP_MACRO_GET_COUNT", e[e.DYNAMIC_KEYMAP_MACRO_GET_BUFFER_SIZE = 13] = "DYNAMIC_KEYMAP_MACRO_GET_BUFFER_SIZE", e[e.DYNAMIC_KEYMAP_MACRO_GET_BUFFER = 14] = "DYNAMIC_KEYMAP_MACRO_GET_BUFFER", e[e.DYNAMIC_KEYMAP_MACRO_SET_BUFFER = 15] = "DYNAMIC_KEYMAP_MACRO_SET_BUFFER", e[e.DYNAMIC_KEYMAP_MACRO_RESET = 16] = "DYNAMIC_KEYMAP_MACRO_RESET", e[e.DYNAMIC_KEYMAP_GET_LAYER_COUNT = 17] = "DYNAMIC_KEYMAP_GET_LAYER_COUNT", e[e.DYNAMIC_KEYMAP_GET_BUFFER = 18] = "DYNAMIC_KEYMAP_GET_BUFFER", e[e.DYNAMIC_KEYMAP_SET_BUFFER = 19] = "DYNAMIC_KEYMAP_SET_BUFFER", e[e.DYNAMIC_KEYMAP_GET_ENCODER = 20] = "DYNAMIC_KEYMAP_GET_ENCODER", e[e.DYNAMIC_KEYMAP_SET_ENCODER = 21] = "DYNAMIC_KEYMAP_SET_ENCODER", e[e.HID_Reload_RT_DKS = 32] = "HID_Reload_RT_DKS", e[e.HID_GetMode = 33] = "HID_GetMode", e[e.HID_ProColor = 34] = "HID_ProColor", e[e.HID_GetCalibrationStatus = 35] = "HID_GetCalibrationStatus", e[e.HID_KeyCalibration = 36] = "HID_KeyCalibration", e[e.HID_FactoryReset = 37] = "HID_FactoryReset", e[e.BACKLIGHT_CONFIG_SET_VALUE = 7] = "BACKLIGHT_CONFIG_SET_VALUE", e[e.BACKLIGHT_CONFIG_GET_VALUE = 8] = "BACKLIGHT_CONFIG_GET_VALUE", e[e.BACKLIGHT_CONFIG_SAVE = 9] = "BACKLIGHT_CONFIG_SAVE", e[e.GET_VER = 240] = "GET_VER", e[e.ERASE_ROM = 241] = "ERASE_ROM", e[e.WRITE_ROM = 242] = "WRITE_ROM", e[e.READ_ROM = 243] = "READ_ROM", e[e.BOOT_HOLD = 244] = "BOOT_HOLD", e[e.READ_CRC = 245] = "READ_CRC", e[e.DECODE_WRITE_ROM = 246] = "DECODE_WRITE_ROM", e))(Fd || {});
+const Hd = Object.entries(Fd).reduce((e, [t, o]) => ({ ...e,
+    [o]: t
+}), {});
+var dr = (e => (e[e.UPTIME = 1] = "UPTIME", e[e.LAYOUT_OPTIONS = 2] = "LAYOUT_OPTIONS", e[e.SWITCH_MATRIX_STATE = 3] = "SWITCH_MATRIX_STATE", e[e.FIRMWARE_VERSION = 4] = "FIRMWARE_VERSION", e[e.DEVICE_INDICATION = 5] = "DEVICE_INDICATION", e))(dr || {});
+const $d = 9,
+    Hs = 10,
+    $s = 12,
+    Ws = 13,
+    Vs = 23,
+    Ys = 7,
+    zn = 8,
+    bf = 9,
+    ko = {},
+    Wd = (e, t) => e.length !== t.length ? !1 : e.every((o, n) => t[n] === o),
+    qt = ([e, t]) => e << 8 | t,
+    Bt = e => [e >> 8, e & 255],
+    jn = ([e, t, o]) => e << 16 | t << 8 | o,
+    zs = e => [e >> 16 & 255, e >> 8 & 255, e & 255];
+
+function Co(e, t) {
+    return e * Math.pow(2, t)
+}
+const bt = e => [e & 255, e >> 8 & 255, e >> 16 & 255, e >> 24 & 255],
+    Xa = ([e, t, o, n]) => Co(n, 24) + Co(o, 16) + Co(t, 8) + (e & 255),
+    Vd = e => {
+        const t = [];
+        for (let o = 0; o < e.length; o += 2) t.push(qt([e[o], e[o + 1]]));
+        return t
+    },
+    ys = e => [e & 255, e >> 8 & 255, e >> 16 & 15, e >> 20 & 15, e >> 24 & 15, e >> 28 & 15],
+    Df = e => [e & 255, e >> 8 & 255, e >> 16 & 255, e >> 24 & 255],
+    Yr = ([e, t, o, n]) => Co(n, 24) + Co(o, 16) + Co(t, 8) + (e & 255),
+    co = ([e, t, o, n, a, r]) => Co(r, 28) + Co(a, 24) + Co(n, 20) + Co(o, 16) + Co(t, 8) + (e & 255),
+    yi = e => {
+        const t = [];
+        for (let o = 0; o < e.length; o += 4) t.push(Xa([e[o], e[o + 1], e[o + 2], e[o + 3]]));
+        return t
+    },
+    Yd = e => e.map(Bt).flatMap(t => t),
+    dn = {},
+    kf = e => {
+        try {
+            return new dc(e.path), !0
+        } catch (t) {
+            return console.error("Skipped ", e, t), !1
+        }
+    },
+    xf = e => {
+        try {
+            return new zd(e.path), !0
+        } catch (t) {
+            return console.error("Skipped ", e, t), !1
+        }
+    };
+class dc {
+    constructor(t) {
+        et(this, "kbAddr");
+        if (this.kbAddr = t, !ko[t]) {
+            const o = Rl({
+                path: t
+            });
+            ko[t] = {
+                hid: o
+            }
+        }
+    }
+    refresh(t) {
+        this.kbAddr = t, ko[t] = { ...ko[t],
+            hid: Rl({
+                path: t
+            })
+        }
+    }
+    async getByteBuffer() {
+        return this.getHID().readP()
+    }
+    async getProtocolVersion() {
+        try {
+            const [, t, o] = await this.hidCommand(1);
+            return qt([t, o])
+        } catch {
+            return -1
+        }
+    }
+    async getKey(t, o, n) {
+        const a = await this.hidCommand(4, [t, o, n]);
+        return qt([a[4], a[5]])
+    }
+    async getRapidData(t, o, n) {
+        return (await this.hidCommand(8, [t, o, n]))[4]
+    }
+    async getLayerCount() {
+        if (await this.getProtocolVersion() >= zn) {
+            const [, o] = await this.hidCommand(17);
+            return o
+        }
+        return 4
+    }
+    async readRawMatrix(t, o) {
+        const n = await this.getProtocolVersion();
+        if (n >= zn) return this.fastReadRawMatrix(t, o);
+        if (n === Ys) return this.slowReadRawMatrix(t, o);
+        throw new Error("Unsupported protocol version")
+    }
+    async getKeymapBuffer(t, o) {
+        if (o > 28) throw new Error("Max data length is 28");
+        return [...await this.hidCommand(18, [...Bt(t), o])].slice(4, o + 4)
+    }
+    async getFWVersion() {
+        try {
+            const [, t, o, n] = await this.hidCommand(240);
+            return jn([t, o, n])
+        } catch {
+            return -1
+        }
+    }
+    async getMode() {
+        try {
+            const [, t] = await this.hidCommand(33);
+            return t
+        } catch {
+            return -1
+        }
+    }
+    async getCalibrationStatus() {
+        try {
+            const [, t] = await this.hidCommand(35);
+            return t
+        } catch {
+            return -1
+        }
+    }
+    async eraseRomBuffer(t, o, n) {
+        return [...await this.hidCommand(241, [t, 0, 0, ...bt(o), ...bt(n)])].slice(1, 1)
+    }
+    async eraseLdromBuffer() {
+        return this.eraseRomBuffer(1, 4096, 0)
+    }
+    async eraseDataBuffer() {
+        return this.eraseRomBuffer(3, 4096, 516096)
+    }
+    async eraseDataBuffers(t, o, n) {
+        return this.eraseRomBuffer(t, n, o)
+    }
+    async writeRomBuffer(t, o, n) {
+        const a = n.flatMap(c => c.map(l => l)),
+            r = 24,
+            i = 4096;
+        await this.hidCommand(241, [t, 0, 0, ...bt(i), ...bt(o)]);
+        for (let c = 0; c < a.length; c += r) {
+            const l = a.slice(c, c + r);
+            await this.hidCommand(242, [l.length, t, 0, ...bt(o + c), ...l])
+        }
+    }
+    async writeRomBuffers(t, o, n) {
+        for (let r = 0; r < n.length; r += 24) {
+            const i = n.slice(r, r + 24);
+            await this.hidCommand(242, [i.length, t, 0, ...bt(o + r), ...i])
+        }
+    }
+    async writeRom(t, o, n, a, r) {
+        const i = r.slice(o, o + t);
+        await this.hidCommand(242, [i.length, n, 0, ...bt(a + o), ...i])
+    }
+    async decodewriteRom(t, o, n, a, r) {
+        const i = r.slice(o, o + t);
+        await this.hidCommand(246, [i.length, n, 0, ...bt(a + o), ...i])
+    }
+    async writeLdromBuffer(t) {
+        this.writeRomBuffers(1, 0, t)
+    }
+    async writeLdromDataBuffer(t) {
+        this.writeRomBuffer(1, 0, t)
+    }
+    async writeRapidDataBuffer(t) {
+        this.writeRomBuffer(3, 516096, t)
+    }
+    async writeRapidDataBuffers(t) {
+        this.writeRomBuffers(3, 516096, t)
+    }
+    async writeDKSDataBuffers(t) {
+        this.writeRomBuffers(3, 512e3, t)
+    }
+    async readRomBuffer(t, o) {
+        if (o > 28) throw new Error("Max data length is 28");
+        return [...await this.hidCommand(243, [...Bt(t), o])].slice(2, o + 2)
+    }
+    async readDataBuffer(t, o, n) {
+        if (t > 28) throw new Error("Max data length is 28");
+        return [...await this.hidCommand(243, [t, o, 0, ...bt(n)])].slice(2, t + 2)
+    }
+    async fastReadRapidBuffer() {
+        const r = new Array(Math.ceil(146.28571428571428)).fill(0),
+            {
+                res: i
+            } = r.reduce(({
+                res: l,
+                remaining: u
+            }) => u < 28 ? {
+                res: [...l, this.readDataBuffer(u, 3, 516096 + (4096 - u))],
+                remaining: 0
+            } : {
+                res: [...l, this.readDataBuffer(28, 3, 516096 + (4096 - u))],
+                remaining: u - 28
+            }, {
+                res: [],
+                remaining: 4096
+            });
+        return (await Promise.all(i)).flatMap(yi)
+    }
+    async readCrcDataBuffer(t, o) {
+        return [...await this.hidCommand(245, [0, 0, 0, ...bt(o), ...bt(t)])].slice(1, 1 + 4)
+    }
+    async fastReadLdromBuffer(t, o, n) {
+        const r = new Array(Math.ceil(t / 28)).fill(0),
+            {
+                res: i
+            } = r.reduce(({
+                res: l,
+                remaining: u
+            }) => u < 28 ? {
+                res: [...l, this.readDataBuffer(u, o, n + (t - u))],
+                remaining: 0
+            } : {
+                res: [...l, this.readDataBuffer(28, o, n + (t - u))],
+                remaining: u - 28
+            }, {
+                res: [],
+                remaining: t
+            });
+        return (await Promise.all(i)).flat()
+    }
+    async eraseDKSDataBuffer() {
+        return this.eraseRomBuffer(3, 4096, 512e3)
+    }
+    async getDKSCount() {
+        let a = 4;
+        const r = await this.readDataBuffer(a, 3, 512e3 + (4 - a));
+        return Xa([r[0], r[1], r[2], r[3]])
+    }
+    async fastReadDKSBuffer() {
+        const r = new Array(Math.ceil(146.28571428571428)).fill(0),
+            {
+                res: i
+            } = r.reduce(({
+                res: l,
+                remaining: u
+            }) => u < 28 ? {
+                res: [...l, this.readDataBuffer(u, 3, 512e3 + (4096 - u))],
+                remaining: 0
+            } : {
+                res: [...l, this.readDataBuffer(28, 3, 512e3 + (4096 - u))],
+                remaining: u - 28
+            }, {
+                res: [],
+                remaining: 4096
+            });
+        return (await Promise.all(i)).flatMap(yi)
+    }
+    async resetWithBootHold(t) {
+        return [...await this.hidCommand(244, [t])].slice(1, 1)
+    }
+    async fastReadRawMatrix({
+        rows: t,
+        cols: o
+    }, n) {
+        const a = t * o,
+            r = 14,
+            i = new Array(Math.ceil(a / r)).fill(0),
+            {
+                res: c
+            } = i.reduce(({
+                res: u,
+                remaining: _
+            }) => _ < r ? {
+                res: [...u, this.getKeymapBuffer(n * a * 2 + 2 * (a - _), _ * 2)],
+                remaining: 0
+            } : {
+                res: [...u, this.getKeymapBuffer(n * a * 2 + 2 * (a - _), r * 2)],
+                remaining: _ - r
+            }, {
+                res: [],
+                remaining: a
+            });
+        return (await Promise.all(c)).flatMap(Vd)
+    }
+    async slowReadRawMatrix({
+        rows: t,
+        cols: o
+    }, n) {
+        const a = t * o,
+            r = new Array(a).fill(0).map((i, c) => this.getKey(n, ~~(c / o), c % o));
+        return Promise.all(r)
+    }
+    async slowReadRapidRawMatrix({
+        rows: t,
+        cols: o
+    }, n) {
+        const a = t * o,
+            r = new Array(a).fill(0).map((i, c) => this.getRapidData(n, ~~(c / o), c % o));
+        return Promise.all(r)
+    }
+    async writeRawMatrix(t, o) {
+        const n = await this.getProtocolVersion();
+        if (n >= zn) return this.fastWriteRawMatrix(o);
+        if (n === Ys) return this.slowWriteRawMatrix(t, o)
+    }
+    async eraseRapidRawData() {
+        this.eraseDataBuffer()
+    }
+    async writeRapidRawMatrix(t, o) {
+        this.writeRapidDataBuffer(o)
+    }
+    async writeRapidRaw(t) {
+        this.writeRapidDataBuffers(t)
+    }
+    async writeDKSRaw(t) {
+        this.writeDKSDataBuffers(t)
+    }
+    async slowWriteRawMatrix({
+        cols: t
+    }, o) {
+        o.forEach(async (n, a) => n.forEach(async (r, i) => {
+            await this.setKey(a, ~~(i / t), i % t, r)
+        }))
+    }
+    async fastWriteRawMatrix(t) {
+        const o = t.flatMap(r => r.map(i => i)),
+            n = Yd(o),
+            a = 28;
+        for (let r = 0; r < n.length; r += a) {
+            const i = n.slice(r, r + a);
+            await this.hidCommand(19, [...Bt(r), i.length, ...i])
+        }
+    }
+    async getKeyboardValue(t, o, n = 1) {
+        const a = [t, ...o];
+        return (await this.hidCommand(2, a)).slice(1 + a.length, 1 + a.length + n)
+    }
+    async setKeyboardValue(t, ...o) {
+        const n = [t, ...o];
+        await this.hidCommand(3, n)
+    }
+    async getEncoderValue(t, o, n) {
+        const a = [t, o, +n],
+            r = await this.hidCommand(20, a);
+        return qt([r[4], r[5]])
+    }
+    async setEncoderValue(t, o, n, a) {
+        const r = [t, o, +n, ...Bt(a)];
+        await this.hidCommand(21, r)
+    }
+    async getCustomMenuValue(t) {
+        return (await this.hidCommand(8, t)).slice(0 + t.length)
+    }
+    async setCustomMenuValue(...t) {
+        await this.hidCommand(7, t)
+    }
+    async getPerKeyRGBMatrix(t) {
+        return (await Promise.all(t.map(n => this.hidCommand(8, [...Fs, n, 1])))).map(n => [...n.slice(5, 7)])
+    }
+    async setPerKeyRGBMatrix(t, o, n) {
+        await this.hidCommand(7, [...Fs, t, 1, o, n])
+    }
+    async getBacklightValue(t, o = 1) {
+        const n = [t];
+        return (await this.hidCommand(8, n)).slice(2, 2 + o)
+    }
+    async setBacklightValue(t, ...o) {
+        const n = [t, ...o];
+        await this.hidCommand(7, n)
+    }
+    async getRGBMode() {
+        const t = [Hs],
+            [, , o] = await this.hidCommand(8, t);
+        return o
+    }
+    async getBrightness() {
+        const t = [$d],
+            [, , o] = await this.hidCommand(8, t);
+        return o
+    }
+    async getProColor() {
+        const t = [0],
+            [, , o, n] = await this.hidCommand(34, t);
+        return {
+            hue: o,
+            sat: n
+        }
+    }
+    async setProColor(t, o) {
+        const n = [1, t, o];
+        await this.hidCommand(34, n)
+    }
+    async setKeyCalibration(t) {
+        const o = [t];
+        await this.hidCommand(36, o)
+    }
+    async getColor(t) {
+        const o = [t === 1 ? $s : Ws],
+            [, , n, a] = await this.hidCommand(8, o);
+        return {
+            hue: n,
+            sat: a
+        }
+    }
+    async setColor(t, o, n) {
+        const a = [t === 1 ? $s : Ws, o, n];
+        await this.hidCommand(7, a)
+    }
+    async getCustomColor(t) {
+        const o = [Vs, t],
+            [, , , n, a] = await this.hidCommand(8, o);
+        return {
+            hue: n,
+            sat: a
+        }
+    }
+    async setCustomColor(t, o, n) {
+        const a = [Vs, t, o, n];
+        await this.hidCommand(7, a)
+    }
+    async setRGBMode(t) {
+        const o = [Hs, t];
+        await this.hidCommand(7, o)
+    }
+    async commitCustomMenu(t) {
+        await this.hidCommand(9, [t])
+    }
+    async saveLighting() {
+        await this.hidCommand(9)
+    }
+    async resetEEPROM() {
+        await this.hidCommand(10)
+    }
+    async reloadRTDKS() {
+        await this.hidCommand(32)
+    }
+    async jumpToBootloader() {
+        await this.hidCommand(11)
+    }
+    async setKey(t, o, n, a) {
+        const r = await this.hidCommand(5, [t, o, n, ...Bt(a)]);
+        return qt([r[4], r[5]])
+    }
+    async getMacroCount() {
+        const [, t] = await this.hidCommand(12);
+        return t
+    }
+    async getMacroBufferSize() {
+        const [, t, o] = await this.hidCommand(13);
+        return qt([t, o])
+    }
+    async getMacroBytes() {
+        const t = await this.getMacroBufferSize(),
+            o = 28,
+            n = [];
+        for (let r = 0; r < t; r += 28) n.push(this.hidCommand(14, [...Bt(r), o]));
+        return (await Promise.all(n)).flatMap(r => r.slice(4, 32))
+    }
+    async setMacroBytes(t) {
+        const o = await this.getMacroBufferSize(),
+            n = t.length;
+        if (n > o) throw new Error(`Macro size (${n}) exceeds buffer size (${o})`);
+        const a = o - 1,
+            r = Bt(a);
+        await this.resetMacros();
+        try {
+            await this.hidCommand(15, [...Bt(a), 1, 255]);
+            const i = 28;
+            for (let c = 0; c < t.length; c += i) {
+                const l = t.slice(c, c + i);
+                await this.hidCommand(15, [...Bt(c), l.length, ...l])
+            }
+        } finally {
+            await this.hidCommand(15, [...r, 1, 0])
+        }
+    }
+    async resetMacros() {
+        await this.hidCommand(16)
+    }
+    get commandQueueWrapper() {
+        return dn[this.kbAddr] ? dn[this.kbAddr] : (dn[this.kbAddr] = {
+            isFlushing: !1,
+            commandQueue: []
+        }, dn[this.kbAddr])
+    }
+    async timeout(t) {
+        return new Promise((o, n) => {
+            this.commandQueueWrapper.commandQueue.push({
+                res: o,
+                rej: n,
+                args: () => new Promise(a => setTimeout(() => {
+                    a(), o(void 0)
+                }, t))
+            }), this.commandQueueWrapper.isFlushing || this.flushQueue()
+        })
+    }
+    async hidCommand(t, o = []) {
+        return new Promise((n, a) => {
+            this.commandQueueWrapper.commandQueue.push({
+                res: n,
+                rej: a,
+                args: [t, o]
+            }), this.commandQueueWrapper.isFlushing || this.flushQueue()
+        })
+    }
+    async flushQueue() {
+        if (this.commandQueueWrapper.isFlushing !== !0) {
+            for (this.commandQueueWrapper.isFlushing = !0; this.commandQueueWrapper.commandQueue.length !== 0;) {
+                const {
+                    res: t,
+                    rej: o,
+                    args: n
+                } = this.commandQueueWrapper.commandQueue.shift();
+                if (typeof n == "function") await n(), t();
+                else try {
+                    const a = await this._hidCommand(...n);
+                    t(a)
+                } catch (a) {
+                    const r = lo(this.getHID());
+                    Fa.dispatch(xo({
+                        message: Nd(a),
+                        deviceInfo: r
+                    })), o(a)
+                }
+            }
+            this.commandQueueWrapper.isFlushing = !1
+        }
+    }
+    getHID() {
+        return ko[this.kbAddr].hid
+    }
+    async _hidCommand(t, o = []) {
+        const n = [Ud, t, ...o],
+            a = new Array(33).fill(0);
+        n.forEach((l, u) => {
+            a[u] = l
+        }), await this.getHID().write(a);
+        const r = Array.from(await this.getByteBuffer()),
+            i = r.slice(0, n.length - 1);
+        Pd(this.kbAddr, n, r);
+        let c = 0;
+        switch (t) {
+            case 240:
+                c = 1;
+                break;
+            case 241:
+                c = 1;
+                break;
+            case 242:
+                c = 1;
+                break;
+            case 243:
+                c = 1;
+                break;
+            case 244:
+                c = 1;
+                break;
+            case 245:
+                c = 1;
+                break;
+            case 246:
+                c = 1;
+                break;
+            case 32:
+            case 33:
+            case 34:
+                c = 1;
+                break
+        }
+        if (c) return r;
+        if (!Wd(n.slice(1), i)) {
+            console.error(`Command for ${this.kbAddr}:`, n, "Bad Resp:", r);
+            const l = lo(this.getHID()),
+                u = Hd[t];
+            throw Fa.dispatch(lc({
+                commandName: u,
+                commandBytes: n.slice(1),
+                responseBytes: r,
+                deviceInfo: l
+            })), new Error("Receiving incorrect response for command")
+        }
+        return r
+    }
+}
+class zd {
+    constructor(t) {
+        et(this, "kbAddr");
+        if (this.kbAddr = t, !ko[t]) {
+            const o = Al({
+                path: t
+            });
+            ko[t] = {
+                hid: o
+            }
+        }
+    }
+    refresh(t) {
+        this.kbAddr = t, ko[t] = { ...ko[t],
+            hid: Al({
+                path: t
+            })
+        }
+    }
+    async getByteBuffer() {
+        return this.getHID().readP()
+    }
+    async getProtocolVersion() {
+        try {
+            const [, t, o] = await this.hidCommand(1);
+            return qt([t, o])
+        } catch {
+            return -1
+        }
+    }
+    async getKey(t, o, n) {
+        const a = await this.hidCommand(4, [t, o, n]);
+        return qt([a[4], a[5]])
+    }
+    async getRapidData(t, o, n) {
+        return (await this.hidCommand(8, [t, o, n]))[4]
+    }
+    async getLayerCount() {
+        if (await this.getProtocolVersion() >= zn) {
+            const [, o] = await this.hidCommand(17);
+            return o
+        }
+        return 4
+    }
+    async readRawMatrix(t, o) {
+        const n = await this.getProtocolVersion();
+        if (n >= zn) return this.fastReadRawMatrix(t, o);
+        if (n === Ys) return this.slowReadRawMatrix(t, o);
+        throw new Error("Unsupported protocol version")
+    }
+    async getKeymapBuffer(t, o) {
+        if (o > 28) throw new Error("Max data length is 28");
+        return [...await this.hidCommand(18, [...Bt(t), o])].slice(4, o + 4)
+    }
+    async getFWVersion() {
+        try {
+            const [, t, o, n] = await this.hidCommand(240);
+            return jn([t, o, n])
+        } catch {
+            return -1
+        }
+    }
+    async eraseRomBuffer(t, o, n) {
+        return [...await this.hidCommand(241, [t, 0, 0, ...bt(o), ...bt(n)])].slice(1, 1)
+    }
+    async eraseLdromBuffer() {
+        return this.eraseRomBuffer(1, 4096, 0)
+    }
+    async eraseApromBuffer(t, o, n) {
+        return this.eraseRomBuffer(t, n, o)
+    }
+    async eraseDataBuffer() {
+        return this.eraseRomBuffer(3, 4096, 516096)
+    }
+    async writeRomBuffer(t, o, n) {
+        const a = n.flatMap(c => c.map(l => l)),
+            r = 24,
+            i = 4096;
+        await this.hidCommand(241, [t, 0, 0, ...bt(i), ...bt(o)]);
+        for (let c = 0; c < a.length; c += r) {
+            const l = a.slice(c, c + r);
+            await this.hidCommand(242, [l.length, t, 0, ...bt(o + c), ...l])
+        }
+    }
+    async writeRomBuffers(t, o, n) {
+        for (let r = 0; r < n.length; r += 24) {
+            const i = n.slice(r, r + 24);
+            await this.hidCommand(242, [i.length, t, 0, ...bt(o + r), ...i])
+        }
+    }
+    async writeRom(t, o, n, a, r) {
+        const i = r.slice(o, o + t);
+        await this.hidCommand(242, [i.length, n, 0, ...bt(a + o), ...i])
+    }
+    async decodewriteRom(t, o, n, a, r) {
+        const i = r.slice(o, o + t);
+        await this.hidCommand(246, [i.length, n, 0, ...bt(a + o), ...i])
+    }
+    async fastReadLdromBuffer(t, o, n) {
+        const r = new Array(Math.ceil(t / 28)).fill(0),
+            {
+                res: i
+            } = r.reduce(({
+                res: l,
+                remaining: u
+            }) => u < 28 ? {
+                res: [...l, this.readDataBuffer(u, o, n + (t - u))],
+                remaining: 0
+            } : {
+                res: [...l, this.readDataBuffer(28, o, n + (t - u))],
+                remaining: u - 28
+            }, {
+                res: [],
+                remaining: t
+            });
+        return (await Promise.all(i)).flat()
+    }
+    async writeLdromBuffer(t) {
+        this.writeRomBuffers(1, 0, t)
+    }
+    async writeLdromDataBuffer(t) {
+        this.writeRomBuffer(1, 0, t)
+    }
+    async writeRapidDataBuffer(t) {
+        this.writeRomBuffer(3, 516096, t)
+    }
+    async writeRapidDataBuffer2(t) {
+        this.writeRomBuffers(3, 516096, t)
+    }
+    async readRomBuffer(t, o) {
+        if (o > 28) throw new Error("Max data length is 28");
+        return [...await this.hidCommand(243, [...Bt(t), o])].slice(2, o + 2)
+    }
+    async readCrcDataBuffer(t, o) {
+        return [...await this.hidCommand(245, [0, 0, 0, ...bt(o), ...bt(t)])].slice(4, 4 + 4)
+    }
+    async readCrcDataNumber(t, o) {
+        const a = [...await this.hidCommand(245, [0, 0, 0, ...bt(t), ...bt(o)])].slice(4, 4 + 4);
+        return Xa([a[0], a[1], a[2], a[3]])
+    }
+    async readDataBuffer(t, o, n) {
+        if (t > 28) throw new Error("Max data length is 28");
+        return [...await this.hidCommand(243, [t, o, 0, ...bt(n)])].slice(2, t + 2)
+    }
+    async fastReadRapidBuffer() {
+        const r = new Array(Math.ceil(146.28571428571428)).fill(0),
+            {
+                res: i
+            } = r.reduce(({
+                res: l,
+                remaining: u
+            }) => u < 28 ? {
+                res: [...l, this.readDataBuffer(u, 3, 516096 + (4096 - u))],
+                remaining: 0
+            } : {
+                res: [...l, this.readDataBuffer(28, 3, 516096 + (4096 - u))],
+                remaining: u - 28
+            }, {
+                res: [],
+                remaining: 4096
+            });
+        return (await Promise.all(i)).flatMap(yi)
+    }
+    async resetWithBootHold(t) {
+        return [...await this.hidCommand(244, [t])].slice(1, 1)
+    }
+    async fastReadRawMatrix({
+        rows: t,
+        cols: o
+    }, n) {
+        const a = t * o,
+            r = 14,
+            i = new Array(Math.ceil(a / r)).fill(0),
+            {
+                res: c
+            } = i.reduce(({
+                res: u,
+                remaining: _
+            }) => _ < r ? {
+                res: [...u, this.getKeymapBuffer(n * a * 2 + 2 * (a - _), _ * 2)],
+                remaining: 0
+            } : {
+                res: [...u, this.getKeymapBuffer(n * a * 2 + 2 * (a - _), r * 2)],
+                remaining: _ - r
+            }, {
+                res: [],
+                remaining: a
+            });
+        return (await Promise.all(c)).flatMap(Vd)
+    }
+    async slowReadRawMatrix({
+        rows: t,
+        cols: o
+    }, n) {
+        const a = t * o,
+            r = new Array(a).fill(0).map((i, c) => this.getKey(n, ~~(c / o), c % o));
+        return Promise.all(r)
+    }
+    async slowReadRapidRawMatrix({
+        rows: t,
+        cols: o
+    }, n) {
+        const a = t * o,
+            r = new Array(a).fill(0).map((i, c) => this.getRapidData(n, ~~(c / o), c % o));
+        return Promise.all(r)
+    }
+    async writeRawMatrix(t, o) {
+        const n = await this.getProtocolVersion();
+        if (n >= zn) return this.fastWriteRawMatrix(o);
+        if (n === Ys) return this.slowWriteRawMatrix(t, o)
+    }
+    async eraseRapidRawData() {
+        this.eraseDataBuffer()
+    }
+    async writeRapidRawMatrix(t, o) {
+        this.writeRapidDataBuffer(o)
+    }
+    async slowWriteRawMatrix({
+        cols: t
+    }, o) {
+        o.forEach(async (n, a) => n.forEach(async (r, i) => {
+            await this.setKey(a, ~~(i / t), i % t, r)
+        }))
+    }
+    async fastWriteRawMatrix(t) {
+        const o = t.flatMap(r => r.map(i => i)),
+            n = Yd(o),
+            a = 28;
+        for (let r = 0; r < n.length; r += a) {
+            const i = n.slice(r, r + a);
+            await this.hidCommand(19, [...Bt(r), i.length, ...i])
+        }
+    }
+    async getKeyboardValue(t, o, n = 1) {
+        const a = [t, ...o];
+        return (await this.hidCommand(2, a)).slice(1 + a.length, 1 + a.length + n)
+    }
+    async setKeyboardValue(t, ...o) {
+        const n = [t, ...o];
+        await this.hidCommand(3, n)
+    }
+    async getEncoderValue(t, o, n) {
+        const a = [t, o, +n],
+            r = await this.hidCommand(20, a);
+        return qt([r[4], r[5]])
+    }
+    async setEncoderValue(t, o, n, a) {
+        const r = [t, o, +n, ...Bt(a)];
+        await this.hidCommand(21, r)
+    }
+    async getCustomMenuValue(t) {
+        return (await this.hidCommand(8, t)).slice(0 + t.length)
+    }
+    async setCustomMenuValue(...t) {
+        await this.hidCommand(7, t)
+    }
+    async getPerKeyRGBMatrix(t) {
+        return (await Promise.all(t.map(n => this.hidCommand(8, [...Fs, n, 1])))).map(n => [...n.slice(5, 7)])
+    }
+    async setPerKeyRGBMatrix(t, o, n) {
+        await this.hidCommand(7, [...Fs, t, 1, o, n])
+    }
+    async getBacklightValue(t, o = 1) {
+        const n = [t];
+        return (await this.hidCommand(8, n)).slice(2, 2 + o)
+    }
+    async setBacklightValue(t, ...o) {
+        const n = [t, ...o];
+        await this.hidCommand(7, n)
+    }
+    async getRGBMode() {
+        const t = [Hs],
+            [, , o] = await this.hidCommand(8, t);
+        return o
+    }
+    async getBrightness() {
+        const t = [$d],
+            [, , o] = await this.hidCommand(8, t);
+        return o
+    }
+    async getColor(t) {
+        const o = [t === 1 ? $s : Ws],
+            [, , n, a] = await this.hidCommand(8, o);
+        return {
+            hue: n,
+            sat: a
+        }
+    }
+    async setColor(t, o, n) {
+        const a = [t === 1 ? $s : Ws, o, n];
+        await this.hidCommand(7, a)
+    }
+    async getCustomColor(t) {
+        const o = [Vs, t],
+            [, , , n, a] = await this.hidCommand(8, o);
+        return {
+            hue: n,
+            sat: a
+        }
+    }
+    async setCustomColor(t, o, n) {
+        const a = [Vs, t, o, n];
+        await this.hidCommand(7, a)
+    }
+    async setRGBMode(t) {
+        const o = [Hs, t];
+        await this.hidCommand(7, o)
+    }
+    async commitCustomMenu(t) {
+        await this.hidCommand(9, [t])
+    }
+    async saveLighting() {
+        await this.hidCommand(9)
+    }
+    async resetEEPROM() {
+        await this.hidCommand(10)
+    }
+    async jumpToBootloader() {
+        await this.hidCommand(11)
+    }
+    async setKey(t, o, n, a) {
+        const r = await this.hidCommand(5, [t, o, n, ...Bt(a)]);
+        return qt([r[4], r[5]])
+    }
+    async getMacroCount() {
+        const [, t] = await this.hidCommand(12);
+        return t
+    }
+    async getMacroBufferSize() {
+        const [, t, o] = await this.hidCommand(13);
+        return qt([t, o])
+    }
+    async getMacroBytes() {
+        const t = await this.getMacroBufferSize(),
+            o = 28,
+            n = [];
+        for (let r = 0; r < t; r += 28) n.push(this.hidCommand(14, [...Bt(r), o]));
+        return (await Promise.all(n)).flatMap(r => r.slice(4, 32))
+    }
+    async setMacroBytes(t) {
+        const o = await this.getMacroBufferSize(),
+            n = t.length;
+        if (n > o) throw new Error(`Macro size (${n}) exceeds buffer size (${o})`);
+        const a = o - 1,
+            r = Bt(a);
+        await this.resetMacros();
+        try {
+            await this.hidCommand(15, [...Bt(a), 1, 255]);
+            const i = 28;
+            for (let c = 0; c < t.length; c += i) {
+                const l = t.slice(c, c + i);
+                await this.hidCommand(15, [...Bt(c), l.length, ...l])
+            }
+        } finally {
+            await this.hidCommand(15, [...r, 1, 0])
+        }
+    }
+    async resetMacros() {
+        await this.hidCommand(16)
+    }
+    get commandQueueWrapper() {
+        return dn[this.kbAddr] ? dn[this.kbAddr] : (dn[this.kbAddr] = {
+            isFlushing: !1,
+            commandQueue: []
+        }, dn[this.kbAddr])
+    }
+    async timeout(t) {
+        return new Promise((o, n) => {
+            this.commandQueueWrapper.commandQueue.push({
+                res: o,
+                rej: n,
+                args: () => new Promise(a => setTimeout(() => {
+                    a(), o(void 0)
+                }, t))
+            }), this.commandQueueWrapper.isFlushing || this.flushQueue()
+        })
+    }
+    async hidCommand(t, o = []) {
+        return new Promise((n, a) => {
+            this.commandQueueWrapper.commandQueue.push({
+                res: n,
+                rej: a,
+                args: [t, o]
+            }), this.commandQueueWrapper.isFlushing || this.flushQueue()
+        })
+    }
+    async flushQueue() {
+        if (this.commandQueueWrapper.isFlushing !== !0) {
+            for (this.commandQueueWrapper.isFlushing = !0; this.commandQueueWrapper.commandQueue.length !== 0;) {
+                const {
+                    res: t,
+                    rej: o,
+                    args: n
+                } = this.commandQueueWrapper.commandQueue.shift();
+                if (typeof n == "function") await n(), t();
+                else try {
+                    const a = await this._hidCommand(...n);
+                    t(a)
+                } catch (a) {
+                    const r = lo(this.getHID());
+                    Fa.dispatch(xo({
+                        message: Nd(a),
+                        deviceInfo: r
+                    })), o(a)
+                }
+            }
+            this.commandQueueWrapper.isFlushing = !1
+        }
+    }
+    getHID() {
+        return ko[this.kbAddr].hid
+    }
+    async _hidCommand(t, o = []) {
+        const n = [Ud, t, ...o],
+            a = new Array(33).fill(0);
+        n.forEach((l, u) => {
+            a[u] = l
+        }), await this.getHID().write(a);
+        const r = Array.from(await this.getByteBuffer()),
+            i = r.slice(0, n.length - 1);
+        Pd(this.kbAddr, n, r);
+        let c = 0;
+        switch (t) {
+            case 240:
+                c = 1;
+                break;
+            case 241:
+                c = 1;
+                break;
+            case 242:
+                c = 1;
+                break;
+            case 243:
+                c = 1;
+                break;
+            case 244:
+                c = 1;
+                break;
+            case 245:
+                c = 1;
+                break;
+            case 246:
+                c = 1;
+                break
+        }
+        if (c) return r;
+        if (!Wd(n.slice(1), i)) {
+            console.error(`Command for ${this.kbAddr}:`, n, "Bad Resp:", r);
+            const l = lo(this.getHID()),
+                u = Hd[t];
+            throw Fa.dispatch(lc({
+                commandName: u,
+                commandBytes: n.slice(1),
+                responseBytes: r,
+                deviceInfo: l
+            })), new Error("Receiving incorrect response for command")
+        }
+        return r
+    }
+}
+
+function Ro(e, t) {
+    return e * 65536 + t
+}
+const Rf = ({
+        productId: e,
+        vendorId: t
+    }, o) => o[Ro(t, e)],
+    Af = async (e, t = !1) => (await mf(t)).filter(n => Rf(n, e) && kf(n)),
+    Tf = async (e = !1) => (await Kf(e)).filter(o => xf(o));
+let ao;
+const Lf = {
+    definitionIndex: {
+        generatedAt: -1,
+        hash: "",
+        version: "2.0.0",
+        theme: X.getTheme(),
+        accentColor: "#ad7070",
+        supportedVendorProductIdMap: {}
+    },
+    definitions: {},
+    settings: {
+        showDesignTab: !1,
+        showUpdateTab: !1,
+        disableFastRemap: !1,
+        renderMode: "2D",
+        themeMode: "dark",
+        designDefinitionVersion: "v3",
+        languages: "ko",
+        themeName: "OLIVIA_DARK",
+        keycapthemeName: "RETRO_POINT",
+        macroEditor: {
+            smartOptimizeEnabled: !0,
+            recordDelaysEnabled: !1,
+            tapEnterAtEOMEnabled: !1
+        },
+        testKeyboardSoundsSettings: {
+            isEnabled: !0,
+            volume: 100,
+            waveform: "sine",
+            mode: xa.WickiHayden,
+            transpose: 0
+        }
+    }
+};
+
+function Xd() {
+    ao = new lf(Lf)
+}
+Xd();
+async function vf() {
+    var t;
+    const e = ao.get("definitionIndex");
+    try {
+        const o = ((t = document.getElementById("definition_hash")) == null ? void 0 : t.dataset.hash) || "";
+        if (o === e.hash) return e;
+        const a = await (await fetch("/definitions/supported_kbs.json", {
+                cache: "reload"
+            })).json(),
+            r = a.vendorProductIds.v2.reduce((l, u) => (l[u] = l[u] || {}, l[u].v2 = l[u].v3 = !0, l), {}),
+            i = a.vendorProductIds.v3.reduce((l, u) => (l[u] = l[u] || {}, l[u].v3 = !0, l), r),
+            c = { ...a,
+                hash: o,
+                supportedVendorProductIdMap: i
+            };
+        return ao.set("definitionIndex", c), ao.set("definitions", {}), c
+    } catch {}
+    return e
+}
+const Ef = async (e, t) => {
+        const o = Ro(e.vendorId, e.productId),
+            n = `/definitions/${t}/${o}.json`,
+            r = await (await fetch(n)).json();
+        let i = ao.get("definitions");
+        const c = { ...i,
+            [o]: { ...i[o],
+                [t]: r
+            }
+        };
+        try {
+            ao.set("definitions", c)
+        } catch {
+            localStorage.clear(), Xd(), i = ao.get("definitions"), ao.set("definitions", { ...i,
+                [o]: { ...i[o],
+                    [t]: r
+                }
+            })
+        }
+        return [r, t]
+    },
+    Pf = () => {
+        var e;
+        return (e = ao.get("definitionIndex")) == null ? void 0 : e.supportedVendorProductIdMap
+    },
+    If = () => ao.get("definitions"),
+    Of = () => {
+        var e;
+        return (e = ao.get("settings")) == null ? void 0 : e.themeMode
+    },
+    Nf = () => {
+        var e;
+        return (e = ao.get("settings")) == null ? void 0 : e.themeName
+    },
+    Gf = () => ao.get("settings"),
+    Mo = e => {
+        ao.set("settings", wC(e))
+    },
+    Bf = ["_QK_MODS", "_QK_MODS_MAX", "_QK_MOD_TAP", "_QK_MOD_TAP_MAX", "_QK_LAYER_TAP", "_QK_LAYER_TAP_MAX", "_QK_LAYER_MOD", "_QK_LAYER_MOD_MAX", "_QK_TO", "_QK_TO_MAX", "_QK_MOMENTARY", "_QK_MOMENTARY_MAX", "_QK_DEF_LAYER", "_QK_DEF_LAYER_MAX", "_QK_TOGGLE_LAYER", "_QK_TOGGLE_LAYER_MAX", "_QK_ONE_SHOT_LAYER", "_QK_ONE_SHOT_LAYER_MAX", "_QK_ONE_SHOT_MOD", "_QK_ONE_SHOT_MOD_MAX", "_QK_LAYER_TAP_TOGGLE", "_QK_LAYER_TAP_TOGGLE_MAX", "_QK_KB", "_QK_KB_MAX", "_QK_MACRO", "_QK_MACRO_MAX"],
+    Uf = e => Object.keys(e).reduce((t, o) => Bf.includes(o) ? { ...t,
+        [o]: e[o]
+    } : t, {}),
+    Je = {
+        QK_LCTL: 256,
+        QK_LSFT: 512,
+        QK_LALT: 1024,
+        QK_LGUI: 2048,
+        QK_RMODS_MIN: 4096,
+        QK_RCTL: 4352,
+        QK_RSFT: 4608,
+        QK_RALT: 5120,
+        QK_RGUI: 6144
+    },
+    Si = {
+        MOD_LCTL: 1,
+        MOD_LSFT: 2,
+        MOD_LALT: 4,
+        MOD_LGUI: 8,
+        MOD_RCTL: 17,
+        MOD_RSFT: 18,
+        MOD_RALT: 20,
+        MOD_RGUI: 24,
+        MOD_HYPR: 15,
+        MOD_MEH: 7
+    },
+    jo = {
+        MT: "_QK_MOD_TAP",
+        LT: "_QK_LAYER_TAP",
+        LM: "_QK_LAYER_MOD",
+        TO: "_QK_TO",
+        MO: "_QK_MOMENTARY",
+        DF: "_QK_DEF_LAYER",
+        TG: "_QK_TOGGLE_LAYER",
+        OSL: "_QK_ONE_SHOT_LAYER",
+        OSM: "_QK_ONE_SHOT_MOD",
+        TT: "_QK_LAYER_TAP_TOGGLE",
+        CUSTOM: "_QK_KB",
+        MACRO: "_QK_MACRO"
+    },
+    qn = {
+        LCTL: Je.QK_LCTL,
+        C: Je.QK_LCTL,
+        LSFT: Je.QK_LSFT,
+        S: Je.QK_LSFT,
+        LALT: Je.QK_LALT,
+        A: Je.QK_LALT,
+        LGUI: Je.QK_LGUI,
+        LCMD: Je.QK_LGUI,
+        LWIN: Je.QK_LGUI,
+        G: Je.QK_LGUI,
+        RCTL: Je.QK_RCTL,
+        RSFT: Je.QK_RSFT,
+        ALGR: Je.QK_RALT,
+        RALT: Je.QK_RALT,
+        RCMD: Je.QK_RGUI,
+        RWIN: Je.QK_RGUI,
+        RGUI: Je.QK_RGUI,
+        SCMD: Je.QK_LSFT | Je.QK_LGUI,
+        SWIN: Je.QK_LSFT | Je.QK_LGUI,
+        SGUI: Je.QK_LSFT | Je.QK_LGUI,
+        LSG: Je.QK_LSFT | Je.QK_LGUI,
+        LAG: Je.QK_LALT | Je.QK_LGUI,
+        RSG: Je.QK_RSFT | Je.QK_RGUI,
+        RAG: Je.QK_RALT | Je.QK_RGUI,
+        LCA: Je.QK_LCTL | Je.QK_LALT,
+        LSA: Je.QK_LSFT | Je.QK_LALT,
+        SAGR: Je.QK_RSFT | Je.QK_RALT,
+        RSA: Je.QK_RSFT | Je.QK_RALT,
+        RCS: Je.QK_RCTL | Je.QK_RSFT,
+        LCAG: Je.QK_LCTL | Je.QK_LALT | Je.QK_LGUI,
+        MEH: Je.QK_LCTL | Je.QK_LALT | Je.QK_LSFT,
+        HYPR: Je.QK_LCTL | Je.QK_LALT | Je.QK_LSFT | Je.QK_LGUI
+    },
+    Ff = Object.entries(qn).reduce((e, [t, o]) => ({ ...e,
+        [o]: t
+    }), {}),
+    Hf = Object.entries(qn).filter(([e, t]) => Object.values(Je).includes(t) && t < Je.QK_RMODS_MIN).reduce((e, [t, o]) => ({ ...e,
+        [o]: t
+    }), {}),
+    $f = Object.entries(qn).filter(([e, t]) => Object.values(Je).includes(t) && t >= Je.QK_RMODS_MIN).reduce((e, [t, o]) => ({ ...e,
+        [o]: t
+    }), {}),
+    Wf = e => Object.entries(jo).reduce((t, [o, n]) => ({ ...t,
+        [e[n]]: o
+    }), {}),
+    Zn = (e, t) => {
+        const n = e.toUpperCase().split(/\(|\)/).map(a => a.trim());
+        return Object.keys(jo).includes(n[0]) ? Yf(n, t) : Object.keys(qn).includes(n[0]) ? zf(n, t) : 0
+    },
+    wi = (e, t, o) => {
+        let n = Object.entries(Uf(t)).map(([f, K]) => [K, f]).sort((f, K) => f[0] - K[0]),
+            a = null,
+            r = -1;
+        for (let f = 0; f < n.length; f += 2) e >= n[f][0] && e <= n[f + 1][0] && (a = n[f][1], r = +n[f][0]);
+        if (["_QK_MODS"].includes(a)) return Vf(e, o);
+        let c = Wf(t)[r] + "(",
+            l = e & ~r,
+            u = 0,
+            _ = "",
+            h = 0;
+        switch (a) {
+            case "_QK_KB":
+            case "_QK_MACRO":
+                c += e - r + ")";
+                break;
+            case "_QK_MOMENTARY":
+            case "_QK_DEF_LAYER":
+            case "_QK_TOGGLE_LAYER":
+            case "_QK_ONE_SHOT_LAYER":
+            case "_QK_LAYER_TAP_TOGGLE":
+            case "_QK_TO":
+                c += l + ")";
+                break;
+            case "_QK_LAYER_TAP":
+                u = l >> 8, _ = o[l & 255], c += u + "," + _ + ")";
+                break;
+            case "_QK_ONE_SHOT_MOD":
+                c += zr(l) + ")";
+                break;
+            case "_QK_LAYER_MOD":
+                let f = t._QK_LAYER_MOD_MASK,
+                    K = Math.log2(f + 1);
+                u = l >> K, h = l & f, c += u + "," + zr(h) + ")";
+                break;
+            case "_QK_MOD_TAP":
+                h = l >> 8 & 31, _ = o[l & 255], c += zr(h) + "," + _ + ")";
+                break;
+            default:
+                c = null
+        }
+        return c
+    },
+    zr = e => {
+        const t = ["MOD_HYPR", "MOD_MEH"];
+        return Object.entries(Si).filter(n => !t.includes(n[0]) && (n[1] & e) === n[1]).map(n => n[0]).join(" | ")
+    },
+    Vf = (e, t) => {
+        const o = t[e & 255],
+            n = e & 7936,
+            a = Ff[n];
+        if (a != null) return a + "(" + o + ")";
+        const r = Object.entries(n & Je.QK_RMODS_MIN ? $f : Hf).filter(i => {
+            const c = Number.parseInt(i[0]);
+            return (c & n) === c
+        }).map(i => i[1]);
+        return r.join("(") + "(" + o + ")".repeat(r.length)
+    },
+    Yf = (e, t) => {
+        const o = e[0],
+            n = e[1] ? ? "";
+        let [a, r] = ["", ""], i = 0, c = 0;
+        switch (o) {
+            case "MO":
+            case "DF":
+            case "TG":
+            case "OSL":
+            case "TT":
+            case "TO":
+                return i = Number.parseInt(n), i < 0 ? 0 : t[jo[o]] | i & 255;
+            case "OSM":
+                return c = Xr(n), c === 0 ? 0 : t[jo[o]] | c & 255;
+            case "LM":
+                [a, r] = n.split(",").map(_ => _.trim());
+                let l = t._QK_LAYER_MOD_MASK,
+                    u = Math.log2(l + 1);
+                return i = Number.parseInt(a), c = Xr(r), i < 0 || c === 0 ? 0 : t[jo[o]] | (i & 15) << u | c & l;
+            case "LT":
+                return [a, r] = n.split(",").map(_ => _.trim()), i = Number.parseInt(a), i < 0 || !t.hasOwnProperty(r) ? 0 : t[jo[o]] | (i & 15) << 8 | t[r];
+            case "MT":
+                return [a, r] = n.split(",").map(_ => _.trim()), c = Xr(a), c === 0 || !t.hasOwnProperty(r) ? 0 : t[jo[o]] | (c & 31) << 8 | t[r] & 255;
+            case "CUSTOM":
+                {
+                    const _ = Number.parseInt(n),
+                        h = t._QK_KB_MAX - t._QK_KB;
+                    return _ >= 0 && _ <= h ? t[jo[o]] + _ : 0
+                }
+            case "MACRO":
+                {
+                    const _ = Number.parseInt(n),
+                        h = t._QK_MACRO_MAX - t._QK_MACRO;
+                    return _ >= 0 && _ <= h ? t[jo[o]] + _ : 0
+                }
+            default:
+                return 0
+        }
+    },
+    Xr = (e = "") => {
+        const t = e.split("|").map(o => o.trim());
+        return t.reduce((o, n) => o && Si.hasOwnProperty(n), !0) ? t.reduce((o, n) => o | Si[n], 0) : 0
+    },
+    zf = (e, t) => {
+        const o = e.filter(a => a.length !== 0),
+            n = o.map((a, r) => r === o.length - 1 ? t.hasOwnProperty(a) ? t[a] : null : qn.hasOwnProperty(a) ? qn[a] : null);
+        return n.find(a => a === null) ? 0 : n.reduce((a, r) => a | r, 0)
+    },
+    Xs = (e, t, o) => {
+        let n = "";
+        const a = wi(e, t, o);
+        return o[e] && !o[e].startsWith("_QK") ? n = o[e] : a !== null && (n = a), n
+    };
+
+function Qa(e) {
+    return /[A-Za-z]/.test(e) && e.length === 1
+}
+
+function uc(e) {
+    return /['0-9]/.test(e) && e.length === 1
+}
+
+function _c(e) {
+    return /[🠗🠕🠖🠔←↑→↓]$/.test(e)
+}
+
+function hc(e) {
+    const t = "-+.÷×".split("");
+    return e.length === 1 && t.includes(e[0])
+}
+
+function Cc(e) {
+    return e.split(/\r?\n/).length > 1 ? 1 : 0
+}
+
+function Ao(e, t) {
+    const o = t[e];
+    if (o !== void 0) return o;
+    if (Qd(e)) return Xf(e, t);
+    if (Zn(e, t) !== null) return Zn(e, t);
+    throw `Could not find byte for ${e}`
+}
+
+function Qd(e) {
+    return /([A-Za-z]+)\((\d+)\)/.test(e)
+}
+
+function Xf(e, t) {
+    const o = e.match(/([A-Za-z]+)\((\d+)\)/);
+    if (o) {
+        const [, n, a] = o, r = parseInt(a);
+        switch (n) {
+            case "TO":
+                return Math.min(t._QK_TO + r, t._QK_TO_MAX);
+            case "MO":
+                return Math.min(t._QK_MOMENTARY + r, t._QK_MOMENTARY_MAX);
+            case "DF":
+                return Math.min(t._QK_DEF_LAYER + r, t._QK_DEF_LAYER_MAX);
+            case "TG":
+                return Math.min(t._QK_TOGGLE_LAYER + r, t._QK_TOGGLE_LAYER_MAX);
+            case "OSL":
+                return Math.min(t._QK_ONE_SHOT_LAYER + r, t._QK_ONE_SHOT_LAYER_MAX);
+            case "TT":
+                return Math.min(t._QK_LAYER_TAP_TOGGLE + r, t._QK_LAYER_TAP_TOGGLE_MAX);
+            case "CUSTOM":
+                return Math.min(t._QK_KB + r, t._QK_KB_MAX);
+            case "MACRO":
+                return Math.min(t._QK_MACRO + r, t._QK_MACRO_MAX);
+            default:
+                throw new Error("Incorrect code")
+        }
+    }
+    throw new Error("No match found")
+}
+
+function Qf(e, t) {
+    if (t._QK_TO <= e && t._QK_TO_MAX >= e) return `TO(${e-t._QK_TO})`;
+    if (t._QK_MOMENTARY <= e && t._QK_MOMENTARY_MAX >= e) return `MO(${e-t._QK_MOMENTARY})`;
+    if (t._QK_DEF_LAYER <= e && t._QK_DEF_LAYER_MAX >= e) return `DF(${e-t._QK_DEF_LAYER})`;
+    if (t._QK_TOGGLE_LAYER <= e && t._QK_TOGGLE_LAYER_MAX >= e) return `TG(${e-t._QK_TOGGLE_LAYER})`;
+    if (t._QK_ONE_SHOT_LAYER <= e && t._QK_ONE_SHOT_LAYER_MAX >= e) return `OSL(${e-t._QK_ONE_SHOT_LAYER})`;
+    if (t._QK_LAYER_TAP_TOGGLE <= e && t._QK_LAYER_TAP_TOGGLE_MAX >= e) return `TT(${e-t._QK_LAYER_TAP_TOGGLE})`;
+    if (t._QK_KB <= e && t._QK_KB_MAX >= e) return `CUSTOM(${e-t._QK_KB})`;
+    if (t._QK_MACRO <= e && t._QK_MACRO_MAX >= e) return `MACRO(${e-t._QK_MACRO})`
+}
+const ur = ja().reduce((e, t) => e.concat(t.keycodes), []),
+    jf = mc().reduce((e, t) => e.concat(t.keycodes), []),
+    jd = e => Object.keys(e).reduce((t, o) => {
+        const n = e[o];
+        if (n in t) {
+            const a = ur.find(({
+                code: r
+            }) => r === o);
+            return a ? { ...t,
+                [n]: a.code
+            } : t
+        }
+        return { ...t,
+            [n]: o
+        }
+    }, {});
+
+function qf(e, t) {
+    return [
+        [t._QK_TO, t._QK_TO_MAX],
+        [t._QK_MOMENTARY, t._QK_MOMENTARY_MAX],
+        [t._QK_DEF_LAYER, t._QK_DEF_LAYER_MAX],
+        [t._QK_TOGGLE_LAYER, t._QK_TOGGLE_LAYER_MAX],
+        [t._QK_ONE_SHOT_LAYER, t._QK_ONE_SHOT_LAYER_MAX],
+        [t._QK_LAYER_TAP_TOGGLE, t._QK_LAYER_TAP_TOGGLE_MAX],
+        [t._QK_KB, t._QK_KB_MAX],
+        [t._QK_MACRO, t._QK_MACRO_MAX]
+    ].some(o => e >= o[0] && e <= o[1])
+}
+
+function Qs(e, t, o) {
+    const n = o[e];
+    return n && !n.startsWith("_QK") ? n : qf(e, t) ? Qf(e, t) : wi(e, t, o) !== null ? wi(e, t, o) : "0x" + Number(e).toString(16)
+}
+
+function Jo(e, t) {
+    return e in t || Qd(e) || Zn(e, t) !== null
+}
+
+function Zf(e) {
+    return e.split(" ").map(t => t.slice(0, 1) + t.slice(1).replace(/[aeiou ]/gi, "")).join("")
+}
+
+function pc(e, t) {
+    return e >= t._QK_KB && e <= t._QK_KB_MAX
+}
+
+function Jn(e, t) {
+    return e - t._QK_KB
+}
+
+function fc(e, t) {
+    return e >= t._QK_MACRO && e <= t._QK_MACRO_MAX
+}
+
+function gc(e, t) {
+    return e - t._QK_MACRO
+}
+
+function js(e, t = 100, o, n) {
+    const a = Qs(e, o, n),
+        r = ur.find(({
+            code: i
+        }) => i === a);
+    return r ? pn(r, t) : a
+}
+
+function vl(e, t = 100, o, n) {
+    const a = Qs(e, o, n),
+        r = jf.find(({
+            code: i
+        }) => i === a);
+    return r ? pn(r, t) : a
+}
+
+function pn(e, t = 100) {
+    const {
+        code: o,
+        name: n,
+        shortName: a
+    } = e;
+    if (t <= 150 && a) return a;
+    if (t === 100 && n.length > 5) {
+        const r = Zf(n);
+        if (o) {
+            const i = o.replace("KC_", "").replace("_", " ");
+            return r.length > 4 && i.length < r.length ? i : r
+        }
+        return r
+    }
+    return n
+}
+
+function qd(e) {
+    return {
+        id: "other",
+        label: "Other",
+        keycodes: Object.keys(e).filter(o => !o.startsWith("_QK")).filter(o => !ur.map(({
+            code: n
+        }) => n).includes(o)).map(o => ({
+            name: o.replace("KC_", "").replace(/_/g, " "),
+            code: o
+        }))
+    }
+}
+
+function Zd() {
+    const e = {
+        id: "layers",
+        label: "Layers",
+        width: "label",
+        keycodes: [{
+            name: "MO",
+            code: "MO(layer)",
+            type: "layer",
+            layer: 0,
+            title: "Momentary turn layer on"
+        }, {
+            name: "TG",
+            code: "TG(layer)",
+            type: "layer",
+            layer: 0,
+            title: "Toggle layer on/off"
+        }, {
+            name: "TT",
+            code: "TT(layer)",
+            type: "layer",
+            layer: 0,
+            title: "Normally acts like MO unless it's tapped multple times which toggles layer on"
+        }, {
+            name: "OSL",
+            code: "OSL(layer)",
+            type: "layer",
+            layer: 0,
+            title: "Switch to layer for one keypress"
+        }, {
+            name: "TO",
+            code: "TO(layer)",
+            type: "layer",
+            layer: 0,
+            title: "Turn on layer when pressed"
+        }, {
+            name: "DF",
+            code: "DF(layer)",
+            type: "layer",
+            layer: 0,
+            title: "Sets the default layer"
+        }]
+    };
+    return { ...e,
+        keycodes: [...e.keycodes.flatMap(t => {
+            let o = [];
+            for (let n = 0; n < 10; n++) {
+                const a = (t.title || "").replace("layer", `layer ${n}`),
+                    r = t.code.replace("layer", `${n}`),
+                    i = t.name + `(${n})`;
+                o = [...o, { ...t,
+                    name: i,
+                    title: a,
+                    code: r
+                }]
+            }
+            return o
+        })]
+    }
+}
+
+function _r() {
+    return [{
+        row: 0,
+        col: 0,
+        name: "Esc",
+        code: "KC_ESC",
+        keycode: "0x0029"
+    }, {
+        row: 0,
+        col: 1,
+        name: "F1",
+        code: "KC_F1",
+        keycode: "0x003a"
+    }, {
+        row: 0,
+        col: 2,
+        name: "F2",
+        code: "KC_F2",
+        keycode: "0x003b"
+    }, {
+        row: 0,
+        col: 3,
+        name: "F3",
+        code: "KC_F3",
+        keycode: "0x003c"
+    }, {
+        row: 0,
+        col: 4,
+        name: "F4",
+        code: "KC_F4",
+        keycode: "0x003d"
+    }, {
+        row: 0,
+        col: 5,
+        name: "F5",
+        code: "KC_F5",
+        keycode: "0x003e"
+    }, {
+        row: 0,
+        col: 6,
+        name: "F6",
+        code: "KC_F6",
+        keycode: "0x003f"
+    }, {
+        row: 0,
+        col: 7,
+        name: "F7",
+        code: "KC_F7",
+        keycode: "0x0040"
+    }, {
+        row: 0,
+        col: 8,
+        name: "F8",
+        code: "KC_F8",
+        keycode: "0x0041"
+    }, {
+        row: 0,
+        col: 9,
+        name: "F9",
+        code: "KC_F9",
+        keycode: "0x0042"
+    }, {
+        row: 0,
+        col: 10,
+        name: "F10",
+        code: "KC_F10",
+        keycode: "0x0043"
+    }, {
+        row: 0,
+        col: 11,
+        name: "F11",
+        code: "KC_F11",
+        keycode: "0x0044"
+    }, {
+        row: 0,
+        col: 12,
+        name: "F12",
+        code: "KC_F12",
+        keycode: "0x0045"
+    }, {
+        row: 0,
+        col: 13,
+        name: "Print Screen",
+        code: "KC_PSCR",
+        keycode: "0x0046"
+    }, {
+        row: 0,
+        col: 14,
+        name: "Scroll Lock",
+        code: "KC_SLCK",
+        keycode: "0x0047"
+    }, {
+        row: 0,
+        col: 15,
+        name: "Pause",
+        code: "KC_PAUS",
+        keycode: "0x0048"
+    }, {
+        row: 1,
+        col: 0,
+        name: "~\n`",
+        code: "KC_GRV",
+        keycode: "0x0035"
+    }, {
+        row: 1,
+        col: 1,
+        name: `!
+1`,
+        code: "KC_1",
+        keycode: "0x001e"
+    }, {
+        row: 1,
+        col: 2,
+        name: `@
+2`,
+        code: "KC_2",
+        keycode: "0x001f"
+    }, {
+        row: 1,
+        col: 3,
+        name: `#
+3`,
+        code: "KC_3",
+        keycode: "0x0020"
+    }, {
+        row: 1,
+        col: 4,
+        name: `$
+4`,
+        code: "KC_4",
+        keycode: "0x0021"
+    }, {
+        row: 1,
+        col: 5,
+        name: `%
+5`,
+        code: "KC_5",
+        keycode: "0x0022"
+    }, {
+        row: 1,
+        col: 6,
+        name: `^
+6`,
+        code: "KC_6",
+        keycode: "0x0023"
+    }, {
+        row: 1,
+        col: 7,
+        name: `&
+7`,
+        code: "KC_7",
+        keycode: "0x0024"
+    }, {
+        row: 1,
+        col: 8,
+        name: `*
+8`,
+        code: "KC_8",
+        keycode: "0x0025"
+    }, {
+        row: 1,
+        col: 9,
+        name: `(
+9`,
+        code: "KC_9",
+        keycode: "0x0026"
+    }, {
+        row: 1,
+        col: 10,
+        name: `)
+0`,
+        code: "KC_0",
+        keycode: "0x0027"
+    }, {
+        row: 1,
+        col: 11,
+        name: `_
+-`,
+        code: "KC_MINS",
+        keycode: "0x002d"
+    }, {
+        row: 1,
+        col: 12,
+        name: `+
+=`,
+        code: "KC_EQL",
+        keycode: "0x002e"
+    }, {
+        row: 1,
+        col: 13,
+        name: "Backspace",
+        code: "KC_BSPC",
+        keycode: "0x002a"
+    }, {
+        row: 1,
+        col: 14,
+        name: "Insert",
+        code: "KC_INS",
+        keycode: "0x0049"
+    }, {
+        row: 1,
+        col: 15,
+        name: "Home",
+        code: "KC_HOME",
+        keycode: "0x004a"
+    }, {
+        row: 2,
+        col: 0,
+        name: "TAB",
+        code: "KC_TAB",
+        keycode: "0x002b"
+    }, {
+        row: 2,
+        col: 1,
+        name: "Q",
+        code: "KC_Q",
+        keycode: "0x0014"
+    }, {
+        row: 2,
+        col: 2,
+        name: "W",
+        code: "KC_W",
+        keycode: "0x001a"
+    }, {
+        row: 2,
+        col: 3,
+        name: "E",
+        code: "KC_E",
+        keycode: "0x0008"
+    }, {
+        row: 2,
+        col: 4,
+        name: "R",
+        code: "KC_R",
+        keycode: "0x0015"
+    }, {
+        row: 2,
+        col: 5,
+        name: "T",
+        code: "KC_T",
+        keycode: "0x0017"
+    }, {
+        row: 2,
+        col: 6,
+        name: "Y",
+        code: "KC_Y",
+        keycode: "0x001c"
+    }, {
+        row: 2,
+        col: 7,
+        name: "U",
+        code: "KC_U",
+        keycode: "0x0018"
+    }, {
+        row: 2,
+        col: 8,
+        name: "I",
+        code: "KC_I",
+        keycode: "0x000c"
+    }, {
+        row: 2,
+        col: 9,
+        name: "O",
+        code: "KC_O",
+        keycode: "0x0012"
+    }, {
+        row: 2,
+        col: 10,
+        name: "P",
+        code: "KC_P",
+        keycode: "0x0013"
+    }, {
+        row: 2,
+        col: 11,
+        name: `{
+[`,
+        code: "KC_LBRC",
+        keycode: "0x002f"
+    }, {
+        row: 2,
+        col: 12,
+        name: `}
+]`,
+        code: "KC_RBRC",
+        keycode: "0x0030"
+    }, {
+        row: 2,
+        col: 13,
+        name: `|
+\\`,
+        code: "KC_BSLS",
+        keycode: "0x0031"
+    }, {
+        row: 2,
+        col: 14,
+        name: `Page
+Up`,
+        code: "KC_PGUP",
+        keycode: "0x004b"
+    }, {
+        row: 2,
+        col: 15,
+        name: `Page
+Down`,
+        code: "KC_PGDN",
+        keycode: "0x004e"
+    }, {
+        row: 3,
+        col: 0,
+        name: `Caps
+Lock`,
+        code: "KC_CAPS",
+        keycode: "0x0039"
+    }, {
+        row: 3,
+        col: 1,
+        name: "A",
+        code: "KC_A",
+        keycode: "0x0004"
+    }, {
+        row: 3,
+        col: 2,
+        name: "S",
+        code: "KC_S",
+        keycode: "0x0016"
+    }, {
+        row: 3,
+        col: 3,
+        name: "D",
+        code: "KC_D",
+        keycode: "0x0007"
+    }, {
+        row: 3,
+        col: 4,
+        name: "F",
+        code: "KC_F",
+        keycode: "0x0009"
+    }, {
+        row: 3,
+        col: 5,
+        name: "G",
+        code: "KC_G",
+        keycode: "0x000a"
+    }, {
+        row: 3,
+        col: 6,
+        name: "H",
+        code: "KC_H",
+        keycode: "0x000b"
+    }, {
+        row: 3,
+        col: 7,
+        name: "J",
+        code: "KC_J",
+        keycode: "0x000d"
+    }, {
+        row: 3,
+        col: 8,
+        name: "K",
+        code: "KC_K",
+        keycode: "0x000e"
+    }, {
+        row: 3,
+        col: 9,
+        name: "L",
+        code: "KC_L",
+        keycode: "0x000f"
+    }, {
+        row: 3,
+        col: 10,
+        name: `:
+;`,
+        code: "KC_SCLN",
+        keycode: "0x0033"
+    }, {
+        row: 3,
+        col: 11,
+        name: `"
+'`,
+        code: "KC_QUOT",
+        keycode: "0x0034"
+    }, {
+        row: 3,
+        col: 12,
+        name: `|
+\\`,
+        code: "KC_BSLS",
+        keycode: "0x0031"
+    }, {
+        row: 3,
+        col: 13,
+        name: "Enter↵",
+        code: "KC_ENT",
+        keycode: "0x0028"
+    }, {
+        row: 3,
+        col: 14,
+        name: "Del",
+        code: "KC_DEL",
+        keycode: "0x004c"
+    }, {
+        row: 3,
+        col: 15,
+        name: "End",
+        code: "KC_END",
+        keycode: "0x004d"
+    }, {
+        row: 4,
+        col: 0,
+        name: `Left
+Shift`,
+        code: "KC_LSFT",
+        keycode: "0x00e1"
+    }, {
+        row: 4,
+        col: 1,
+        name: `|
+\\`,
+        code: "KC_BSLS",
+        keycode: "0x0031"
+    }, {
+        row: 4,
+        col: 2,
+        name: "Z",
+        code: "KC_Z",
+        keycode: "0x001d"
+    }, {
+        row: 4,
+        col: 3,
+        name: "X",
+        code: "KC_X",
+        keycode: "0x001b"
+    }, {
+        row: 4,
+        col: 4,
+        name: "C",
+        code: "KC_C",
+        keycode: "0x0006"
+    }, {
+        row: 4,
+        col: 5,
+        name: "V",
+        code: "KC_V",
+        keycode: "0x0019"
+    }, {
+        row: 4,
+        col: 6,
+        name: "B",
+        code: "KC_B",
+        keycode: "0x0005"
+    }, {
+        row: 4,
+        col: 7,
+        name: "N",
+        code: "KC_N",
+        keycode: "0x0011"
+    }, {
+        row: 4,
+        col: 8,
+        name: "M",
+        code: "KC_M",
+        keycode: "0x0010"
+    }, {
+        row: 4,
+        col: 9,
+        name: `<
+,`,
+        code: "KC_COMM",
+        keycode: "0x0036"
+    }, {
+        row: 4,
+        col: 10,
+        name: `>
+.`,
+        code: "KC_DOT",
+        keycode: "0x0037"
+    }, {
+        row: 4,
+        col: 11,
+        name: `?
+/`,
+        code: "KC_SLSH",
+        keycode: "0x0038"
+    }, {
+        row: 4,
+        col: 12,
+        name: "KS_NO",
+        code: "KS_NO",
+        keycode: "0x0000"
+    }, {
+        row: 4,
+        col: 13,
+        name: `Right
+Shift`,
+        code: "KC_RSFT",
+        keycode: "0x00e5"
+    }, {
+        row: 4,
+        col: 14,
+        name: "UP",
+        code: "KC_UP",
+        keycode: "0x0052"
+    }, {
+        row: 4,
+        col: 15,
+        name: "KS_NO",
+        code: "KS_NO",
+        keycode: "0x0000"
+    }, {
+        row: 5,
+        col: 0,
+        name: `Left
+Ctrl`,
+        code: "KC_LCTL",
+        keycode: "0x00e0"
+    }, {
+        row: 5,
+        col: 1,
+        name: `Left
+Win`,
+        code: "KC_LGUI",
+        keycode: "0x00e3"
+    }, {
+        row: 5,
+        col: 2,
+        name: `Left
+Alt`,
+        code: "KC_LALT",
+        keycode: "0x00e2"
+    }, {
+        row: 5,
+        col: 3,
+        name: "KS_NO",
+        code: "KS_NO",
+        keycode: "0x0000"
+    }, {
+        row: 5,
+        col: 4,
+        name: "KS_NO",
+        code: "KS_NO",
+        keycode: "0x0000"
+    }, {
+        row: 5,
+        col: 5,
+        name: "Space",
+        code: "KC_SPC",
+        keycode: "0x002c"
+    }, {
+        row: 5,
+        col: 6,
+        name: "KS_NO",
+        code: "KS_NO",
+        keycode: "0x0000"
+    }, {
+        row: 5,
+        col: 7,
+        name: "KS_NO",
+        code: "KS_NO",
+        keycode: "0x0000"
+    }, {
+        row: 5,
+        col: 8,
+        name: `Right
+Alt`,
+        code: "KC_RALT",
+        keycode: "0x00e6"
+    }, {
+        row: 5,
+        col: 9,
+        name: `Right
+Win`,
+        code: "KC_RGUI",
+        keycode: "0x00e7"
+    }, {
+        row: 5,
+        col: 10,
+        name: "Menu",
+        code: "KC_APP",
+        keycode: "0x0065"
+    }, {
+        row: 5,
+        col: 11,
+        name: `Right
+Ctrl`,
+        code: "KC_RCTL",
+        keycode: "0x00e4"
+    }, {
+        row: 5,
+        col: 12,
+        name: "Left",
+        code: "KC_LEFT",
+        keycode: "0x0050"
+    }, {
+        row: 5,
+        col: 13,
+        name: "Down",
+        code: "KC_DOWN",
+        keycode: "0x0051"
+    }, {
+        row: 5,
+        col: 14,
+        name: "Right",
+        code: "KC_RGHT",
+        keycode: "0x004f"
+    }, {
+        row: 5,
+        col: 15,
+        name: ".",
+        code: "KC_PDOT",
+        keycode: "0x0063"
+    }, {
+        row: 6,
+        col: 0,
+        name: `Num
+Lock`,
+        code: "KC_NLCK",
+        keycode: "0x0053"
+    }, {
+        row: 6,
+        col: 1,
+        name: "/",
+        code: "KC_PSLS",
+        keycode: "0x0054"
+    }, {
+        row: 6,
+        col: 2,
+        name: "*",
+        code: "KC_PAST",
+        keycode: "0x0055"
+    }, {
+        row: 6,
+        col: 3,
+        name: "-",
+        code: "KC_PMNS",
+        keycode: "0x0056"
+    }, {
+        row: 6,
+        col: 4,
+        name: "7",
+        code: "KC_P7",
+        keycode: "0x005f"
+    }, {
+        row: 6,
+        col: 5,
+        name: "8",
+        code: "KC_P8",
+        keycode: "0x0060"
+    }, {
+        row: 6,
+        col: 6,
+        name: "9",
+        code: "KC_P9",
+        keycode: "0x0061"
+    }, {
+        row: 6,
+        col: 7,
+        name: "+",
+        code: "KC_PPLS",
+        keycode: "0x0057"
+    }, {
+        row: 6,
+        col: 8,
+        name: "4",
+        code: "KC_P4",
+        keycode: "0x005c"
+    }, {
+        row: 6,
+        col: 9,
+        name: "5",
+        code: "KC_P5",
+        keycode: "0x005d"
+    }, {
+        row: 6,
+        col: 10,
+        name: "6",
+        code: "KC_P6",
+        keycode: "0x005e"
+    }, {
+        row: 6,
+        col: 11,
+        name: "1",
+        code: "KC_P1",
+        keycode: "0x0059"
+    }, {
+        row: 6,
+        col: 12,
+        name: "2",
+        code: "KC_P2",
+        keycode: "0x005a"
+    }, {
+        row: 6,
+        col: 13,
+        name: "3",
+        code: "KC_P3",
+        keycode: "0x005b"
+    }, {
+        row: 6,
+        col: 14,
+        name: `Num
+Enter`,
+        code: "KC_PENT",
+        keycode: "0x0058"
+    }, {
+        row: 6,
+        col: 15,
+        name: "0",
+        code: "KC_P0",
+        keycode: "0x0062"
+    }]
+}
+
+function ja() {
+    return [{
+        id: "basic",
+        label: "Basic",
+        keycodes: [{
+            name: "",
+            code: "KC_NO",
+            title: "Nothing"
+        }, {
+            name: "▽",
+            code: "KC_TRNS",
+            title: "Pass-through"
+        }, {
+            name: "ESC",
+            code: "KC_ESC",
+            keys: "esc"
+        }, {
+            name: "A",
+            code: "KC_A",
+            keys: "a"
+        }, {
+            name: "B",
+            code: "KC_B",
+            keys: "b"
+        }, {
+            name: "C",
+            code: "KC_C",
+            keys: "c"
+        }, {
+            name: "D",
+            code: "KC_D",
+            keys: "d"
+        }, {
+            name: "E",
+            code: "KC_E",
+            keys: "e"
+        }, {
+            name: "F",
+            code: "KC_F",
+            keys: "f"
+        }, {
+            name: "G",
+            code: "KC_G",
+            keys: "g"
+        }, {
+            name: "H",
+            code: "KC_H",
+            keys: "h"
+        }, {
+            name: "I",
+            code: "KC_I",
+            keys: "i"
+        }, {
+            name: "J",
+            code: "KC_J",
+            keys: "j"
+        }, {
+            name: "K",
+            code: "KC_K",
+            keys: "k"
+        }, {
+            name: "L",
+            code: "KC_L",
+            keys: "l"
+        }, {
+            name: "M",
+            code: "KC_M",
+            keys: "m"
+        }, {
+            name: "N",
+            code: "KC_N",
+            keys: "n"
+        }, {
+            name: "O",
+            code: "KC_O",
+            keys: "o"
+        }, {
+            name: "P",
+            code: "KC_P",
+            keys: "p"
+        }, {
+            name: "Q",
+            code: "KC_Q",
+            keys: "q"
+        }, {
+            name: "R",
+            code: "KC_R",
+            keys: "r"
+        }, {
+            name: "S",
+            code: "KC_S",
+            keys: "s"
+        }, {
+            name: "T",
+            code: "KC_T",
+            keys: "t"
+        }, {
+            name: "U",
+            code: "KC_U",
+            keys: "u"
+        }, {
+            name: "V",
+            code: "KC_V",
+            keys: "v"
+        }, {
+            name: "W",
+            code: "KC_W",
+            keys: "w"
+        }, {
+            name: "X",
+            code: "KC_X",
+            keys: "x"
+        }, {
+            name: "Y",
+            code: "KC_Y",
+            keys: "y"
+        }, {
+            name: "Z",
+            code: "KC_Z",
+            keys: "z"
+        }, {
+            name: `!
+1`,
+            code: "KC_1",
+            keys: "1"
+        }, {
+            name: `@
+2`,
+            code: "KC_2",
+            keys: "2"
+        }, {
+            name: `#
+3`,
+            code: "KC_3",
+            keys: "3"
+        }, {
+            name: `$
+4`,
+            code: "KC_4",
+            keys: "4"
+        }, {
+            name: `%
+5`,
+            code: "KC_5",
+            keys: "5"
+        }, {
+            name: `^
+6`,
+            code: "KC_6",
+            keys: "6"
+        }, {
+            name: `&
+7`,
+            code: "KC_7",
+            keys: "7"
+        }, {
+            name: `*
+8`,
+            code: "KC_8",
+            keys: "8"
+        }, {
+            name: `(
+9`,
+            code: "KC_9",
+            keys: "9"
+        }, {
+            name: `)
+0`,
+            code: "KC_0",
+            keys: "0"
+        }, {
+            name: `_
+-`,
+            code: "KC_MINS",
+            keys: "-"
+        }, {
+            name: `+
+=`,
+            code: "KC_EQL",
+            keys: "="
+        }, {
+            name: "~\n`",
+            code: "KC_GRV",
+            keys: "`"
+        }, {
+            name: `{
+[`,
+            code: "KC_LBRC",
+            keys: "["
+        }, {
+            name: `}
+]`,
+            code: "KC_RBRC",
+            keys: "]"
+        }, {
+            name: `|
+\\`,
+            code: "KC_BSLS",
+            keys: "\\",
+            width: 1500
+        }, {
+            name: `:
+;`,
+            code: "KC_SCLN",
+            keys: ";"
+        }, {
+            name: `"
+'`,
+            code: "KC_QUOT",
+            keys: "'"
+        }, {
+            name: `<
+,`,
+            code: "KC_COMM",
+            keys: ","
+        }, {
+            name: `>
+.`,
+            code: "KC_DOT",
+            keys: "."
+        }, {
+            name: `?
+/`,
+            code: "KC_SLSH",
+            keys: "/"
+        }, {
+            name: "=",
+            code: "KC_PEQL"
+        }, {
+            name: ",",
+            code: "KC_PCMM"
+        }, {
+            name: "F1",
+            code: "KC_F1"
+        }, {
+            name: "F2",
+            code: "KC_F2"
+        }, {
+            name: "F3",
+            code: "KC_F3"
+        }, {
+            name: "F4",
+            code: "KC_F4"
+        }, {
+            name: "F5",
+            code: "KC_F5"
+        }, {
+            name: "F6",
+            code: "KC_F6"
+        }, {
+            name: "F7",
+            code: "KC_F7"
+        }, {
+            name: "F8",
+            code: "KC_F8"
+        }, {
+            name: "F9",
+            code: "KC_F9"
+        }, {
+            name: "F10",
+            code: "KC_F10"
+        }, {
+            name: "F11",
+            code: "KC_F11"
+        }, {
+            name: "F12",
+            code: "KC_F12"
+        }, {
+            name: "Print Screen",
+            code: "KC_PSCR",
+            shortName: "PRTSC"
+        }, {
+            name: "Scroll Lock",
+            code: "KC_SLCK",
+            shortName: "SCRLK"
+        }, {
+            name: "PAUSE",
+            code: "KC_PAUS"
+        }, {
+            name: "TAB",
+            code: "KC_TAB",
+            keys: "tab",
+            width: 1500
+        }, {
+            name: "← BACKSPACE",
+            code: "KC_BSPC",
+            keys: "backspace",
+            width: 2e3,
+            shortName: "Bksp"
+        }, {
+            name: "Insert",
+            code: "KC_INS",
+            keys: "insert",
+            shortName: "INSERT"
+        }, {
+            name: "DEL",
+            code: "KC_DEL",
+            keys: "delete"
+        }, {
+            name: "HOME",
+            code: "KC_HOME",
+            keys: "home"
+        }, {
+            name: "END",
+            code: "KC_END",
+            keys: "end"
+        }, {
+            name: "Page Up",
+            code: "KC_PGUP",
+            keys: "pageup",
+            shortName: "PGUP"
+        }, {
+            name: "Page Down",
+            code: "KC_PGDN",
+            keys: "pagedown",
+            shortName: "PGDN"
+        }, {
+            name: `Num
+Lock`,
+            code: "KC_NLCK",
+            keys: "num",
+            shortName: "NLOCK"
+        }, {
+            name: "CAPS LOCK",
+            code: "KC_CAPS",
+            keys: "caps_lock",
+            width: 1750
+        }, {
+            name: "↵ ENTER",
+            code: "KC_ENT",
+            keys: "enter",
+            width: 2250
+        }, {
+            name: "1",
+            code: "KC_P1",
+            keys: "num_1",
+            title: "Numpad 1"
+        }, {
+            name: "2",
+            code: "KC_P2",
+            keys: "num_2",
+            title: "Numpad 2"
+        }, {
+            name: "3",
+            code: "KC_P3",
+            keys: "num_3",
+            title: "Numpad 3"
+        }, {
+            name: "4",
+            code: "KC_P4",
+            keys: "num_4",
+            title: "Numpad 4"
+        }, {
+            name: "5",
+            code: "KC_P5",
+            keys: "num_5",
+            title: "Numpad 5"
+        }, {
+            name: "6",
+            code: "KC_P6",
+            keys: "num_6",
+            title: "Numpad 6"
+        }, {
+            name: "7",
+            code: "KC_P7",
+            keys: "num_7",
+            title: "Numpad 7"
+        }, {
+            name: "8",
+            code: "KC_P8",
+            keys: "num_8",
+            title: "Numpad 8"
+        }, {
+            name: "9",
+            code: "KC_P9",
+            keys: "num_9",
+            title: "Numpad 9"
+        }, {
+            name: "0",
+            code: "KC_P0",
+            width: 2e3,
+            keys: "num_0",
+            title: "Numpad 0"
+        }, {
+            name: "/",
+            code: "KC_PSLS",
+            keys: "num_divide",
+            title: "Numpad ÷"
+        }, {
+            name: "×",
+            code: "KC_PAST",
+            keys: "num_multiply",
+            title: "Numpad ×"
+        }, {
+            name: "-",
+            code: "KC_PMNS",
+            keys: "num_subtract",
+            title: "Numpad -"
+        }, {
+            name: "+",
+            code: "KC_PPLS",
+            keys: "num_add",
+            title: "Numpad +"
+        }, {
+            name: ".",
+            code: "KC_PDOT",
+            keys: "num_decimal",
+            title: "Numpad ."
+        }, {
+            name: `Num
+Enter`,
+            code: "KC_PENT",
+            shortName: "ENTER↵",
+            title: "Numpad Enter"
+        }, {
+            name: "↑ SHIFT",
+            code: "KC_LSFT",
+            keys: "shift",
+            width: 2250,
+            shortName: "↑ SHIFT"
+        }, {
+            name: "SHIFT ↑",
+            code: "KC_RSFT",
+            width: 2750,
+            shortName: "SHIFT ↑"
+        }, {
+            name: "Left Ctrl",
+            code: "KC_LCTL",
+            keys: "ctrl",
+            width: 1250,
+            shortName: "CTRL"
+        }, {
+            name: "Right Ctrl",
+            code: "KC_RCTL",
+            width: 1250,
+            shortName: "CTRL"
+        }, {
+            name: "Left Win",
+            code: "KC_LGUI",
+            keys: "cmd",
+            width: 1250,
+            shortName: "WIN"
+        }, {
+            name: "Right Win",
+            code: "KC_RGUI",
+            width: 1250,
+            shortName: "WIN"
+        }, {
+            name: "Left Alt",
+            code: "KC_LALT",
+            keys: "alt",
+            width: 1250,
+            shortName: "ALT"
+        }, {
+            name: "Right Alt",
+            code: "KC_RALT",
+            width: 1250,
+            shortName: "ALT"
+        }, {
+            name: "SPACE",
+            code: "KC_SPC",
+            keys: "space",
+            width: 6250
+        }, {
+            name: "Menu",
+            code: "KC_APP",
+            width: 1250,
+            shortName: "MENU"
+        }, {
+            name: "Left",
+            code: "KC_LEFT",
+            keys: "left",
+            shortName: "←"
+        }, {
+            name: "Down",
+            code: "KC_DOWN",
+            keys: "down",
+            shortName: "↓"
+        }, {
+            name: "Up",
+            code: "KC_UP",
+            keys: "up",
+            shortName: "↑"
+        }, {
+            name: "Right",
+            code: "KC_RGHT",
+            keys: "right",
+            shortName: "→"
+        }]
+    }, {
+        id: "wt_lighting",
+        label: "Lighting",
+        width: "label",
+        keycodes: [{
+            name: "Bright -",
+            code: "BR_DEC",
+            title: "Brightness -",
+            shortName: "BR -"
+        }, {
+            name: "Bright +",
+            code: "BR_INC",
+            title: "Brightness +",
+            shortName: "BR +"
+        }, {
+            name: "Effect -",
+            code: "EF_DEC",
+            title: "Effect -",
+            shortName: "EF -"
+        }, {
+            name: "Effect +",
+            code: "EF_INC",
+            title: "Effect +",
+            shortName: "EF +"
+        }, {
+            name: "Effect Speed -",
+            code: "ES_DEC",
+            title: "Effect Speed -",
+            shortName: "ES -"
+        }, {
+            name: "Effect Speed +",
+            code: "ES_INC",
+            title: "Effect Speed +",
+            shortName: "ES +"
+        }, {
+            name: "Color1 Hue -",
+            code: "H1_DEC",
+            title: "Color1 Hue -",
+            shortName: "H1 -"
+        }, {
+            name: "Color1 Hue +",
+            code: "H1_INC",
+            title: "Color1 Hue +",
+            shortName: "H1 +"
+        }, {
+            name: "Color2 Hue -",
+            code: "H2_DEC",
+            title: "Color2 Hue -",
+            shortName: "H2 -"
+        }, {
+            name: "Color2 Hue +",
+            code: "H2_INC",
+            title: "Color2 Hue +",
+            shortName: "H2 +"
+        }, {
+            name: "Color1 Sat -",
+            code: "S1_DEC",
+            title: "Color1 Sat -",
+            shortName: "S1 -"
+        }, {
+            name: "Color1 Sat +",
+            code: "S1_INC",
+            title: "Color1 Sat +",
+            shortName: "S1 +"
+        }, {
+            name: "Color2 Sat -",
+            code: "S2_DEC",
+            title: "Color2 Sat -",
+            shortName: "S2 -"
+        }, {
+            name: "Color2 Sat +",
+            code: "S2_INC",
+            title: "Color2 Sat +",
+            shortName: "S2 +"
+        }]
+    }, {
+        id: "media",
+        label: "Media",
+        width: "label",
+        keycodes: [{
+            name: "VOL -",
+            code: "KC_VOLD",
+            title: "Volume Down"
+        }, {
+            name: "VOL +",
+            code: "KC_VOLU",
+            title: "Volume Up"
+        }, {
+            name: "MUTE",
+            code: "KC_MUTE",
+            title: "Mute Audio"
+        }, {
+            name: "PLAY",
+            code: "KC_MPLY",
+            title: "Play/Pause"
+        }, {
+            name: "Media Stop",
+            code: "KC_MSTP",
+            title: "Media Stop"
+        }, {
+            name: "Previous",
+            code: "KC_MPRV",
+            title: "Media Previous"
+        }, {
+            name: "Next",
+            code: "KC_MNXT",
+            title: "Media Next"
+        }, {
+            name: "Calc",
+            code: "KC_CALC",
+            title: "Calculator"
+        }]
+    }, {
+        id: "dks",
+        label: "FN KEY",
+        width: "label",
+        keycodes: [{
+            name: "My Computer",
+            code: "KC_MYCM",
+            title: "My Computer"
+        }, {
+            name: "Web",
+            code: "KC_WWW_HOME",
+            title: "Web browser"
+        }, {
+            name: "Mail",
+            code: "KC_MAIL",
+            title: "Mail"
+        }, {
+            name: "Media Player",
+            code: "KC_MSEL",
+            title: "Media Player"
+        }, {
+            name: "Media Prev",
+            code: "KC_MPRV",
+            title: "Media Prev"
+        }, {
+            name: "Media Next",
+            code: "KC_MNXT",
+            title: "Media Next"
+        }, {
+            name: "Play Pause",
+            code: "KC_MPLY",
+            title: "Play Pause"
+        }, {
+            name: "Media Stop",
+            code: "KC_MSTP",
+            title: "Media Stop"
+        }, {
+            name: "Vol +",
+            code: "KC_VOLU",
+            title: "Vol +"
+        }, {
+            name: "Vol -",
+            code: "KC_VOLD",
+            title: "Vol -"
+        }, {
+            name: "Mute",
+            code: "KC_MUTE",
+            title: "Mute"
+        }, {
+            name: "Calc",
+            code: "KC_CALC",
+            title: "Calculator"
+        }, {
+            name: "DKS",
+            code: "CC_DKS",
+            title: "Dynamic Keystroke"
+        }, {
+            name: "Win Lock",
+            code: "CC_Winlock",
+            title: "Winlock"
+        }, {
+            name: "Led On Off",
+            code: "CC_LedOnOff",
+            title: "LedOnOff"
+        }, {
+            name: "Active BG",
+            code: "CC_ActiveBackground",
+            title: "Active BackGround"
+        }, {
+            name: "Static BG",
+            code: "CC_StaticBackground",
+            title: "Static BackGround"
+        }, {
+            name: "Key Effect",
+            code: "CC_KeyEffect",
+            title: "Key Effect"
+        }, {
+            name: "Breath",
+            code: "CC_Breath",
+            title: "Breath"
+        }, {
+            name: "Bright Up",
+            code: "CC_BrightUp",
+            title: "Bright Up"
+        }, {
+            name: "Bright Down",
+            code: "CC_BrightDown",
+            title: "Bright Down"
+        }, {
+            name: "Speed Up",
+            code: "CC_SpeedUp",
+            title: "Speed Up"
+        }, {
+            name: "Speed Down",
+            code: "CC_SpeedDn",
+            title: "Speed Down"
+        }, {
+            name: "Direct LTOR",
+            code: "CC_Direction_LTOR",
+            title: "Direction LTOR"
+        }, {
+            name: "Direct RTOR",
+            code: "CC_Direction_RTOL",
+            title: "Direction RTOR"
+        }, {
+            name: "Key lock",
+            code: "CC_Keylock",
+            title: "Keylock"
+        }, {
+            name: "Suspend",
+            code: "CC_Suspend",
+            title: "Suspend"
+        }, {
+            name: "Screen Lock",
+            code: "CC_ScreenLock",
+            title: "ScreenLock"
+        }, {
+            name: "Project",
+            code: "CC_Project",
+            title: "Project"
+        }]
+    }, {
+        id: "gamepad",
+        label: "GAMEPAD",
+        width: "label",
+        keycodes: [{
+            name: "Gamepad L Left",
+            code: "CC_L_Left",
+            title: "Gamepad L Left"
+        }, {
+            name: "Gamepad L Right",
+            code: "CC_L_Right",
+            title: "Gamepad L Right"
+        }, {
+            name: "Gamepad L Up",
+            code: "CC_L_Up",
+            title: "Gamepad L Up"
+        }, {
+            name: "Gamepad L Down",
+            code: "CC_L_Down",
+            title: "Gamepad L Down"
+        }, {
+            name: "Gamepad Z Up",
+            code: "CC_Z_Up",
+            title: "Gamepad Z Up"
+        }, {
+            name: "Gamepad Z Down",
+            code: "CC_Z_Down",
+            title: "Gamepad Z Down"
+        }, {
+            name: "Gamepad R Left",
+            code: "CC_R_Left",
+            title: "Gamepad R Left"
+        }, {
+            name: "Gamepad R Right",
+            code: "CC_R_Right",
+            title: "Gamepad R Right"
+        }, {
+            name: "Gamepad R Up",
+            code: "CC_R_Up",
+            title: "Gamepad R Up"
+        }, {
+            name: "Gamepad R Down",
+            code: "CC_R_Down",
+            title: "Gamepad R Down"
+        }, {
+            name: "Gamepad Button A",
+            code: "CC_B_A",
+            title: "Gamepad Button A"
+        }, {
+            name: "Gamepad Button B",
+            code: "CC_B_B",
+            title: "Gamepad Button B"
+        }, {
+            name: "Gamepad Button X",
+            code: "CC_B_X",
+            title: "Gamepad Button X"
+        }, {
+            name: "Gamepad Button Y",
+            code: "CC_B_Y",
+            title: "Gamepad Button Y"
+        }, {
+            name: "Gamepad Button Left",
+            code: "CC_B_Left",
+            title: "Gamepad Button Left"
+        }, {
+            name: "Gamepad Button Right",
+            code: "CC_B_Right",
+            title: "Gamepad Button Right"
+        }, {
+            name: "Gamepad Button LB",
+            code: "CC_B_LB",
+            title: "Gamepad Button LB"
+        }, {
+            name: "Gamepad Button RB",
+            code: "CC_B_RB",
+            title: "Gamepad Button RB"
+        }, {
+            name: "Gamepad Hat Left",
+            code: "CC_Hat_Left",
+            title: "Gamepad Hat Left"
+        }, {
+            name: "Gamepad Hat Right",
+            code: "CC_Hat_Right",
+            title: "Gamepad Hat Right"
+        }, {
+            name: "Gamepad Hat Up",
+            code: "CC_Hat_Up",
+            title: "Gamepad Hat Up"
+        }, {
+            name: "Gamepad Hat Down",
+            code: "CC_Hat_Down",
+            title: "Gamepad Hat Down"
+        }]
+    }, {
+        id: "macro",
+        label: "Macro",
+        width: "label",
+        keycodes: [{
+            name: "M0",
+            code: "MACRO(0)",
+            title: "Macro 0"
+        }, {
+            name: "M1",
+            code: "MACRO(1)",
+            title: "Macro 1"
+        }, {
+            name: "M2",
+            code: "MACRO(2)",
+            title: "Macro 2"
+        }, {
+            name: "M3",
+            code: "MACRO(3)",
+            title: "Macro 3"
+        }, {
+            name: "M4",
+            code: "MACRO(4)",
+            title: "Macro 4"
+        }, {
+            name: "M5",
+            code: "MACRO(5)",
+            title: "Macro 5"
+        }, {
+            name: "M6",
+            code: "MACRO(6)",
+            title: "Macro 6"
+        }, {
+            name: "M7",
+            code: "MACRO(7)",
+            title: "Macro 7"
+        }, {
+            name: "M8",
+            code: "MACRO(8)",
+            title: "Macro 8"
+        }, {
+            name: "M9",
+            code: "MACRO(9)",
+            title: "Macro 9"
+        }, {
+            name: "M10",
+            code: "MACRO(10)",
+            title: "Macro 10"
+        }, {
+            name: "M11",
+            code: "MACRO(11)",
+            title: "Macro 11"
+        }, {
+            name: "M12",
+            code: "MACRO(12)",
+            title: "Macro 12"
+        }, {
+            name: "M13",
+            code: "MACRO(13)",
+            title: "Macro 13"
+        }, {
+            name: "M14",
+            code: "MACRO(14)",
+            title: "Macro 14"
+        }, {
+            name: "M15",
+            code: "MACRO(15)",
+            title: "Macro 15"
+        }]
+    }, Zd(), {
+        id: "mouse",
+        label: "Mouse",
+        width: "label",
+        keycodes: [{
+            name: "Mouse ↑",
+            code: "KC_MS_UP"
+        }, {
+            name: "Mouse ↓",
+            code: "KC_MS_DOWN"
+        }, {
+            name: "Mouse ←",
+            code: "KC_MS_LEFT"
+        }, {
+            name: "Mouse →",
+            code: "KC_MS_RIGHT"
+        }, {
+            name: "Mouse Btn1",
+            code: "KC_MS_BTN1"
+        }, {
+            name: "Mouse Btn2",
+            code: "KC_MS_BTN2"
+        }, {
+            name: "Mouse Btn3",
+            code: "KC_MS_BTN3"
+        }, {
+            name: "Mouse Btn4",
+            code: "KC_MS_BTN4"
+        }, {
+            name: "Mouse Btn5",
+            code: "KC_MS_BTN5"
+        }, {
+            name: "Mouse Wh ↑",
+            code: "KC_MS_WH_UP"
+        }, {
+            name: "Mouse Wh ↓",
+            code: "KC_MS_WH_DOWN"
+        }, {
+            name: "Mouse Wh ←",
+            code: "KC_MS_WH_LEFT"
+        }, {
+            name: "Mouse Wh →",
+            code: "KC_MS_WH_RIGHT"
+        }]
+    }, {
+        id: "qmk_lighting",
+        label: "Lighting",
+        width: "label",
+        keycodes: [{
+            name: "BL Toggle",
+            code: "BL_TOGG"
+        }, {
+            name: "BL On",
+            code: "BL_ON"
+        }, {
+            name: "BL Off",
+            code: "BL_OFF",
+            shortName: "BL Off"
+        }, {
+            name: "BL -",
+            code: "BL_DEC"
+        }, {
+            name: "BL +",
+            code: "BL_INC"
+        }, {
+            name: "BL Cycle",
+            code: "BL_STEP"
+        }, {
+            name: "BR Toggle",
+            code: "BL_BRTG"
+        }, {
+            name: "RGB Toggle",
+            code: "RGB_TOG"
+        }, {
+            name: "RGB Mode -",
+            code: "RGB_RMOD"
+        }, {
+            name: "RGB Mode +",
+            code: "RGB_MOD"
+        }, {
+            name: "Hue -",
+            code: "RGB_HUD"
+        }, {
+            name: "Hue +",
+            code: "RGB_HUI"
+        }, {
+            name: "Sat -",
+            code: "RGB_SAD"
+        }, {
+            name: "Sat +",
+            code: "RGB_SAI"
+        }, {
+            name: "Bright -",
+            code: "RGB_VAD"
+        }, {
+            name: "Bright +",
+            code: "RGB_VAI"
+        }, {
+            name: "Effect Speed-",
+            code: "RGB_SPD"
+        }, {
+            name: "Effect Speed+",
+            code: "RGB_SPI"
+        }, {
+            name: "RGB Mode P",
+            code: "RGB_M_P",
+            title: "Plain"
+        }, {
+            name: "RGB Mode B",
+            code: "RGB_M_B",
+            title: "Breathe"
+        }, {
+            name: "RGB Mode R",
+            code: "RGB_M_R",
+            title: "Rainbow"
+        }, {
+            name: "RGB Mode SW",
+            code: "RGB_M_SW",
+            title: "Swirl"
+        }, {
+            name: "RGB Mode SN",
+            code: "RGB_M_SN",
+            title: "Snake"
+        }, {
+            name: "RGB Mode K",
+            code: "RGB_M_K",
+            title: "Knight"
+        }, {
+            name: "RGB Mode X",
+            code: "RGB_M_X",
+            title: "Xmas"
+        }, {
+            name: "RGB Mode G",
+            code: "RGB_M_G",
+            title: "Gradient"
+        }]
+    }, {
+        id: "custom",
+        label: "Custom",
+        width: "label",
+        keycodes: [{
+            name: "CUSTOM(0)",
+            code: "CUSTOM(0)",
+            title: "Custom Keycode 0"
+        }, {
+            name: "CUSTOM(1)",
+            code: "CUSTOM(1)",
+            title: "Custom Keycode 1"
+        }, {
+            name: "CUSTOM(2)",
+            code: "CUSTOM(2)",
+            title: "Custom Keycode 2"
+        }, {
+            name: "CUSTOM(3)",
+            code: "CUSTOM(3)",
+            title: "Custom Keycode 3"
+        }, {
+            name: "CUSTOM(4)",
+            code: "CUSTOM(4)",
+            title: "Custom Keycode 4"
+        }, {
+            name: "CUSTOM(5)",
+            code: "CUSTOM(5)",
+            title: "Custom Keycode 5"
+        }, {
+            name: "CUSTOM(6)",
+            code: "CUSTOM(6)",
+            title: "Custom Keycode 6"
+        }, {
+            name: "CUSTOM(7)",
+            code: "CUSTOM(7)",
+            title: "Custom Keycode 7"
+        }, {
+            name: "CUSTOM(8)",
+            code: "CUSTOM(8)",
+            title: "Custom Keycode 8"
+        }, {
+            name: "CUSTOM(9)",
+            code: "CUSTOM(9)",
+            title: "Custom Keycode 9"
+        }, {
+            name: "CUSTOM(10)",
+            code: "CUSTOM(10)",
+            title: "Custom Keycode 10"
+        }, {
+            name: "CUSTOM(11)",
+            code: "CUSTOM(11)",
+            title: "Custom Keycode 11"
+        }, {
+            name: "CUSTOM(12)",
+            code: "CUSTOM(12)",
+            title: "Custom Keycode 12"
+        }, {
+            name: "CUSTOM(13)",
+            code: "CUSTOM(13)",
+            title: "Custom Keycode 13"
+        }, {
+            name: "CUSTOM(14)",
+            code: "CUSTOM(14)",
+            title: "Custom Keycode 14"
+        }, {
+            name: "CUSTOM(15)",
+            code: "CUSTOM(15)",
+            title: "Custom Keycode 15"
+        }]
+    }]
+}
+
+function mc() {
+    return [{
+        id: "basic",
+        label: "Basic",
+        keycodes: [{
+            name: "",
+            code: "KC_NO",
+            title: "Nothing"
+        }, {
+            name: "▽",
+            code: "KC_TRNS",
+            title: "Pass-through"
+        }, {
+            name: "ESC",
+            code: "KC_ESC",
+            keys: "esc"
+        }, {
+            name: `A
+ㅁ`,
+            code: "KC_A",
+            keys: "a"
+        }, {
+            name: `B
+ㅠ`,
+            code: "KC_B",
+            keys: "b"
+        }, {
+            name: `C
+ㅊ`,
+            code: "KC_C",
+            keys: "c"
+        }, {
+            name: `D
+ㅇ`,
+            code: "KC_D",
+            keys: "d"
+        }, {
+            name: `E
+ㄷ`,
+            code: "KC_E",
+            keys: "e"
+        }, {
+            name: `F
+ㄹ`,
+            code: "KC_F",
+            keys: "f"
+        }, {
+            name: `G
+ㅎ`,
+            code: "KC_G",
+            keys: "g"
+        }, {
+            name: `H
+ㅗ`,
+            code: "KC_H",
+            keys: "h"
+        }, {
+            name: `I
+ㅑ`,
+            code: "KC_I",
+            keys: "i"
+        }, {
+            name: `J
+ㅓ`,
+            code: "KC_J",
+            keys: "j"
+        }, {
+            name: `K
+ㅏ`,
+            code: "KC_K",
+            keys: "k"
+        }, {
+            name: `L
+ㅣ`,
+            code: "KC_L",
+            keys: "l"
+        }, {
+            name: `M
+ㅡ`,
+            code: "KC_M",
+            keys: "m"
+        }, {
+            name: `N
+ㅜ`,
+            code: "KC_N",
+            keys: "n"
+        }, {
+            name: `O
+ㅐ`,
+            code: "KC_O",
+            keys: "o"
+        }, {
+            name: `P
+ㅔ`,
+            code: "KC_P",
+            keys: "p"
+        }, {
+            name: `Q
+ㅂ`,
+            code: "KC_Q",
+            keys: "q"
+        }, {
+            name: `R
+ㄱ`,
+            code: "KC_R",
+            keys: "r"
+        }, {
+            name: `S
+ㄴ`,
+            code: "KC_S",
+            keys: "s"
+        }, {
+            name: `T
+ㅅ`,
+            code: "KC_T",
+            keys: "t"
+        }, {
+            name: `U
+ㅕ`,
+            code: "KC_U",
+            keys: "u"
+        }, {
+            name: `V
+ㅍ`,
+            code: "KC_V",
+            keys: "v"
+        }, {
+            name: `W
+ㅈ`,
+            code: "KC_W",
+            keys: "w"
+        }, {
+            name: `X
+ㅌ`,
+            code: "KC_X",
+            keys: "x"
+        }, {
+            name: `Y
+ㅛ`,
+            code: "KC_Y",
+            keys: "y"
+        }, {
+            name: `Z
+ㅋ`,
+            code: "KC_Z",
+            keys: "z"
+        }, {
+            name: `!
+1`,
+            code: "KC_1",
+            keys: "1"
+        }, {
+            name: `@
+2`,
+            code: "KC_2",
+            keys: "2"
+        }, {
+            name: `#
+3`,
+            code: "KC_3",
+            keys: "3"
+        }, {
+            name: `$
+4`,
+            code: "KC_4",
+            keys: "4"
+        }, {
+            name: `%
+5`,
+            code: "KC_5",
+            keys: "5"
+        }, {
+            name: `^
+6`,
+            code: "KC_6",
+            keys: "6"
+        }, {
+            name: `&
+7`,
+            code: "KC_7",
+            keys: "7"
+        }, {
+            name: `*
+8`,
+            code: "KC_8",
+            keys: "8"
+        }, {
+            name: `(
+9`,
+            code: "KC_9",
+            keys: "9"
+        }, {
+            name: `)
+0`,
+            code: "KC_0",
+            keys: "0"
+        }, {
+            name: `_
+-`,
+            code: "KC_MINS",
+            keys: "-"
+        }, {
+            name: `+
+=`,
+            code: "KC_EQL",
+            keys: "="
+        }, {
+            name: "~\n`",
+            code: "KC_GRV",
+            keys: "`"
+        }, {
+            name: `{
+[`,
+            code: "KC_LBRC",
+            keys: "["
+        }, {
+            name: `}
+]`,
+            code: "KC_RBRC",
+            keys: "]"
+        }, {
+            name: `|
+\\`,
+            code: "KC_BSLS",
+            keys: "\\",
+            width: 1500
+        }, {
+            name: `:
+;`,
+            code: "KC_SCLN",
+            keys: ";"
+        }, {
+            name: `"
+'`,
+            code: "KC_QUOT",
+            keys: "'"
+        }, {
+            name: `<
+,`,
+            code: "KC_COMM",
+            keys: ","
+        }, {
+            name: `>
+.`,
+            code: "KC_DOT",
+            keys: "."
+        }, {
+            name: `?
+/`,
+            code: "KC_SLSH",
+            keys: "/"
+        }, {
+            name: "=",
+            code: "KC_PEQL"
+        }, {
+            name: ",",
+            code: "KC_PCMM"
+        }, {
+            name: "F1",
+            code: "KC_F1"
+        }, {
+            name: "F2",
+            code: "KC_F2"
+        }, {
+            name: "F3",
+            code: "KC_F3"
+        }, {
+            name: "F4",
+            code: "KC_F4"
+        }, {
+            name: "F5",
+            code: "KC_F5"
+        }, {
+            name: "F6",
+            code: "KC_F6"
+        }, {
+            name: "F7",
+            code: "KC_F7"
+        }, {
+            name: "F8",
+            code: "KC_F8"
+        }, {
+            name: "F9",
+            code: "KC_F9"
+        }, {
+            name: "F10",
+            code: "KC_F10"
+        }, {
+            name: "F11",
+            code: "KC_F11"
+        }, {
+            name: "F12",
+            code: "KC_F12"
+        }, {
+            name: "Print Screen",
+            code: "KC_PSCR",
+            shortName: "PRTSC"
+        }, {
+            name: "Scroll Lock",
+            code: "KC_SLCK",
+            shortName: "SCRLK"
+        }, {
+            name: "PAUSE",
+            code: "KC_PAUS"
+        }, {
+            name: "TAB",
+            code: "KC_TAB",
+            keys: "tab",
+            width: 1500
+        }, {
+            name: "← BACKSPACE",
+            code: "KC_BSPC",
+            keys: "backspace",
+            width: 2e3,
+            shortName: "Bksp"
+        }, {
+            name: "Insert",
+            code: "KC_INS",
+            keys: "insert",
+            shortName: "INSERT"
+        }, {
+            name: "DEL",
+            code: "KC_DEL",
+            keys: "delete"
+        }, {
+            name: "HOME",
+            code: "KC_HOME",
+            keys: "home"
+        }, {
+            name: "END",
+            code: "KC_END",
+            keys: "end"
+        }, {
+            name: "Page Up",
+            code: "KC_PGUP",
+            keys: "pageup",
+            shortName: "PGUP"
+        }, {
+            name: "Page Down",
+            code: "KC_PGDN",
+            keys: "pagedown",
+            shortName: "PGDN"
+        }, {
+            name: `Num
+Lock`,
+            code: "KC_NLCK",
+            keys: "num",
+            shortName: "NLOCK"
+        }, {
+            name: "CAPS LOCK",
+            code: "KC_CAPS",
+            keys: "caps_lock",
+            width: 1750
+        }, {
+            name: "↵ ENTER",
+            code: "KC_ENT",
+            keys: "enter",
+            width: 2250
+        }, {
+            name: "1",
+            code: "KC_P1",
+            keys: "num_1",
+            title: "Numpad 1"
+        }, {
+            name: "2",
+            code: "KC_P2",
+            keys: "num_2",
+            title: "Numpad 2"
+        }, {
+            name: "3",
+            code: "KC_P3",
+            keys: "num_3",
+            title: "Numpad 3"
+        }, {
+            name: "4",
+            code: "KC_P4",
+            keys: "num_4",
+            title: "Numpad 4"
+        }, {
+            name: "5",
+            code: "KC_P5",
+            keys: "num_5",
+            title: "Numpad 5"
+        }, {
+            name: "6",
+            code: "KC_P6",
+            keys: "num_6",
+            title: "Numpad 6"
+        }, {
+            name: "7",
+            code: "KC_P7",
+            keys: "num_7",
+            title: "Numpad 7"
+        }, {
+            name: "8",
+            code: "KC_P8",
+            keys: "num_8",
+            title: "Numpad 8"
+        }, {
+            name: "9",
+            code: "KC_P9",
+            keys: "num_9",
+            title: "Numpad 9"
+        }, {
+            name: "0",
+            code: "KC_P0",
+            width: 2e3,
+            keys: "num_0",
+            title: "Numpad 0"
+        }, {
+            name: "/",
+            code: "KC_PSLS",
+            keys: "num_divide",
+            title: "Numpad ÷"
+        }, {
+            name: "×",
+            code: "KC_PAST",
+            keys: "num_multiply",
+            title: "Numpad ×"
+        }, {
+            name: "-",
+            code: "KC_PMNS",
+            keys: "num_subtract",
+            title: "Numpad -"
+        }, {
+            name: "+",
+            code: "KC_PPLS",
+            keys: "num_add",
+            title: "Numpad +"
+        }, {
+            name: ".",
+            code: "KC_PDOT",
+            keys: "num_decimal",
+            title: "Numpad ."
+        }, {
+            name: `Num
+Enter`,
+            code: "KC_PENT",
+            shortName: "ENTER↵",
+            title: "Numpad Enter"
+        }, {
+            name: "↑ SHIFT",
+            code: "KC_LSFT",
+            keys: "shift",
+            width: 2250,
+            shortName: "↑ SHIFT"
+        }, {
+            name: "SHIFT ↑",
+            code: "KC_RSFT",
+            width: 2750,
+            shortName: "SHIFT ↑"
+        }, {
+            name: "Left Ctrl",
+            code: "KC_LCTL",
+            keys: "ctrl",
+            width: 1250,
+            shortName: "CTRL"
+        }, {
+            name: "Right Ctrl",
+            code: "KC_RCTL",
+            width: 1250,
+            shortName: "CTRL"
+        }, {
+            name: "Left Win",
+            code: "KC_LGUI",
+            keys: "cmd",
+            width: 1250,
+            shortName: "WIN"
+        }, {
+            name: "Right Win",
+            code: "KC_RGUI",
+            width: 1250,
+            shortName: "WIN"
+        }, {
+            name: "Left Alt",
+            code: "KC_LALT",
+            keys: "alt",
+            width: 1250,
+            shortName: "ALT"
+        }, {
+            name: "Right Alt",
+            code: "KC_RALT",
+            width: 1250,
+            shortName: "ALT"
+        }, {
+            name: "SPACE",
+            code: "KC_SPC",
+            keys: "space",
+            width: 6250
+        }, {
+            name: "Menu",
+            code: "KC_APP",
+            width: 1250,
+            shortName: "MENU"
+        }, {
+            name: "Left",
+            code: "KC_LEFT",
+            keys: "left",
+            shortName: "←"
+        }, {
+            name: "Down",
+            code: "KC_DOWN",
+            keys: "down",
+            shortName: "↓"
+        }, {
+            name: "Up",
+            code: "KC_UP",
+            keys: "up",
+            shortName: "↑"
+        }, {
+            name: "Right",
+            code: "KC_RGHT",
+            keys: "right",
+            shortName: "→"
+        }]
+    }, {
+        id: "wt_lighting",
+        label: "Lighting",
+        width: "label",
+        keycodes: [{
+            name: "Bright -",
+            code: "BR_DEC",
+            title: "Brightness -",
+            shortName: "BR -"
+        }, {
+            name: "Bright +",
+            code: "BR_INC",
+            title: "Brightness +",
+            shortName: "BR +"
+        }, {
+            name: "Effect -",
+            code: "EF_DEC",
+            title: "Effect -",
+            shortName: "EF -"
+        }, {
+            name: "Effect +",
+            code: "EF_INC",
+            title: "Effect +",
+            shortName: "EF +"
+        }, {
+            name: "Effect Speed -",
+            code: "ES_DEC",
+            title: "Effect Speed -",
+            shortName: "ES -"
+        }, {
+            name: "Effect Speed +",
+            code: "ES_INC",
+            title: "Effect Speed +",
+            shortName: "ES +"
+        }, {
+            name: "Color1 Hue -",
+            code: "H1_DEC",
+            title: "Color1 Hue -",
+            shortName: "H1 -"
+        }, {
+            name: "Color1 Hue +",
+            code: "H1_INC",
+            title: "Color1 Hue +",
+            shortName: "H1 +"
+        }, {
+            name: "Color2 Hue -",
+            code: "H2_DEC",
+            title: "Color2 Hue -",
+            shortName: "H2 -"
+        }, {
+            name: "Color2 Hue +",
+            code: "H2_INC",
+            title: "Color2 Hue +",
+            shortName: "H2 +"
+        }, {
+            name: "Color1 Sat -",
+            code: "S1_DEC",
+            title: "Color1 Sat -",
+            shortName: "S1 -"
+        }, {
+            name: "Color1 Sat +",
+            code: "S1_INC",
+            title: "Color1 Sat +",
+            shortName: "S1 +"
+        }, {
+            name: "Color2 Sat -",
+            code: "S2_DEC",
+            title: "Color2 Sat -",
+            shortName: "S2 -"
+        }, {
+            name: "Color2 Sat +",
+            code: "S2_INC",
+            title: "Color2 Sat +",
+            shortName: "S2 +"
+        }]
+    }, {
+        id: "media",
+        label: "Media",
+        width: "label",
+        keycodes: [{
+            name: "VOL -",
+            code: "KC_VOLD",
+            title: "Volume Down"
+        }, {
+            name: "VOL +",
+            code: "KC_VOLU",
+            title: "Volume Up"
+        }, {
+            name: "MUTE",
+            code: "KC_MUTE",
+            title: "Mute Audio"
+        }, {
+            name: "PLAY",
+            code: "KC_MPLY",
+            title: "Play/Pause"
+        }, {
+            name: "Media Stop",
+            code: "KC_MSTP",
+            title: "Media Stop"
+        }, {
+            name: "Previous",
+            code: "KC_MPRV",
+            title: "Media Previous"
+        }, {
+            name: "Next",
+            code: "KC_MNXT",
+            title: "Media Next"
+        }, {
+            name: "Calc",
+            code: "KC_CALC",
+            title: "Calculator"
+        }]
+    }, {
+        id: "dks",
+        label: "FN KEY",
+        width: "label",
+        keycodes: [{
+            name: "My Computer",
+            code: "KC_MYCM",
+            title: "My Computer"
+        }, {
+            name: "Web",
+            code: "KC_WWW_HOME",
+            title: "Web browser"
+        }, {
+            name: "Mail",
+            code: "KC_MAIL",
+            title: "Mail"
+        }, {
+            name: "Media Player",
+            code: "KC_MSEL",
+            title: "Media Player"
+        }, {
+            name: "Media Prev",
+            code: "KC_MPRV",
+            title: "Media Prev"
+        }, {
+            name: "Media Next",
+            code: "KC_MNXT",
+            title: "Media Next"
+        }, {
+            name: "Play Pause",
+            code: "KC_MPLY",
+            title: "Play Pause"
+        }, {
+            name: "Media Stop",
+            code: "KC_MSTP",
+            title: "Media Stop"
+        }, {
+            name: "Vol +",
+            code: "KC_VOLU",
+            title: "Vol +"
+        }, {
+            name: "Vol -",
+            code: "KC_VOLD",
+            title: "Vol -"
+        }, {
+            name: "Mute",
+            code: "KC_MUTE",
+            title: "Mute"
+        }, {
+            name: "Calc",
+            code: "KC_CALC",
+            title: "Calculator"
+        }, {
+            name: "DKS",
+            code: "CC_DKS",
+            title: "Dynamic Keystroke"
+        }, {
+            name: "Win Lock",
+            code: "CC_Winlock",
+            title: "Winlock"
+        }, {
+            name: "Led On Off",
+            code: "CC_LedOnOff",
+            title: "LedOnOff"
+        }, {
+            name: "Active BG",
+            code: "CC_ActiveBackground",
+            title: "Active BackGround"
+        }, {
+            name: "Static BG",
+            code: "CC_StaticBackground",
+            title: "Static BackGround"
+        }, {
+            name: "Key Effect",
+            code: "CC_KeyEffect",
+            title: "Key Effect"
+        }, {
+            name: "Breath",
+            code: "CC_Breath",
+            title: "Breath"
+        }, {
+            name: "Bright Up",
+            code: "CC_BrightUp",
+            title: "Bright Up"
+        }, {
+            name: "Bright Down",
+            code: "CC_BrightDown",
+            title: "Bright Down"
+        }, {
+            name: "Speed Up",
+            code: "CC_SpeedUp",
+            title: "Speed Up"
+        }, {
+            name: "Speed Down",
+            code: "CC_SpeedDn",
+            title: "Speed Down"
+        }, {
+            name: "Direct LTOR",
+            code: "CC_Direction_LTOR",
+            title: "Direction LTOR"
+        }, {
+            name: "Direct RTOR",
+            code: "CC_Direction_RTOL",
+            title: "Direction RTOR"
+        }, {
+            name: "Key lock",
+            code: "CC_Keylock",
+            title: "Keylock"
+        }, {
+            name: "Suspend",
+            code: "CC_Suspend",
+            title: "Suspend"
+        }, {
+            name: "Screen Lock",
+            code: "CC_ScreenLock",
+            title: "ScreenLock"
+        }, {
+            name: "Project",
+            code: "CC_Project",
+            title: "Project"
+        }]
+    }, {
+        id: "gamepad",
+        label: "GAMEPAD",
+        width: "label",
+        keycodes: [{
+            name: "Gamepad L Left",
+            code: "CC_L_Left",
+            title: "Gamepad L Left"
+        }, {
+            name: "Gamepad L Right",
+            code: "CC_L_Right",
+            title: "Gamepad L Right"
+        }, {
+            name: "Gamepad L Up",
+            code: "CC_L_Up",
+            title: "Gamepad L Up"
+        }, {
+            name: "Gamepad L Down",
+            code: "CC_L_Down",
+            title: "Gamepad L Down"
+        }, {
+            name: "Gamepad Z Up",
+            code: "CC_Z_Up",
+            title: "Gamepad Z Up"
+        }, {
+            name: "Gamepad Z Down",
+            code: "CC_Z_Down",
+            title: "Gamepad Z Down"
+        }, {
+            name: "Gamepad R Left",
+            code: "CC_R_Left",
+            title: "Gamepad R Left"
+        }, {
+            name: "Gamepad R Right",
+            code: "CC_R_Right",
+            title: "Gamepad R Right"
+        }, {
+            name: "Gamepad R Up",
+            code: "CC_R_Up",
+            title: "Gamepad R Up"
+        }, {
+            name: "Gamepad R Down",
+            code: "CC_R_Down",
+            title: "Gamepad R Down"
+        }, {
+            name: "Gamepad Button A",
+            code: "CC_B_A",
+            title: "Gamepad Button A"
+        }, {
+            name: "Gamepad Button B",
+            code: "CC_B_B",
+            title: "Gamepad Button B"
+        }, {
+            name: "Gamepad Button X",
+            code: "CC_B_X",
+            title: "Gamepad Button X"
+        }, {
+            name: "Gamepad Button Y",
+            code: "CC_B_Y",
+            title: "Gamepad Button Y"
+        }, {
+            name: "Gamepad Button Left",
+            code: "CC_B_Left",
+            title: "Gamepad Button Left"
+        }, {
+            name: "Gamepad Button Right",
+            code: "CC_B_Right",
+            title: "Gamepad Button Right"
+        }, {
+            name: "Gamepad Button LB",
+            code: "CC_B_LB",
+            title: "Gamepad Button LB"
+        }, {
+            name: "Gamepad Button RB",
+            code: "CC_B_RB",
+            title: "Gamepad Button RB"
+        }, {
+            name: "Gamepad Hat Left",
+            code: "CC_Hat_Left",
+            title: "Gamepad Hat Left"
+        }, {
+            name: "Gamepad Hat Right",
+            code: "CC_Hat_Right",
+            title: "Gamepad Hat Right"
+        }, {
+            name: "Gamepad Hat Up",
+            code: "CC_Hat_Up",
+            title: "Gamepad Hat Up"
+        }, {
+            name: "Gamepad Hat Down",
+            code: "CC_Hat_Down",
+            title: "Gamepad Hat Down"
+        }]
+    }, {
+        id: "macro",
+        label: "Macro",
+        width: "label",
+        keycodes: [{
+            name: "M0",
+            code: "MACRO(0)",
+            title: "Macro 0"
+        }, {
+            name: "M1",
+            code: "MACRO(1)",
+            title: "Macro 1"
+        }, {
+            name: "M2",
+            code: "MACRO(2)",
+            title: "Macro 2"
+        }, {
+            name: "M3",
+            code: "MACRO(3)",
+            title: "Macro 3"
+        }, {
+            name: "M4",
+            code: "MACRO(4)",
+            title: "Macro 4"
+        }, {
+            name: "M5",
+            code: "MACRO(5)",
+            title: "Macro 5"
+        }, {
+            name: "M6",
+            code: "MACRO(6)",
+            title: "Macro 6"
+        }, {
+            name: "M7",
+            code: "MACRO(7)",
+            title: "Macro 7"
+        }, {
+            name: "M8",
+            code: "MACRO(8)",
+            title: "Macro 8"
+        }, {
+            name: "M9",
+            code: "MACRO(9)",
+            title: "Macro 9"
+        }, {
+            name: "M10",
+            code: "MACRO(10)",
+            title: "Macro 10"
+        }, {
+            name: "M11",
+            code: "MACRO(11)",
+            title: "Macro 11"
+        }, {
+            name: "M12",
+            code: "MACRO(12)",
+            title: "Macro 12"
+        }, {
+            name: "M13",
+            code: "MACRO(13)",
+            title: "Macro 13"
+        }, {
+            name: "M14",
+            code: "MACRO(14)",
+            title: "Macro 14"
+        }, {
+            name: "M15",
+            code: "MACRO(15)",
+            title: "Macro 15"
+        }]
+    }, Zd(), {
+        id: "mouse",
+        label: "Mouse",
+        width: "label",
+        keycodes: [{
+            name: "Mouse ↑",
+            code: "KC_MS_UP"
+        }, {
+            name: "Mouse ↓",
+            code: "KC_MS_DOWN"
+        }, {
+            name: "Mouse ←",
+            code: "KC_MS_LEFT"
+        }, {
+            name: "Mouse →",
+            code: "KC_MS_RIGHT"
+        }, {
+            name: "Mouse Btn1",
+            code: "KC_MS_BTN1"
+        }, {
+            name: "Mouse Btn2",
+            code: "KC_MS_BTN2"
+        }, {
+            name: "Mouse Btn3",
+            code: "KC_MS_BTN3"
+        }, {
+            name: "Mouse Btn4",
+            code: "KC_MS_BTN4"
+        }, {
+            name: "Mouse Btn5",
+            code: "KC_MS_BTN5"
+        }, {
+            name: "Mouse Wh ↑",
+            code: "KC_MS_WH_UP"
+        }, {
+            name: "Mouse Wh ↓",
+            code: "KC_MS_WH_DOWN"
+        }, {
+            name: "Mouse Wh ←",
+            code: "KC_MS_WH_LEFT"
+        }, {
+            name: "Mouse Wh →",
+            code: "KC_MS_WH_RIGHT"
+        }]
+    }, {
+        id: "qmk_lighting",
+        label: "Lighting",
+        width: "label",
+        keycodes: [{
+            name: "BL Toggle",
+            code: "BL_TOGG"
+        }, {
+            name: "BL On",
+            code: "BL_ON"
+        }, {
+            name: "BL Off",
+            code: "BL_OFF",
+            shortName: "BL Off"
+        }, {
+            name: "BL -",
+            code: "BL_DEC"
+        }, {
+            name: "BL +",
+            code: "BL_INC"
+        }, {
+            name: "BL Cycle",
+            code: "BL_STEP"
+        }, {
+            name: "BR Toggle",
+            code: "BL_BRTG"
+        }, {
+            name: "RGB Toggle",
+            code: "RGB_TOG"
+        }, {
+            name: "RGB Mode -",
+            code: "RGB_RMOD"
+        }, {
+            name: "RGB Mode +",
+            code: "RGB_MOD"
+        }, {
+            name: "Hue -",
+            code: "RGB_HUD"
+        }, {
+            name: "Hue +",
+            code: "RGB_HUI"
+        }, {
+            name: "Sat -",
+            code: "RGB_SAD"
+        }, {
+            name: "Sat +",
+            code: "RGB_SAI"
+        }, {
+            name: "Bright -",
+            code: "RGB_VAD"
+        }, {
+            name: "Bright +",
+            code: "RGB_VAI"
+        }, {
+            name: "Effect Speed-",
+            code: "RGB_SPD"
+        }, {
+            name: "Effect Speed+",
+            code: "RGB_SPI"
+        }, {
+            name: "RGB Mode P",
+            code: "RGB_M_P",
+            title: "Plain"
+        }, {
+            name: "RGB Mode B",
+            code: "RGB_M_B",
+            title: "Breathe"
+        }, {
+            name: "RGB Mode R",
+            code: "RGB_M_R",
+            title: "Rainbow"
+        }, {
+            name: "RGB Mode SW",
+            code: "RGB_M_SW",
+            title: "Swirl"
+        }, {
+            name: "RGB Mode SN",
+            code: "RGB_M_SN",
+            title: "Snake"
+        }, {
+            name: "RGB Mode K",
+            code: "RGB_M_K",
+            title: "Knight"
+        }, {
+            name: "RGB Mode X",
+            code: "RGB_M_X",
+            title: "Xmas"
+        }, {
+            name: "RGB Mode G",
+            code: "RGB_M_G",
+            title: "Gradient"
+        }]
+    }, {
+        id: "custom",
+        label: "Custom",
+        width: "label",
+        keycodes: [{
+            name: "CUSTOM(0)",
+            code: "CUSTOM(0)",
+            title: "Custom Keycode 0"
+        }, {
+            name: "CUSTOM(1)",
+            code: "CUSTOM(1)",
+            title: "Custom Keycode 1"
+        }, {
+            name: "CUSTOM(2)",
+            code: "CUSTOM(2)",
+            title: "Custom Keycode 2"
+        }, {
+            name: "CUSTOM(3)",
+            code: "CUSTOM(3)",
+            title: "Custom Keycode 3"
+        }, {
+            name: "CUSTOM(4)",
+            code: "CUSTOM(4)",
+            title: "Custom Keycode 4"
+        }, {
+            name: "CUSTOM(5)",
+            code: "CUSTOM(5)",
+            title: "Custom Keycode 5"
+        }, {
+            name: "CUSTOM(6)",
+            code: "CUSTOM(6)",
+            title: "Custom Keycode 6"
+        }, {
+            name: "CUSTOM(7)",
+            code: "CUSTOM(7)",
+            title: "Custom Keycode 7"
+        }, {
+            name: "CUSTOM(8)",
+            code: "CUSTOM(8)",
+            title: "Custom Keycode 8"
+        }, {
+            name: "CUSTOM(9)",
+            code: "CUSTOM(9)",
+            title: "Custom Keycode 9"
+        }, {
+            name: "CUSTOM(10)",
+            code: "CUSTOM(10)",
+            title: "Custom Keycode 10"
+        }, {
+            name: "CUSTOM(11)",
+            code: "CUSTOM(11)",
+            title: "Custom Keycode 11"
+        }, {
+            name: "CUSTOM(12)",
+            code: "CUSTOM(12)",
+            title: "Custom Keycode 12"
+        }, {
+            name: "CUSTOM(13)",
+            code: "CUSTOM(13)",
+            title: "Custom Keycode 13"
+        }, {
+            name: "CUSTOM(14)",
+            code: "CUSTOM(14)",
+            title: "Custom Keycode 14"
+        }, {
+            name: "CUSTOM(15)",
+            code: "CUSTOM(15)",
+            title: "Custom Keycode 15"
+        }]
+    }]
+}
+const Ma = e => ({
+        default: ["basic", "media", "dks", "gamepad", "macro", "layers", "mouse"],
+        [X.BuiltInKeycodeModule.WTLighting]: ["wt_lighting"],
+        [X.BuiltInKeycodeModule.QMKLighting]: ["qmk_lighting"]
+    })[e],
+    Jf = e => {
+        let t = [];
+        if ("lighting" in e) {
+            const {
+                keycodes: o
+            } = X.getLightingDefinition(e.lighting);
+            t = Ma("default").concat(o === X.KeycodeType.None ? [] : o === X.KeycodeType.QMK ? Ma(X.BuiltInKeycodeModule.QMKLighting) : Ma(X.BuiltInKeycodeModule.WTLighting))
+        } else {
+            const {
+                keycodes: o
+            } = e;
+            t = o.flatMap(Ma)
+        }
+        return ja().flatMap(o => t.includes(o.id) ? o.keycodes : []).sort((o, n) => o.code <= n.code ? -1 : 1)
+    },
+    W = {
+        keyWidth: 52,
+        keyXSpacing: 2,
+        keyHeight: 54,
+        keyYSpacing: 2,
+        keyXPos: 52 + 2,
+        keyYPos: 54 + 2,
+        faceXPadding: [6, 6],
+        faceYPadding: [2, 10],
+        insideBorder: 10
+    },
+    Jt = {
+        keyWidth: 18.1,
+        keyXSpacing: 1.05,
+        keyHeight: 18.1,
+        keyYSpacing: 1.05,
+        keyXPos: 19.15,
+        keyYPos: 19.15
+    },
+    e0 = e => {
+        if (e.w2 === void 0 || e.h2 === void 0) return {
+            clipPath: null,
+            normalizedRects: null
+        };
+        const {
+            x: t,
+            y: o,
+            x2: n = 0,
+            y2: a = 0,
+            w: r,
+            w2: i,
+            h: c,
+            h2: l
+        } = e, u = Math.max(e.w, e.w2), _ = Math.max(e.h, e.h2), h = Math.min(t, t + n), f = Math.min(o, o + a), [K, y, L, M, P, ie, k, Y] = r === u ? [t + n - h, t - h, o + a - f, o - f, i, r, l, c] : [t - h, t + n - h, o - f, o + a - f, r, i, c, l], ee = te => `polygon(${te.map(B=>`${100*B[0]}% ${100*B[1]}%`).join(",")})`, T = [
+            [y / u, M / _],
+            [K / u, M / _],
+            [K / u, L / _],
+            [(K + P) / u, L / _],
+            [(K + P) / u, M / _],
+            [(y + ie) / u, M / _],
+            [(y + ie) / u, (M + Y) / _],
+            [(K + P) / u, (M + Y) / _],
+            [(K + P) / u, (L + k) / _],
+            [K / u, (L + k) / _],
+            [K / u, (M + Y) / _],
+            [y / u, (M + Y) / _]
+        ];
+        return {
+            clipPath: ee(T),
+            normalizedRects: [
+                [K, L, P, k],
+                [y, M, ie, Y]
+            ]
+        }
+    };
+
+function vo({
+    x: e = 0,
+    x2: t = 0,
+    y: o = 0,
+    r: n = 0,
+    rx: a = 0,
+    ry: r = 0,
+    w: i = 0,
+    w2: c = 0,
+    h: l = 0
+}) {
+    const u = n * (2 * Math.PI) / 360,
+        _ = Math.cos(u),
+        h = Math.sin(u),
+        f = W.keyXPos * a,
+        K = W.keyYPos * r,
+        y = W.keyXPos * (e + t) + Math.max(c, i) * W.keyWidth / 2 + (Math.max(c, i) - 1) * W.keyXSpacing / 2,
+        L = W.keyYPos * o + l * W.keyHeight / 2 + (l - 1) * W.keyYSpacing / 2,
+        M = y * _ - L * h - f * _ + K * h + f,
+        P = y * h + L * _ - f * h - K * _ + K;
+    return [M, P]
+}
+const t0 = (e, t) => {
+        const o = vo(e),
+            n = vo(t);
+        return o[0] - n[0]
+    },
+    o0 = (e, t) => {
+        const o = vo(e),
+            n = vo(t);
+        return o[1] - n[1] === 0 ? o[0] - n[0] : o[1] - n[1]
+    },
+    n0 = (e, t) => {
+        const o = vo(e),
+            n = vo(t);
+        return Math.abs(o[1] - n[1]) < W.keyYPos * .9
+    },
+    Jd = e => {
+        const [t, ...o] = [...e].sort(o0);
+        if (t === void 0) return o; {
+            const [n, a] = MC([...e], r => n0(t, r));
+            return [...n.sort(t0), ...Jd(a)]
+        }
+    },
+    Qr = {
+        1: [1, 2, 3, 4],
+        1.25: [4],
+        1.5: [2, 4],
+        1.75: [3, 4],
+        2: [1, 4],
+        2.25: [3, 4],
+        2.75: [4],
+        3: [4],
+        6.25: [4],
+        7: [4]
+    },
+    a0 = (e, t) => e.h !== 1 ? t : Qr[e.w] ? Qr[e.w].includes(t) ? t : Qr[e.w][0] : 4,
+    s0 = e => {
+        switch (!e.some(o => o.some(n => n.w !== 1 || n.h !== 1)) || e.length) {
+            case 8:
+                return [1, 1, 1, 1, 2, 3, 4, 4];
+            case 7:
+                return [1, 1, 1, 2, 3, 4, 4];
+            case 6:
+                return [1, 1, 2, 3, 4, 4];
+            case 5:
+                return [1, 2, 3, 4, 4];
+            case 4:
+                return [2, 3, 4, 4];
+            case 3:
+                return [2, 3, 4];
+            default:
+                return Array(e.length).fill(1)
+        }
+    },
+    eu = e => `${e.w}-${e.h}-${e.col}-${e.row}-${e.w2}-${e.h2}`,
+    Mi = e => {
+        const {
+            partitionedKeys: t
+        } = Jd(e).reduce(({
+            prevX: n,
+            partitionedKeys: a
+        }, r) => {
+            const [i] = vo(r);
+            return n >= i && a.push([]), a[a.length - 1].push(r), {
+                partitionedKeys: a,
+                prevX: i
+            }
+        }, {
+            partitionedKeys: [],
+            prevX: 1 / 0
+        }), o = s0(t);
+        return {
+            rowMap: t.reduce((n, a, r) => a.reduce((i, c) => ({ ...i,
+                [eu(c)]: a0(c, o[r])
+            }), n), {}),
+            partitionedKeys: t
+        }
+    },
+    r0 = e => Object.entries(e).reduce((t, [o, n]) => {
+        const a = `#${new ln(n.c).convertSRGBToLinear().getHexString()}`,
+            r = `#${new ln(n.t).convertSRGBToLinear().getHexString()}`;
+        return { ...t,
+            [o]: {
+                c: a,
+                t: r
+            }
+        }
+    }, {}),
+    hr = e => {
+        const t = e.map(X.getBoundingBox),
+            o = Math.min(...t.map(i => i.xStart)),
+            n = Math.min(...t.map(i => i.yStart)),
+            a = Math.max(...t.map(i => i.xEnd)) - o,
+            r = Math.max(...t.map(i => i.yEnd)) - n;
+        return {
+            width: a,
+            height: r
+        }
+    },
+    i0 = (e, t, o) => {
+        if (e.ei !== void 0) return "E-100";
+        if (e.h === 2 && e.w === 1) return `K-R${t}V-200`;
+        if (e.w === 1.25 && e.w2 === 1.5) return "K-R2-ISO";
+        if (e.w === 1.5 && e.w2 === 2.25) return "K-R2-BAE";
+        if (e.h > 1) return o ? "K-R4C-100" : "K-R4-100";
+        if (!o) switch (e.w) {
+            case 1.25:
+            case 1.5:
+            case 1.75:
+            case 1:
+            case 2:
+            case 2.25:
+            case 2.75:
+                return `K-R${t}-${e.w*100}`;
+            case 3:
+            case 6:
+            case 6.25:
+            case 6.5:
+            case 7:
+                return `K-R4C-${e.w*100}`;
+            default:
+                return "K-R4C-100"
+        }
+        switch (e.w) {
+            case 1:
+            case 1.25:
+            case 1.5:
+            case 1.75:
+                return `K-R${t}-${e.w*100}`;
+            case 2:
+            case 2.25:
+            case 2.75:
+            case 3:
+            case 6:
+            case 6.25:
+            case 6.5:
+            case 7:
+                return `K-R4C-${e.w*100}`;
+            default:
+                return "K-R4C-100"
+        }
+    },
+    c0 = (e, t) => {
+        if (e.ei !== void 0) return t;
+        if (e.h === 2 && e.w === 1) return [1, 1, 1];
+        if (e.w === 1.25 && e.w2 === 1.5) return [1, 1, 1];
+        if (e.w === 1.5 && e.w2 === 2.25) return [1, 1, 1];
+        if (e.h > 1) return t;
+        if (e.h == 1) switch (e.w) {
+            case 1.25:
+            case 1.5:
+            case 1.75:
+            case 2:
+            case 2.25:
+            case 2.75:
+            case 3:
+            case 6:
+            case 6.25:
+            case 6.5:
+            case 7:
+                return [1, 1, 1];
+            case 1:
+                return [1, 1, 1];
+            default:
+                return t
+        }
+        return t
+    },
+    Kc = (e, t) => {
+        let o = 0,
+            n = 0;
+        return e.length == 1 && '^*"'.split("").includes(e[0]) && (o = .2), t.length == 1 && (",.".split("").includes(t[0]) ? n = .4 : "/\\;'[]".split("").includes(t[0]) ? n = .3 : "-".split("").includes(t[0]) && (n = .1)), [o, n]
+    },
+    l0 = (e, t, o, n, a, r) => {
+        let i = "",
+            c = 1,
+            l = [0, 0],
+            u = "";
+        if (pc(e, a) && (n != null && n.customKeycodes) && n.customKeycodes[Jn(e, a)] !== void 0) {
+            const h = Jn(e, a);
+            i = pn(n.customKeycodes[h]), u = pn(n.customKeycodes[h], 700)
+        } else e && (i = js(e, t * 100, a, r) ? ? "", u = js(e, 700, a, r) ? ? "");
+        let _;
+        if (fc(e, a)) {
+            const h = gc(e, a);
+            _ = o[h], u = _ || ""
+        }
+        if (Qa(i) || uc(i)) return {
+            label: i,
+            centerLabel: i,
+            tooltipLabel: u,
+            macroExpression: _,
+            key: (i || "") + (_ || ""),
+            size: c,
+            offset: l
+        };
+        if (Cc(i)) {
+            const h = i[0],
+                f = i[i.length - 1];
+            return f && {
+                topLabel: h,
+                bottomLabel: f,
+                macroExpression: _,
+                key: (i || "") + (_ || ""),
+                size: c,
+                offset: Kc(h, f)
+            }
+        } else return hc(i) && (c = 1), _c(i) && (c = 1), {
+            label: i,
+            centerLabel: i,
+            tooltipLabel: u,
+            macroExpression: _,
+            key: (i || "") + (_ || ""),
+            size: c,
+            offset: l
+        }
+    },
+    d0 = (e, t, o, n, a, r) => {
+        let i = "",
+            c = 1,
+            l = [0, 0],
+            u = "";
+        if (pc(e, a) && (n != null && n.customKeycodes) && n.customKeycodes[Jn(e, a)] !== void 0) {
+            const h = Jn(e, a);
+            i = pn(n.customKeycodes[h]), u = pn(n.customKeycodes[h], 700)
+        } else e && (i = js(e, t * 100, a, r) ? ? "", u = js(e, 700, a, r) ? ? "");
+        let _;
+        if (fc(e, a)) {
+            const h = gc(e, a);
+            _ = o[h], u = _ || ""
+        }
+        if (Qa(i) || uc(i)) return i && {
+            label: i.toUpperCase(),
+            macroExpression: _,
+            key: (i || "") + (_ || ""),
+            size: c,
+            offset: l
+        };
+        if (Cc(i)) {
+            const h = i[0],
+                f = i[i.length - 1];
+            return f && {
+                topLabel: h,
+                bottomLabel: f,
+                macroExpression: _,
+                key: (i || "") + (_ || ""),
+                size: c,
+                offset: Kc(h, f)
+            }
+        } else return hc(i) && (c = 1), _c(i) && (c = 1), {
+            label: i,
+            centerLabel: i,
+            tooltipLabel: u,
+            macroExpression: _,
+            key: (i || "") + (_ || ""),
+            size: c,
+            offset: l
+        }
+    },
+    u0 = (e, t, o, n, a, r) => {
+        let i = "",
+            c = 1,
+            l = [0, 0],
+            u = "";
+        if (pc(e, a) && (n != null && n.customKeycodes) && n.customKeycodes[Jn(e, a)] !== void 0) {
+            const h = Jn(e, a);
+            i = pn(n.customKeycodes[h]), u = pn(n.customKeycodes[h], 700)
+        } else e && (i = vl(e, t * 100, a, r) ? ? "", u = vl(e, 700, a, r) ? ? "");
+        let _;
+        if (fc(e, a)) {
+            const h = gc(e, a);
+            _ = o[h], u = _ || ""
+        }
+        if (Qa(i) || uc(i)) return i && {
+            label: i.toUpperCase(),
+            macroExpression: _,
+            key: (i || "") + (_ || ""),
+            size: c,
+            offset: l
+        };
+        if (Cc(i)) {
+            const h = i[0],
+                f = i[i.length - 1];
+            return f && {
+                topLabel: h,
+                bottomLabel: f,
+                macroExpression: _,
+                key: (i || "") + (_ || ""),
+                size: c,
+                offset: Kc(h, f)
+            }
+        } else return hc(i) && (c = 1), _c(i) && (c = 1), {
+            label: i,
+            centerLabel: i,
+            tooltipLabel: u,
+            macroExpression: _,
+            key: (i || "") + (_ || ""),
+            size: c,
+            offset: l
+        }
+    },
+    tu = e => {
+        const t = Us[e] || Us.OLIVIA_DARK;
+        document.documentElement.style.setProperty("--color_accent", t.accent.c), document.documentElement.style.setProperty("--color_inside-accent", t.accent.t)
+    };
+
+function ou(e, t, o) {
+    if (e >= 0 && e < 60) return [t, o, 0];
+    if (e >= 60 && e < 120) return [o, t, 0];
+    if (e >= 120 && e < 180) return [0, t, o];
+    if (e >= 180 && e < 240) return [0, o, t];
+    if (e >= 240 && e < 300) return [o, 0, t];
+    if (e >= 300 && e < 360) return [t, 0, o];
+    if (e === 360) return [t, o, 0];
+    throw new Error("Invalid hue")
+}
+const nu = e => {
+        const t = e.replace("#", ""),
+            o = parseInt(t[0], 16) * 16 + parseInt(t[1], 16),
+            n = parseInt(t[2], 16) * 16 + parseInt(t[3], 16),
+            a = parseInt(t[4], 16) * 16 + parseInt(t[5], 16);
+        return [o, n, a]
+    },
+    go = (e, t = .8) => {
+        const [o, n, a] = nu(e), r = Math.round(o * t).toString(16), i = Math.round(n * t).toString(16), c = Math.round(a * t).toString(16);
+        return `#${r.padStart(2,"0")}${i.padStart(2,"0")}${c.padStart(2,"0")}`
+    },
+    _0 = e => {
+        const [t, o, n] = nu(e).map(_ => _ / 255), [a, r] = [Math.max(t, o, n), Math.min(t, o, n)], i = a - r;
+        let c = 60,
+            l = 0,
+            u = a;
+        return i === 0 ? c = c * 0 : a === t ? c = c * ((o - n) / i % 6) : a === o ? c = c * ((n - t) / i + 2) : a === n && (c = c * ((t - o) / i + 4)), a !== 0 && (l = i / a), [(c + 360) % 360, l, u]
+    },
+    h0 = e => [Math.round(360 * e[0] / 255), Math.round(e[1] / 255), 1];
+
+function Pa({
+    hue: e,
+    sat: t
+}) {
+    t = t / 255, e = Math.round(360 * e) / 255;
+    const o = t,
+        n = o * (1 - Math.abs(e / 60 % 2 - 1)),
+        a = 1 - o,
+        [r, i, c] = ou(e, o, n).map(l => Math.round(255 * (a + l)));
+    return `rgba(${r},${i},${c},1)`
+}
+
+function C0(e) {
+    return e * (180 / Math.PI)
+}
+
+function p0(e, t) {
+    if (e < 200 && t < 200) {
+        const o = 200 - e,
+            n = 200 - t;
+        return 2 * Math.PI - Math.atan(o / n)
+    } else if (e > 200 && t < 200) {
+        const o = e - 200,
+            n = 200 - t;
+        return Math.atan(o / n)
+    } else if (e < 200 && t > 200) {
+        const o = 200 - e,
+            n = t - 200;
+        return Math.PI + Math.atan(o / n)
+    } else if (e > 200 && t > 200) {
+        const o = e - 200,
+            n = t - 200;
+        return .5 * Math.PI + Math.atan(n / o)
+    } else {
+        if (e === 200) return t > 200 ? Math.PI : 0;
+        if (t === 200) return e >= 200 ? .5 * Math.PI : 1.5 * Math.PI
+    }
+}
+
+function f0(e, t) {
+    if (e < 200 && t < 200) {
+        const o = 200 - e,
+            n = 200 - t;
+        return Math.sqrt(o * o + n * n) / 200
+    } else if (e > 200 && t < 200) {
+        const o = e - 200,
+            n = 200 - t;
+        return Math.sqrt(o * o + n * n) / 200
+    } else if (e < 200 && t > 200) {
+        const o = 200 - e,
+            n = t - 200;
+        return Math.sqrt(o * o + n * n) / 200
+    } else if (e > 200 && t > 200) {
+        const o = e - 200,
+            n = t - 200;
+        return Math.sqrt(o * o + n * n) / 200
+    } else {
+        if (e === 200) return t > 200 ? (t - 200) / 200 : (200 - t) / 200;
+        if (t === 200) return e > 200 ? (e - 200) / 200 : (200 - e) / 200
+    }
+}
+
+function g0({
+    hue: e,
+    sat: t
+}) {
+    t = t / 255, e = Math.round(360 * e) / 255;
+    const o = t,
+        n = o * (1 - Math.abs(e / 60 % 2 - 1)),
+        a = 1 - o,
+        [r, i, c] = ou(e, o, n).map(l => Math.round(255 * (a + l)));
+    return [r, i, c]
+}
+
+function Ka({
+    hue: e,
+    sat: t
+}) {
+    let [o, n, a] = g0({
+        hue: e,
+        sat: t
+    }).map(r => r.toString(16));
+    return o.length == 1 && (o = "0" + o), n.length == 1 && (n = "0" + n), a.length == 1 && (a = "0" + a), "#" + o + n + a
+}
+
+function m0() {
+    try {
+        const e = document.createElement("canvas");
+        return !!(window.WebGLRenderingContext && (e.getContext("webgl") || e.getContext("experimental-webgl")))
+    } catch {
+        return !1
+    }
+}
+const au = m0(),
+    K0 = { ...Gf(),
+        isTestMatrixEnabled: !1,
+        restartRequired: !1,
+        allowGlobalHotKeys: !1
+    },
+    El = (e, t) => {
+        e[t] = !e[t], Mo(e)
+    },
+    su = mo({
+        name: "settings",
+        initialState: K0,
+        reducers: {
+            toggleFastRemap: e => {
+                El(e, "disableFastRemap")
+            },
+            toggleCreatorMode: e => {
+                El(e, "showDesignTab")
+            },
+            toggleThemeMode: e => {
+                const t = e.themeMode === "light" ? "dark" : "light";
+                document.documentElement.dataset.themeMode = t, e.themeMode = t, Mo(e)
+            },
+            updateLanguages: (e, t) => {
+                e.languages = t.payload, Mo(e)
+            },
+            updateRenderMode: (e, t) => {
+                e.renderMode = t.payload, Mo(e)
+            },
+            updateDesignDefinitionVersion: (e, t) => {
+                e.designDefinitionVersion = t.payload, Mo(e)
+            },
+            updateThemeName: (e, t) => {
+                e.themeName = t.payload, tu(e.themeName), Mo(e)
+            },
+            updateKeycapThemeName: (e, t) => {
+                e.keycapthemeName = t.payload, Mo(e)
+            },
+            setTestMatrixEnabled: (e, t) => {
+                e.isTestMatrixEnabled = t.payload
+            },
+            setUpdateTabEnabled: (e, t) => {
+                e.showUpdateTab = t.payload, Mo(e)
+            },
+            setMacroEditorSettings: (e, t) => {
+                const o = { ...e.macroEditor,
+                    ...t.payload
+                };
+                e.macroEditor = o, Mo(e)
+            },
+            setTestKeyboardSoundsSettings: (e, t) => {
+                const o = { ...e.testKeyboardSoundsSettings,
+                    ...t.payload
+                };
+                e.testKeyboardSoundsSettings = o, Mo(e)
+            },
+            disableGlobalHotKeys: e => {
+                e.allowGlobalHotKeys = !1
+            },
+            enableGlobalHotKeys: e => {
+                e.allowGlobalHotKeys = !0
+            }
+        }
+    }),
+    {
+        toggleFastRemap: y0,
+        toggleCreatorMode: S0,
+        setUpdateTabEnabled: Ia,
+        setTestMatrixEnabled: ru,
+        setTestKeyboardSoundsSettings: ya,
+        setMacroEditorSettings: Pl,
+        toggleThemeMode: w0,
+        disableGlobalHotKeys: M0,
+        enableGlobalHotKeys: Il,
+        updateLanguages: b0,
+        updateRenderMode: D0,
+        updateThemeName: iu,
+        updateKeycapThemeName: yc,
+        updateDesignDefinitionVersion: k0
+    } = su.actions,
+    x0 = su.reducer,
+    Cr = e => e.settings.designDefinitionVersion,
+    Sc = e => e.settings.disableFastRemap,
+    cu = e => e.settings.showDesignTab,
+    R0 = e => e.settings.showUpdateTab,
+    lu = e => e.settings.isTestMatrixEnabled,
+    A0 = e => e.settings.macroEditor,
+    wc = e => e.settings.testKeyboardSoundsSettings,
+    Mc = e => au ? e.settings.renderMode : "2D",
+    T0 = e => e.settings.themeMode,
+    du = e => e.settings.themeName,
+    uu = e => e.settings.keycapthemeName,
+    Ht = e => e.settings.languages,
+    qa = mt(du, e => Us[e]),
+    oa = mt(uu, e => vd[e]),
+    L0 = mt(oa, e => r0(e)),
+    d = {
+        _QK_MODS: 256,
+        _QK_MODS_MAX: 8191,
+        _QK_MOD_TAP: 24576,
+        _QK_MOD_TAP_MAX: 32767,
+        _QK_LAYER_TAP: 16384,
+        _QK_LAYER_TAP_MAX: 20479,
+        _QK_LAYER_MOD: 22784,
+        _QK_LAYER_MOD_MAX: 23039,
+        _QK_TO: 20496,
+        _QK_TO_MAX: 20511,
+        _QK_MOMENTARY: 20736,
+        _QK_MOMENTARY_MAX: 20767,
+        _QK_DEF_LAYER: 20992,
+        _QK_DEF_LAYER_MAX: 21023,
+        _QK_TOGGLE_LAYER: 21248,
+        _QK_TOGGLE_LAYER_MAX: 21279,
+        _QK_ONE_SHOT_LAYER: 21504,
+        _QK_ONE_SHOT_LAYER_MAX: 21535,
+        _QK_ONE_SHOT_MOD: 21760,
+        _QK_ONE_SHOT_MOD_MAX: 22015,
+        _QK_LAYER_TAP_TOGGLE: 22528,
+        _QK_LAYER_TAP_TOGGLE_MAX: 22559,
+        _QK_LAYER_MOD_MASK: 15,
+        _QK_MACRO: 24338,
+        _QK_MACRO_MAX: 24353,
+        _QK_KB: 24448,
+        _QK_KB_MAX: 24463,
+        KC_NO: 0,
+        KC_TRNS: 1,
+        KC_A: 4,
+        KC_B: 5,
+        KC_C: 6,
+        KC_D: 7,
+        KC_E: 8,
+        KC_F: 9,
+        KC_G: 10,
+        KC_H: 11,
+        KC_I: 12,
+        KC_J: 13,
+        KC_K: 14,
+        KC_L: 15,
+        KC_M: 16,
+        KC_N: 17,
+        KC_O: 18,
+        KC_P: 19,
+        KC_Q: 20,
+        KC_R: 21,
+        KC_S: 22,
+        KC_T: 23,
+        KC_U: 24,
+        KC_V: 25,
+        KC_W: 26,
+        KC_X: 27,
+        KC_Y: 28,
+        KC_Z: 29,
+        KC_1: 30,
+        KC_2: 31,
+        KC_3: 32,
+        KC_4: 33,
+        KC_5: 34,
+        KC_6: 35,
+        KC_7: 36,
+        KC_8: 37,
+        KC_9: 38,
+        KC_0: 39,
+        KC_ENT: 40,
+        KC_ESC: 41,
+        KC_BSPC: 42,
+        KC_TAB: 43,
+        KC_SPC: 44,
+        KC_MINS: 45,
+        KC_EQL: 46,
+        KC_LBRC: 47,
+        KC_RBRC: 48,
+        KC_BSLS: 49,
+        KC_NUHS: 50,
+        KC_SCLN: 51,
+        KC_QUOT: 52,
+        KC_GRV: 53,
+        KC_COMM: 54,
+        KC_DOT: 55,
+        KC_SLSH: 56,
+        KC_CAPS: 57,
+        KC_F1: 58,
+        KC_F2: 59,
+        KC_F3: 60,
+        KC_F4: 61,
+        KC_F5: 62,
+        KC_F6: 63,
+        KC_F7: 64,
+        KC_F8: 65,
+        KC_F9: 66,
+        KC_F10: 67,
+        KC_F11: 68,
+        KC_F12: 69,
+        KC_PSCR: 70,
+        KC_SLCK: 71,
+        KC_PAUS: 72,
+        KC_INS: 73,
+        KC_HOME: 74,
+        KC_PGUP: 75,
+        KC_DEL: 76,
+        KC_END: 77,
+        KC_PGDN: 78,
+        KC_RGHT: 79,
+        KC_LEFT: 80,
+        KC_DOWN: 81,
+        KC_UP: 82,
+        KC_NLCK: 83,
+        KC_PSLS: 84,
+        KC_PAST: 85,
+        KC_PMNS: 86,
+        KC_PPLS: 87,
+        KC_PENT: 88,
+        KC_P1: 89,
+        KC_P2: 90,
+        KC_P3: 91,
+        KC_P4: 92,
+        KC_P5: 93,
+        KC_P6: 94,
+        KC_P7: 95,
+        KC_P8: 96,
+        KC_P9: 97,
+        KC_P0: 98,
+        KC_PDOT: 99,
+        KC_NUBS: 100,
+        KC_APP: 101,
+        KC_POWER: 102,
+        KC_PEQL: 103,
+        KC_F13: 104,
+        KC_F14: 105,
+        KC_F15: 106,
+        KC_F16: 107,
+        KC_F17: 108,
+        KC_F18: 109,
+        KC_F19: 110,
+        KC_F20: 111,
+        KC_F21: 112,
+        KC_F22: 113,
+        KC_F23: 114,
+        KC_F24: 115,
+        KC_EXECUTE: 116,
+        KC_HELP: 117,
+        KC_MENU: 118,
+        KC_SELECT: 119,
+        KC_STOP: 120,
+        KC_AGAIN: 121,
+        KC_UNDO: 122,
+        KC_CUT: 123,
+        KC_COPY: 124,
+        KC_PASTE: 125,
+        KC_FIND: 126,
+        KC_LCAP: 130,
+        KC_LNUM: 131,
+        KC_LSCR: 132,
+        KC_PCMM: 133,
+        KC_KP_EQUAL_AS400: 134,
+        KC_RO: 135,
+        KC_KANA: 136,
+        KC_JYEN: 137,
+        KC_HENK: 138,
+        KC_MHEN: 139,
+        KC_INT6: 140,
+        KC_INT7: 141,
+        KC_INT8: 142,
+        KC_INT9: 143,
+        KC_HAEN: 144,
+        KC_HANJ: 145,
+        KC_LANG3: 146,
+        KC_LANG4: 147,
+        KC_LANG5: 148,
+        KC_LANG6: 149,
+        KC_LANG7: 150,
+        KC_LANG8: 151,
+        KC_LANG9: 152,
+        KC_ERAS: 153,
+        KC_SYSREQ: 154,
+        KC_CANCEL: 155,
+        KC_CLR: 156,
+        KC_CLEAR: 156,
+        KC_PRIOR: 157,
+        KC_OUT: 160,
+        KC_OPER: 161,
+        KC_CLEAR_AGAIN: 162,
+        KC_CRSEL: 163,
+        KC_EXSEL: 164,
+        KC_PWR: 165,
+        KC_SLEP: 166,
+        KC_WAKE: 167,
+        KC_MUTE: 168,
+        KC_VOLU: 169,
+        KC_VOLD: 170,
+        KC_MNXT: 171,
+        KC_MPRV: 172,
+        KC_MSTP: 173,
+        KC_MPLY: 174,
+        KC_MSEL: 175,
+        KC_EJCT: 176,
+        KC_MAIL: 177,
+        KC_CALC: 178,
+        KC_MYCM: 179,
+        KC_WWW_SEARCH: 180,
+        KC_WWW_HOME: 181,
+        KC_WWW_BACK: 182,
+        KC_WWW_FORWARD: 183,
+        KC_WWW_STOP: 184,
+        KC_WWW_REFRESH: 185,
+        KC_WWW_FAVORITES: 186,
+        KC_MFFD: 187,
+        KC_MRWD: 188,
+        KC_BRIU: 189,
+        KC_BRID: 190,
+        KC_LCTL: 224,
+        KC_LSFT: 225,
+        KC_LALT: 226,
+        KC_LGUI: 227,
+        KC_RCTL: 228,
+        KC_RSFT: 229,
+        KC_RALT: 230,
+        KC_RGUI: 231,
+        KC_MS_UP: 240,
+        KC_MS_DOWN: 241,
+        KC_MS_LEFT: 242,
+        KC_MS_RIGHT: 243,
+        KC_MS_BTN1: 244,
+        KC_MS_BTN2: 245,
+        KC_MS_BTN3: 246,
+        KC_MS_BTN4: 247,
+        KC_MS_BTN5: 248,
+        KC_MS_WH_UP: 249,
+        KC_MS_WH_DOWN: 250,
+        KC_MS_WH_LEFT: 251,
+        KC_MS_WH_RIGHT: 252,
+        KC_MS_ACCEL0: 253,
+        KC_MS_ACCEL1: 254,
+        KC_MS_ACCEL2: 255,
+        RESET: 23552,
+        DEBUG: 23553,
+        MAGIC_TOGGLE_NKRO: 23572,
+        KC_GESC: 23574,
+        AU_ON: 23581,
+        AU_OFF: 23582,
+        AU_TOG: 23583,
+        CLICKY_TOGGLE: 23584,
+        CLICKY_ENABLE: 23585,
+        CLICKY_DISABLE: 23586,
+        CLICKY_UP: 23587,
+        CLICKY_DOWN: 23588,
+        CLICKY_RESET: 23589,
+        MU_ON: 23590,
+        MU_OFF: 23591,
+        MU_TOG: 23592,
+        MU_MOD: 23593,
+        BL_ON: 23739,
+        BL_OFF: 23740,
+        BL_DEC: 23741,
+        BL_INC: 23742,
+        BL_TOGG: 23743,
+        BL_STEP: 23744,
+        BL_BRTG: 23745,
+        RGB_TOG: 23746,
+        RGB_MOD: 23747,
+        RGB_RMOD: 23748,
+        RGB_HUI: 23749,
+        RGB_HUD: 23750,
+        RGB_SAI: 23751,
+        RGB_SAD: 23752,
+        RGB_VAI: 23753,
+        RGB_VAD: 23754,
+        RGB_SPI: 23755,
+        RGB_SPD: 23756,
+        RGB_M_P: 23757,
+        RGB_M_B: 23758,
+        RGB_M_R: 23759,
+        RGB_M_SW: 23760,
+        RGB_M_SN: 23761,
+        RGB_M_K: 23762,
+        RGB_M_X: 23763,
+        RGB_M_G: 23764,
+        KC_LSPO: 23767,
+        KC_RSPC: 23768,
+        KC_SFTENT: 23769,
+        KC_LCPO: 23795,
+        KC_RCPC: 23796,
+        KC_LAPO: 23797,
+        KC_RAPC: 23798,
+        BR_INC: 24320,
+        BR_DEC: 24321,
+        EF_INC: 24322,
+        EF_DEC: 24323,
+        ES_INC: 24324,
+        ES_DEC: 24325,
+        H1_INC: 24326,
+        H1_DEC: 24327,
+        S1_INC: 24328,
+        S1_DEC: 24329,
+        H2_INC: 24330,
+        H2_DEC: 24331,
+        S2_INC: 24332,
+        S2_DEC: 24333,
+        FN_MO13: 24336,
+        FN_MO23: 24337,
+        CC_AnalogSwitch: 32256,
+        CC_L_Left: 32256,
+        CC_L_Right: 32257,
+        CC_L_Up: 32258,
+        CC_L_Down: 32259,
+        CC_Z_Up: 32260,
+        CC_Z_Down: 32261,
+        CC_R_Left: 32262,
+        CC_R_Right: 32263,
+        CC_R_Up: 32264,
+        CC_R_Down: 32265,
+        CC_B_A: 32266,
+        CC_B_B: 32267,
+        CC_B_X: 32268,
+        CC_B_Y: 32269,
+        CC_B_Left: 32270,
+        CC_B_Right: 32271,
+        CC_B_LB: 32272,
+        CC_B_RB: 32273,
+        CC_Hat_Left: 32274,
+        CC_Hat_Right: 32275,
+        CC_Hat_Up: 32276,
+        CC_Hat_Down: 32277,
+        CC_DKS: 32278,
+        CC_Winlock: 32279,
+        CC_LedOnOff: 32280,
+        CC_ActiveBackground: 32281,
+        CC_StaticBackground: 32282,
+        CC_KeyEffect: 32283,
+        CC_Breath: 32284,
+        CC_BrightUp: 32285,
+        CC_BrightDown: 32286,
+        CC_SpeedUp: 32287,
+        CC_SpeedDn: 32288,
+        CC_Direction_LTOR: 32289,
+        CC_Direction_RTOL: 32290,
+        CC_Keylock: 32291,
+        CC_Suspend: 32292,
+        CC_ScreenLock: 32293,
+        CC_Project: 32294
+    },
+    v0 = {
+        _QK_MODS: 256,
+        _QK_MODS_MAX: 8191,
+        _QK_MOD_TAP: 24576,
+        _QK_MOD_TAP_MAX: 32767,
+        _QK_LAYER_TAP: 16384,
+        _QK_LAYER_TAP_MAX: 20479,
+        _QK_LAYER_MOD: 22784,
+        _QK_LAYER_MOD_MAX: 23039,
+        _QK_TO: 20480,
+        _QK_TO_MAX: 20511,
+        _QK_MOMENTARY: 20736,
+        _QK_MOMENTARY_MAX: 20767,
+        _QK_DEF_LAYER: 20992,
+        _QK_DEF_LAYER_MAX: 21023,
+        _QK_TOGGLE_LAYER: 21248,
+        _QK_TOGGLE_LAYER_MAX: 21279,
+        _QK_ONE_SHOT_LAYER: 21504,
+        _QK_ONE_SHOT_LAYER_MAX: 21535,
+        _QK_ONE_SHOT_MOD: 21760,
+        _QK_ONE_SHOT_MOD_MAX: 22015,
+        _QK_LAYER_TAP_TOGGLE: 22528,
+        _QK_LAYER_TAP_TOGGLE_MAX: 22559,
+        _QK_LAYER_MOD_MASK: 15,
+        _QK_MACRO: 24338,
+        _QK_MACRO_MAX: 24353,
+        _QK_KB: 24448,
+        _QK_KB_MAX: 24463,
+        KC_NO: 0,
+        KC_TRNS: 1,
+        KC_A: 4,
+        KC_B: 5,
+        KC_C: 6,
+        KC_D: 7,
+        KC_E: 8,
+        KC_F: 9,
+        KC_G: 10,
+        KC_H: 11,
+        KC_I: 12,
+        KC_J: 13,
+        KC_K: 14,
+        KC_L: 15,
+        KC_M: 16,
+        KC_N: 17,
+        KC_O: 18,
+        KC_P: 19,
+        KC_Q: 20,
+        KC_R: 21,
+        KC_S: 22,
+        KC_T: 23,
+        KC_U: 24,
+        KC_V: 25,
+        KC_W: 26,
+        KC_X: 27,
+        KC_Y: 28,
+        KC_Z: 29,
+        KC_1: 30,
+        KC_2: 31,
+        KC_3: 32,
+        KC_4: 33,
+        KC_5: 34,
+        KC_6: 35,
+        KC_7: 36,
+        KC_8: 37,
+        KC_9: 38,
+        KC_0: 39,
+        KC_ENT: 40,
+        KC_ESC: 41,
+        KC_BSPC: 42,
+        KC_TAB: 43,
+        KC_SPC: 44,
+        KC_MINS: 45,
+        KC_EQL: 46,
+        KC_LBRC: 47,
+        KC_RBRC: 48,
+        KC_BSLS: 49,
+        KC_NUHS: 50,
+        KC_SCLN: 51,
+        KC_QUOT: 52,
+        KC_GRV: 53,
+        KC_COMM: 54,
+        KC_DOT: 55,
+        KC_SLSH: 56,
+        KC_CAPS: 57,
+        KC_F1: 58,
+        KC_F2: 59,
+        KC_F3: 60,
+        KC_F4: 61,
+        KC_F5: 62,
+        KC_F6: 63,
+        KC_F7: 64,
+        KC_F8: 65,
+        KC_F9: 66,
+        KC_F10: 67,
+        KC_F11: 68,
+        KC_F12: 69,
+        KC_PSCR: 70,
+        KC_SLCK: 71,
+        KC_PAUS: 72,
+        KC_INS: 73,
+        KC_HOME: 74,
+        KC_PGUP: 75,
+        KC_DEL: 76,
+        KC_END: 77,
+        KC_PGDN: 78,
+        KC_RGHT: 79,
+        KC_LEFT: 80,
+        KC_DOWN: 81,
+        KC_UP: 82,
+        KC_NLCK: 83,
+        KC_PSLS: 84,
+        KC_PAST: 85,
+        KC_PMNS: 86,
+        KC_PPLS: 87,
+        KC_PENT: 88,
+        KC_P1: 89,
+        KC_P2: 90,
+        KC_P3: 91,
+        KC_P4: 92,
+        KC_P5: 93,
+        KC_P6: 94,
+        KC_P7: 95,
+        KC_P8: 96,
+        KC_P9: 97,
+        KC_P0: 98,
+        KC_PDOT: 99,
+        KC_NUBS: 100,
+        KC_APP: 101,
+        KC_POWER: 102,
+        KC_PEQL: 103,
+        KC_F13: 104,
+        KC_F14: 105,
+        KC_F15: 106,
+        KC_F16: 107,
+        KC_F17: 108,
+        KC_F18: 109,
+        KC_F19: 110,
+        KC_F20: 111,
+        KC_F21: 112,
+        KC_F22: 113,
+        KC_F23: 114,
+        KC_F24: 115,
+        KC_EXECUTE: 116,
+        KC_HELP: 117,
+        KC_MENU: 118,
+        KC_SELECT: 119,
+        KC_STOP: 120,
+        KC_AGAIN: 121,
+        KC_UNDO: 122,
+        KC_CUT: 123,
+        KC_COPY: 124,
+        KC_PASTE: 125,
+        KC_FIND: 126,
+        KC_LCAP: 130,
+        KC_LNUM: 131,
+        KC_LSCR: 132,
+        KC_PCMM: 133,
+        KC_KP_EQUAL_AS400: 134,
+        KC_RO: 135,
+        KC_KANA: 136,
+        KC_JYEN: 137,
+        KC_HENK: 138,
+        KC_MHEN: 139,
+        KC_INT6: 140,
+        KC_INT7: 141,
+        KC_INT8: 142,
+        KC_INT9: 143,
+        KC_HAEN: 144,
+        KC_HANJ: 145,
+        KC_LANG3: 146,
+        KC_LANG4: 147,
+        KC_LANG5: 148,
+        KC_LANG6: 149,
+        KC_LANG7: 150,
+        KC_LANG8: 151,
+        KC_LANG9: 152,
+        KC_ERAS: 153,
+        KC_SYSREQ: 154,
+        KC_CANCEL: 155,
+        KC_CLR: 156,
+        KC_CLEAR: 156,
+        KC_PRIOR: 157,
+        KC_OUT: 160,
+        KC_OPER: 161,
+        KC_CLEAR_AGAIN: 162,
+        KC_CRSEL: 163,
+        KC_EXSEL: 164,
+        KC_PWR: 165,
+        KC_SLEP: 166,
+        KC_WAKE: 167,
+        KC_MUTE: 168,
+        KC_VOLU: 169,
+        KC_VOLD: 170,
+        KC_MNXT: 171,
+        KC_MPRV: 172,
+        KC_MSTP: 173,
+        KC_MPLY: 174,
+        KC_MSEL: 175,
+        KC_EJCT: 176,
+        KC_MAIL: 177,
+        KC_CALC: 178,
+        KC_MYCM: 179,
+        KC_WWW_SEARCH: 180,
+        KC_WWW_HOME: 181,
+        KC_WWW_BACK: 182,
+        KC_WWW_FORWARD: 183,
+        KC_WWW_STOP: 184,
+        KC_WWW_REFRESH: 185,
+        KC_WWW_FAVORITES: 186,
+        KC_MFFD: 187,
+        KC_MRWD: 188,
+        KC_BRIU: 189,
+        KC_BRID: 190,
+        KC_LCTL: 224,
+        KC_LSFT: 225,
+        KC_LALT: 226,
+        KC_LGUI: 227,
+        KC_RCTL: 228,
+        KC_RSFT: 229,
+        KC_RALT: 230,
+        KC_RGUI: 231,
+        KC_MS_UP: 240,
+        KC_MS_DOWN: 241,
+        KC_MS_LEFT: 242,
+        KC_MS_RIGHT: 243,
+        KC_MS_BTN1: 244,
+        KC_MS_BTN2: 245,
+        KC_MS_BTN3: 246,
+        KC_MS_BTN4: 247,
+        KC_MS_BTN5: 248,
+        KC_MS_WH_UP: 249,
+        KC_MS_WH_DOWN: 250,
+        KC_MS_WH_LEFT: 251,
+        KC_MS_WH_RIGHT: 252,
+        KC_MS_ACCEL0: 253,
+        KC_MS_ACCEL1: 254,
+        KC_MS_ACCEL2: 255,
+        RESET: 23552,
+        DEBUG: 23553,
+        MAGIC_TOGGLE_NKRO: 23572,
+        KC_GESC: 23574,
+        AU_ON: 23581,
+        AU_OFF: 23582,
+        AU_TOG: 23583,
+        CLICKY_TOGGLE: 23584,
+        CLICKY_ENABLE: 23585,
+        CLICKY_DISABLE: 23586,
+        CLICKY_UP: 23587,
+        CLICKY_DOWN: 23588,
+        CLICKY_RESET: 23589,
+        MU_ON: 23590,
+        MU_OFF: 23591,
+        MU_TOG: 23592,
+        MU_MOD: 23593,
+        BL_ON: 23739,
+        BL_OFF: 23740,
+        BL_DEC: 23741,
+        BL_INC: 23742,
+        BL_TOGG: 23743,
+        BL_STEP: 23744,
+        BL_BRTG: 23745,
+        RGB_TOG: 23746,
+        RGB_MOD: 23747,
+        RGB_RMOD: 23748,
+        RGB_HUI: 23749,
+        RGB_HUD: 23750,
+        RGB_SAI: 23751,
+        RGB_SAD: 23752,
+        RGB_VAI: 23753,
+        RGB_VAD: 23754,
+        RGB_SPI: 23755,
+        RGB_SPD: 23756,
+        RGB_M_P: 23757,
+        RGB_M_B: 23758,
+        RGB_M_R: 23759,
+        RGB_M_SW: 23760,
+        RGB_M_SN: 23761,
+        RGB_M_K: 23762,
+        RGB_M_X: 23763,
+        RGB_M_G: 23764,
+        KC_LSPO: 23767,
+        KC_RSPC: 23768,
+        KC_SFTENT: 23769,
+        KC_LCPO: 23795,
+        KC_RCPC: 23796,
+        KC_LAPO: 23797,
+        KC_RAPC: 23798,
+        BR_INC: 24320,
+        BR_DEC: 24321,
+        EF_INC: 24322,
+        EF_DEC: 24323,
+        ES_INC: 24324,
+        ES_DEC: 24325,
+        H1_INC: 24326,
+        H1_DEC: 24327,
+        S1_INC: 24328,
+        S1_DEC: 24329,
+        H2_INC: 24330,
+        H2_DEC: 24331,
+        S2_INC: 24332,
+        S2_DEC: 24333,
+        FN_MO13: 24336,
+        FN_MO23: 24337,
+        CC_AnalogSwitch: 32256,
+        CC_L_Left: 32256,
+        CC_L_Right: 32257,
+        CC_L_Up: 32258,
+        CC_L_Down: 32259,
+        CC_Z_Up: 32260,
+        CC_Z_Down: 32261,
+        CC_R_Left: 32262,
+        CC_R_Right: 32263,
+        CC_R_Up: 32264,
+        CC_R_Down: 32265,
+        CC_B_A: 32266,
+        CC_B_B: 32267,
+        CC_B_X: 32268,
+        CC_B_Y: 32269,
+        CC_B_Left: 32270,
+        CC_B_Right: 32271,
+        CC_B_LB: 32272,
+        CC_B_RB: 32273,
+        CC_Hat_Left: 32274,
+        CC_Hat_Right: 32275,
+        CC_Hat_Up: 32276,
+        CC_Hat_Down: 32277,
+        CC_DKS: 32278,
+        CC_Winlock: 32279,
+        CC_LedOnOff: 32280,
+        CC_ActiveBackground: 32281,
+        CC_StaticBackground: 32282,
+        CC_KeyEffect: 32283,
+        CC_Breath: 32284,
+        CC_BrightUp: 32285,
+        CC_BrightDown: 32286,
+        CC_SpeedUp: 32287,
+        CC_SpeedDn: 32288,
+        CC_Direction_LTOR: 32289,
+        CC_Direction_RTOL: 32290,
+        CC_Keylock: 32291,
+        CC_Suspend: 32292,
+        CC_ScreenLock: 32293,
+        CC_Project: 32294
+    },
+    E0 = {
+        _QK_MODS: 256,
+        _QK_MODS_MAX: 8191,
+        _QK_MOD_TAP: 8192,
+        _QK_MOD_TAP_MAX: 16383,
+        _QK_LAYER_TAP: 16384,
+        _QK_LAYER_TAP_MAX: 20479,
+        _QK_LAYER_MOD: 20480,
+        _QK_LAYER_MOD_MAX: 20991,
+        _QK_TO: 20992,
+        _QK_TO_MAX: 21023,
+        _QK_MOMENTARY: 21024,
+        _QK_MOMENTARY_MAX: 21055,
+        _QK_DEF_LAYER: 21056,
+        _QK_DEF_LAYER_MAX: 21087,
+        _QK_TOGGLE_LAYER: 21088,
+        _QK_TOGGLE_LAYER_MAX: 21119,
+        _QK_ONE_SHOT_LAYER: 21120,
+        _QK_ONE_SHOT_LAYER_MAX: 21151,
+        _QK_ONE_SHOT_MOD: 21152,
+        _QK_ONE_SHOT_MOD_MAX: 21183,
+        _QK_LAYER_TAP_TOGGLE: 21184,
+        _QK_LAYER_TAP_TOGGLE_MAX: 21215,
+        _QK_LAYER_MOD_MASK: 31,
+        _QK_MACRO: 30466,
+        _QK_MACRO_MAX: 30481,
+        _QK_KB: 32512,
+        _QK_KB_MAX: 32767,
+        KC_NO: 0,
+        KC_TRNS: 1,
+        KC_A: 4,
+        KC_B: 5,
+        KC_C: 6,
+        KC_D: 7,
+        KC_E: 8,
+        KC_F: 9,
+        KC_G: 10,
+        KC_H: 11,
+        KC_I: 12,
+        KC_J: 13,
+        KC_K: 14,
+        KC_L: 15,
+        KC_M: 16,
+        KC_N: 17,
+        KC_O: 18,
+        KC_P: 19,
+        KC_Q: 20,
+        KC_R: 21,
+        KC_S: 22,
+        KC_T: 23,
+        KC_U: 24,
+        KC_V: 25,
+        KC_W: 26,
+        KC_X: 27,
+        KC_Y: 28,
+        KC_Z: 29,
+        KC_1: 30,
+        KC_2: 31,
+        KC_3: 32,
+        KC_4: 33,
+        KC_5: 34,
+        KC_6: 35,
+        KC_7: 36,
+        KC_8: 37,
+        KC_9: 38,
+        KC_0: 39,
+        KC_ENT: 40,
+        KC_ESC: 41,
+        KC_BSPC: 42,
+        KC_TAB: 43,
+        KC_SPC: 44,
+        KC_MINS: 45,
+        KC_EQL: 46,
+        KC_LBRC: 47,
+        KC_RBRC: 48,
+        KC_BSLS: 49,
+        KC_NUHS: 50,
+        KC_SCLN: 51,
+        KC_QUOT: 52,
+        KC_GRV: 53,
+        KC_COMM: 54,
+        KC_DOT: 55,
+        KC_SLSH: 56,
+        KC_CAPS: 57,
+        KC_F1: 58,
+        KC_F2: 59,
+        KC_F3: 60,
+        KC_F4: 61,
+        KC_F5: 62,
+        KC_F6: 63,
+        KC_F7: 64,
+        KC_F8: 65,
+        KC_F9: 66,
+        KC_F10: 67,
+        KC_F11: 68,
+        KC_F12: 69,
+        KC_PSCR: 70,
+        KC_SLCK: 71,
+        KC_PAUS: 72,
+        KC_INS: 73,
+        KC_HOME: 74,
+        KC_PGUP: 75,
+        KC_DEL: 76,
+        KC_END: 77,
+        KC_PGDN: 78,
+        KC_RGHT: 79,
+        KC_LEFT: 80,
+        KC_DOWN: 81,
+        KC_UP: 82,
+        KC_NLCK: 83,
+        KC_PSLS: 84,
+        KC_PAST: 85,
+        KC_PMNS: 86,
+        KC_PPLS: 87,
+        KC_PENT: 88,
+        KC_P1: 89,
+        KC_P2: 90,
+        KC_P3: 91,
+        KC_P4: 92,
+        KC_P5: 93,
+        KC_P6: 94,
+        KC_P7: 95,
+        KC_P8: 96,
+        KC_P9: 97,
+        KC_P0: 98,
+        KC_PDOT: 99,
+        KC_NUBS: 100,
+        KC_APP: 101,
+        KC_POWER: 102,
+        KC_PEQL: 103,
+        KC_F13: 104,
+        KC_F14: 105,
+        KC_F15: 106,
+        KC_F16: 107,
+        KC_F17: 108,
+        KC_F18: 109,
+        KC_F19: 110,
+        KC_F20: 111,
+        KC_F21: 112,
+        KC_F22: 113,
+        KC_F23: 114,
+        KC_F24: 115,
+        KC_EXECUTE: 116,
+        KC_HELP: 117,
+        KC_MENU: 118,
+        KC_SELECT: 119,
+        KC_STOP: 120,
+        KC_AGAIN: 121,
+        KC_UNDO: 122,
+        KC_CUT: 123,
+        KC_COPY: 124,
+        KC_PASTE: 125,
+        KC_FIND: 126,
+        KC_LCAP: 130,
+        KC_LNUM: 131,
+        KC_LSCR: 132,
+        KC_PCMM: 133,
+        KC_KP_EQUAL_AS400: 134,
+        KC_RO: 135,
+        KC_KANA: 136,
+        KC_JYEN: 137,
+        KC_HENK: 138,
+        KC_MHEN: 139,
+        KC_INT6: 140,
+        KC_INT7: 141,
+        KC_INT8: 142,
+        KC_INT9: 143,
+        KC_HAEN: 144,
+        KC_HANJ: 145,
+        KC_LANG3: 146,
+        KC_LANG4: 147,
+        KC_LANG5: 148,
+        KC_LANG6: 149,
+        KC_LANG7: 150,
+        KC_LANG8: 151,
+        KC_LANG9: 152,
+        KC_ERAS: 153,
+        KC_SYSREQ: 154,
+        KC_CANCEL: 155,
+        KC_CLR: 156,
+        KC_CLEAR: 156,
+        KC_PRIOR: 157,
+        KC_OUT: 160,
+        KC_OPER: 161,
+        KC_CLEAR_AGAIN: 162,
+        KC_CRSEL: 163,
+        KC_EXSEL: 164,
+        KC_PWR: 165,
+        KC_SLEP: 166,
+        KC_WAKE: 167,
+        KC_MUTE: 168,
+        KC_VOLU: 169,
+        KC_VOLD: 170,
+        KC_MNXT: 171,
+        KC_MPRV: 172,
+        KC_MSTP: 173,
+        KC_MPLY: 174,
+        KC_MSEL: 175,
+        KC_EJCT: 176,
+        KC_MAIL: 177,
+        KC_CALC: 178,
+        KC_MYCM: 179,
+        KC_WWW_SEARCH: 180,
+        KC_WWW_HOME: 181,
+        KC_WWW_BACK: 182,
+        KC_WWW_FORWARD: 183,
+        KC_WWW_STOP: 184,
+        KC_WWW_REFRESH: 185,
+        KC_WWW_FAVORITES: 186,
+        KC_MFFD: 187,
+        KC_MRWD: 188,
+        KC_BRIU: 189,
+        KC_BRID: 190,
+        KC_MS_UP: 205,
+        KC_MS_DOWN: 206,
+        KC_MS_LEFT: 207,
+        KC_MS_RIGHT: 208,
+        KC_MS_BTN1: 209,
+        KC_MS_BTN2: 210,
+        KC_MS_BTN3: 211,
+        KC_MS_BTN4: 212,
+        KC_MS_BTN5: 213,
+        KC_MS_BTN6: 214,
+        KC_MS_BTN7: 215,
+        KC_MS_BTN8: 216,
+        KC_MS_WH_UP: 217,
+        KC_MS_WH_DOWN: 218,
+        KC_MS_WH_LEFT: 219,
+        KC_MS_WH_RIGHT: 220,
+        KC_MS_ACCEL0: 221,
+        KC_MS_ACCEL1: 222,
+        KC_MS_ACCEL2: 223,
+        KC_LCTL: 224,
+        KC_LSFT: 225,
+        KC_LALT: 226,
+        KC_LGUI: 227,
+        KC_RCTL: 228,
+        KC_RSFT: 229,
+        KC_RALT: 230,
+        KC_RGUI: 231,
+        RESET: 31744,
+        DEBUG: 31746,
+        MAGIC_TOGGLE_NKRO: 28691,
+        KC_GESC: 31766,
+        KC_ASUP: 31761,
+        KC_ASDN: 31760,
+        KC_ASRP: 31762,
+        KC_ASTG: 31765,
+        KC_ASON: 31763,
+        KC_ASOFF: 31764,
+        AU_ON: 29824,
+        AU_OFF: 29825,
+        AU_TOG: 29826,
+        CLICKY_TOGGLE: 29834,
+        CLICKY_ENABLE: 29835,
+        CLICKY_DISABLE: 29836,
+        CLICKY_UP: 29837,
+        CLICKY_DOWN: 29838,
+        CLICKY_RESET: 29839,
+        MU_ON: 29840,
+        MU_OFF: 29841,
+        MU_TOG: 29842,
+        MU_MOD: 29843,
+        MI_ON: 28928,
+        MI_OFF: 28929,
+        MI_TOG: 28930,
+        MI_C: 28944,
+        MI_Cs: 28945,
+        MI_D: 28946,
+        MI_Ds: 28947,
+        MI_E: 28948,
+        MI_F: 28949,
+        MI_Fs: 28950,
+        MI_G: 28951,
+        MI_Gs: 28952,
+        MI_A: 28953,
+        MI_As: 28954,
+        MI_B: 28955,
+        MI_C_1: 28960,
+        MI_Cs_1: 28961,
+        MI_D_1: 28962,
+        MI_Ds_1: 28963,
+        MI_E_1: 28964,
+        MI_F_1: 28965,
+        MI_Fs_1: 28966,
+        MI_G_1: 28967,
+        MI_Gs_1: 28968,
+        MI_A_1: 28969,
+        MI_As_1: 28970,
+        MI_B_1: 28971,
+        MI_C_2: 28976,
+        MI_Cs_2: 28977,
+        MI_D_2: 28978,
+        MI_Ds_2: 28979,
+        MI_E_2: 28980,
+        MI_F_2: 28981,
+        MI_Fs_2: 28982,
+        MI_G_2: 28983,
+        MI_Gs_2: 28984,
+        MI_A_2: 28985,
+        MI_As_2: 28986,
+        MI_B_2: 28987,
+        MI_C_3: 28992,
+        MI_Cs_3: 28993,
+        MI_D_3: 28994,
+        MI_Ds_3: 28995,
+        MI_E_3: 28996,
+        MI_F_3: 28997,
+        MI_Fs_3: 28998,
+        MI_G_3: 28999,
+        MI_Gs_3: 29e3,
+        MI_A_3: 29001,
+        MI_As_3: 29002,
+        MI_B_3: 29003,
+        MI_C_4: 29008,
+        MI_Cs_4: 29009,
+        MI_D_4: 29010,
+        MI_Ds_4: 29011,
+        MI_E_4: 29012,
+        MI_F_4: 29013,
+        MI_Fs_4: 29014,
+        MI_G_4: 29015,
+        MI_Gs_4: 29016,
+        MI_A_4: 29017,
+        MI_As_4: 29018,
+        MI_B_4: 29019,
+        MI_C_5: 29024,
+        MI_Cs_5: 29025,
+        MI_D_5: 29026,
+        MI_Ds_5: 29027,
+        MI_E_5: 29028,
+        MI_F_5: 29029,
+        MI_Fs_5: 29030,
+        MI_G_5: 29031,
+        MI_Gs_5: 29032,
+        MI_A_5: 29033,
+        MI_As_5: 29034,
+        MI_B_5: 29035,
+        MI_OCT_N2: 29040,
+        MI_OCT_N1: 29041,
+        MI_OCT_0: 29042,
+        MI_OCT_1: 29043,
+        MI_OCT_2: 29044,
+        MI_OCT_3: 29045,
+        MI_OCT_4: 29046,
+        MI_OCT_5: 29047,
+        MI_OCT_6: 29048,
+        MI_OCT_7: 29049,
+        MI_OCTD: 29050,
+        MI_OCTU: 29051,
+        MI_TRNS_N6: 29056,
+        MI_TRNS_N5: 29057,
+        MI_TRNS_N4: 29058,
+        MI_TRNS_N3: 29059,
+        MI_TRNS_N2: 29060,
+        MI_TRNS_N1: 29061,
+        MI_TRNS_0: 29062,
+        MI_TRNS_1: 29063,
+        MI_TRNS_2: 29064,
+        MI_TRNS_3: 29065,
+        MI_TRNS_4: 29066,
+        MI_TRNS_5: 29067,
+        MI_TRNS_6: 29068,
+        MI_TRNSD: 29069,
+        MI_TRNSU: 29070,
+        MI_VEL_0: 29072,
+        MI_VEL_1: 29073,
+        MI_VEL_2: 29074,
+        MI_VEL_3: 29075,
+        MI_VEL_4: 29076,
+        MI_VEL_5: 29077,
+        MI_VEL_6: 29078,
+        MI_VEL_7: 29079,
+        MI_VEL_8: 29080,
+        MI_VEL_9: 29081,
+        MI_VEL_10: 29082,
+        MI_VELD: 29083,
+        MI_VELU: 29084,
+        MI_CH1: 29088,
+        MI_CH2: 29089,
+        MI_CH3: 29090,
+        MI_CH4: 29091,
+        MI_CH5: 29092,
+        MI_CH6: 29093,
+        MI_CH7: 29094,
+        MI_CH8: 29095,
+        MI_CH9: 29096,
+        MI_CH10: 29097,
+        MI_CH11: 29098,
+        MI_CH12: 29099,
+        MI_CH13: 29100,
+        MI_CH14: 29101,
+        MI_CH15: 29102,
+        MI_CH16: 29103,
+        MI_CHD: 29104,
+        MI_CHU: 29105,
+        MI_ALLOFF: 29120,
+        MI_SUST: 29121,
+        MI_PORT: 29122,
+        MI_SOST: 29123,
+        MI_SOFT: 29124,
+        MI_LEG: 29125,
+        MI_MOD: 29126,
+        MI_MODSD: 29127,
+        MI_MODSU: 29128,
+        MI_BENDD: 29129,
+        MI_BENDU: 29130,
+        BL_ON: 30720,
+        BL_OFF: 30721,
+        BL_DEC: 30723,
+        BL_INC: 30724,
+        BL_TOGG: 30722,
+        BL_STEP: 30725,
+        BL_BRTG: 30726,
+        RGB_TOG: 30752,
+        RGB_MOD: 30753,
+        RGB_RMOD: 30754,
+        RGB_HUI: 30755,
+        RGB_HUD: 30756,
+        RGB_SAI: 30757,
+        RGB_SAD: 30758,
+        RGB_VAI: 30759,
+        RGB_VAD: 30760,
+        RGB_SPI: 30761,
+        RGB_SPD: 30762,
+        RGB_M_P: 30763,
+        RGB_M_B: 30764,
+        RGB_M_R: 30765,
+        RGB_M_SW: 30766,
+        RGB_M_SN: 30767,
+        RGB_M_K: 30768,
+        RGB_M_X: 30769,
+        RGB_M_G: 30770,
+        RGB_MODE_RGBTEST: 30771,
+        VLK_TOG: 31767,
+        KC_LSPO: 31770,
+        KC_RSPC: 31771,
+        KC_SFTENT: 31774,
+        OUT_AUTO: 31776,
+        OUT_USB: 31777,
+        QK_CLEAR_EEPROM: 31747,
+        HPT_ON: 31808,
+        HPT_OFF: 31809,
+        HPT_TOG: 31810,
+        HPT_RST: 31811,
+        HPT_FBK: 31812,
+        HPT_BUZ: 31813,
+        HPT_MODI: 31814,
+        HPT_MODD: 31815,
+        HPT_CONT: 31816,
+        HPT_CONI: 31817,
+        HPT_COND: 31818,
+        HPT_DWLI: 31819,
+        HPT_DWLD: 31820,
+        KC_LCPO: 31768,
+        KC_RCPC: 31769,
+        KC_LAPO: 31772,
+        KC_RAPC: 31773,
+        CMB_ON: 31824,
+        CMB_OFF: 31825,
+        CMB_TOG: 31826,
+        MAGIC_SWAP_LCTL_LGUI: 28695,
+        MAGIC_SWAP_RCTL_RGUI: 28697,
+        MAGIC_UNSWAP_LCTL_LGUI: 28696,
+        MAGIC_UNSWAP_RCTL_RGUI: 28698,
+        MAGIC_SWAP_CTL_GUI: 28699,
+        MAGIC_UNSWAP_CTL_GUI: 28700,
+        MAGIC_TOGGLE_CTL_GUI: 28701,
+        MAGIC_EE_HANDS_LEFT: 28702,
+        MAGIC_EE_HANDS_RIGHT: 28703,
+        DYN_REC_START1: 31827,
+        DYN_REC_START2: 31828,
+        DYN_REC_STOP: 31829,
+        DYN_MACRO_PLAY1: 31830,
+        DYN_MACRO_PLAY2: 31831,
+        FN_MO13: 30464,
+        FN_MO23: 30465,
+        CC_AnalogSwitch: 32256,
+        CC_L_Left: 32256,
+        CC_L_Right: 32257,
+        CC_L_Up: 32258,
+        CC_L_Down: 32259,
+        CC_Z_Up: 32260,
+        CC_Z_Down: 32261,
+        CC_R_Left: 32262,
+        CC_R_Right: 32263,
+        CC_R_Up: 32264,
+        CC_R_Down: 32265,
+        CC_B_A: 32266,
+        CC_B_B: 32267,
+        CC_B_X: 32268,
+        CC_B_Y: 32269,
+        CC_B_Left: 32270,
+        CC_B_Right: 32271,
+        CC_B_LB: 32272,
+        CC_B_RB: 32273,
+        CC_Hat_Left: 32274,
+        CC_Hat_Right: 32275,
+        CC_Hat_Up: 32276,
+        CC_Hat_Down: 32277,
+        CC_DKS: 32278,
+        CC_Winlock: 32279,
+        CC_LedOnOff: 32280,
+        CC_ActiveBackground: 32281,
+        CC_StaticBackground: 32282,
+        CC_KeyEffect: 32283,
+        CC_Breath: 32284,
+        CC_BrightUp: 32285,
+        CC_BrightDown: 32286,
+        CC_SpeedUp: 32287,
+        CC_SpeedDn: 32288,
+        CC_Direction_LTOR: 32289,
+        CC_Direction_RTOL: 32290,
+        CC_Keylock: 32291,
+        CC_Suspend: 32292,
+        CC_ScreenLock: 32293,
+        CC_Project: 32294
+    },
+    P0 = {
+        _QK_MODS: 256,
+        _QK_MODS_MAX: 8191,
+        _QK_MOD_TAP: 8192,
+        _QK_MOD_TAP_MAX: 16383,
+        _QK_LAYER_TAP: 16384,
+        _QK_LAYER_TAP_MAX: 20479,
+        _QK_LAYER_MOD: 20480,
+        _QK_LAYER_MOD_MAX: 20991,
+        _QK_TO: 20992,
+        _QK_TO_MAX: 21023,
+        _QK_MOMENTARY: 21024,
+        _QK_MOMENTARY_MAX: 21055,
+        _QK_DEF_LAYER: 21056,
+        _QK_DEF_LAYER_MAX: 21087,
+        _QK_TOGGLE_LAYER: 21088,
+        _QK_TOGGLE_LAYER_MAX: 21119,
+        _QK_ONE_SHOT_LAYER: 21120,
+        _QK_ONE_SHOT_LAYER_MAX: 21151,
+        _QK_ONE_SHOT_MOD: 21152,
+        _QK_ONE_SHOT_MOD_MAX: 21183,
+        _QK_LAYER_TAP_TOGGLE: 21184,
+        _QK_LAYER_TAP_TOGGLE_MAX: 21215,
+        _QK_LAYER_MOD_MASK: 31,
+        _QK_MACRO: 30464,
+        _QK_MACRO_MAX: 30591,
+        _QK_KB: 32256,
+        _QK_KB_MAX: 32511,
+        KC_NO: 0,
+        KC_TRNS: 1,
+        KC_A: 4,
+        KC_B: 5,
+        KC_C: 6,
+        KC_D: 7,
+        KC_E: 8,
+        KC_F: 9,
+        KC_G: 10,
+        KC_H: 11,
+        KC_I: 12,
+        KC_J: 13,
+        KC_K: 14,
+        KC_L: 15,
+        KC_M: 16,
+        KC_N: 17,
+        KC_O: 18,
+        KC_P: 19,
+        KC_Q: 20,
+        KC_R: 21,
+        KC_S: 22,
+        KC_T: 23,
+        KC_U: 24,
+        KC_V: 25,
+        KC_W: 26,
+        KC_X: 27,
+        KC_Y: 28,
+        KC_Z: 29,
+        KC_1: 30,
+        KC_2: 31,
+        KC_3: 32,
+        KC_4: 33,
+        KC_5: 34,
+        KC_6: 35,
+        KC_7: 36,
+        KC_8: 37,
+        KC_9: 38,
+        KC_0: 39,
+        KC_ENT: 40,
+        KC_ESC: 41,
+        KC_BSPC: 42,
+        KC_TAB: 43,
+        KC_SPC: 44,
+        KC_MINS: 45,
+        KC_EQL: 46,
+        KC_LBRC: 47,
+        KC_RBRC: 48,
+        KC_BSLS: 49,
+        KC_NUHS: 50,
+        KC_SCLN: 51,
+        KC_QUOT: 52,
+        KC_GRV: 53,
+        KC_COMM: 54,
+        KC_DOT: 55,
+        KC_SLSH: 56,
+        KC_CAPS: 57,
+        KC_F1: 58,
+        KC_F2: 59,
+        KC_F3: 60,
+        KC_F4: 61,
+        KC_F5: 62,
+        KC_F6: 63,
+        KC_F7: 64,
+        KC_F8: 65,
+        KC_F9: 66,
+        KC_F10: 67,
+        KC_F11: 68,
+        KC_F12: 69,
+        KC_PSCR: 70,
+        KC_SLCK: 71,
+        KC_PAUS: 72,
+        KC_INS: 73,
+        KC_HOME: 74,
+        KC_PGUP: 75,
+        KC_DEL: 76,
+        KC_END: 77,
+        KC_PGDN: 78,
+        KC_RGHT: 79,
+        KC_LEFT: 80,
+        KC_DOWN: 81,
+        KC_UP: 82,
+        KC_NLCK: 83,
+        KC_PSLS: 84,
+        KC_PAST: 85,
+        KC_PMNS: 86,
+        KC_PPLS: 87,
+        KC_PENT: 88,
+        KC_P1: 89,
+        KC_P2: 90,
+        KC_P3: 91,
+        KC_P4: 92,
+        KC_P5: 93,
+        KC_P6: 94,
+        KC_P7: 95,
+        KC_P8: 96,
+        KC_P9: 97,
+        KC_P0: 98,
+        KC_PDOT: 99,
+        KC_NUBS: 100,
+        KC_APP: 101,
+        KC_POWER: 102,
+        KC_PEQL: 103,
+        KC_F13: 104,
+        KC_F14: 105,
+        KC_F15: 106,
+        KC_F16: 107,
+        KC_F17: 108,
+        KC_F18: 109,
+        KC_F19: 110,
+        KC_F20: 111,
+        KC_F21: 112,
+        KC_F22: 113,
+        KC_F23: 114,
+        KC_F24: 115,
+        KC_EXECUTE: 116,
+        KC_HELP: 117,
+        KC_MENU: 118,
+        KC_SELECT: 119,
+        KC_STOP: 120,
+        KC_AGAIN: 121,
+        KC_UNDO: 122,
+        KC_CUT: 123,
+        KC_COPY: 124,
+        KC_PASTE: 125,
+        KC_FIND: 126,
+        KC_LCAP: 130,
+        KC_LNUM: 131,
+        KC_LSCR: 132,
+        KC_PCMM: 133,
+        KC_KP_EQUAL_AS400: 134,
+        KC_RO: 135,
+        KC_KANA: 136,
+        KC_JYEN: 137,
+        KC_HENK: 138,
+        KC_MHEN: 139,
+        KC_INT6: 140,
+        KC_INT7: 141,
+        KC_INT8: 142,
+        KC_INT9: 143,
+        KC_HAEN: 144,
+        KC_HANJ: 145,
+        KC_LANG3: 146,
+        KC_LANG4: 147,
+        KC_LANG5: 148,
+        KC_LANG6: 149,
+        KC_LANG7: 150,
+        KC_LANG8: 151,
+        KC_LANG9: 152,
+        KC_ERAS: 153,
+        KC_SYSREQ: 154,
+        KC_CANCEL: 155,
+        KC_CLR: 156,
+        KC_CLEAR: 156,
+        KC_PRIOR: 157,
+        KC_OUT: 160,
+        KC_OPER: 161,
+        KC_CLEAR_AGAIN: 162,
+        KC_CRSEL: 163,
+        KC_EXSEL: 164,
+        KC_PWR: 165,
+        KC_SLEP: 166,
+        KC_WAKE: 167,
+        KC_MUTE: 168,
+        KC_VOLU: 169,
+        KC_VOLD: 170,
+        KC_MNXT: 171,
+        KC_MPRV: 172,
+        KC_MSTP: 173,
+        KC_MPLY: 174,
+        KC_MSEL: 175,
+        KC_EJCT: 176,
+        KC_MAIL: 177,
+        KC_CALC: 178,
+        KC_MYCM: 179,
+        KC_WWW_SEARCH: 180,
+        KC_WWW_HOME: 181,
+        KC_WWW_BACK: 182,
+        KC_WWW_FORWARD: 183,
+        KC_WWW_STOP: 184,
+        KC_WWW_REFRESH: 185,
+        KC_WWW_FAVORITES: 186,
+        KC_MFFD: 187,
+        KC_MRWD: 188,
+        KC_BRIU: 189,
+        KC_BRID: 190,
+        KC_MS_UP: 205,
+        KC_MS_DOWN: 206,
+        KC_MS_LEFT: 207,
+        KC_MS_RIGHT: 208,
+        KC_MS_BTN1: 209,
+        KC_MS_BTN2: 210,
+        KC_MS_BTN3: 211,
+        KC_MS_BTN4: 212,
+        KC_MS_BTN5: 213,
+        KC_MS_BTN6: 214,
+        KC_MS_BTN7: 215,
+        KC_MS_BTN8: 216,
+        KC_MS_WH_UP: 217,
+        KC_MS_WH_DOWN: 218,
+        KC_MS_WH_LEFT: 219,
+        KC_MS_WH_RIGHT: 220,
+        KC_MS_ACCEL0: 221,
+        KC_MS_ACCEL1: 222,
+        KC_MS_ACCEL2: 223,
+        KC_LCTL: 224,
+        KC_LSFT: 225,
+        KC_LALT: 226,
+        KC_LGUI: 227,
+        KC_RCTL: 228,
+        KC_RSFT: 229,
+        KC_RALT: 230,
+        KC_RGUI: 231,
+        RESET: 31744,
+        DEBUG: 31746,
+        MAGIC_TOGGLE_NKRO: 28691,
+        KC_GESC: 31766,
+        KC_ASUP: 31761,
+        KC_ASDN: 31760,
+        KC_ASRP: 31762,
+        KC_ASTG: 31765,
+        KC_ASON: 31763,
+        KC_ASOFF: 31764,
+        AU_ON: 29824,
+        AU_OFF: 29825,
+        AU_TOG: 29826,
+        CLICKY_TOGGLE: 29834,
+        CLICKY_ENABLE: 29835,
+        CLICKY_DISABLE: 29836,
+        CLICKY_UP: 29837,
+        CLICKY_DOWN: 29838,
+        CLICKY_RESET: 29839,
+        MU_ON: 29840,
+        MU_OFF: 29841,
+        MU_TOG: 29842,
+        MU_MOD: 29843,
+        MI_ON: 28928,
+        MI_OFF: 28929,
+        MI_TOG: 28930,
+        MI_C: 28944,
+        MI_Cs: 28945,
+        MI_D: 28946,
+        MI_Ds: 28947,
+        MI_E: 28948,
+        MI_F: 28949,
+        MI_Fs: 28950,
+        MI_G: 28951,
+        MI_Gs: 28952,
+        MI_A: 28953,
+        MI_As: 28954,
+        MI_B: 28955,
+        MI_C_1: 28960,
+        MI_Cs_1: 28961,
+        MI_D_1: 28962,
+        MI_Ds_1: 28963,
+        MI_E_1: 28964,
+        MI_F_1: 28965,
+        MI_Fs_1: 28966,
+        MI_G_1: 28967,
+        MI_Gs_1: 28968,
+        MI_A_1: 28969,
+        MI_As_1: 28970,
+        MI_B_1: 28971,
+        MI_C_2: 28976,
+        MI_Cs_2: 28977,
+        MI_D_2: 28978,
+        MI_Ds_2: 28979,
+        MI_E_2: 28980,
+        MI_F_2: 28981,
+        MI_Fs_2: 28982,
+        MI_G_2: 28983,
+        MI_Gs_2: 28984,
+        MI_A_2: 28985,
+        MI_As_2: 28986,
+        MI_B_2: 28987,
+        MI_C_3: 28992,
+        MI_Cs_3: 28993,
+        MI_D_3: 28994,
+        MI_Ds_3: 28995,
+        MI_E_3: 28996,
+        MI_F_3: 28997,
+        MI_Fs_3: 28998,
+        MI_G_3: 28999,
+        MI_Gs_3: 29e3,
+        MI_A_3: 29001,
+        MI_As_3: 29002,
+        MI_B_3: 29003,
+        MI_C_4: 29008,
+        MI_Cs_4: 29009,
+        MI_D_4: 29010,
+        MI_Ds_4: 29011,
+        MI_E_4: 29012,
+        MI_F_4: 29013,
+        MI_Fs_4: 29014,
+        MI_G_4: 29015,
+        MI_Gs_4: 29016,
+        MI_A_4: 29017,
+        MI_As_4: 29018,
+        MI_B_4: 29019,
+        MI_C_5: 29024,
+        MI_Cs_5: 29025,
+        MI_D_5: 29026,
+        MI_Ds_5: 29027,
+        MI_E_5: 29028,
+        MI_F_5: 29029,
+        MI_Fs_5: 29030,
+        MI_G_5: 29031,
+        MI_Gs_5: 29032,
+        MI_A_5: 29033,
+        MI_As_5: 29034,
+        MI_B_5: 29035,
+        MI_OCT_N2: 29040,
+        MI_OCT_N1: 29041,
+        MI_OCT_0: 29042,
+        MI_OCT_1: 29043,
+        MI_OCT_2: 29044,
+        MI_OCT_3: 29045,
+        MI_OCT_4: 29046,
+        MI_OCT_5: 29047,
+        MI_OCT_6: 29048,
+        MI_OCT_7: 29049,
+        MI_OCTD: 29050,
+        MI_OCTU: 29051,
+        MI_TRNS_N6: 29056,
+        MI_TRNS_N5: 29057,
+        MI_TRNS_N4: 29058,
+        MI_TRNS_N3: 29059,
+        MI_TRNS_N2: 29060,
+        MI_TRNS_N1: 29061,
+        MI_TRNS_0: 29062,
+        MI_TRNS_1: 29063,
+        MI_TRNS_2: 29064,
+        MI_TRNS_3: 29065,
+        MI_TRNS_4: 29066,
+        MI_TRNS_5: 29067,
+        MI_TRNS_6: 29068,
+        MI_TRNSD: 29069,
+        MI_TRNSU: 29070,
+        MI_VEL_0: 29072,
+        MI_VEL_1: 29073,
+        MI_VEL_2: 29074,
+        MI_VEL_3: 29075,
+        MI_VEL_4: 29076,
+        MI_VEL_5: 29077,
+        MI_VEL_6: 29078,
+        MI_VEL_7: 29079,
+        MI_VEL_8: 29080,
+        MI_VEL_9: 29081,
+        MI_VEL_10: 29082,
+        MI_VELD: 29083,
+        MI_VELU: 29084,
+        MI_CH1: 29088,
+        MI_CH2: 29089,
+        MI_CH3: 29090,
+        MI_CH4: 29091,
+        MI_CH5: 29092,
+        MI_CH6: 29093,
+        MI_CH7: 29094,
+        MI_CH8: 29095,
+        MI_CH9: 29096,
+        MI_CH10: 29097,
+        MI_CH11: 29098,
+        MI_CH12: 29099,
+        MI_CH13: 29100,
+        MI_CH14: 29101,
+        MI_CH15: 29102,
+        MI_CH16: 29103,
+        MI_CHD: 29104,
+        MI_CHU: 29105,
+        MI_ALLOFF: 29120,
+        MI_SUST: 29121,
+        MI_PORT: 29122,
+        MI_SOST: 29123,
+        MI_SOFT: 29124,
+        MI_LEG: 29125,
+        MI_MOD: 29126,
+        MI_MODSD: 29127,
+        MI_MODSU: 29128,
+        MI_BENDD: 29129,
+        MI_BENDU: 29130,
+        BL_ON: 30720,
+        BL_OFF: 30721,
+        BL_DEC: 30723,
+        BL_INC: 30724,
+        BL_TOGG: 30722,
+        BL_STEP: 30725,
+        BL_BRTG: 30726,
+        RGB_TOG: 30752,
+        RGB_MOD: 30753,
+        RGB_RMOD: 30754,
+        RGB_HUI: 30755,
+        RGB_HUD: 30756,
+        RGB_SAI: 30757,
+        RGB_SAD: 30758,
+        RGB_VAI: 30759,
+        RGB_VAD: 30760,
+        RGB_SPI: 30761,
+        RGB_SPD: 30762,
+        RGB_M_P: 30763,
+        RGB_M_B: 30764,
+        RGB_M_R: 30765,
+        RGB_M_SW: 30766,
+        RGB_M_SN: 30767,
+        RGB_M_K: 30768,
+        RGB_M_X: 30769,
+        RGB_M_G: 30770,
+        RGB_MODE_RGBTEST: 30771,
+        VLK_TOG: 31767,
+        KC_LSPO: 31770,
+        KC_RSPC: 31771,
+        KC_SFTENT: 31774,
+        OUT_AUTO: 31776,
+        OUT_USB: 31777,
+        QK_CLEAR_EEPROM: 31747,
+        HPT_ON: 31808,
+        HPT_OFF: 31809,
+        HPT_TOG: 31810,
+        HPT_RST: 31811,
+        HPT_FBK: 31812,
+        HPT_BUZ: 31813,
+        HPT_MODI: 31814,
+        HPT_MODD: 31815,
+        HPT_CONT: 31816,
+        HPT_CONI: 31817,
+        HPT_COND: 31818,
+        HPT_DWLI: 31819,
+        HPT_DWLD: 31820,
+        KC_LCPO: 31768,
+        KC_RCPC: 31769,
+        KC_LAPO: 31772,
+        KC_RAPC: 31773,
+        CMB_ON: 31824,
+        CMB_OFF: 31825,
+        CMB_TOG: 31826,
+        MAGIC_SWAP_LCTL_LGUI: 28695,
+        MAGIC_SWAP_RCTL_RGUI: 28697,
+        MAGIC_UNSWAP_LCTL_LGUI: 28696,
+        MAGIC_UNSWAP_RCTL_RGUI: 28698,
+        MAGIC_SWAP_CTL_GUI: 28699,
+        MAGIC_UNSWAP_CTL_GUI: 28700,
+        MAGIC_TOGGLE_CTL_GUI: 28701,
+        MAGIC_EE_HANDS_LEFT: 28702,
+        MAGIC_EE_HANDS_RIGHT: 28703,
+        DYN_REC_START1: 31827,
+        DYN_REC_START2: 31828,
+        DYN_REC_STOP: 31829,
+        DYN_MACRO_PLAY1: 31830,
+        DYN_MACRO_PLAY2: 31831,
+        FN_MO13: 31863,
+        FN_MO23: 31864,
+        CC_AnalogSwitch: 32256,
+        CC_L_Left: 32256,
+        CC_L_Right: 32257,
+        CC_L_Up: 32258,
+        CC_L_Down: 32259,
+        CC_Z_Up: 32260,
+        CC_Z_Down: 32261,
+        CC_R_Left: 32262,
+        CC_R_Right: 32263,
+        CC_R_Up: 32264,
+        CC_R_Down: 32265,
+        CC_B_A: 32266,
+        CC_B_B: 32267,
+        CC_B_X: 32268,
+        CC_B_Y: 32269,
+        CC_B_Left: 32270,
+        CC_B_Right: 32271,
+        CC_B_LB: 32272,
+        CC_B_RB: 32273,
+        CC_Hat_Left: 32274,
+        CC_Hat_Right: 32275,
+        CC_Hat_Up: 32276,
+        CC_Hat_Down: 32277,
+        CC_DKS: 32278,
+        CC_Winlock: 32279,
+        CC_LedOnOff: 32280,
+        CC_ActiveBackground: 32281,
+        CC_StaticBackground: 32282,
+        CC_KeyEffect: 32283,
+        CC_Breath: 32284,
+        CC_BrightUp: 32285,
+        CC_BrightDown: 32286,
+        CC_SpeedUp: 32287,
+        CC_SpeedDn: 32288,
+        CC_Direction_LTOR: 32289,
+        CC_Direction_RTOL: 32290,
+        CC_Keylock: 32291,
+        CC_Suspend: 32292,
+        CC_ScreenLock: 32293,
+        CC_Project: 32294
+    };
+
+function bi(e) {
+    switch (e) {
+        case 13:
+        case 12:
+            return P0;
+        case 11:
+            return E0;
+        case 10:
+            return v0;
+        default:
+            return d
+    }
+}
+const _u = {
+        KC_NO: !0,
+        KC_A: !0,
+        KC_B: !0,
+        KC_C: !0,
+        KC_D: !0,
+        KC_E: !0,
+        KC_F: !0,
+        KC_G: !0,
+        KC_H: !0,
+        KC_I: !0,
+        KC_J: !0,
+        KC_K: !0,
+        KC_L: !0,
+        KC_M: !0,
+        KC_N: !0,
+        KC_O: !0,
+        KC_P: !0,
+        KC_Q: !0,
+        KC_R: !0,
+        KC_S: !0,
+        KC_T: !0,
+        KC_U: !0,
+        KC_V: !0,
+        KC_W: !0,
+        KC_X: !0,
+        KC_Y: !0,
+        KC_Z: !0,
+        KC_1: !0,
+        KC_2: !0,
+        KC_3: !0,
+        KC_4: !0,
+        KC_5: !0,
+        KC_6: !0,
+        KC_7: !0,
+        KC_8: !0,
+        KC_9: !0,
+        KC_0: !0,
+        KC_ENT: !0,
+        KC_ESC: !0,
+        KC_BSPC: !0,
+        KC_TAB: !0,
+        KC_SPC: !0,
+        KC_MINS: !0,
+        KC_EQL: !0,
+        KC_LBRC: !0,
+        KC_RBRC: !0,
+        KC_BSLS: !0,
+        KC_NUHS: !0,
+        KC_SCLN: !0,
+        KC_QUOT: !0,
+        KC_GRV: !0,
+        KC_COMM: !0,
+        KC_DOT: !0,
+        KC_SLSH: !0,
+        KC_CAPS: !0,
+        KC_F1: !0,
+        KC_F2: !0,
+        KC_F3: !0,
+        KC_F4: !0,
+        KC_F5: !0,
+        KC_F6: !0,
+        KC_F7: !0,
+        KC_F8: !0,
+        KC_F9: !0,
+        KC_F10: !0,
+        KC_F11: !0,
+        KC_F12: !0,
+        KC_PSCR: !0,
+        KC_SLCK: !0,
+        KC_PAUS: !0,
+        KC_INS: !0,
+        KC_HOME: !0,
+        KC_PGUP: !0,
+        KC_DEL: !0,
+        KC_END: !0,
+        KC_PGDN: !0,
+        KC_RGHT: !0,
+        KC_LEFT: !0,
+        KC_DOWN: !0,
+        KC_UP: !0,
+        KC_NLCK: !0,
+        KC_PSLS: !0,
+        KC_KP_ASTERISK: !0,
+        KC_PAST: !0,
+        KC_PPLS: !0,
+        KC_PMNS: !0,
+        KC_PENT: !0,
+        KC_P1: !0,
+        KC_P2: !0,
+        KC_P3: !0,
+        KC_P4: !0,
+        KC_P5: !0,
+        KC_P6: !0,
+        KC_P7: !0,
+        KC_P8: !0,
+        KC_P9: !0,
+        KC_P0: !0,
+        KC_PDOT: !0,
+        KC_NUBS: !0,
+        KC_APP: !0,
+        KC_POWER: !0,
+        KC_PEQL: !0,
+        KC_F13: !0,
+        KC_F14: !0,
+        KC_F15: !0,
+        KC_F16: !0,
+        KC_F17: !0,
+        KC_F18: !0,
+        KC_F19: !0,
+        KC_F20: !0,
+        KC_F21: !0,
+        KC_F22: !0,
+        KC_F23: !0,
+        KC_F24: !0,
+        KC_EXECUTE: !0,
+        KC_HELP: !0,
+        KC_MENU: !0,
+        KC_SELECT: !0,
+        KC_STOP: !0,
+        KC_AGAIN: !0,
+        KC_UNDO: !0,
+        KC_CUT: !0,
+        KC_COPY: !0,
+        KC_PASTE: !0,
+        KC_FIND: !0,
+        KC_LCAP: !0,
+        KC_LNUM: !0,
+        KC_LSCR: !0,
+        KC_PCMM: !0,
+        KC_KP_EQUAL_AS400: !0,
+        KC_RO: !0,
+        KC_KANA: !0,
+        KC_JYEN: !0,
+        KC_HENK: !0,
+        KC_MHEN: !0,
+        KC_INT6: !0,
+        KC_INT7: !0,
+        KC_INT8: !0,
+        KC_INT9: !0,
+        KC_HAEN: !0,
+        KC_HANJ: !0,
+        KC_LANG3: !0,
+        KC_LANG4: !0,
+        KC_LANG5: !0,
+        KC_LANG6: !0,
+        KC_LANG7: !0,
+        KC_LANG8: !0,
+        KC_LANG9: !0,
+        KC_SYSREQ: !0,
+        KC_CANCEL: !0,
+        KC_CLEAR: !0,
+        KC_PRIOR: !0,
+        KC_OUT: !0,
+        KC_OPER: !0,
+        KC_CLEAR_AGAIN: !0,
+        KC_CRSEL: !0,
+        KC_EXSEL: !0,
+        KC_LCTL: !0,
+        KC_LSFT: !0,
+        KC_LALT: !0,
+        KC_LGUI: !0,
+        KC_RCTL: !0,
+        KC_RSFT: !0,
+        KC_RALT: !0,
+        KC_RGUI: !0,
+        KC_PWR: !0,
+        KC_SLEP: !0,
+        KC_WAKE: !0,
+        KC_MUTE: !0,
+        KC_VOLU: !0,
+        KC_VOLD: !0,
+        KC_MNXT: !0,
+        KC_MPRV: !0,
+        KC_MSTP: !0,
+        KC_MPLY: !0,
+        KC_MSEL: !0,
+        KC_EJCT: !0,
+        KC_MAIL: !0,
+        KC_CALC: !0,
+        KC_MYCM: !0,
+        KC_WWW_SEARCH: !0,
+        KC_WWW_HOME: !0,
+        KC_WWW_BACK: !0,
+        KC_WWW_FORWARD: !0,
+        KC_WWW_STOP: !0,
+        KC_WWW_REFRESH: !0,
+        KC_WWW_FAVORITES: !0,
+        KC_MFFD: !0,
+        KC_MRWD: !0
+    },
+    I0 = () => ur.filter(e => !!_u[e.code]);
+
+function hu(e) {
+    const t = e.toUpperCase();
+    return !!_u[t]
+}
+var Ae = (e => (e[e.Tap = 1] = "Tap", e[e.Down = 2] = "Down", e[e.Up = 3] = "Up", e[e.Delay = 4] = "Delay", e[e.CharacterStream = 5] = "CharacterStream", e))(Ae || {}),
+    Za = (e => (e[e.Chord = 6] = "Chord", e))(Za || {}),
+    eo = (e => (e[e.Tap = 1] = "Tap", e[e.Down = 2] = "Down", e[e.Up = 3] = "Up", e[e.Delay = 4] = "Delay", e))(eo || {});
+const Sa = 1,
+    Ol = 124,
+    qs = 0;
+
+function Oa(e) {
+    return new Function("return " + e)()
+}
+
+function O0(e) {
+    let t;
+    try {
+        return t = Oa("/(?<!\\\\)({.*?})/g"), e.split(t).filter(o => o.length)
+    } catch {
+        return console.error("Lookbehind is not supported in this browser."), []
+    }
+}
+
+function N0(e) {
+    return e.flatMap(t => {
+        if (t[0] == Za.Chord) {
+            const o = n => a => [n, a];
+            return [...t[1]].map(o(Ae.Down)).concat([...t[1]].reverse().map(o(Ae.Up)))
+        } else return [t]
+    })
+}
+
+function G0(e) {
+    let t = [];
+    return t = B0(e), t
+}
+
+function B0(e) {
+    let t = [],
+        o = [],
+        n = 0;
+    const a = e.reduce((c, l) => l[0] === Ae.Tap ? [...c, [Ae.Down, l[1]],
+        [Ae.Up, l[1]]
+    ] : [...c, l], []);
+    let r = [];
+    a.forEach((c, l) => {
+        let u = !1;
+        if (t.push(c), c[0] === Ae.Down) n == o.length && (o.push(c[1]), n++, u = !0);
+        else if (c[0] === Ae.Up) {
+            const _ = c[1];
+            o.length > 0 && _ === o[n - 1] && (n--, n == 0 ? (o.length === 1 ? r.push([Ae.Tap, o[0]]) : r.push([Za.Chord, o]), t = []) : u = !0)
+        }
+        l === a.length - 1 && (u = !1), u || (r.push(...t), t = [], o = [], n = 0)
+    });
+    let i = [];
+    for (let c = 0; c < r.length; c++) c + 1 < r.length && r[c][0] == Ae.Down && r[c + 1][0] == Ae.Up && r[c][1] === r[c + 1][1] ? (i.push([Ae.Tap, r[c][1]]), c++) : i.push(r[c]);
+    return i
+}
+const Na = {
+        KC_A: ["a", "A"],
+        KC_B: ["b", "B"],
+        KC_C: ["c", "C"],
+        KC_D: ["d", "D"],
+        KC_E: ["e", "E"],
+        KC_F: ["f", "F"],
+        KC_G: ["g", "G"],
+        KC_H: ["h", "H"],
+        KC_I: ["i", "I"],
+        KC_J: ["j", "J"],
+        KC_K: ["k", "K"],
+        KC_L: ["l", "L"],
+        KC_M: ["m", "M"],
+        KC_N: ["n", "N"],
+        KC_O: ["o", "O"],
+        KC_P: ["p", "P"],
+        KC_Q: ["q", "Q"],
+        KC_R: ["r", "R"],
+        KC_S: ["s", "S"],
+        KC_T: ["t", "T"],
+        KC_U: ["u", "U"],
+        KC_V: ["v", "V"],
+        KC_W: ["w", "W"],
+        KC_X: ["x", "X"],
+        KC_Y: ["y", "Y"],
+        KC_Z: ["z", "Z"],
+        KC_1: ["1", "!"],
+        KC_2: ["2", "@"],
+        KC_3: ["3", "#"],
+        KC_4: ["4", "$"],
+        KC_5: ["5", "%"],
+        KC_6: ["6", "^"],
+        KC_7: ["7", "&"],
+        KC_8: ["8", "*"],
+        KC_9: ["9", "("],
+        KC_0: ["0", ")"],
+        KC_SPC: [" ", " "],
+        KC_MINS: ["-", "_"],
+        KC_EQL: ["=", "+"],
+        KC_LBRC: ["[", "{"],
+        KC_RBRC: ["]", "}"],
+        KC_BSLS: ["\\", "|"],
+        KC_SCLN: [";", ":"],
+        KC_QUOT: ["'", '"'],
+        KC_GRV: ["`", "~"],
+        KC_COMM: [",", "<"],
+        KC_DOT: [".", ">"],
+        KC_SLSH: ["/", "?"]
+    },
+    U0 = Object.values(Na).reduce((e, [t, o]) => ({ ...e,
+        [t]: o
+    }), {});
+
+function F0(e) {
+    return e.reduce((o, n) => n[0] == Ae.Down && n[1] in Na ? [...o, [Ae.Tap, n[1]]] : n[0] == Ae.Up && n[1] in Na ? o : [...o, n], [])
+}
+
+function H0(e) {
+    return e[e.length - 1] && e[e.length - 1][0] === Ae.Delay ? e.slice(0, -1) : e
+}
+
+function Cu(e) {
+    return e.reduce((t, o) => (t[t.length - 1] && t[t.length - 1][0] === Ae.Delay && o[0] === Ae.Delay ? t.splice(-1, 1, [Ae.Delay, Number(t[t.length - 1][1]) + Number(o[1])]) : t.push(o), t), [])
+}
+
+function $0(e) {
+    return e.reduce((t, o) => (t[t.length - 1] && t[t.length - 1][0] === Ae.Down && o[0] === Ae.Up && t[t.length - 1][1] === o[1] ? t.splice(-1, 1, [Ae.Tap, o[1]]) : t.push(o), t), [])
+}
+
+function W0(e) {
+    let t = e.reduce((a, r) => {
+            if (r[0] == Ae.Tap && r[1] in Na) {
+                const i = Na[r[1]][0];
+                return a[a.length - 1] !== void 0 && a[a.length - 1][0] === Ae.CharacterStream ? [...a.slice(0, -1), [Ae.CharacterStream, a[a.length - 1][1] + i]] : [...a, [Ae.CharacterStream, i]]
+            } else return [...a, r]
+        }, []),
+        o = [];
+    for (let a = 0; a < t.length; a++)
+        if (a + 2 < t.length && t[a][0] === Ae.Down && t[a + 1][0] === Ae.CharacterStream && t[a + 2][0] === Ae.Up && t[a][1] === t[a + 2][1] && (t[a][1] === "KC_LSFT" || t[a][1] === "KC_RSFT")) {
+            const r = t[a + 1][1].split("").map(i => U0[i]).join("");
+            o.push([Ae.CharacterStream, r]), a += 2
+        } else o.push(t[a]);
+    return o.reduce((a, r) => r[0] === Ae.CharacterStream && a[a.length - 1] !== void 0 && a[a.length - 1][0] === Ae.CharacterStream ? (a[a.length - 1][1] = a[a.length - 1][1].concat(r[1]), a) : [...a, r], [])
+}
+
+function pu(e) {
+    let t = [];
+    return e.forEach(o => {
+        switch (o[0]) {
+            case Ae.Tap:
+                t.push("{" + o[1] + "}");
+                break;
+            case Ae.Down:
+                t.push("{+" + o[1] + "}");
+                break;
+            case Ae.Up:
+                t.push("{-" + o[1] + "}");
+                break;
+            case Ae.Delay:
+                t.push("{" + o[1] + "}");
+                break;
+            case Za.Chord:
+                t.push("{" + o[1].join(",") + "}");
+                break;
+            case Ae.CharacterStream:
+                t.push(o[1].replace(/{/g, "\\{"))
+        }
+    }), t.join("")
+}
+
+function V0(e) {
+    let t = O0(e),
+        o = [];
+    return t.forEach(n => {
+        if (/^{.*}$/.test(n))
+            if (n = n.slice(1, -1), /^\d+$/.test(n)) o.push([Ae.Delay, parseInt(n)]);
+            else {
+                const a = /^[+-]/.test(n) ? n.slice(0, 1) : null,
+                    r = n.replace(/^[+-]/, "").split(",").map(i => i.trim().toUpperCase()).filter(i => i.length);
+                if (r.length > 0)
+                    if (a == null) r.length == 1 ? o.push([Ae.Tap, r[0]]) : o.push([Za.Chord, r]);
+                    else {
+                        const i = a == "+" ? Ae.Down : Ae.Up;
+                        o.push([i, r[0]])
+                    }
+            }
+        else n = n.replace(/\\{/g, "{"), o.push([Ae.CharacterStream, n])
+    }), o
+}
+
+function Y0(e) {
+    let t, o;
+    try {
+        t = Oa("/(?<!\\\\){(?![^{]*})/"), o = Oa("/(?<!\\\\){(.*?)}/g")
+    } catch {
+        return console.error("Lookbehind is not supported in this browser."), {
+            isValid: !1,
+            errorMessage: "Lookbehind is not supported in this browser."
+        }
+    }
+    if (e.match(t)) return {
+        isValid: !1,
+        errorMessage: "Looks like a keycode block - {} - is unclosed! Are you missing an '}'?"
+    };
+    let n = null;
+    for (; n = o.exec(e);) {
+        const a = n[1].replace(/\s+/g, "");
+        if (!a.length) return {
+            isValid: !1,
+            errorMessage: "Sorry, I can't handle empty {}. Fill them up with keycodes or use \\{} to tell the macro to literally type {}"
+        };
+        const r = a.split(",").filter(i => i.trim().length && !hu(i));
+        if (r.length) return {
+            isValid: !1,
+            errorMessage: `Whoops! Invalid keycodes detected inside {}: ${r.join(", ")}`
+        }
+    }
+    return {
+        isValid: !0,
+        errorMessage: void 0
+    }
+}
+class z0 {
+    constructor(t, o, n) {
+        this.keyboardApi = t, this.basicKeyToByte = o, this.byteToKey = n
+    }
+    async readRawKeycodeSequences() {
+        const t = await this.keyboardApi.getMacroBytes(),
+            o = await this.keyboardApi.getMacroCount();
+        let n = 0,
+            a = 0;
+        const r = [];
+        let i = [];
+        if (o === 0) throw Error("Macros are disabled");
+        for (; a < t.length && n < o;) {
+            let c = t[a];
+            switch (c) {
+                case qs:
+                    r[n] = i, n++, i = [];
+                    break;
+                case eo.Tap:
+                    c = t[++a], i.push([Ae.Tap, this.byteToKey[c]]);
+                    break;
+                case eo.Down:
+                    c = t[++a], i.push([Ae.Down, this.byteToKey[c]]);
+                    break;
+                case eo.Up:
+                    c = t[++a], i.push([Ae.Up, this.byteToKey[c]]);
+                    break;
+                default:
+                    {
+                        const l = String.fromCharCode(c);i.length && i[i.length - 1][0] === Ae.CharacterStream ? i[i.length - 1] = [Ae.CharacterStream, i[i.length - 1][1] + l] : i.push([Ae.CharacterStream, l]);
+                        break
+                    }
+            }
+            a++
+        }
+        return r
+    }
+    rawKeycodeSequencesToMacroBytes(t) {
+        return t.flatMap(o => {
+            const n = [];
+            return o.forEach(a => {
+                switch (a[0]) {
+                    case Ae.Tap:
+                        n.push(eo.Tap, this.basicKeyToByte[a[1]]);
+                        break;
+                    case Ae.Up:
+                        n.push(eo.Up, this.basicKeyToByte[a[1]]);
+                        break;
+                    case Ae.Down:
+                        n.push(eo.Down, this.basicKeyToByte[a[1]]);
+                        break;
+                    case Ae.Delay:
+                        break;
+                    case Ae.CharacterStream:
+                        n.push(...a[1].split("").map(r => r.charCodeAt(0)));
+                        break
+                }
+            }), n.push(qs), n
+        })
+    }
+    async writeRawKeycodeSequences(t) {
+        const o = this.rawKeycodeSequencesToMacroBytes(t);
+        await this.keyboardApi.setMacroBytes(o)
+    }
+}
+
+function X0(e) {
+    let t, o;
+    try {
+        t = Oa("/(?<!\\\\){(?![^{]*})/"), o = Oa("/(?<!\\\\){(.*?)}/g")
+    } catch {
+        return console.error("Lookbehind is not supported in this browser."), {
+            isValid: !1,
+            errorMessage: "Lookbehind is not supported in this browser."
+        }
+    }
+    if (e.match(t)) return {
+        isValid: !1,
+        errorMessage: "Looks like a keycode block - {} - is unclosed! Are you missing an '}'?"
+    };
+    let n = null;
+    for (; n = o.exec(e);) {
+        const a = n[1].replace(/\s+/g, "");
+        if (!a.length) return {
+            isValid: !1,
+            errorMessage: "Sorry, I can't handle empty {}. Fill them up with keycodes or use \\{} to tell the macro to literally type {}"
+        };
+        if (/^\d+$/.test(a)) {
+            if (/\d{5,}/.test(a)) return {
+                isValid: !1,
+                errorMessage: `Invalid delay: ${a}. Please use a delay value of 9999 or less.`
+            }
+        } else {
+            const r = a.replace(/^[-+]/, "").split(",").filter(i => i.trim().length && !hu(i));
+            if (r.length) return {
+                isValid: !1,
+                errorMessage: `Whoops! Invalid keycodes detected inside {}: ${r.join(", ")}`
+            }
+        }
+    }
+    return {
+        isValid: !0,
+        errorMessage: void 0
+    }
+}
+class Q0 {
+    constructor(t, o, n) {
+        this.keyboardApi = t, this.basicKeyToByte = o, this.byteToKey = n
+    }
+    async readRawKeycodeSequences() {
+        const t = await this.keyboardApi.getMacroBytes(),
+            o = await this.keyboardApi.getMacroCount();
+        let n = 0,
+            a = 0;
+        const r = [];
+        let i = [];
+        if (o === 0) throw Error("Macros are disabled");
+        for (; a < t.length && n < o;) {
+            let c = t[a];
+            switch (c) {
+                case qs:
+                    r[n] = i, n++, i = [];
+                    break;
+                case Sa:
+                    switch (c = t[++a], c) {
+                        case eo.Tap:
+                            c = t[++a], i.push([Ae.Tap, this.byteToKey[c]]);
+                            break;
+                        case eo.Down:
+                            c = t[++a], i.push([Ae.Down, this.byteToKey[c]]);
+                            break;
+                        case eo.Up:
+                            c = t[++a], i.push([Ae.Up, this.byteToKey[c]]);
+                            break;
+                        case eo.Delay:
+                            let l = [];
+                            for (c = t[++a]; c !== Ol && a < t.length;) l.push(c), c = t[++a];
+                            const u = l.reduce((_, h) => (_ += String.fromCharCode(h), _), "");
+                            i.push([Ae.Delay, parseInt(u)]);
+                            break;
+                        default:
+                            throw `Expected a KeyAction to follow the KeyActionPrefix. Received ${c} instead.`
+                    }
+                    break;
+                default:
+                    {
+                        const l = String.fromCharCode(c);i.length && i[i.length - 1][0] === Ae.CharacterStream ? i[i.length - 1] = [Ae.CharacterStream, i[i.length - 1][1] + l] : i.push([Ae.CharacterStream, l]);
+                        break
+                    }
+            }
+            a++
+        }
+        return r
+    }
+    rawKeycodeSequencesToMacroBytes(t) {
+        return t.flatMap(o => {
+            const n = [];
+            return o.forEach(a => {
+                switch (a[0]) {
+                    case Ae.Tap:
+                        n.push(Sa, eo.Tap, this.basicKeyToByte[a[1]]);
+                        break;
+                    case Ae.Down:
+                        n.push(Sa, eo.Down, this.basicKeyToByte[a[1]]);
+                        break;
+                    case Ae.Up:
+                        n.push(Sa, eo.Up, this.basicKeyToByte[a[1]]);
+                        break;
+                    case Ae.Delay:
+                        let r = `${a[1]}`;
+                        n.push(Sa, eo.Delay, ...r.split("").map(i => i.charCodeAt(0)), Ol);
+                        break;
+                    case Ae.CharacterStream:
+                        n.push(...a[1].split("").map(i => i.charCodeAt(0)));
+                        break
+                }
+            }), n.push(qs), n
+        })
+    }
+    async writeRawKeycodeSequences(t) {
+        const o = this.rawKeycodeSequencesToMacroBytes(t);
+        await this.keyboardApi.setMacroBytes(o)
+    }
+}
+const bc = (e, t) => {
+        const o = bi(e),
+            n = jd(bi(e));
+        return e >= 11 ? new Q0(t, o, n) : new z0(t, o, n)
+    },
+    j0 = e => e >= 11 ? X0 : Y0,
+    q0 = e => e >= 11,
+    Z0 = {
+        selectedDevicePath: null,
+        connectedDevicePaths: {},
+        supportedIds: {},
+        forceAuthorize: !1,
+        updatemode: !1
+    },
+    fu = mo({
+        name: "devices",
+        initialState: Z0,
+        reducers: {
+            selectDevice: (e, t) => {
+                t.payload ? e.selectedDevicePath = t.payload.path : e.selectedDevicePath = null
+            },
+            setForceAuthorize: (e, t) => {
+                e.forceAuthorize = t.payload
+            },
+            setDeviceUpdateMode: (e, t) => {
+                e.updatemode = t.payload
+            },
+            updateConnectedDevices: (e, t) => {
+                e.connectedDevicePaths = t.payload
+            },
+            clearAllDevices: e => {
+                e.selectedDevicePath = null, e.connectedDevicePaths = {}
+            },
+            updateSupportedIds: (e, t) => {
+                e.supportedIds = t.payload
+            },
+            ensureSupportedIds: (e, t) => {
+                const {
+                    productIds: o,
+                    version: n
+                } = t.payload;
+                o.forEach(a => {
+                    e.supportedIds[a] = e.supportedIds[a] ? ? {}, e.supportedIds[a][n] = !0
+                })
+            }
+        }
+    }),
+    {
+        clearAllDevices: pr,
+        selectDevice: fr,
+        updateConnectedDevices: J0,
+        updateSupportedIds: eg,
+        ensureSupportedIds: Di,
+        setDeviceUpdateMode: gu,
+        setForceAuthorize: tg
+    } = fu.actions,
+    og = fu.reducer,
+    ng = e => e.devices.updatemode,
+    ag = e => e.devices.forceAuthorize,
+    On = e => e.devices.connectedDevicePaths,
+    io = e => e.devices.selectedDevicePath,
+    Dc = e => e.devices.supportedIds,
+    ut = mt(On, io, (e, t) => t && e[t]),
+    st = mt(io, e => e && new dc(e)),
+    sg = {
+        ast: [],
+        macroBufferSize: 0,
+        macroCount: 0,
+        isFeatureSupported: !0
+    },
+    mu = mo({
+        name: "macros",
+        initialState: sg,
+        reducers: {
+            loadMacrosSuccess: (e, t) => {
+                e.ast = t.payload.ast, e.macroBufferSize = t.payload.macroBufferSize, e.macroCount = t.payload.macroCount
+            },
+            saveMacrosSuccess: (e, t) => {
+                e.ast = t.payload.ast
+            },
+            setMacrosNotSupported: e => {
+                e.isFeatureSupported = !1
+            }
+        }
+    }),
+    {
+        loadMacrosSuccess: rg,
+        saveMacrosSuccess: ig,
+        setMacrosNotSupported: Nl
+    } = mu.actions,
+    cg = mu.reducer,
+    lg = e => async (t, o) => {
+        const {
+            protocol: n
+        } = e;
+        if (n < 8) t(Nl());
+        else try {
+            const a = o(),
+                r = st(a),
+                i = bc(n, r);
+            if (i) {
+                const c = await i.readRawKeycodeSequences(),
+                    l = await r.getMacroBufferSize(),
+                    u = await r.getMacroCount();
+                t(rg({
+                    ast: c,
+                    macroBufferSize: l,
+                    macroCount: u
+                }))
+            }
+        } catch {
+            t(Nl())
+        }
+    },
+    ki = (e, t) => async (o, n) => {
+        const a = n(),
+            r = st(a),
+            {
+                protocol: i
+            } = e,
+            c = bc(i, r);
+        if (c) {
+            const l = t.map(u => {
+                const _ = V0(u);
+                return N0(_)
+            });
+            await c.writeRawKeycodeSequences(l), o(ig({
+                ast: l
+            }))
+        }
+    },
+    dg = e => e.macros.isFeatureSupported,
+    ug = e => e.macros.ast,
+    _g = e => e.macros.macroBufferSize,
+    hg = e => e.macros.macroCount,
+    gr = mt(ug, e => e.map(t => {
+        const o = G0(t);
+        return pu(o)
+    })),
+    Cg = mt(ut, e => !!e && q0(e.protocol)),
+    pg = {
+        updateMode: !1,
+        isStart: !1,
+        selectedUpdateDevicePath: null,
+        connectedUpdateDevicePaths: {}
+    },
+    Ku = mo({
+        name: "update",
+        initialState: pg,
+        reducers: {
+            selectDevice: (e, t) => {
+                t.payload ? e.selectedUpdateDevicePath = t.payload.path : e.selectedUpdateDevicePath = null
+            },
+            SetUpdateMode: (e, t) => {
+                e.updateMode = t.payload
+            },
+            SetUpdateStart: (e, t) => {
+                e.isStart = t.payload
+            },
+            updateConnectedDevices: (e, t) => {
+                e.connectedUpdateDevicePaths = t.payload
+            },
+            clearUpdateAllDevices: e => {
+                e.selectedUpdateDevicePath = null, e.connectedUpdateDevicePaths = {}
+            }
+        }
+    }),
+    {
+        clearUpdateAllDevices: kc,
+        selectDevice: yu,
+        SetUpdateMode: en,
+        SetUpdateStart: fg,
+        updateConnectedDevices: gg
+    } = Ku.actions,
+    mg = Ku.reducer,
+    Ja = e => e.updates.updateMode,
+    Su = e => e.updates.isStart,
+    xc = e => e.updates.connectedUpdateDevicePaths,
+    mr = e => e.updates.selectedUpdateDevicePath,
+    Kr = mt(xc, mr, (e, t) => t && e[t]),
+    es = mt(mr, e => e && new zd(e)),
+    Kg = 5,
+    yg = e => e.reduce((t, [o, n]) => t << xi(n) | o, 0) >>> 0,
+    Sg = e => [e >> 24, e >> 16, e >> 8, e].map(t => t & 255),
+    wg = e => (e[0] << 24 | e[1] << 16 | e[2] << 8 | e[3]) >>> 0,
+    Mg = (e, t) => t.reverse().reduce(({
+        res: o,
+        bits: n
+    }, a) => ({
+        bits: n >> xi(a),
+        res: [n & (1 << xi(a)) - 1, ...o]
+    }), {
+        bits: e,
+        res: []
+    }).res,
+    xi = e => 1 + Array(Kg).fill(0).findIndex((t, o) => 2 << o >= e);
+
+function bg(e) {
+    return e.status === "fulfilled"
+}
+
+function Gl(e, t) {
+    return t && t[e.vendorProductId] && t[e.vendorProductId][e.requiredDefinitionVersion]
+}
+const Dg = {
+        definitions: {},
+        customDefinitions: {},
+        layoutOptionsMap: {}
+    },
+    wu = mo({
+        name: "definitions",
+        initialState: Dg,
+        reducers: {
+            updateDefinitions: (e, t) => {
+                e.definitions = { ...e.definitions,
+                    ...t.payload
+                }
+            },
+            loadInitialCustomDefinitions: (e, t) => {
+                e.customDefinitions = t.payload
+            },
+            unloadCustomDefinition: (e, t) => {
+                const {
+                    version: o,
+                    id: n
+                } = t.payload, a = e.customDefinitions[n];
+                Object.keys(a).length === 1 ? (delete e.customDefinitions[n], bC(n)) : (delete a[o], DC(n, r => (delete r[o], r))), e.customDefinitions = { ...e.customDefinitions
+                }
+            },
+            loadCustomDefinitions: (e, t) => {
+                const {
+                    version: o,
+                    definitions: n
+                } = t.payload;
+                n.forEach(a => {
+                    const r = e.customDefinitions[a.vendorProductId] ? ? {};
+                    r[o] = a, e.customDefinitions[a.vendorProductId] = r
+                })
+            },
+            updateLayoutOptions: (e, t) => {
+                e.layoutOptionsMap = { ...e.layoutOptionsMap,
+                    ...t.payload
+                }
+            }
+        }
+    }),
+    {
+        loadCustomDefinitions: kg,
+        loadInitialCustomDefinitions: xg,
+        updateDefinitions: Mu,
+        unloadCustomDefinition: Rg,
+        updateLayoutOptions: bu
+    } = wu.actions,
+    Ag = wu.reducer,
+    Du = e => e.definitions.definitions,
+    na = e => e.definitions.customDefinitions,
+    Tg = e => e.definitions.layoutOptionsMap,
+    Nn = mt(Du, na, (e, t) => Object.entries(t).reduce((o, [n, a]) => ({ ...o,
+        [n]: { ...o[n],
+            ...a
+        }
+    }), e)),
+    $e = mt(Nn, ut, (e, t) => t && e && e[t.vendorProductId] && e[t.vendorProductId][t.requiredDefinitionVersion]),
+    yo = mt(ut, e => {
+        const t = bi(e ? e.protocol : 0);
+        return {
+            basicKeyToByte: t,
+            byteToKey: jd(t)
+        }
+    }),
+    Rc = mt($e, Tg, io, (e, t, o) => o && t[o] || e && e.layouts.labels && e.layouts.labels.map(n => 0) || []),
+    Lg = mt(Rc, $e, (e, t) => t ? e.flatMap((o, n) => t.layouts.optionKeys[n] && t.layouts.optionKeys[n][o] || []) : []),
+    Dt = mt($e, Lg, (e, t) => e && t ? e.layouts.keys.concat(t) : []),
+    vg = (e, t) => async (o, n) => {
+        const a = n(),
+            r = $e(a),
+            i = st(a),
+            c = io(a);
+        if (!r || !i || !c || !r.layouts.labels) return;
+        const l = r.layouts.labels.map(h => Array.isArray(h) ? h.slice(1).length : 2),
+            u = [...Rc(a)];
+        u[e] = t;
+        const _ = Sg(yg(u.map((h, f) => [h, l[f]])));
+        try {
+            await i.setKeyboardValue(dr.LAYOUT_OPTIONS, ..._)
+        } catch {}
+        o(bu({
+            [c]: u
+        }))
+    },
+    Eg = ({
+        definitions: e,
+        version: t
+    }) => async (o, n) => {
+        try {
+            const a = na(n()),
+                r = e.map(i => [i.vendorProductId, { ...a[i.vendorProductId],
+                    [t]: i
+                }]);
+            return kC(r)
+        } catch (a) {
+            throw console.error(a), a
+        }
+    },
+    Pg = () => async (e, t) => {
+        try {
+            const o = await xC(),
+                n = o.filter(([i]) => ["string", "number"].includes(typeof i)).reduce((i, c) => ({ ...i,
+                    [c[0]]: c[1]
+                }), {});
+            e(xg(n));
+            const [a, r] = o.reduce(([i, c], [l, u]) => [u.v2 ? [...i, Number(l)] : i, u.v3 ? [...c, Number(l)] : c], [
+                [],
+                []
+            ]);
+            e(Di({
+                productIds: a,
+                version: "v2"
+            })), e(Di({
+                productIds: r,
+                version: "v3"
+            }))
+        } catch (o) {
+            console.error(o)
+        }
+    },
+    Ig = () => async (e, t) => {
+        const o = t(),
+            n = $e(o),
+            a = ut(o),
+            r = st(o);
+        if (!a || !n || !n.layouts.labels || !r) return;
+        const {
+            path: i
+        } = a;
+        try {
+            const c = await r.getKeyboardValue(dr.LAYOUT_OPTIONS, [], 4),
+                l = Mg(wg(c), n.layouts.labels.map(u => Array.isArray(u) ? u.slice(1).length : 2));
+            e(bu({
+                [i]: l
+            }))
+        } catch {}
+    },
+    Og = e => async (t, o) => {
+        const n = o(),
+            a = Du(n),
+            r = Nn(n),
+            i = e.filter(({
+                vendorProductId: u,
+                requiredDefinitionVersion: _
+            }) => !r || !r[u] || !r[u][_]),
+            c = await Promise.allSettled(i.map(u => Ef(u, u.requiredDefinitionVersion)));
+        c.forEach((u, _) => {
+            const h = i[_];
+            if (u.status === "rejected") {
+                const f = lo(h);
+                t(xo({
+                    message: `Fetching ${h.requiredDefinitionVersion} definition failed`,
+                    deviceInfo: f
+                }))
+            }
+        });
+        const l = c.filter(bg).map(u => u.value);
+        l.length && t(Mu(l.reduce((u, [_, h]) => ({ ...u,
+            [_.vendorProductId]: { ...u[_.vendorProductId],
+                [h]: _
+            }
+        }), a)))
+    },
+    Ng = {
+        rawDeviceMap: {},
+        rawLdromDeviceMap: {},
+        rawRapidDeviceMap: {},
+        rawRapidTriggerDataDeviceMap: {},
+        rawDKSDataDeviceMap: {},
+        rawSaveDKSDataDeviceMap: {},
+        numberOfKeys: 0,
+        numberOfLayers: 4,
+        numberOfRapidLayers: 2,
+        numberOfRapidTriggerDataLayers: 1,
+        numberOfActuaionPointLayers: 1,
+        numberOfRapidTriggerLayers: 1,
+        selectedLayerIndex: 0,
+        selectedKey: null,
+        selectedKeycode: null,
+        selectedKeys: [],
+        actuationPoint: 30,
+        actuationPoints: [],
+        exceptactuationPoint: 0,
+        exceptactuationPoints: [],
+        isContinuousRapidTriggerChecked: !1,
+        isRapidTriggerChecked: !1,
+        isGapSingleChecked: !0,
+        triggerPos: 30,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        rapidTriggers: [],
+        isChecked: !1,
+        configureKeyboardIsSelectable: !1,
+        configureType: 0,
+        selectedPaletteColor: [0, 0],
+        fwVersion: 0,
+        proMode: 0,
+        calibrationStatus: 0,
+        serverFwVersion: 0,
+        ldromdata: [],
+        boothold: [],
+        ldromCrcData: 0,
+        apromCrcData: 0,
+        dksActuationPos: 30,
+        anchorState: {
+            top: !1,
+            left: !1,
+            bottom: !1,
+            right: !1
+        },
+        anchor: "bottom",
+        openDks: !1,
+        editDks: !1,
+        openActuation: !1,
+        dksCells: [],
+        addDKSMatrix: null,
+        addSaveDKSMatrix: null,
+        dksCell: null,
+        saveDks: !1,
+        deleteDks: !1,
+        showMaxDks: !1,
+        showUpdateDlg: !1,
+        showBootLoaderDlg: !1
+    },
+    ku = mo({
+        name: "keymap",
+        initialState: Ng,
+        reducers: {
+            setSelectedPaletteColor: (e, t) => {
+                e.selectedPaletteColor = t.payload
+            },
+            setAnchorstate: (e, t) => {
+                e.anchorState = t.payload
+            },
+            setNumberOfKeys: (e, t) => {
+                e.numberOfKeys = t.payload
+            },
+            setNumberOfLayers: (e, t) => {
+                e.numberOfLayers = t.payload
+            },
+            setConfigureKeyboardIsSelectable: (e, t) => {
+                e.configureKeyboardIsSelectable = t.payload
+            },
+            loadBootHoldDataSuccess: (e, t) => {
+                const {
+                    boothold: o
+                } = t.payload;
+                e.boothold = o
+            },
+            loadLdromDataSuccess: (e, t) => {
+                const {
+                    ldrom: o
+                } = t.payload;
+                e.ldromdata = o
+            },
+            loadLayerSuccess: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawDeviceMap[a] = e.rawDeviceMap[a] || Array(e.numberOfLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                }), e.rawDeviceMap[a][o] = {
+                    keymap: n,
+                    isLoaded: !0
+                }
+            },
+            loadRapidLayerSuccess: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawRapidDeviceMap[a] = e.rawRapidDeviceMap[a] || Array(e.numberOfRapidLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                }), e.rawRapidDeviceMap[a][o] = {
+                    keymap: n,
+                    isLoaded: !0
+                }
+            },
+            loadRapidTriggerDataLayerSuccess: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawRapidTriggerDataDeviceMap[a] = e.rawRapidTriggerDataDeviceMap[a] || Array(e.numberOfRapidTriggerDataLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                }), e.rawRapidTriggerDataDeviceMap[a][o] = {
+                    keymap: n,
+                    isLoaded: !0
+                }
+            },
+            loadDKSDataLayerSuccess: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawDKSDataDeviceMap[a] = e.rawDKSDataDeviceMap[a] || Array(e.numberOfRapidTriggerDataLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                }), e.rawDKSDataDeviceMap[a][o] = {
+                    keymap: n,
+                    isLoaded: !0
+                }
+            },
+            clearDKSDatas: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawDKSDataDeviceMap[a] = e.rawDKSDataDeviceMap[a] || Array(e.numberOfRapidTriggerDataLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                })
+            },
+            saveDKSDataLayerSuccess: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawSaveDKSDataDeviceMap[a] = e.rawSaveDKSDataDeviceMap[a] || Array(e.numberOfRapidTriggerDataLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                }), e.rawSaveDKSDataDeviceMap[a][o] = {
+                    keymap: n,
+                    isLoaded: !0
+                }
+            },
+            clearSaveDKSDatas: (e, t) => {
+                const {
+                    layerIndex: o,
+                    keymap: n,
+                    devicePath: a
+                } = t.payload;
+                e.rawSaveDKSDataDeviceMap[a] = e.rawSaveDKSDataDeviceMap[a] || Array(e.numberOfRapidTriggerDataLayers).fill({
+                    keymap: [],
+                    isLoaded: !1
+                })
+            },
+            setLayer: (e, t) => {
+                e.selectedLayerIndex = t.payload
+            },
+            setOpenDksDlg: (e, t) => {
+                e.openDks = t.payload
+            },
+            setEditDksDlg: (e, t) => {
+                e.editDks = t.payload
+            },
+            setSaveDksDlg: (e, t) => {
+                e.saveDks = t.payload
+            },
+            setDeleteDksDlg: (e, t) => {
+                e.deleteDks = t.payload
+            },
+            setShowDksMaxDlg: (e, t) => {
+                e.showMaxDks = t.payload
+            },
+            setShowUpdateDlg: (e, t) => {
+                e.showUpdateDlg = t.payload
+            },
+            setShowBootLoaderDlg: (e, t) => {
+                e.showBootLoaderDlg = t.payload
+            },
+            setOpenActuationDlg: (e, t) => {
+                e.openActuation = t.payload
+            },
+            setIsContinuousRapidTrigger: (e, t) => {
+                e.isContinuousRapidTriggerChecked = t.payload
+            },
+            setIsRapidTrigger: (e, t) => {
+                e.isRapidTriggerChecked = t.payload
+            },
+            setTriggerPos: (e, t) => {
+                e.triggerPos = t.payload
+            },
+            setDksActuationPos: (e, t) => {
+                e.dksActuationPos = t.payload
+            },
+            setFwVersion: (e, t) => {
+                e.fwVersion = t.payload
+            },
+            setProMode: (e, t) => {
+                e.proMode = t.payload
+            },
+            setCalibrationStatus: (e, t) => {
+                e.calibrationStatus = t.payload
+            },
+            setServerFwVersion: (e, t) => {
+                e.serverFwVersion = t.payload
+            },
+            setLdromCrcData: (e, t) => {
+                e.ldromCrcData = t.payload
+            },
+            setApromCrcData: (e, t) => {
+                e.apromCrcData = t.payload
+            },
+            setGapUp: (e, t) => {
+                e.gapUp = t.payload
+            },
+            setGapDown: (e, t) => {
+                e.gapDown = t.payload
+            },
+            setIsGapSinggle: (e, t) => {
+                e.isGapSingleChecked = t.payload
+            },
+            setGapSingle: (e, t) => {
+                e.gapSingle = t.payload
+            },
+            clearSelectedKey: e => {
+                e.selectedKey = null
+            },
+            clearSelectedKeys: e => {
+                e.selectedKeys.length > 0 && (e.selectedKeys = [])
+            },
+            allSelectedKeys: e => {
+                e.selectedKeys.length > 0 && (e.selectedKeys = [])
+            },
+            initRapidTriggers: e => {},
+            setConfigureType: (e, t) => {
+                e.configureType = t.payload
+            },
+            updateRapidTrigger: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateContinuousRapidTrigger: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateIsRapidTrigger: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateTriggerPos: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateGapSingle: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateGapUp: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateGapDown: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a] !== void 0 && (e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n)
+            },
+            updateSelectedKeycode: (e, t) => {
+                const {
+                    keycode: o,
+                    anchorstate: n,
+                    anchor: a
+                } = t.payload, r = o;
+                switch (e.configureType) {
+                    case Ee.Keymap:
+                        break;
+                    case Ee.Color:
+                        break;
+                    case Ee.Performance:
+                        break;
+                    case Ee.Trigger:
+                        break;
+                    case Ee.RapidTrigger:
+                        break;
+                    case Ee.Dks:
+                        e.selectedKeycode = r, e.selectedKeycode == 32278 && Ba({ ...n,
+                            [a]: open
+                        });
+                        break
+                }
+            },
+            updateSelectedKey: (e, t) => {
+                const o = t.payload;
+                switch (e.configureType) {
+                    case Ee.Keymap:
+                        o !== e.selectedKey ? e.selectedKey = o : e.selectedKey = null;
+                        break;
+                    case Ee.Color:
+                        break;
+                    case Ee.Performance:
+                        break;
+                    case Ee.Trigger:
+                    case Ee.RapidTrigger:
+                        if (o !== e.selectedKey ? e.selectedKey = o : e.selectedKey = null, o !== null)
+                            if (e.selectedKeys.length > 0)
+                                if (e.selectedKeys.find(a => a === o) === void 0) e.selectedKeys.push(o);
+                                else {
+                                    const a = e.selectedKeys.findIndex(r => r === o);
+                                    e.selectedKeys.splice(a, 1)
+                                }
+                        else e.selectedKeys.push(o);
+                        break;
+                    case Ee.Dks:
+                        e.selectedKey = o;
+                        break
+                }
+            },
+            saveKeymapSuccess: (e, t) => {
+                const {
+                    layers: o,
+                    devicePath: n
+                } = t.payload;
+                e.rawDeviceMap[n] = o
+            },
+            saveRapidSuccess: (e, t) => {
+                const {
+                    rapidlayers: o,
+                    devicePath: n
+                } = t.payload;
+                e.rawRapidDeviceMap[n] = o
+            },
+            saveLdromSuccess: (e, t) => {
+                const {
+                    ldrom: o,
+                    devicePath: n
+                } = t.payload;
+                e.rawLdromDeviceMap[n] = o
+            },
+            setKey: (e, t) => {
+                const {
+                    keymapIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawDeviceMap[a][r].keymap[o] = n
+            },
+            setRapidData: (e, t) => {
+                const {
+                    keymapIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidDeviceMap[a][r].keymap[o] = n
+            },
+            setActuationPointData: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n
+            },
+            setRapidTriggerDownData: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n
+            },
+            setRapidTriggerUpData: (e, t) => {
+                const {
+                    rapidIndex: o,
+                    value: n,
+                    devicePath: a
+                } = t.payload, {
+                    selectedLayerIndex: r
+                } = e;
+                e.rawRapidTriggerDataDeviceMap[a][r].keymap[o] = n
+            },
+            addSaveDKSMatrix: (e, t) => {
+                const {
+                    addSaveDKSMatrix: o
+                } = t.payload;
+                e.addSaveDKSMatrix = o
+            },
+            clearAddSaveDKSMatrix: e => {
+                e.addSaveDKSMatrix = null
+            },
+            addDKSMatrix: (e, t) => {
+                const {
+                    addDKSMatrix: o
+                } = t.payload;
+                e.addDKSMatrix = o
+            },
+            clearDKSMatrix: e => {
+                e.addDKSMatrix = null
+            },
+            updateDKSCells: (e, t) => {
+                const {
+                    dksCells: o
+                } = t.payload;
+                e.dksCells = o
+            },
+            updateDKSCell: (e, t) => {
+                const {
+                    dksCell: o
+                } = t.payload;
+                e.dksCell = o
+            },
+            clearDKSCell: e => {
+                e.dksCell = null
+            }
+        },
+        extraReducers: e => {
+            e.addCase(fr, t => {
+                t.selectedKey = null
+            })
+        }
+    }),
+    {
+        setNumberOfKeys: Mb,
+        setNumberOfLayers: Gg,
+        setLayer: xu,
+        setOpenDksDlg: Ru,
+        setEditDksDlg: Ga,
+        setSaveDksDlg: Ri,
+        setDeleteDksDlg: Au,
+        setShowDksMaxDlg: Tu,
+        setOpenActuationDlg: Lu,
+        loadBootHoldDataSuccess: Bg,
+        loadLdromDataSuccess: Ug,
+        loadLayerSuccess: Fg,
+        loadRapidTriggerDataLayerSuccess: ea,
+        loadDKSDataLayerSuccess: Wn,
+        saveDKSDataLayerSuccess: bb,
+        clearSaveDKSDatas: Db,
+        clearSelectedKey: bo,
+        clearSelectedKeys: It,
+        setKey: Hg,
+        setRapidData: kb,
+        setActuationPointData: xb,
+        setRapidTriggerDownData: Rb,
+        setRapidTriggerUpData: Ab,
+        setConfigureType: Do,
+        updateRapidTrigger: Gt,
+        updateContinuousRapidTrigger: Tb,
+        updateIsRapidTrigger: Lb,
+        updateTriggerPos: vb,
+        updateGapSingle: Eb,
+        updateGapUp: Pb,
+        updateGapDown: Ib,
+        updateSelectedKey: Et,
+        updateSelectedKeycode: Ob,
+        saveKeymapSuccess: $g,
+        saveRapidSuccess: Nb,
+        saveLdromSuccess: Gb,
+        setConfigureKeyboardIsSelectable: Tn,
+        setSelectedPaletteColor: Ac,
+        setIsContinuousRapidTrigger: Zs,
+        setIsRapidTrigger: To,
+        setTriggerPos: Xn,
+        setIsGapSinggle: Pn,
+        setGapSingle: un,
+        setGapUp: _n,
+        setGapDown: hn,
+        setFwVersion: Wg,
+        setProMode: Vg,
+        setServerFwVersion: Js,
+        setLdromCrcData: Yg,
+        setApromCrcData: vu,
+        setDksActuationPos: zg,
+        setAnchorstate: Ba,
+        updateDKSCells: Lt,
+        addDKSMatrix: Xg,
+        addSaveDKSMatrix: Qg,
+        clearDKSMatrix: jg,
+        clearAddSaveDKSMatrix: qg,
+        updateDKSCell: Zg,
+        clearDKSCell: Jg,
+        setShowUpdateDlg: er,
+        setShowBootLoaderDlg: Bb
+    } = ku.actions,
+    e1 = ku.reducer,
+    t1 = e => async (t, o) => {
+        const n = o();
+        if (ts(n) === 1) return;
+        const {
+            path: a,
+            vendorProductId: r,
+            requiredDefinitionVersion: i
+        } = e, c = st(n), l = await c.getLayerCount();
+        t(Gg(l));
+        const {
+            matrix: u
+        } = Nn(n)[r][i];
+        for (var _ = 0; _ < l; _++) {
+            const h = await c.readRawMatrix(u, _);
+            t(Fg({
+                layerIndex: _,
+                keymap: h,
+                devicePath: a
+            }))
+        }
+    },
+    Tc = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a,
+                vendorProductId: r,
+                requiredDefinitionVersion: i
+            } = e,
+            c = st(n);
+        Nn(n)[r][i];
+        const l = 0,
+            u = await c.fastReadRapidBuffer();
+        t(ea({
+            layerIndex: l,
+            keymap: u,
+            devicePath: a
+        }))
+    },
+    o1 = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a,
+                vendorProductId: r,
+                requiredDefinitionVersion: i
+            } = e,
+            c = st(n);
+        Nn(n)[r][i];
+        const l = 0,
+            u = await c.fastReadDKSBuffer();
+        t(Wn({
+            layerIndex: l,
+            keymap: u,
+            devicePath: a
+        }))
+    };
+
+function Ss(e, t) {
+    return e * Math.pow(2, t)
+}
+const tr = e => async (t, o) => {
+        const n = o(),
+            a = st(n),
+            r = 4096,
+            i = 1048576,
+            c = await a.readCrcDataBuffer(r, i);
+        Ss(c[3], 24) + Ss(c[2], 16) + Ss(c[1], 8) + Ss(c[0], 0), Xa([c[0], c[1], c[2], c[3]]);
+        const l = c[3].toString(16) + c[2].toString(16) + c[1].toString(16) + c[0].toString(16),
+            u = parseInt(l, 16);
+        await t(Yg(u))
+    },
+    Eu = e => async (t, o) => {
+        const n = o(),
+            a = st(n),
+            r = 4096,
+            i = 1048576,
+            c = 1,
+            l = await a.fastReadLdromBuffer(r, c, i);
+        t(Ug({
+            ldrom: l
+        }))
+    },
+    n1 = (e, t) => async (o, n) => {
+        const a = n(),
+            {
+                path: r
+            } = t,
+            i = st(a),
+            c = $e(a);
+        if (!r || !c || !i) return;
+        const {
+            matrix: l
+        } = c;
+        await i.writeRawMatrix(l, e);
+        const u = e.map(_ => ({
+            keymap: _,
+            isLoaded: !0
+        }));
+        o($g({
+            layers: u,
+            devicePath: r
+        }))
+    },
+    Pu = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a
+            } = e,
+            r = st(n),
+            i = $e(n);
+        !a || !i || !r || await r.eraseLdromBuffer()
+    },
+    tn = (e, t, o, n) => async (a, r) => {
+        const i = r(),
+            {
+                path: c
+            } = n,
+            l = st(i);
+        !c || !l || await l.eraseDataBuffers(e, t, o)
+    },
+    Iu = (e, t, o, n) => async (a, r) => {
+        const i = r(),
+            {
+                path: c
+            } = n,
+            l = es(i);
+        !c || !l || await l.eraseApromBuffer(e, t, o)
+    },
+    Ou = (e, t, o) => async (n, a) => {
+        const r = a(),
+            c = await es(r).readCrcDataBuffer(t, e),
+            l = Xa([c[0], c[1], c[2], c[3]]);
+        n(vu(l))
+    },
+    a1 = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a
+            } = e,
+            r = st(n),
+            i = $e(n);
+        if (!a || !i || !r) return;
+        const c = await r.getFWVersion();
+        t(Wg(c))
+    },
+    Lc = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a
+            } = e,
+            r = st(n),
+            i = $e(n);
+        if (!a || !i || !r) return;
+        const c = await r.getMode();
+        t(Vg(c))
+    },
+    s1 = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a
+            } = e,
+            r = st(n),
+            i = $e(n);
+        if (!a || !i || !r) return;
+        const {
+            hue: c,
+            sat: l
+        } = await r.getProColor();
+        t(Ac([c, l]))
+    },
+    r1 = (e, t, o) => async (n, a) => {
+        const r = a(),
+            {
+                path: i
+            } = o,
+            c = st(r),
+            l = $e(r);
+        !i || !l || !c || await c.setProColor(e, t)
+    },
+    Nu = (e, t) => async (o, n) => {
+        const a = n(),
+            {
+                path: r
+            } = t,
+            i = st(a),
+            c = $e(a);
+        !r || !c || !i || await i.resetWithBootHold(e)
+    },
+    Gu = (e, t) => async (o, n) => {
+        const a = n(),
+            {
+                path: r
+            } = t,
+            i = es(a);
+        !r || !i || await i.resetWithBootHold(e)
+    },
+    on = (e, t, o, n, a, r) => async (i, c) => {
+        const l = c(),
+            {
+                path: u
+            } = r,
+            _ = st(l),
+            h = $e(l);
+        !u || !h || !_ || await _.writeRom(e, t, o, n, a)
+    },
+    Bu = (e, t, o, n, a, r) => async (i, c) => {
+        const l = c(),
+            {
+                path: u
+            } = r,
+            _ = st(l),
+            h = $e(l);
+        !u || !h || !_ || await _.decodewriteRom(e, t, o, n, a)
+    },
+    i1 = e => async (t, o) => {
+        const n = o(),
+            a = es(n),
+            r = 4,
+            i = 524284,
+            c = 3,
+            l = await a.fastReadLdromBuffer(r, c, i);
+        l[2], l[3], l[0], l[1], t(Bg({
+            boothold: l
+        }))
+    },
+    Uu = (e, t, o, n, a, r) => async (i, c) => {
+        const l = c(),
+            {
+                path: u
+            } = r,
+            _ = es(l);
+        !u || !_ || await _.decodewriteRom(e, t, o, n, a)
+    },
+    po = e => async (t, o) => {
+        const n = o(),
+            {
+                path: a
+            } = e,
+            r = st(n),
+            i = $e(n);
+        !a || !i || !r || (await r.reloadRTDKS(), await r.timeout(500))
+    },
+    In = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c || !a) return;
+        const u = Bn(a),
+            {
+                path: _
+            } = i,
+            {
+                row: h,
+                col: f
+            } = r[e],
+            K = await c.getKey(u, h, f),
+            {
+                matrix: y
+            } = l,
+            L = h * y.cols + f;
+        await K == 32278 ? (await c.setKey(u, h, f, t), o(po(i)), o(Au(!0))) : await c.setKey(u, h, f, t), o(Hg({
+            keymapIndex: L,
+            value: t,
+            devicePath: _
+        })), await t == 32278 && o(Qg({
+            addSaveDKSMatrix: {
+                rows: h,
+                cols: f
+            }
+        }))
+    },
+    Fu = e => async (t, o) => {
+        const n = o(),
+            a = ut(n);
+        if (!a) return;
+        const {
+            path: r
+        } = a;
+        t(Gt({
+            rapidIndex: 1,
+            value: e,
+            devicePath: r
+        }))
+    },
+    Hu = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, {
+            row: _,
+            col: h
+        } = r[e], f = 0, K = 2, y = 0, L = 1, M = 2, P = 3, ie = 4, k = 5, Y = 305419896;
+        let ee = K + (_ * 16 + h) * 8 + y,
+            T = a.keymap.triggerPos;
+        const te = a.keymap.isGapSingleChecked,
+            B = a.keymap.gapSingle,
+            de = a.keymap.gapUp,
+            he = a.keymap.gapDown;
+        o(To(!!t)), o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        })), ee = f, t = Y, o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        })), ee = K + e * 8 + L, t = T, o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        })), ee = K + e * 8 + M, te ? t = 1 : t = 0, o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        })), ee = K + e * 8 + P, t = B, o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        })), ee = K + e * 8 + ie, t = de, o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        })), ee = K + e * 8 + k, t = he, o(Gt({
+            rapidIndex: ee,
+            value: t,
+            devicePath: u
+        }))
+    },
+    $u = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, {
+            row: _,
+            col: h
+        } = r[e], f = 2, K = 1;
+        let y = f + (_ * 16 + h) * 8 + K;
+        o(Gt({
+            rapidIndex: y,
+            value: t,
+            devicePath: u
+        }))
+    },
+    Wu = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, {
+            row: _,
+            col: h
+        } = r[e], f = 2, K = 2, y = f + (_ * 16 + h) * 8 + K;
+        o(Gt({
+            rapidIndex: y,
+            value: t,
+            devicePath: u
+        }))
+    },
+    Vu = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, {
+            row: _,
+            col: h
+        } = r[e], f = 2, K = 3, y = f + (_ * 16 + h) * 8 + K;
+        o(Gt({
+            rapidIndex: y,
+            value: t,
+            devicePath: u
+        }))
+    },
+    Yu = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, {
+            row: _,
+            col: h
+        } = r[e], f = 2, K = 4, y = f + (_ * 16 + h) * 8 + K;
+        o(Gt({
+            rapidIndex: y,
+            value: t,
+            devicePath: u
+        }))
+    },
+    zu = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, {
+            row: _,
+            col: h
+        } = r[e], f = 2, K = 5, y = f + (_ * 16 + h) * 8 + K;
+        o(Gt({
+            rapidIndex: y,
+            value: t,
+            devicePath: u
+        }))
+    },
+    c1 = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, _ = 0, h = 2, f = 0, K = 1, y = 2, L = 3, M = 4, P = 5, ie = 305419896;
+        let k = h + e * 8 + f,
+            Y = a.keymap.triggerPos;
+        const ee = a.keymap.isGapSingleChecked,
+            T = a.keymap.gapSingle,
+            te = a.keymap.gapUp,
+            B = a.keymap.gapDown;
+        o(To(!!t)), o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        })), k = _, t = ie, o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        })), k = h + e * 8 + K, t = Y, o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        })), k = h + e * 8 + y, ee ? t = 1 : t = 0, o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        })), k = h + e * 8 + L, t = T, o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        })), k = h + e * 8 + M, t = te, o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        })), k = h + e * 8 + P, t = B, o(Gt({
+            rapidIndex: k,
+            value: t,
+            devicePath: u
+        }))
+    },
+    l1 = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, _ = 2, h = 2, f = _ + e * 8 + h;
+        o(Gt({
+            rapidIndex: f,
+            value: t,
+            devicePath: u
+        }))
+    },
+    d1 = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, _ = 2, h = 3, f = _ + e * 8 + h;
+        o(Gt({
+            rapidIndex: f,
+            value: t,
+            devicePath: u
+        }))
+    },
+    u1 = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, _ = 2, h = 4, f = _ + e * 8 + h;
+        o(Gt({
+            rapidIndex: f,
+            value: t,
+            devicePath: u
+        }))
+    },
+    _1 = (e, t) => async (o, n) => {
+        const a = n(),
+            r = Dt(a),
+            i = ut(a),
+            c = st(a),
+            l = $e(a);
+        if (!i || !r || !l || !c) return;
+        const {
+            path: u
+        } = i, _ = 2, h = 5, f = _ + e * 8 + h;
+        o(Gt({
+            rapidIndex: f,
+            value: t,
+            devicePath: u
+        }))
+    },
+    Xu = e => e.keymap.configureKeyboardIsSelectable,
+    oo = e => e.keymap.selectedKey,
+    Qu = e => e.keymap.isChecked,
+    Gn = e => e.keymap.selectedKeys,
+    ju = e => e.keymap.rapidTriggers,
+    h1 = e => e.keymap.rawDeviceMap,
+    C1 = e => e.keymap.rawRapidDeviceMap,
+    p1 = e => e.keymap.rawRapidTriggerDataDeviceMap,
+    f1 = e => e.keymap.rawDKSDataDeviceMap,
+    g1 = e => e.keymap.rawSaveDKSDataDeviceMap,
+    vc = e => e.keymap.isContinuousRapidTriggerChecked,
+    Ec = e => e.keymap.isRapidTriggerChecked,
+    Pc = e => e.keymap.isGapSingleChecked,
+    yr = e => e.keymap.triggerPos,
+    qu = e => e.keymap.dksActuationPos,
+    Zu = e => e.keymap.gapSingle,
+    Ju = e => e.keymap.gapUp,
+    e_ = e => e.keymap.gapDown,
+    Ic = e => e.keymap.fwVersion,
+    Oc = e => e.keymap.proMode,
+    Nc = e => e.keymap.serverFwVersion,
+    m1 = e => e.keymap.ldromdata,
+    t_ = e => e.keymap.boothold,
+    o_ = e => e.keymap.ldromCrcData,
+    n_ = e => e.keymap.apromCrcData,
+    Sr = e => e.keymap.anchorState,
+    wr = e => e.keymap.anchor,
+    K1 = e => e.keymap.openDks,
+    y1 = e => e.keymap.editDks,
+    S1 = e => e.keymap.saveDks,
+    w1 = e => e.keymap.deleteDks,
+    a_ = e => e.keymap.showMaxDks,
+    s_ = e => e.keymap.showUpdateDlg,
+    M1 = e => e.keymap.showBootLoaderDlg,
+    b1 = e => e.keymap.openActuation,
+    r_ = e => e.keymap.dksCells,
+    D1 = e => e.keymap.addDKSMatrix,
+    k1 = e => e.keymap.addSaveDKSMatrix,
+    x1 = e => e.keymap.dksCell,
+    Mr = e => e.keymap.numberOfLayers,
+    br = e => e.keymap.configureType,
+    Bn = e => e.keymap.selectedLayerIndex,
+    i_ = e => e.keymap.selectedPaletteColor,
+    R1 = mt(i_, ([e, t]) => [360 * e / 255, t / 255]),
+    aa = mt(h1, io, (e, t) => t && e[t] || []),
+    c_ = mt(C1, io, (e, t) => t && e[t] || []),
+    sa = mt(p1, io, (e, t) => t && e[t] || []),
+    A1 = mt(f1, io, (e, t) => t && e[t] || []),
+    T1 = mt(g1, io, (e, t) => t && e[t] || []),
+    ts = mt(aa, Mr, (e, t) => e && e.filter(o => o.isLoaded).length / t);
+mt(sa, Mr, (e, t) => e && e.filter(o => o.isLoaded).length / t);
+mt(aa, Bn, (e, t) => e && e[t]);
+const L1 = mt(Dt, $e, aa, (e, t, o) => {
+        if (t && o) {
+            const n = o.map(r => r.keymap),
+                {
+                    matrix: {
+                        cols: a
+                    }
+                } = t;
+            return n.map(r => e.map(({
+                row: i,
+                col: c
+            }) => r[i * a + c]))
+        }
+    }),
+    fn = mt(L1, Bn, (e, t) => e && e[t]),
+    v1 = mt(Dt, $e, sa, (e, t, o) => {
+        if (t && o) {
+            const n = o.map(c => c.keymap),
+                {
+                    matrix: {
+                        cols: a
+                    }
+                } = t,
+                r = 2,
+                i = 8;
+            return n.map(c => e.map(({
+                row: l,
+                col: u
+            }) => {
+                c[r + l * a * i + u + 0], c[r + l * a * i + u + 1], c[r + l * a * i + u + 2], c[r + l * a * i + u + 3], c[r + l * a * i + u + 4], c[r + l * a * i + u + 5], c[r + l * a * i + u + 6], c[r + l * a * i + u + 7]
+            }))
+        }
+    });
+mt(v1, Bn, (e, t) => e && e[t]);
+const os = mt(Dt, $e, sa, oo, (e, t, o, n) => {
+        if (t && o) {
+            const a = o.map(c => c.keymap);
+            let i = 0;
+            return a.map(c => e.map(({
+                row: l,
+                col: u
+            }) => [c[i++]])), a.map(c => [c[i++]]), a
+        }
+    }),
+    Gc = mt($e, A1, (e, t) => {
+        if (e && t) return t.map(n => n.keymap)
+    }),
+    E1 = mt($e, T1, (e, t) => {
+        if (e && t) return t.map(n => n.keymap)
+    }),
+    l_ = mt(Dt, $e, sa, oo, (e, t, o, n) => {
+        if (t && o) {
+            const a = o.map(l => l.keymap);
+            let i = 2;
+            return a.map(l => e.map(({
+                row: u,
+                col: _
+            }) => [l[i++], l[i++], l[i++], l[i++], l[i++], l[i++], l[i++], l[i++]]))[0]
+        }
+    }),
+    d_ = mt(Dt, $e, sa, (e, t, o) => {
+        if (t && o) {
+            const n = o.map(r => r.keymap),
+                a = 1;
+            return n.map(r => e.map(({
+                row: i,
+                col: c
+            }) => r[a])), n
+        }
+    }),
+    P1 = {
+        [X.LightingValue.BACKLIGHT_COLOR_1]: 2,
+        [X.LightingValue.BACKLIGHT_COLOR_2]: 2,
+        [X.LightingValue.QMK_RGBLIGHT_COLOR]: 2,
+        [X.LightingValue.BACKLIGHT_CUSTOM_COLOR]: 2,
+        [X.LightingValue.BACKLIGHT_CAPS_LOCK_INDICATOR_COLOR]: 2,
+        [X.LightingValue.BACKLIGHT_CAPS_LOCK_INDICATOR_ROW_COL]: 2,
+        [X.LightingValue.BACKLIGHT_LAYER_1_INDICATOR_COLOR]: 2,
+        [X.LightingValue.BACKLIGHT_LAYER_2_INDICATOR_COLOR]: 2,
+        [X.LightingValue.BACKLIGHT_LAYER_3_INDICATOR_COLOR]: 2,
+        [X.LightingValue.BACKLIGHT_LAYER_1_INDICATOR_ROW_COL]: 2,
+        [X.LightingValue.BACKLIGHT_LAYER_2_INDICATOR_ROW_COL]: 2,
+        [X.LightingValue.BACKLIGHT_LAYER_3_INDICATOR_ROW_COL]: 2,
+        [X.LightingValue.BACKLIGHT_EFFECT_SPEED]: 1,
+        [X.LightingValue.BACKLIGHT_USE_7U_SPACEBAR]: 1,
+        [X.LightingValue.BACKLIGHT_USE_ISO_ENTER]: 1,
+        [X.LightingValue.BACKLIGHT_USE_SPLIT_BACKSPACE]: 1,
+        [X.LightingValue.BACKLIGHT_USE_SPLIT_LEFT_SHIFT]: 1,
+        [X.LightingValue.BACKLIGHT_USE_SPLIT_RIGHT_SHIFT]: 1,
+        [X.LightingValue.BACKLIGHT_DISABLE_AFTER_TIMEOUT]: 1,
+        [X.LightingValue.BACKLIGHT_DISABLE_HHKB_BLOCKER_LEDS]: 1,
+        [X.LightingValue.BACKLIGHT_DISABLE_WHEN_USB_SUSPENDED]: 1
+    },
+    I1 = {
+        lightingMap: {}
+    },
+    u_ = mo({
+        name: "lighting",
+        initialState: I1,
+        reducers: {
+            updateSelectedLightingData: (e, t) => {
+                const {
+                    lightingData: o,
+                    devicePath: n
+                } = t.payload;
+                e.lightingMap[n] = o
+            },
+            updateLighting: (e, t) => {
+                e.lightingMap = { ...e.lightingMap,
+                    ...t.payload
+                }
+            }
+        }
+    }),
+    {
+        updateLighting: O1,
+        updateSelectedLightingData: __
+    } = u_.actions,
+    N1 = u_.reducer,
+    Ln = (e, ...t) => async (o, n) => {
+        const a = n(),
+            r = ut(a);
+        if (!r) return;
+        const c = { ...Un(a),
+                [e]: [...t]
+            },
+            {
+                path: l
+            } = r;
+        o(__({
+            lightingData: c,
+            devicePath: l
+        }));
+        const u = st(a);
+        await u.setBacklightValue(e, ...t), await u.saveLighting()
+    },
+    G1 = (e, t, o) => async (n, a) => {
+        const r = a(),
+            i = ut(r),
+            c = st(r),
+            l = Un(r);
+        if (!i || !l || !c) return;
+        const u = [...l.customColors || []];
+        u[e] = {
+            hue: t,
+            sat: o
+        };
+        const _ = { ...l,
+                customColors: u
+            },
+            {
+                path: h
+            } = i;
+        n(__({
+            lightingData: _,
+            devicePath: h
+        })), c.setCustomColor(e, t, o), await c.saveLighting()
+    },
+    B1 = e => async (t, o) => {
+        const n = o(),
+            a = $e(n),
+            r = st(n);
+        if (!a || !r) return;
+        const {
+            path: i
+        } = e;
+        if (!X.isVIADefinitionV2(a)) throw new Error("This method is only compatible with v2 definitions");
+        const {
+            lighting: c
+        } = a, {
+            supportedLightingValues: l,
+            effects: u
+        } = X.getLightingDefinition(c);
+        if (l.length !== 0) {
+            let _ = {};
+            if (l.indexOf(X.LightingValue.BACKLIGHT_CUSTOM_COLOR) !== -1) {
+                const K = await Array(Math.max(...u.map(([L, M]) => M))).fill(0).map((L, M) => r.getCustomColor(M));
+                _ = {
+                    customColors: await Promise.all(K)
+                }
+            }
+            const h = l.map(K => ({
+                    command: K,
+                    promise: r.getBacklightValue(+K, P1[K])
+                })),
+                f = await Promise.all(h.map(K => K.promise));
+            _ = h.reduce(({
+                res: K,
+                ref: y
+            }, L, M) => ({
+                ref: y,
+                res: { ...K,
+                    [L.command]: y[M]
+                }
+            }), {
+                res: _,
+                ref: f
+            }).res, t(O1({
+                [i]: { ..._
+                }
+            }))
+        }
+    },
+    U1 = e => e.lighting.lightingMap,
+    Un = mt(U1, io, (e, t) => t && e[t]);
+
+function F1(e) {
+    return {
+        style: {
+            color: e ? "var(--bg_icon-highlighted)" : "var(--bg_control)"
+        }
+    }
+}
+const ra = S.div `
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: min-content min-content minmax(0, 1fr);
+  > div {
+    pointer-events: all;
+  }
+`,
+    jr = S.div `
+display: flex;
+align-items: center;
+flex-direction: column;
+padding: 0 12px;
+`,
+    ns = S.div `
+  border-right: 1px solid var(--border_color_cell);
+`,
+    ia = S(ns)
+`
+  background: var(--bg_menu);
+  border-top: 1px solid var(--border_color_cell);
+`, Dr = S(ns)
+`
+  border-top: 1px solid var(--border_color_cell);
+  overflow: auto;
+`, to = S(ns)
+`
+  border-top: 1px solid var(--border_color_cell);
+  overflow: auto;
+  grid-column: span 2;
+`, Bc = S(ns)
+`
+  border-top: 1px solid var(--border_color_cell);
+  background: var(--bg_control);
+`, h_ = S(Bc)
+`
+  min-width: 80px;
+  overflow: auto;
+`, C_ = S(ns)
+`
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`, H1 = S(C_)
+`
+  pointer-events: none;
+  height: 500px;
+`, Uc = S.span `
+  position: relative;
+  color: var(--color_inside-accent);
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${e=>e.$selected?"var(--color_accent)":"transparent"};
+  border-radius: 10px;
+  width: 40px;
+  &:hover {
+    color: ${e=>e.$selected?"var(--color_inside-accent)":"var(--color_accent)"};
+    & .tooltip {
+      transform: scale(1) translateX(0px);
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    transform: translateX(-5px) scale(0.6);
+    opacity: 0;
+  }
+`, ca = S.span `
+  display: inline-block;
+  text-align: center;
+  width: 35px;
+  position: relative;
+  &:hover > span > div {
+    background-color: red;
+  }
+`, So = S.div `
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  font-size: 20px;
+  justify-content: space-between;
+  display: flex;
+  line-height: 24px;
+  min-height: 24px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+`, Eo = S.div `
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  font-size: 20px;
+  justify-content: space-between;
+  display: flex;
+  line-height: 50px;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+`, qr = S.div `
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  font-size: 20px;
+  justify-content: space-between;
+  display: flex;
+  line-height: 24px;
+  min-height: 24px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+`, Oe = S.div `
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  border-bottom: 1px solid var(--border_color_cell);
+  font-size: 20px;
+  justify-content: space-between;
+  display: flex;
+  line-height: 50px;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+`, ho = S.div `
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  border-bottom: 1px solid var(--border_color_cell);
+  font-size: 14px;
+  justify-content: space-between;
+  display: flex;
+  line-height: 32px;
+  min-height: 32px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+`, $1 = S.div `
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  
+  font-size: 20px;
+  justify-content: space-between;
+  display: flex;
+  line-height: 50px;
+  min-height: 50px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+`, Ai = S(Oe)
+`
+  padding-left: 17px;
+`, me = S.label `
+  font-family: ${({theme:e})=>e.fonts.regular};
+  color: var(--color_label);
+  font-weight: 400;
+`, W1 = S(me)
+`
+  font-family: ${({theme:e})=>e.fonts.regular};
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+`, Be = S(me)
+`
+  font-family: ${({theme:e})=>e.fonts.regular};
+  color: var(--color_accent);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+`, Se = S.span `
+  color: var(--color_accent);
+  display: flex;
+  align-items: center;
+`, Fn = S.div `
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 15px;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: ${e=>F1(e.$selected).style.color};
+  border-left: 2px solid transparent;
+
+  svg {
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    color: var(--color_label-highlighted);
+    & .tooltip {
+      transform: scale(1) translateX(0px);
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    transform: translateX(-5px) scale(0.6);
+    opacity: 0;
+  }
+`, kr = S(Fn)
+`
+  background: ${e=>e.$selected?"var(--bg_icon)":"inherit"};
+  padding: 4px 8px;
+  font-weight: 400;
+  min-width: min-content;
+  border-color: transparent;
+  margin-bottom: 11px;
+  font-family: ${({theme:e})=>e.fonts.regular};
+  color: ${e=>e.$selected?"var(--color_label-highlighted)":"var(--color_label)"};
+  border-radius: 12px;
+`, Ua = S.div `
+  display: flex;
+  transition: transform 0.2s ease-out;
+  user-select: none;
+  color: #717070;
+  border: 1px #717070 solid;
+  width: 45px;
+  height: 45px;
+  padding: 2px;
+  margin: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  box-shadow: #8c8c8c 0 1px 0 0;
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+`, Hn = S.div `
+  background: var(--gradient);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--gradient);
+`, uo = S(Hn)
+`
+  overflow: auto;
+  display: block;
+`, Cn = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, V1 = S(Hn)
+`
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background: transparent;
+  pointer-events: none;
+  z-index: 3;
+`;
+S.div `
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 64px);
+  grid-auto-rows: 72px;
+  justify-content: center;
+  grid-gap: 10px;
+`;
+S(Ua)
+`
+  width: 58px;
+  height: 58px;
+  line-height: 18px;
+  border-radius: 64px;
+  font-size: 14px;
+  border: 4px solid var(--border_color_icon);
+  background: var(--bg_control);
+  color: var(--color_label);
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  border-radius: 18px;
+  &:hover {
+    border-color: var(--color_accent);
+    transform: translate3d(0, -2px, 0);
+  }
+  ${e=>e.disabled&&"cursor:not-allowed;filter:opacity(50%);"}
+`;
+S.div `
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
+const Y1 = S.div `
+  padding: 12px;
+  padding-bottom: 30px;
+`;
+S.div `
+  position: fixed;
+  bottom: 0;
+  background: #d9d9d97a;
+  box-sizing: border-box;
+  transition: opacity 0.4s ease-out;
+  height: 25px;
+  width: 100%;
+  line-height: 14px;
+  padding: 5px;
+  font-size: 14px;
+  opacity: 1;
+  pointer-events: none;
+  &:empty {
+    opacity: 0;
+  }
+`;
+S.button `
+  position: absolute;
+  left: ${e=>e.left}px;
+  top: ${e=>e.top}px;
+  width: ${e=>e.width}px;
+  height: ${e=>e.height}px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: ${e=>e.height*2}px;
+  background-color: #3498db; // 버튼의 배경색 설정
+  color: #ffffff; // 버튼 텍스트의 색상 설정
+
+  &:hover {
+    background-color: #2980b9; // 호버 시 배경색 변경
+  }
+`;
+const z1 = e => s("svg", {
+        width: 11.9,
+        height: 17,
+        ...e,
+        children: s("path", {
+            d: "M3.4 16.15a.853.853 0 00.85.85h3.4a.852.852 0 00.85-.85v-.85H3.4zM5.95 0a5.947 5.947 0 00-3.4 10.829v1.921a.852.852 0 00.85.85h5.1a.852.852 0 00.85-.85v-1.921A5.947 5.947 0 005.95 0zm2.422 9.435l-.722.51V11.9h-3.4V9.945l-.722-.51a4.25 4.25 0 114.845 0z",
+            fill: "currentColor"
+        })
+    }),
+    X1 = "Lighting",
+    Q1 = z1,
+    Fc = S.button `
+  font-family: ${e=>e.fontfamily};
+  height: 40px;
+  padding: 0 15px;
+  line-height: 40px;
+  min-width: 100px;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+  border-radius: 5px;
+  color: var(--color_accent);
+  border: 1px solid var(--color_accent);
+  display: inline-block;
+  box-sizing: border-box;
+  pointer-events: ${e=>e.disabled?"none":"auto"};
+  cursor: ${e=>e.disabled?"not-allowed":"pointer"};
+
+  &:hover {
+    border: 1px solid var(--color_accent);
+  }
+`,
+    St = S(Fc)
+`
+  font-family: ${({theme:e})=>e.fonts.regular};
+  background-color: ${e=>e.disabled?"var(--bg_control-disabled)":"var(--bg_outside-accent)"};
+  color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+  border-color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+
+  &:hover {
+    filter: brightness(0.7);
+  }
+`;
+S(Fc)
+`
+  font-family: ${({theme:e})=>e.fonts.regular};
+  background-color: ${e=>e.disabled?"var(--bg_control-disabled)":"var(--bg_outside-accent)"};
+  color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+  border-color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+
+  &:hover {
+    filter: brightness(0.7);
+  }
+`;
+const as = S(St)
+`
+  font-size: 24px;
+  line-height: 60px;
+  height: 60px;
+`, j1 = S(Fc)
+`
+  color: ${e=>e.disabled?"var(--bg_control)":"var(--color_inside-accent)"};
+  border-color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+  background-color: ${e=>e.disabled?"transparent":"var(--color_accent)"};
+  &:hover {
+    filter: brightness(0.7);
+  }
+`, q1 = S.span `
+  color: var(--color_accent);
+  display: flex;
+  padding-left: 10px;
+`, Z1 = S.span `
+  color: var(--color_label);
+  display: flex;
+`, J1 = S.div `
+  box-sizing: border-box;
+  min-width: 200px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: ${e=>e.$selected?"var(--bg_control)":"var(--bg_menu)"};
+
+  &:hover {
+    background-color: var(--bg_control);
+  }
+`, Ps = ({
+    selected: e,
+    entity: {
+        label: t,
+        code: o
+    }
+}) => m(J1, {
+    $selected: e,
+    children: [s(Z1, {
+        children: t
+    }), " ", s(q1, {
+        children: o
+    })]
+}), em = () => s("div", {
+    children: "Loading"
+}), Zr = e => {
+    const t = e.toUpperCase();
+    return I0().filter(({
+        name: o,
+        title: n,
+        code: a
+    }) => n ? n.toUpperCase().indexOf(t) > -1 : o.toUpperCase().indexOf(t) > -1 || a.toUpperCase().indexOf(t) > -1).slice(0, 10).map(({
+        name: o,
+        code: n,
+        title: a
+    }) => ({
+        label: a || o,
+        code: n
+    }))
+}, tm = S.input `
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color_accent);
+  filter: brightness(0.7);
+  color: var(--color_accent);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  transition: all 0.2s ease-out;
+
+  &:focus {
+    filter: brightness(1);
+    color: var(--color_accent);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--color_control);
+  }
+`, om = S.div `
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+`, p_ = S.div `
+  border: 2px solid var(--color_accent);
+  min-width: 460px;
+  max-width: 550px;
+  min-height: 170px;
+  gap: 20px;
+  background-color: var(--bg_menu);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+`, f_ = S.div `
+  font-weight: 500;
+  user-select: none;
+  color: var(--color_label);
+  font-size: 20px;
+  text-align: center;
+`, nm = S.div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  gap: 20px;
+`, am = S.ul `
+  position: fixed;
+  background-color: var(--bg_menu);
+  max-height: 210px;
+  overflow: auto;
+  border: 1px solid var(--bg_control);
+  margin: 0;
+  padding: 0;
+  width: auto;
+  margin-top: -24px;
+  line-height: normal;
+`, sm = S.li `
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--bg_control);
+  }
+`;
+
+function rm(e) {
+    const t = e.toLowerCase();
+    return `0x${parseInt(t,16).toString(16).toLowerCase()}` === t
+}
+
+function g_(e, t) {
+    return e.trim().toUpperCase() in t
+}
+
+function im(e, t) {
+    const o = e.trim().toUpperCase();
+    return t[o]
+}
+
+function m_(e, t) {
+    const o = e.trim().toUpperCase();
+    return Zn(o, t) !== 0
+}
+
+function cm(e, t) {
+    const o = e.trim().toUpperCase();
+    return Zn(o, t)
+}
+
+function K_(e) {
+    return rm(e.trim())
+}
+
+function lm(e) {
+    const t = e.toLowerCase();
+    return parseInt(t, 16)
+}
+
+function dm(e, t) {
+    return g_(e, t) || m_(e, t) || K_(e)
+}
+
+function um(e, t) {
+    return g_(e, t) ? im(e, t) : m_(e, t) ? cm(e, t) : K_(e) ? lm(e) : null
+}
+const _m = e => e.map(t => ({
+        code: t.code,
+        label: t.title ? ? t.name
+    })),
+    y_ = e => {
+        const t = p($e),
+            {
+                basicKeyToByte: o,
+                byteToKey: n
+            } = p(yo);
+        if (!t) return null;
+        const a = _m(Jf(t)),
+            [r, i] = C.useState(a),
+            c = Xs(e.defaultValue, o, n),
+            {
+                getMenuProps: l,
+                getInputProps: u,
+                highlightedIndex: _,
+                inputValue: h,
+                getItemProps: f,
+                isOpen: K
+            } = RC({
+                items: r,
+                initialIsOpen: c === "",
+                defaultInputValue: c,
+                itemToString: L => (L == null ? void 0 : L.code) ? ? "",
+                onInputValueChange: ({
+                    inputValue: L
+                }) => {
+                    i(a.filter(({
+                        label: M,
+                        code: P
+                    }) => [M, P].flatMap(ie => ie.split(/\s+/)).map(ie => ie.toLowerCase()).some(ie => ie.startsWith((L ? ? "").toLowerCase()))))
+                }
+            }),
+            y = dm(h, o);
+        return s(om, {
+            children: m(p_, {
+                children: [s(f_, {
+                    children: "Please enter your desired QMK keycode or hex code:"
+                }), m("div", {
+                    children: [s("div", {
+                        children: s(tm, { ...u(),
+                            type: "text",
+                            placeholder: c || "KC_NO, 0xFF, etc."
+                        })
+                    }), s(am, { ...l(),
+                        style: {
+                            display: K && r.length ? "block" : "none"
+                        },
+                        children: K && r.map((L, M) => C.createElement(sm, { ...f({
+                                item: L,
+                                index: M
+                            }),
+                            key: L.code
+                        }, s(Ps, {
+                            selected: _ === M,
+                            entity: L
+                        }, L.code)))
+                    })]
+                }), m(nm, {
+                    children: [s(St, {
+                        onClick: e.onExit,
+                        children: "Cancel"
+                    }), s(j1, {
+                        disabled: !y,
+                        onClick: () => {
+                            e.onConfirm(um(h, o))
+                        },
+                        children: "Confirm"
+                    })]
+                })]
+            })
+        })
+    },
+    Is = e => {
+        const [t, o] = F.useState(!1), {
+            basicKeyToByte: n,
+            byteToKey: a
+        } = p(yo);
+        return m(Ke, {
+            children: [s(St, {
+                onClick: () => o(!0),
+                children: Xs(e.value, n, a)
+            }), t && s(y_, {
+                defaultValue: e.value,
+                onChange: e.setValue,
+                onConfirm: r => {
+                    e.setValue(r), o(!1)
+                },
+                onExit: () => o(!1)
+            })]
+        })
+    },
+    hm = S.input `
+  opacity: 0;
+  width: 0;
+  height: 0;
+`,
+    Cm = S.label `
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+`,
+    pm = S.span `
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: ${e=>e.$ischecked?"var(--color_accent)":"var(--bg_control)"};
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 4px;
+  &:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 4px;
+    background-color: ${e=>e.$ischecked?"var(--color_inside-accent)":"var(--bg_icon)"};
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    ${e=>e.$ischecked?"transform: translateX(26px)":""};
+  }
+`;
+
+function Qt(e) {
+    const {
+        isChecked: t,
+        onChange: o
+    } = e, [n, a] = F.useState(t), r = C.useRef(null);
+    return F.useEffect(() => {
+        a(t)
+    }, [t]), m(Cm, {
+        children: [s(hm, {
+            ref: r,
+            type: "checkbox",
+            checked: n,
+            onChange: () => {
+                const c = !t;
+                a(c), o(c), r.current && r.current.blur()
+            }
+        }), s(pm, {
+            $ischecked: n
+        })]
+    })
+}
+const fm = {
+        option: (e, t) => ({ ...e,
+            "&:hover": {
+                backgroundColor: t.isSelected ? "var(--color_accent)" : "var(--bg_control)"
+            },
+            ":active": {
+                backgroundColor: "var(--bg_control)"
+            },
+            background: t.isSelected ? "var(--color_accent)" : t.isFocused ? "var(--bg_control)" : "var(--bg_menu)",
+            color: t.isSelected ? "var(--color_inside-accent)" : (t.isFocused, "var(--color_accent)")
+        }),
+        container: e => ({ ...e,
+            lineHeight: "initial",
+            flex: 1
+        }),
+        input: e => ({ ...e,
+            color: "var(--color_accent)",
+            opacity: .5
+        }),
+        singleValue: e => ({ ...e,
+            color: "var(--color_accent)",
+            fontFamily: "NanmuSquareRound"
+        }),
+        dropdownIndicator: e => ({ ...e,
+            color: "var(--color_accent)"
+        }),
+        indicatorSeparator: e => ({ ...e,
+            backgroundColor: "var(--color_accent)"
+        }),
+        menuList: e => ({ ...e,
+            borderColor: "var(--color_accent)",
+            backgroundColor: "var(--bg_menu)"
+        }),
+        placeholder: e => ({ ...e,
+            color: "var(--color_accent)"
+        }),
+        valueContainer: e => ({ ...e,
+            ":active": {
+                backgroundColor: "var(--bg_control)",
+                borderColor: "var(--color_accent)"
+            },
+            "&:hover": {
+                borderColor: "var(--color_accent)"
+            },
+            color: "var(--color_accent)",
+            background: "var(--bg_menu)"
+        }),
+        control: (e, t) => ({ ...e,
+            boxShadow: "none",
+            ":active": {
+                backgroundColor: "transparent",
+                borderColor: "var(--color_accent)"
+            },
+            "&:hover": {
+                borderColor: "var(--color_accent)"
+            },
+            color: "var(--color_accent)",
+            borderColor: "1px solid var(--color_accent)",
+            background: "var(--bg_menu)",
+            overflow: "hidden",
+            width: t.selectProps.width || 250
+        })
+    },
+    fo = e => s(mi, { ...e,
+        styles: fm
+    }),
+    gm = S.span `
+  display: inline-block;
+  line-height: initial;
+  width: 200px;
+`,
+    mm = S.input.attrs({
+        type: "range"
+    })
+`
+  accent-color: var(--color_accent);
+  width: 100%;
+`, Lo = e => s(gm, {
+    children: s(mm, { ...e,
+        onChange: t => {
+            e.onChange && e.onChange(+t.target.value)
+        }
+    })
+}), Km = S.div `
+  display: flex;
+  align-items: center;
+`, ym = S.div `
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid black;
+  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  box-sizing: border-box;
+  transform: translate3d(195px, 195px, 0);
+`, Sm = S.div `
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, white, rgba(0, 0, 0, 0));
+`, wm = S.div `
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    red,
+    yellow,
+    lime,
+    aqua,
+    blue,
+    magenta,
+    red
+  );
+`, Mm = S.div `
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 4px solid var(--border_color_cell);
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+`, bm = S.div `
+  border: 4px solid var(--border_color_cell);
+  width: 180px;
+  height: 180px;
+  position: relative;
+`, Dm = S.div `
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.11) 0 1px 1px 1px;
+  position: absolute;
+  transform: translate3d(-205px, 50px, 0);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 11px solid var(--border_color_cell);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    right: -22px;
+    top: 66px;
+  }
+`, km = S.div `
+  width: 180px;
+  height: 24px;
+  border: 4px solid var(--border_color_cell);
+  border-bottom: none;
+`, xm = S.div `
+  border: 4px solid var(--border_color_cell);
+  border-bottom: none;
+  width: 180px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  background: var(--bg_menu);
+`, Rm = S.input `
+  text-align: center;
+  border: none;
+  color: var(--color_accent);
+  background: var(--bg_menu);
+  font-size: 20px;
+  font-weight: 300;
+  padding: 0;
+  width: 100%;
+  &:focus {
+    outline: none;
+    color: var(--color_accent);
+    border-color: var(--color_accent);
+  }
+`;
+class Hc extends C.Component {
+    constructor() {
+        super(...arguments);
+        et(this, "ref", null);
+        et(this, "refWidth", 0);
+        et(this, "refHeight", 0);
+        et(this, "mouseDown", !1);
+        et(this, "state", {
+            lensTransform: "",
+            showPicker: !1,
+            offset: [5, 5],
+            hexColorCode: Ka(this.props.color)
+        });
+        et(this, "onMouseMove", o => {
+            if (this.mouseDown) {
+                const {
+                    offsetX: n,
+                    offsetY: a
+                } = o.nativeEvent, r = `translate3d(${n-5}px, ${a-5}px, 0)`, i = [n, a], {
+                    hue: c,
+                    sat: l
+                } = this.getLinearHueSat(i), u = Ka(this.props.color);
+                this.props.setColor(Math.round(255 * (c / 360)), Math.round(255 * l)), this.setState({
+                    lensTransform: r,
+                    offset: i,
+                    hexColorCode: u
+                })
+            }
+        });
+        et(this, "onMouseDown", o => {
+            this.mouseDown = !0, this.onMouseMove(o), this.ref && (this.ref.style.cursor = "pointer")
+        });
+        et(this, "onMouseUp", () => {
+            if (this.mouseDown = !1, this.ref && (this.ref.style.cursor = "auto"), this.props.onMouseUp) {
+                const {
+                    hue: o,
+                    sat: n
+                } = this.getLinearHueSat(this.state.offset);
+                this.props.onMouseUp(o, n)
+            }
+        });
+        et(this, "onThumbnailClick", () => {
+            this.props.onOpen && this.props.onOpen(), this.setState({
+                showPicker: !0
+            })
+        });
+        et(this, "pickerContainer", F.createRef());
+        et(this, "colorThumbnail", F.createRef());
+        et(this, "onDocumentClick", o => {
+            if (this.state.showPicker && this.pickerContainer.current && !this.pickerContainer.current.contains(o.target) && this.colorThumbnail.current && !this.colorThumbnail.current.contains(o.target) && !this.mouseDown) {
+                if (this.props.onClose) {
+                    const {
+                        hue: n,
+                        sat: a
+                    } = this.getLinearHueSat(this.state.offset);
+                    this.props.onClose(n, a)
+                }
+                this.mouseDown = !1, this.setState({
+                    showPicker: !1,
+                    hexColorCode: Ka(this.props.color)
+                })
+            } else this.mouseDown && this.state.showPicker && this.pickerContainer.current && !this.pickerContainer.current.contains(o.target) && this.colorThumbnail.current && !this.colorThumbnail.current.contains(o.target) && this.onMouseUp()
+        });
+        et(this, "handleHexChange", o => {
+            let n = o.target.value;
+            n = n.replace(/[^A-Fa-f0-9]/g, ""), n.length > 0 && n[0] !== "#" && (n = `#${n}`), n.length > 7 && (n = n.substring(0, 7)), this.setState({
+                hexColorCode: n
+            })
+        });
+        et(this, "handleHexBlur", o => {
+            this.setState({
+                hexColorCode: Ka(this.props.color)
+            })
+        });
+        et(this, "handleHexSubmit", o => {
+            if (o.key === "Enter") {
+                if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(this.state.hexColorCode)) {
+                    var n = this.state.hexColorCode.replace("#", "");
+                    n.length == 3 && (n = `${n.split("").map(c=>c+c).join("")}`);
+                    const [r, i] = _0(n);
+                    this.props.setColor(Math.round(255 * (r / 360)), Math.round(255 * i))
+                }
+                this.setState({
+                    hexColorCode: Ka(this.props.color)
+                })
+            }
+        })
+    }
+    componentWillUnmount() {
+        document.removeEventListener("mousedown", this.onDocumentClick), document.removeEventListener("click", this.onDocumentClick)
+    }
+    componentDidUpdate({
+        color: o
+    }, n) {
+        if (this.ref && this.state.showPicker && (!n.showPicker || o !== this.props.color)) {
+            const {
+                width: a,
+                height: r
+            } = this.ref.getBoundingClientRect();
+            this.refWidth = a, this.refHeight = r;
+            const {
+                hue: i,
+                sat: c
+            } = this.props.color, l = a * i / 255, u = r * (1 - c / 255), _ = `translate3d(${l-5}px, ${u-5}px, 0)`;
+            this.setState({
+                lensTransform: _,
+                offset: [l, u]
+            })
+        }
+    }
+    componentDidMount() {
+        document.addEventListener("click", this.onDocumentClick), document.addEventListener("mousedown", this.onDocumentClick)
+    }
+    getRadialHueSat(o) {
+        const {
+            offsetX: n,
+            offsetY: a
+        } = o.nativeEvent, r = C0(p0(n, a) ? ? 0), i = Math.min(1, f0(n, a) ? ? 0);
+        return {
+            hue: r,
+            sat: i
+        }
+    }
+    getLinearHueSat([o, n]) {
+        const a = this.refWidth,
+            r = this.refHeight,
+            [i, c] = [Math.max(0, o), Math.max(0, n)],
+            l = 360 * Math.min(1, i / a),
+            u = 1 - Math.min(1, c / r);
+        return {
+            hue: l,
+            sat: u
+        }
+    }
+    render() {
+        const o = Pa(this.props.color),
+            {
+                isSelected: n = !1
+            } = this.props,
+            {
+                offset: a
+            } = this.state,
+            r = `translate3d(${a[0]-5}px, ${a[1]-5}px, 0)`;
+        return s(Ke, {
+            children: m(Km, {
+                children: [s(Mm, {
+                    ref: this.colorThumbnail,
+                    onClick: this.onThumbnailClick,
+                    style: {
+                        background: o,
+                        borderColor: n ? "var(--color_accent)" : "var(--border_color_cell)"
+                    }
+                }), this.state.showPicker && m(Dm, {
+                    ref: this.pickerContainer,
+                    onMouseUp: this.onMouseUp,
+                    children: [s(xm, {
+                        children: s(Rm, {
+                            type: "text",
+                            value: this.state.hexColorCode,
+                            onChange: this.handleHexChange,
+                            onBlur: this.handleHexBlur,
+                            onKeyDown: this.handleHexSubmit
+                        })
+                    }), s(km, {
+                        style: {
+                            background: Pa(this.props.color)
+                        }
+                    }), s(bm, {
+                        children: s(wm, {
+                            onMouseDown: this.onMouseDown,
+                            onMouseMove: this.onMouseMove,
+                            ref: i => this.ref = i,
+                            children: s(Sm, {
+                                children: s(ym, {
+                                    style: {
+                                        transform: r
+                                    }
+                                })
+                            })
+                        })
+                    })]
+                })]
+            })
+        })
+    }
+}
+const $c = e => {
+        const {
+            color: t,
+            setColor: o
+        } = e;
+        return s(Hc, {
+            color: {
+                hue: t[0],
+                sat: t[1]
+            },
+            setColor: o
+        })
+    },
+    Am = S.div `
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+`,
+    Tm = S.div `
+  display: flex;
+  background: var(--bg_control);
+  border-radius: 15px;
+`,
+    Lm = S.div `
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 4px solid var(--border_color_cell);
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+  &:hover {
+    opacity: 0.8;
+  }
+  transform: ${e=>e.$selected?"scale(0.8)":"scale(0.6)"};
+  border-color: ${e=>e.$selected?"var(--color_accent)":"var(--border_color_cell)"};
+`,
+    vm = () => {
+        const e = so(),
+            t = C.useCallback((o, n) => e(Ac([o, n])), [e]);
+        return C.useEffect(() => (e(Bl(!0)), () => {
+            e(Bl(!1))
+        })), s(Em, {
+            color: [0, 0],
+            setColor: t
+        })
+    },
+    Em = e => {
+        const {
+            color: t,
+            setColor: o
+        } = e, [n, a] = C.useState(t), [r, i] = C.useState(t), c = C.useMemo(() => Array(9).fill(0).map((l, u) => [Math.round(u * 255 / 10), 255, 255]), []);
+        return m(Am, {
+            children: [s(Tm, {
+                children: c.map((l, u) => {
+                    const _ = n[0] === l[0] && n[1] === l[1];
+                    return s(Lm, {
+                        $selected: _,
+                        style: {
+                            background: Pa({
+                                hue: l[0] ? ? 0,
+                                sat: l[1] ? ? 0
+                            })
+                        },
+                        onClick: () => {
+                            a(l), o(l[0], l[1])
+                        }
+                    }, u)
+                })
+            }), s(Hc, {
+                isSelected: r[0] === n[0] && r[1] === n[1],
+                color: {
+                    hue: r[0],
+                    sat: r[1]
+                },
+                setColor: (l, u) => {
+                    a([l, u]), i([l, u])
+                },
+                onOpen: () => {
+                    a([r[0], r[1]]), o(r[0], r[1])
+                },
+                onMouseUp: () => {
+                    a([r[0], r[1]]), o(r[0], r[1])
+                }
+            })]
+        })
+    },
+    Pm = F.memo(e => {
+        const {
+            t
+        } = Tt();
+        return m(Oe, {
+            id: e._id,
+            children: [s(me, {
+                children: t(e.label)
+            }), s(Se, {
+                children: "type" in e ? s(w_, { ...e,
+                    value: e.value && Array.from(e.value)
+                }) : t(e.content)
+            })]
+        })
+    });
+F.memo(e => m(Oe, {
+    id: e._id,
+    children: [s(me, {
+        children: e.label
+    }), s(Se, {
+        children: "type" in e ? s(w_, { ...e,
+            value: e.value && Array.from(e.value)
+        }) : e.content
+    })]
+}));
+const S_ = e => Array.isArray(e) ? e : [e],
+    Im = (e, t) => S_(e).every((o, n) => o == t[n]),
+    Om = (e, t) => t > 255 ? qt([e[0], e[1]]) : e[0],
+    Nm = (e, t) => t > 255 ? Bt(e) : [e],
+    w_ = e => {
+        const {
+            content: t,
+            type: o,
+            options: n,
+            value: a
+        } = e, [r, ...i] = t;
+        switch (o) {
+            case "button":
+                {
+                    const c = n || [1];
+                    return s(St, {
+                        onClick: () => e.updateValue(r, ...i, c[0]),
+                        children: "Click"
+                    })
+                }
+            case "range":
+                return s(Lo, {
+                    min: n[0],
+                    max: n[1],
+                    defaultValue: Om(e.value, n[1]),
+                    onChange: c => e.updateValue(r, ...i, ...Nm(c, n[1]))
+                });
+            case "keycode":
+                return s(Is, {
+                    value: qt([e.value[0], e.value[1]]),
+                    meta: {},
+                    setValue: c => e.updateValue(r, ...i, ...Bt(c))
+                });
+            case "toggle":
+                {
+                    const c = n || [0, 1];
+                    return s(Qt, {
+                        isChecked: Im(c[1], e.value),
+                        onChange: l => e.updateValue(r, ...i, ...S_(c[+l]))
+                    })
+                }
+            case "dropdown":
+                {
+                    const c = n.map((l, u) => {
+                        const [_, h] = typeof l == "string" ? [l, u] : l;
+                        return {
+                            value: h || u,
+                            label: _
+                        }
+                    });
+                    return s(fo, {
+                        onChange: l => l && e.updateValue(r, ...i, +l.value),
+                        options: c,
+                        defaultValue: c.find(l => a[0] === l.value)
+                    })
+                }
+            case "color":
+                return s($c, {
+                    color: e.value,
+                    setColor: (c, l) => e.updateValue(r, ...i, c, l)
+                });
+            case "color-palette":
+                return s(vm, {})
+        }
+        return null
+    },
+    Gm = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, Bm = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`;
+
+function Um(e) {
+    return e.viaMenu.content.flatMap(t => b_(t, e))
+}
+
+function M_(e, t) {
+    return Tt(), "showIf" in e && !fd.evalExpr(e.showIf, t.selectedCustomMenuData) ? [] : "label" in e ? { ...e,
+        key: e._id
+    } : e.content.flatMap(o => M_(o, t))
+}
+const Fm = F.memo(e => s(Ke, {
+        children: e.elem.content.flatMap(t => M_(t, e)).map(t => s(Pm, { ...t,
+            updateValue: e.updateCustomMenuValue,
+            value: e.selectedCustomMenuData[t.content[0]]
+        }))
+    })),
+    Hm = e => t => C.createElement(Fm, { ...t,
+        key: e._id,
+        elem: e
+    });
+
+function b_(e, t) {
+    const {
+        t: o
+    } = Tt();
+    return "showIf" in e && !fd.evalExpr(e.showIf, t.selectedCustomMenuData) ? [] : "label" in e ? {
+        label: o(`${e.label}`),
+        Menu: Hm(e)
+    } : e.content.flatMap(n => b_(n, t))
+}
+const $m = e => {
+        const t = wt(),
+            o = Um(e),
+            [n, a] = C.useState(o[0] || {
+                label: "",
+                Menu: () => s("div", {})
+            }),
+            r = n.Menu,
+            {
+                t: i
+            } = Tt(),
+            c = p($e),
+            l = p(Vc),
+            u = { ...e,
+                selectedDefinition: c,
+                selectedCustomMenuData: l,
+                updateCustomMenuValue: (_, ...h) => t(Qm(_, ...h))
+            };
+        return !c || !l ? null : m(Ke, {
+            children: [s(Bc, {
+                children: s(la, {
+                    children: o.map(_ => s(kr, {
+                        $selected: n.label === _.label,
+                        onClick: () => a(_),
+                        children: i(_.label)
+                    }, _.label))
+                })
+            }), s(Dr, {
+                children: s(Gm, {
+                    children: s(Bm, {
+                        children: r(u)
+                    })
+                })
+            })]
+        })
+    },
+    la = S.div `
+  padding: 15px 10px 20px 10px;
+`,
+    Wm = [{
+        icon: AC,
+        keywords: ["light", "rgb"]
+    }, {
+        icon: TC,
+        keywords: ["audio", "sound"]
+    }, {
+        icon: LC,
+        keywords: ["display", "oled", "lcd"]
+    }],
+    Vm = e => {
+        const t = e.label.toLowerCase(),
+            o = {
+                icon: vC
+            };
+        return (Wm.find(n => n.keywords.some(a => t.includes(a))) || o).icon
+    },
+    D_ = (e, t) => ({
+        Title: e.label,
+        Icon: () => s(Kt, {
+            icon: Vm(e)
+        }),
+        Pane: o => C.createElement($m, { ...o,
+            key: `${e.label}-${t}`,
+            viaMenu: e
+        })
+    }),
+    Ym = e => e.map(D_),
+    zm = {
+        customMenuDataMap: {},
+        commonMenusMap: {},
+        showKeyPainter: !1
+    },
+    k_ = mo({
+        name: "menus",
+        initialState: zm,
+        reducers: {
+            updateShowKeyPainter: (e, t) => {
+                e.showKeyPainter = t.payload
+            },
+            updateSelectedCustomMenuData: (e, t) => {
+                const {
+                    devicePath: o,
+                    menuData: n
+                } = t.payload;
+                e.customMenuDataMap[o] = n
+            },
+            updateCommonMenus: (e, t) => {
+                const {
+                    commonMenuMap: o
+                } = t.payload;
+                e.commonMenusMap = o
+            },
+            updateCustomMenuData: (e, t) => {
+                e.customMenuDataMap = { ...e.customMenuDataMap,
+                    ...t.payload
+                }
+            }
+        }
+    }),
+    {
+        updateShowKeyPainter: Bl,
+        updateSelectedCustomMenuData: x_,
+        updateCustomMenuData: Ub
+    } = k_.actions,
+    Xm = k_.reducer,
+    Qm = (e, ...t) => async (o, n) => {
+        const a = n(),
+            r = ut(a);
+        if (!r) return;
+        const i = Vc(a),
+            c = e2(a),
+            l = { ...i,
+                [e]: [...t.slice(c[e].length)]
+            },
+            {
+                path: u
+            } = r;
+        o(x_({
+            menuData: l,
+            devicePath: u
+        }));
+        const _ = st(a);
+        _.setCustomMenuValue(...t.slice(0));
+        const h = t[0];
+        _.commitCustomMenu(h)
+    },
+    R_ = e => typeof e == "string" ? X.commonMenus[e] : e,
+    jm = e => async (t, o) => {
+        const n = o(),
+            a = $e(n),
+            r = st(n);
+        if (!X.isVIADefinitionV3(a)) throw new Error("V3 menus are only compatible with V3 VIA definitions.");
+        const c = A_(n).flatMap(Wc),
+            {
+                protocol: l,
+                path: u
+            } = e;
+        if (c.length !== 0 && l >= 11) {
+            let _ = {};
+            const h = c.map(([y, L, ...M]) => ({
+                    command: y,
+                    promise: r.getCustomMenuValue([L].concat(M))
+                })),
+                f = await Promise.all(h.map(y => y.promise));
+            _ = h.reduce(({
+                res: y,
+                ref: L
+            }, M, P) => ({
+                ref: L,
+                res: { ...y,
+                    [M.command]: L[P].slice(1)
+                }
+            }), {
+                res: _,
+                ref: f
+            }).res;
+            const K = Math.max(...a.layouts.keys.map(y => y.li ? ? -1));
+            if (K >= 0) {
+                const y = await r.getPerKeyRGBMatrix(Array(K + 1).fill(0).map((L, M) => M));
+                _.__perKeyRGB = y
+            }
+            t(x_({
+                devicePath: u,
+                menuData: { ..._
+                }
+            }))
+        }
+    },
+    Wc = e => typeof e == "string" ? [] : "type" in e ? [e.content] : "content" in e && typeof e.content != "string" ? e.content.flatMap(Wc) : [],
+    qm = e => e.menus.showKeyPainter,
+    Zm = e => e.menus.customMenuDataMap,
+    Vc = mt(Zm, io, (e, t) => t && e[t]),
+    A_ = mt($e, e => !e || !X.isVIADefinitionV3(e) ? [] : (e.menus || []).flatMap(R_).map((t, o) => X.isVIAMenu(t) ? or("custom_menu", 3, t, o) : t)),
+    Jm = mt($e, e => !e || !X.isVIADefinitionV3(e) ? [] : (e.menus || []).flatMap(R_).map((t, o) => X.isVIAMenu(t) ? D_(or("custom_menu", 3, t, o), o) : t)),
+    e2 = mt($e, A_, (e, t) => {
+        if (!e) return [];
+        const o = X.isVIADefinitionV2(e) ? e.customMenus : t;
+        return o === void 0 ? [] : o.flatMap(Wc).reduce((n, a) => ({ ...n,
+            [a[0]]: a.slice(1)
+        }), {})
+    }),
+    or = (e, t = 0, o, n) => t === 0 ? o : { ...o,
+        _id: `${e}_${n}`,
+        content: o.label !== void 0 ? typeof o.content == "string" ? o.content : o.content.map((a, r) => or(`${e}_${r}`, t - 1, a, n)) : o.content.map((a, r) => or(`${e}_${r}`, t, a, n))
+    },
+    t2 = {
+        showMatrix: !1,
+        selectedOptionKeys: [],
+        selectedDefinitionIndex: 0
+    },
+    T_ = mo({
+        name: "design",
+        initialState: t2,
+        reducers: {
+            updateSelectedDefinitionIndex: (e, t) => {
+                e.selectedDefinitionIndex = t.payload
+            },
+            updateSelectedOptionKeys: (e, t) => {
+                e.selectedOptionKeys = t.payload
+            },
+            updateShowMatrix: (e, t) => {
+                e.showMatrix = t.payload
+            }
+        }
+    }),
+    {
+        updateSelectedDefinitionIndex: o2,
+        updateSelectedOptionKeys: Ra,
+        updateShowMatrix: n2
+    } = T_.actions,
+    a2 = T_.reducer,
+    L_ = e => e.design.selectedDefinitionIndex,
+    v_ = e => e.design.selectedOptionKeys,
+    E_ = e => e.design.showMatrix,
+    Yc = (e, t) => `0x${e.toString(16).padStart(t,"0").toUpperCase()}`,
+    zc = EC(),
+    P_ = (e, t) => {
+        PC(new Error(e), {
+            tags: {
+                productName: t.productName,
+                vendorId: Yc(t.vendorId, 4),
+                protocol: t.protocol
+            },
+            extra: {
+                deviceInfo: t
+            }
+        })
+    };
+zc.startListening({
+    actionCreator: xo,
+    effect: async ({
+        payload: {
+            message: e,
+            deviceInfo: t
+        }
+    }, o) => {
+        P_(e, t)
+    }
+});
+zc.startListening({
+    actionCreator: lc,
+    effect: async ({
+        payload: e
+    }, t) => {
+        P_(Od(e), e.deviceInfo)
+    }
+});
+const s2 = IC("endStroke"),
+    r2 = {
+        points: [],
+        color: "#d0021b",
+        hsvcolor: {
+            h: .9797734627831716,
+            s: .9903846153846154,
+            v: .8156862745098039
+        },
+        rgbcolor: {
+            r: 208,
+            g: 2,
+            b: 27
+        }
+    },
+    i2 = mo({
+        name: "currentStroke",
+        initialState: r2,
+        reducers: {
+            beginStroke: (e, t) => {
+                e.points = [t.payload]
+            },
+            updateStroke: (e, t) => {
+                e.points.push(t.payload)
+            },
+            setStrokeColor: (e, t) => {
+                e.color = t.payload
+            },
+            setHSVColor: (e, t) => {
+                e.hsvcolor = t.payload
+            },
+            setRGBColor: (e, t) => {
+                e.rgbcolor = t.payload
+            }
+        },
+        extraReducers: e => {
+            e.addCase(s2, t => {
+                t.points = []
+            })
+        }
+    }),
+    I_ = e => e.currentStroke,
+    c2 = i2.reducer,
+    l2 = OC({}),
+    Fa = NC({
+        reducer: {
+            settings: x0,
+            macros: cg,
+            devices: og,
+            updates: mg,
+            keymap: e1,
+            definitions: Ag,
+            lighting: N1,
+            menus: Xm,
+            design: a2,
+            errors: Mf,
+            currentStroke: c2
+        },
+        enhancers: [l2],
+        middleware: e => e().prepend(zc.middleware)
+    }),
+    d2 = "/assets/chippy_600-902171c5.png",
+    Ul = {
+        width: 300,
+        height: 300,
+        src: d2
+    },
+    u2 = S.div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+    _2 = S.div `
+  border-radius: 50%;
+  background-color: var(--bg_icon);
+  height: ${e=>e.$containerHeight}px;
+  width: ${e=>e.$containerWidth}px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation-duration: 1.5s;
+  animation-name: roll;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+
+  &::after {
+    height: ${e=>e.$containerHeight}px;
+    width: ${e=>e.$containerWidth}px;
+    position: absolute;
+    content: '';
+    background-color: ${e=>e.$progressColor};
+    top: ${e=>e.$containerHeight+1}px;
+    left: 0;
+    right: 0;
+    transition: transform 0.4s ease-out;
+    transform: translate3d(
+      0,
+      ${e=>-(e.$progress||0)*e.$containerHeight}px,
+      0
+    );
+  }
+`,
+    h2 = e => {
+        const {
+            theme: t
+        } = e, o = go(t.accent.c, .8), n = {
+            "upper-body": t.mod.t,
+            "lower-body": t.mod.c,
+            accent: o,
+            bowtie: o,
+            pins: o,
+            feet: "#000"
+        };
+        return m("svg", {
+            id: "Layer_1",
+            xmlns: "http://www.w3.org/2000/svg",
+            x: 0,
+            y: 0,
+            viewBox: "0 0 600 600",
+            style: {
+                enableBackground: "new 0 0 600 600"
+            },
+            xmlSpace: "preserve",
+            ...e,
+            children: [s("style", {
+                children: `.st3{fill:#fdfefe}.st4{fill:${n.bowtie}}.st5{fill-rule:evenodd;clip-rule:evenodd;fill:${n.accent}}.st7,.st9{fill-rule:evenodd;clip-rule:evenodd}.st10,.st9{fill:#fff}`
+            }), m("g", {
+                id: "Layer_2_00000088814685506851870240000015950599998114990989_",
+                children: [s("g", {
+                    id: "Feet",
+                    children: s("path", {
+                        d: "M169.7 432.1c28.3 0 51.5 23.3 51.5 51.5s-23.3 51.5-51.5 51.5-51.5-23.3-51.5-51.5 23.2-51.5 51.5-51.5zM425.8 432.1c28.3 0 51.5 23.3 51.5 51.5s-23.3 51.5-51.5 51.5-51.5-23.3-51.5-51.5 23.2-51.5 51.5-51.5z"
+                    })
+                }), m("g", {
+                    id: "Body",
+                    children: [s("path", {
+                        d: "M26.7 66.8h546.2c9.8 0 17.7 7.9 17.7 17.7v273.3H9V84.6c0-9.8 7.9-17.8 17.7-17.8z",
+                        style: {
+                            fill: n["upper-body"]
+                        }
+                    }), s("path", {
+                        d: "M9 357.4h581.6v113.7c0 8.4-6.9 15.3-15.3 15.3h-551c-8.4 0-15.3-6.9-15.3-15.3V357.4z",
+                        style: {
+                            fill: n["lower-body"]
+                        }
+                    })]
+                }), s("path", {
+                    d: "M229.4 262.8s33.5 19.4 66.3 19.4c33.5 0 66.3-19.4 66.3-19.4",
+                    style: {
+                        fill: "none",
+                        stroke: "#000",
+                        strokeWidth: 6.8265,
+                        strokeLinecap: "round",
+                        strokeLinejoin: "round",
+                        strokeMiterlimit: 2.0408
+                    },
+                    id: "Smile"
+                }), m("g", {
+                    id: "Eyes",
+                    children: [s("path", {
+                        d: "M417.1 132.4c26.5 0 48 26.4 48 59.1s-21.4 59.1-48 59.1-48-26.4-48-59.1 21.5-59.1 48-59.1zM175.3 132.4c26.5 0 48 26.4 48 59.1s-21.4 59.1-48 59.1-48-26.4-48-59.1 21.5-59.1 48-59.1z"
+                    }), s("path", {
+                        className: "st3",
+                        d: "M422.7 210.7c4.2 0 7.7 3.5 7.7 7.7s-3.5 7.7-7.7 7.7-7.7-3.5-7.7-7.7 3.5-7.7 7.7-7.7zM418.2 159.7c9.5 0 17.3 7.8 17.3 17.3s-7.8 17.3-17.3 17.3-17.3-7.8-17.3-17.3c-.1-9.5 7.7-17.3 17.3-17.3zM179.9 210.7c4.2 0 7.7 3.5 7.7 7.7s-3.5 7.7-7.7 7.7-7.7-3.5-7.7-7.7 3.5-7.7 7.7-7.7zM175.3 159.7c9.5 0 17.3 7.8 17.3 17.3s-7.8 17.3-17.3 17.3S158 186.5 158 177c-.1-9.5 7.8-17.3 17.3-17.3z"
+                    })]
+                }), s("g", {
+                    id: "Pins",
+                    children: s("path", {
+                        className: "st4",
+                        d: "M12.6 276h17.5c5.8 0 10.5 6.9 10.5 15.3V324c0 8.4-4.7 15.3-10.5 15.3H12.6C6.7 339.3 2 332.4 2 324v-32.7c0-8.4 4.7-15.3 10.6-15.3zM12.6 190.3h17.5c5.8 0 10.5 6.9 10.5 15.3v32.7c0 8.4-4.7 15.3-10.5 15.3H12.6c-5.8 0-10.5-6.9-10.5-15.3v-32.7c-.1-8.4 4.6-15.3 10.5-15.3zM12.6 102.6h17.5c5.8 0 10.5 6.9 10.5 15.3v32.7c0 8.4-4.7 15.3-10.5 15.3H12.6C6.7 165.8 2 159 2 150.5v-32.7c0-8.4 4.7-15.2 10.6-15.2zM569.6 276h17.5c5.8 0 10.5 6.9 10.5 15.3V324c0 8.4-4.7 15.3-10.5 15.3h-17.5c-5.8 0-10.5-6.9-10.5-15.3v-32.7c0-8.4 4.7-15.3 10.5-15.3zM569.6 190.3h17.5c5.8 0 10.5 6.9 10.5 15.3v32.7c0 8.4-4.7 15.3-10.5 15.3h-17.5c-5.8 0-10.5-6.9-10.5-15.3v-32.7c0-8.4 4.7-15.3 10.5-15.3zM569.6 102.6h17.5c5.8 0 10.5 6.9 10.5 15.3v32.7c0 8.4-4.7 15.3-10.5 15.3h-17.5c-5.8 0-10.5-6.9-10.5-15.3v-32.7c0-8.5 4.7-15.3 10.5-15.3z"
+                    })
+                }), s("g", {
+                    id: "Cheeks",
+                    children: m("g", {
+                        id: "Layer_8",
+                        children: [s("ellipse", {
+                            transform: "rotate(120 89.724 277.697)",
+                            className: "st5",
+                            cx: 68.5,
+                            cy: 243.9,
+                            rx: 12.9,
+                            ry: 29.3
+                        }), s("ellipse", {
+                            transform: "rotate(150 447.814 278.705)",
+                            className: "st5",
+                            cx: 430.5,
+                            cy: 271.6,
+                            rx: 29.3,
+                            ry: 12.9
+                        })]
+                    })
+                }), s("g", {
+                    id: "Bowties",
+                    children: s("path", {
+                        className: "st4",
+                        d: "m293.7 356.6 73.5-33.7v67.3l-73.5-33.6zM293.7 356.6l-73.5 33.7V323l73.5 33.6z"
+                    })
+                })]
+            }), m("g", {
+                id: "Layer2",
+                style: {
+                    opacity: .15
+                },
+                children: [s("path", {
+                    className: "st7",
+                    d: "M6.7 105.2c2.5-2.6 5.8-2.5 5.8-2.5v63.2s-3.9.4-7.1-4c-.7-.7-3.4-5.1-3.4-11.3v-32.4c0-7 2.7-11 4.7-13z"
+                }), s("path", {
+                    d: "M112.4 486.3H24c-13 0-14.8-14.5-14.8-14.5S9 332.7 9 353.4c0 20.8 79.5 132.9 103.4 132.9z",
+                    style: {
+                        fillRule: "evenodd",
+                        clipRule: "evenodd",
+                        fill: "#180000"
+                    }
+                }), s("path", {
+                    className: "st9",
+                    d: "M35.9 105.1c-2.5-2.6-5.8-2.5-5.8-2.5v63.2s3.9.4 7.1-4c.7-.7 3.4-5.1 3.4-11.3v-32.4c0-7-2.8-11-4.7-13z"
+                }), s("path", {
+                    className: "st7",
+                    d: "M6.7 192.9c2.5-2.6 5.8-2.5 5.8-2.5v63.2s-3.9.4-7.1-4c-.7-.7-3.4-5.1-3.4-11.3v-32.4c0-7 2.7-11 4.7-13z"
+                }), s("path", {
+                    className: "st9",
+                    d: "M35.9 192.8c-2.5-2.6-5.8-2.5-5.8-2.5v63.2s3.9.4 7.1-4c.7-.7 3.4-5.1 3.4-11.3v-32.4c0-7-2.8-11-4.7-13z"
+                }), s("path", {
+                    className: "st7",
+                    d: "M6.7 278.6c2.5-2.6 5.8-2.5 5.8-2.5v63.2s-3.9.4-7.1-4c-.7-.7-3.4-5.1-3.4-11.3v-32.4c0-6.9 2.7-10.9 4.7-13z"
+                }), s("path", {
+                    className: "st9",
+                    d: "M35.9 278.5c-2.5-2.6-5.8-2.5-5.8-2.5v63.2s3.9.4 7.1-4c.7-.7 3.4-5.1 3.4-11.3v-32.4c0-7-2.8-11-4.7-13z"
+                }), s("path", {
+                    className: "st7",
+                    d: "M563.7 105.2c2.5-2.6 5.8-2.5 5.8-2.5v63.2s-3.9.4-7.1-4c-.7-.7-3.4-5.1-3.4-11.3v-32.4c0-7 2.7-11 4.7-13z"
+                }), s("path", {
+                    className: "st9",
+                    d: "M592.9 105.1c-2.5-2.6-5.8-2.5-5.8-2.5v63.2s3.9.4 7.1-4c.7-.7 3.4-5.1 3.4-11.3v-32.4c0-7-2.7-11-4.7-13z"
+                }), s("path", {
+                    className: "st7",
+                    d: "M563.7 192.9c2.5-2.6 5.8-2.5 5.8-2.5v63.2s-3.9.4-7.1-4c-.7-.7-3.4-5.1-3.4-11.3v-32.4c0-7 2.7-11 4.7-13z"
+                }), s("path", {
+                    className: "st9",
+                    d: "M592.9 192.8c-2.5-2.6-5.8-2.5-5.8-2.5v63.2s3.9.4 7.1-4c.7-.7 3.4-5.1 3.4-11.3v-32.4c0-7-2.7-11-4.7-13z"
+                }), s("path", {
+                    className: "st7",
+                    d: "M563.7 278.6c2.5-2.6 5.8-2.5 5.8-2.5v63.2s-3.9.4-7.1-4c-.7-.7-3.4-5.1-3.4-11.3v-32.4c0-6.9 2.7-10.9 4.7-13z"
+                }), s("path", {
+                    className: "st9",
+                    d: "M592.9 278.5c-2.5-2.6-5.8-2.5-5.8-2.5v63.2s3.9.4 7.1-4c.7-.7 3.4-5.1 3.4-11.3v-32.4c0-7-2.7-11-4.7-13z"
+                }), s("path", {
+                    className: "st10",
+                    d: "M220.2 323.1v34.2l73.4-.6zM293.7 356.6l73.5-33.6v34.3"
+                })]
+            })]
+        })
+    };
+
+function xr(e) {
+    const t = e.width || Ul.width,
+        o = e.width || Ul.height,
+        n = t * .25,
+        [a, r] = [o + n * 2, t + n * 2],
+        i = p(qa);
+    return i ? s(u2, {
+        children: s(_2, {
+            $progress: e.progress,
+            $progressColor: go(i.accent.c, .9),
+            $containerHeight: a,
+            $containerWidth: r,
+            children: s("div", {
+                style: {
+                    zIndex: 1,
+                    width: t
+                },
+                children: s(h2, {
+                    theme: e.theme
+                })
+            })
+        })
+    }) : null
+}
+const C2 = S.div `
+  font-size: 30px;
+  color: var(--color_label-highlighted);
+`;
+
+function Rr(e) {
+    return s(C2, {
+        "data-tid": "loading-message",
+        children: e.isSearching ? "Searching for devices..." : "Loading..."
+    })
+}
+const p2 = "Keymap",
+    f2 = e => s(Kt, {
+        icon: gd
+    }),
+    O_ = S.span `
+  font-size: 18px;
+  margin: 8px;
+  text-align: center;
+`,
+    Po = S(O_)
+`
+  color: #d15e5e;
+`, Ar = S(O_)
+`
+  color: #9ab46a;
+`, g2 = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, m2 = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, K2 = () => s(Po, {
+    children: "Your current firmware does not support rotary encoders. Install the latest firmware for your device."
+}), y2 = () => {
+    const [e, t] = C.useState(), [o, n] = C.useState(), a = p(oo), r = wt(), i = p(Dt), c = p(M => fn(M) || []), l = p(Bn), u = p(ut), _ = p(st), h = c[a ? ? -1], f = i[a ? ? -1], K = !!f && f.col !== -1 && f.row !== -1, y = (M, P) => {
+        if (_ && a !== null && f && f.ei !== void 0) {
+            const ie = +f.ei;
+            switch (M) {
+                case "ccw":
+                    {
+                        _.setEncoderValue(l, ie, !1, P),
+                        n(P);
+                        break
+                    }
+                case "cw":
+                    {
+                        _.setEncoderValue(l, ie, !0, P),
+                        t(P);
+                        break
+                    }
+                case "click":
+                    {
+                        r(In(a, P));
+                        break
+                    }
+            }
+        }
+    }, L = async (M, P, ie) => {
+        const k = await ie.getEncoderValue(M, P, !0),
+            Y = await ie.getEncoderValue(M, P, !1);
+        t(k), n(Y)
+    };
+    return C.useEffect(() => {
+        if (u && u.protocol >= 10 && f !== void 0 && f.ei !== void 0 && _) {
+            const M = +f.ei;
+            L(l, M, _)
+        }
+    }, [f, u, l]), f === void 0 || u && u.protocol < 10 || o === void 0 || e === void 0 ? s(to, {
+        children: K2()
+    }) : s(to, {
+        children: s(g2, {
+            children: m(m2, {
+                children: [m(Oe, {
+                    children: [s(me, {
+                        children: "Rotate Counterclockwise"
+                    }), s(Se, {
+                        children: s(Is, {
+                            value: o,
+                            meta: {},
+                            setValue: M => y("ccw", M)
+                        })
+                    })]
+                }), m(Oe, {
+                    children: [s(me, {
+                        children: "Rotate Clockwise"
+                    }), s(Se, {
+                        children: s(Is, {
+                            value: e,
+                            meta: {},
+                            setValue: M => y("cw", M)
+                        })
+                    })]
+                }), K && m(Oe, {
+                    children: [s(me, {
+                        children: "Press Encoder"
+                    }), s(Se, {
+                        children: s(Is, {
+                            value: h,
+                            meta: {},
+                            setValue: M => y("click", M)
+                        })
+                    })]
+                })]
+            })
+        })
+    })
+}, Ti = "/images/L_Left_52_52.png", Li = "/images/L_Right_52_52.png", vi = "/images/L_Up_52_52.png", Ei = "/images/L_Down_52_52.png", Pi = "/images/LT_52_52.png", Ii = "/images/RT_52_52.png", Oi = "/images/R_Left_52_52.png", Ni = "/images/R_Right_52_52.png", Gi = "/images/R_Up_52_52.png", Bi = "/images/R_Down_52_52.png", Ui = "/images/A_52_52.png", Fi = "/images/B_52_52.png", Hi = "/images/X_52_52.png", $i = "/images/Y_52_52.png", Wi = "/images/Button_Left_52_52.png", Vi = "/images/Button_Right_52_52.png", Yi = "/images/LB_52_52.png", zi = "/images/RB_52_52.png", Xi = "/images/H_Left_52_52.png", Qi = "/images/H_Right_52_52.png", ji = "/images/H_Up_52_52.png", qi = "/images/H_Down_52_52.png", S2 = "/images/dks_52x52.png", wa = S.div `
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 64px);
+  grid-auto-rows: 64px;
+  justify-content: center;
+  grid-gap: 10px;
+`, w2 = S.div `
+  padding: 15px 20px 20px 10px;
+`, M2 = S(Ua)
+`
+  width: 58px;
+  height: 58px;
+  line-height: 18px;
+  font-size: 14px;
+  border: 4px solid var(--border_color_icon);
+  background: var(--color_accent);
+  color: var(--color_inside-accent);
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  border-radius: 12px;
+  &:hover {
+    border-color: var(--color_accent);
+    transform: translate3d(0, -2px, 0);
+  }
+  ${e=>e.disabled&&"cursor:not-allowed;filter:opacity(50%);"}
+`, b2 = S.div `
+  text-overflow: ellipsis;
+  overflow: hidden;
+`, Fl = S.img `
+  width: 50px; // 원하는 크기로 수정
+  height: 50px; // 원하는 크기로 수정
+`;
+S.div `
+  width: 50px; // 원하는 크기로 수정
+  height: 50px; // 원하는 크기로 수정
+  background-image: url(${e=>e.image});
+  background-size: 100%;
+`;
+const Hl = S.div `
+  display: flex;
+  width: 58px;
+  height: 58px;
+  line-height: 18px;
+  font-size: 14px;
+  border: 4px solid var(--border_color_icon);
+  cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  border-radius: 12px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    border-color: var(--color_accent);
+    transform: translate3d(0, -2px, 0);
+  }
+  color: var(--color_label);
+  ${e=>e.disabled&&"cursor:not-allowed;filter:opacity(50%);"}
+`,
+    D2 = S(Ua)
+`
+  width: 50px;
+  height: 50px;
+  line-height: 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 4px solid var(--border_color_icon);
+  background: var(--color_accent);
+  border-color: var(--color_inside_accent);
+  color: var(--color_inside_accent);
+  margin: 0;
+`, k2 = S.div `
+  padding: 12px;
+  padding-bottom: 30px;
+`, x2 = S.div `
+  position: fixed;
+  bottom: 0;
+  background: #d9d9d97a;
+  box-sizing: border-box;
+  transition: opacity 0.4s ease-out;
+  height: 25px;
+  width: 100%;
+  line-height: 14px;
+  padding: 5px;
+  font-size: 14px;
+  opacity: 1;
+  pointer-events: none;
+  &:empty {
+    opacity: 0;
+  }
+`, R2 = e => ja().concat(qd(e)), A2 = e => mc().concat(qd(e)), Jr = (e, t) => e ? () => !0 : t, T2 = () => {
+    const e = p(oo),
+        t = wt(),
+        o = p(Dt);
+    return C.useEffect(() => () => {
+        t(Et(null)), t(bo()), t(It())
+    }, []), e !== null && o[e].ei !== void 0 ? s(y2, {}) : s(N_, {})
+}, N_ = () => {
+    var ae;
+    const e = wt(),
+        t = p($ => $.macros),
+        o = p($e),
+        n = p(ut),
+        a = p(fn),
+        r = p(oo);
+    p(Sc), p(Dt);
+    const {
+        basicKeyToByte: i
+    } = p(yo), c = C.useMemo(() => R2(i), [i]), l = C.useMemo(() => A2(i), [i]), u = p(Dt), _ = _r();
+    let h = "";
+    if (!o || !n || !a) return null;
+    const [f, K] = C.useState(c[0].id);
+    C.useState(l[0].id);
+    const [y, L] = C.useState(null), [M, P] = C.useState(!1), ie = () => {
+        if (X.isVIADefinitionV3(o)) return k(o);
+        const {
+            lighting: $,
+            customKeycodes: be
+        } = o, {
+            keycodes: ge
+        } = X.getLightingDefinition($);
+        return c.filter(Jr(ge === X.KeycodeType.QMK, ({
+            id: ye
+        }) => ye !== "qmk_lighting")).filter(Jr(ge === X.KeycodeType.WT, ({
+            id: ye
+        }) => ye !== "lighting")).filter(Jr(typeof be < "u", ({
+            id: ye
+        }) => ye !== "custom"))
+    }, k = $ => {
+        const ge = ["default", ...$.keycodes || []].flatMap(ye => Ma(ye));
+        return (o.customKeycodes || []).length !== 0 && ge.push("custom"), c.filter(ye => ge.includes(ye.id))
+    }, Y = () => s(Po, {
+        children: "Your current firmware does not support macros. Install the latest firmware for your device."
+    }), ee = () => s(w2, {
+        children: ie().map(({
+            id: $,
+            label: be
+        }) => s(kr, {
+            $selected: $ === f,
+            onClick: () => K($),
+            children: be
+        }, $))
+    }), T = () => (e(M0()), s(y_, {
+        defaultValue: r !== null ? a[r] : void 0,
+        onExit: () => {
+            e(Il()), P(!1)
+        },
+        onConfirm: $ => {
+            e(Il()), B($), P(!1)
+        }
+    })), te = $ => {
+        let be = !1;
+        switch ($) {
+            case 32256:
+            case 32257:
+            case 32258:
+            case 32259:
+            case 32260:
+            case 32261:
+            case 32262:
+            case 32263:
+            case 32264:
+            case 32265:
+            case 32266:
+            case 32267:
+            case 32268:
+            case 32269:
+            case 32270:
+            case 32271:
+            case 32272:
+            case 32273:
+            case 32274:
+            case 32275:
+            case 32276:
+            case 32277:
+                be = !0;
+                break
+        }
+        if (be == !0) {
+            for (let ge = 0; ge < a.length; ge++)
+                if (a[ge] == $) {
+                    const {
+                        row: ye,
+                        col: xe
+                    } = u[ge], He = _.find(Ce => Ce.row === ye && Ce.col === xe);
+                    if (He) {
+                        const Ce = He.code;
+                        e(In(ge, Ao(Ce, i)))
+                    }
+                }
+        }
+    }, B = $ => {
+        r !== null && e(In(r, $))
+    }, de = ($, be) => {
+        if ($ == "text") P(!0);
+        else return te(Ao($, i)), Jo($, i) && B(Ao($, i))
+    }, he = ($, be) => {
+        const {
+            code: ge,
+            title: ye,
+            name: xe
+        } = $;
+        return s(M2, {
+            disabled: !Jo(ge, i) && ge != "text",
+            onClick: () => de(ge),
+            onMouseOver: () => L(ye ? `${ge}: ${ye}` : ge),
+            onMouseOut: () => L(null),
+            children: s(b2, {
+                children: xe
+            })
+        }, ge)
+    }, Fe = ($, be) => {
+        const {
+            code: ge,
+            title: ye,
+            name: xe
+        } = $;
+        return s(Hl, {
+            disabled: !Jo(ge, i) && ge != "text",
+            onClick: () => de(ge),
+            onMouseOver: () => L(ye ? `${ge}: ${ye}` : ge),
+            onMouseOut: () => L(null),
+            children: h !== "" ? s(Fl, {
+                src: h,
+                alt: xe
+            }) : null
+        }, ge)
+    }, We = ($, be) => {
+        const {
+            code: ge,
+            title: ye,
+            name: xe
+        } = $;
+        switch (ge) {
+            default: h = "";
+            break;
+            case "CC_L_Left":
+                    h = Ti;
+                break;
+            case "CC_L_Right":
+                    h = Li;
+                break;
+            case "CC_L_Up":
+                    h = vi;
+                break;
+            case "CC_L_Down":
+                    h = Ei;
+                break;
+            case "CC_Z_Up":
+                    h = Pi;
+                break;
+            case "CC_Z_Down":
+                    h = Ii;
+                break;
+            case "CC_R_Left":
+                    h = Oi;
+                break;
+            case "CC_R_Right":
+                    h = Ni;
+                break;
+            case "CC_R_Up":
+                    h = Gi;
+                break;
+            case "CC_R_Down":
+                    h = Bi;
+                break;
+            case "CC_B_A":
+                    h = Ui;
+                break;
+            case "CC_B_B":
+                    h = Fi;
+                break;
+            case "CC_B_X":
+                    h = Hi;
+                break;
+            case "CC_B_Y":
+                    h = $i;
+                break;
+            case "CC_B_Left":
+                    h = Wi;
+                break;
+            case "CC_B_Right":
+                    h = Vi;
+                break;
+            case "CC_B_LB":
+                    h = Yi;
+                break;
+            case "CC_B_RB":
+                    h = zi;
+                break;
+            case "CC_Hat_Left":
+                    h = Xi;
+                break;
+            case "CC_Hat_Right":
+                    h = Qi;
+                break;
+            case "CC_Hat_Up":
+                    h = ji;
+                break;
+            case "CC_Hat_Down":
+                    h = qi;
+                break
+        }
+        return s(Hl, {
+            disabled: !Jo(ge, i) && ge != "text",
+            onClick: () => de(ge),
+            onMouseOver: () => L(ye ? `${ge}: ${ye}` : ge),
+            onMouseOut: () => L(null),
+            children: h !== "" ? s(Fl, {
+                src: h,
+                alt: xe
+            }) : null
+        }, ge)
+    }, De = () => s(D2, {
+        onClick: () => r !== null && de("text"),
+        onMouseOver: () => L("Enter any QMK Keycode"),
+        onMouseOut: () => L(null),
+        children: "Any"
+    }, "customKeycode"), ke = ($, be) => {
+        const ge = $.map((xe, He) => he(xe)),
+            ye = $.map((xe, He) => We(xe));
+        switch (be) {
+            case "macro":
+                return t.isFeatureSupported ? s(wa, {
+                    children: ge
+                }) : Y();
+            case "gamepad":
+                return s(wa, {
+                    children: ye
+                });
+            case "special":
+                return s(wa, {
+                    children: ge.concat(De())
+                });
+            case "custom":
+                return !X.isVIADefinitionV2(o) && !X.isVIADefinitionV3(o) || !o.customKeycodes ? null : s(wa, {
+                    children: o.customKeycodes.map((xe, He) => {
+                        switch (He) {
+                            default: h = "";
+                            break;
+                            case 0:
+                                    h = Ti;
+                                break;
+                            case 1:
+                                    h = Li;
+                                break;
+                            case 2:
+                                    h = vi;
+                                break;
+                            case 3:
+                                    h = Ei;
+                                break;
+                            case 4:
+                                    h = Pi;
+                                break;
+                            case 5:
+                                    h = Ii;
+                                break;
+                            case 6:
+                                    h = Oi;
+                                break;
+                            case 7:
+                                    h = Ni;
+                                break;
+                            case 8:
+                                    h = Gi;
+                                break;
+                            case 9:
+                                    h = Bi;
+                                break;
+                            case 10:
+                                    h = Ui;
+                                break;
+                            case 11:
+                                    h = Fi;
+                                break;
+                            case 12:
+                                    h = Hi;
+                                break;
+                            case 13:
+                                    h = $i;
+                                break;
+                            case 14:
+                                    h = Wi;
+                                break;
+                            case 15:
+                                    h = Vi;
+                                break;
+                            case 16:
+                                    h = Yi;
+                                break;
+                            case 17:
+                                    h = zi;
+                                break;
+                            case 18:
+                                    h = Xi;
+                                break;
+                            case 19:
+                                    h = Qi;
+                                break;
+                            case 20:
+                                    h = ji;
+                                break;
+                            case 21:
+                                    h = qi;
+                                break;
+                            case 22:
+                                    h = S2;
+                                break
+                        }
+                        return Fe({ ...xe,
+                            code: `CUSTOM(${He})`
+                        })
+                    })
+                });
+            default:
+                return s(wa, {
+                    children: ge
+                })
+        }
+    }, _e = (ae = c.find(({
+        id: $
+    }) => $ === f)) == null ? void 0 : ae.keycodes;
+    return m(Ke, {
+        children: [s(h_, {
+            children: ee()
+        }), m(Dr, {
+            children: [s(k2, {
+                children: ke(_e, f)
+            }), s(x2, {
+                children: y
+            }), M && T()]
+        })]
+    })
+}, L2 = f2, v2 = p2, Ha = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: L2,
+    KeycodePane: N_,
+    Pane: T2,
+    Title: v2
+}, Symbol.toStringTag, {
+    value: "Module"
+})), Os = e => {
+    Tt();
+    const t = wt(),
+        o = p(Un),
+        n = p($e),
+        [a, r, i] = e.meta,
+        c = o && o[a];
+    if (!c || !n) return null;
+    const l = typeof r == "string" ? r : r(e);
+    switch (i.type) {
+        case "slider":
+            return m(Oe, {
+                children: [s(me, {
+                    children: l
+                }), s(Se, {
+                    children: s(Qt, {
+                        isChecked: !!c[0],
+                        onChange: u => t(Ln(a, +u))
+                    })
+                })]
+            });
+        case "range":
+            return m(Oe, {
+                children: [s(me, {
+                    children: l
+                }), s(Se, {
+                    children: s(Lo, {
+                        max: i.max,
+                        min: i.min,
+                        defaultValue: c[0],
+                        onChange: u => t(Ln(a, u))
+                    })
+                })]
+            });
+        case "color":
+            return m(Oe, {
+                children: [s(me, {
+                    children: l
+                }), s(Se, {
+                    children: s($c, {
+                        color: c,
+                        setColor: (u, _) => t(Ln(a, u, _))
+                    })
+                })]
+            });
+        case "select":
+            {
+                const u = i.getOptions(n).map((_, h) => ({
+                    value: h,
+                    label: _
+                }));
+                return m(Oe, {
+                    children: [s(me, {
+                        children: l
+                    }), s(Se, {
+                        children: s(fo, {
+                            onChange: _ => {
+                                _ && t(Ln(a, +_.value))
+                            },
+                            options: u,
+                            defaultValue: u.find(_ => c[0] === _.value)
+                        })
+                    })]
+                })
+            }
+        case "row_col":
+            return m(Oe, {
+                children: [s(me, {
+                    children: l
+                }), s(Se, {
+                    children: s(Qt, {
+                        isChecked: c[0] !== 255,
+                        onChange: u => {
+                            t(Ln(a, ...u ? [254, 254] : [255, 255]))
+                        }
+                    })
+                })]
+            })
+    }
+    return null
+}, E2 = [
+    [X.LightingValue.BACKLIGHT_BRIGHTNESS, "Brightness", {
+        type: "range",
+        min: 0,
+        max: 255
+    }],
+    [X.LightingValue.BACKLIGHT_EFFECT, "Effect", {
+        type: "select",
+        getOptions: e => X.isVIADefinitionV2(e) && X.getLightingDefinition(e.lighting).effects.map(([t]) => t)
+    }],
+    [X.LightingValue.BACKLIGHT_EFFECT_SPEED, "Effect Speed", {
+        type: "range",
+        min: 0,
+        max: 3
+    }]
+], P2 = [
+    [X.LightingValue.QMK_RGBLIGHT_BRIGHTNESS, "Underglow Brightness", {
+        type: "range",
+        min: 0,
+        max: 255
+    }],
+    [X.LightingValue.QMK_RGBLIGHT_EFFECT, "Underglow Effect", {
+        type: "select",
+        getOptions: e => X.isVIADefinitionV2(e) && X.getLightingDefinition(e.lighting).underglowEffects.map(([t]) => t)
+    }],
+    [X.LightingValue.QMK_RGBLIGHT_EFFECT_SPEED, "Underglow Effect Speed", {
+        type: "range",
+        min: 0,
+        max: 3
+    }]
+], I2 = () => {
+    const e = wt(),
+        t = p(Un),
+        o = p($e);
+    if (!t) return null;
+    if (!X.isVIADefinitionV2(o)) throw new Error("This lighting component is only compatible with v2 definitions");
+    const n = X.getLightingDefinition(o.lighting),
+        {
+            supportedLightingValues: a
+        } = n;
+    if (n.supportedLightingValues.length !== 0) {
+        const r = n.effects.map(([K, y]) => y),
+            i = n.underglowEffects.map(([K, y]) => y),
+            c = t[X.LightingValue.BACKLIGHT_EFFECT],
+            l = t[X.LightingValue.QMK_RGBLIGHT_EFFECT],
+            u = c && r[c[0]] || 0,
+            _ = l && i[l[0]] === 1,
+            f = !!t.customColors && u > 2;
+        return m(Ke, {
+            children: [E2.filter(K => a.indexOf(K[0]) !== -1).map(K => s(Os, {
+                meta: K
+            })), P2.filter(K => a.indexOf(K[0]) !== -1).map(K => s(Os, {
+                meta: K
+            })), new Array(u).fill(1).map((K, y) => K + y).map(K => {
+                let y, L;
+                const M = K === 1 ? X.LightingValue.BACKLIGHT_COLOR_1 : X.LightingValue.BACKLIGHT_COLOR_2,
+                    P = t[M];
+                if (f && t.customColors)[y, L] = [t.customColors[K - 1], (ie, k) => e(G1(K - 1, ie, k))];
+                else if (P)[y, L] = [{
+                    hue: P[0],
+                    sat: P[1]
+                }, (ie, k) => e(Ln(M, ie, k))];
+                else return null;
+                return m(Oe, {
+                    children: [m(me, {
+                        children: ["Color ", K]
+                    }), s(Se, {
+                        children: s(Hc, {
+                            color: y,
+                            setColor: L
+                        })
+                    })]
+                }, K)
+            }), _ && s(Os, {
+                meta: [X.LightingValue.QMK_RGBLIGHT_COLOR, "Underglow Color", {
+                    type: "color"
+                }]
+            })]
+        })
+    }
+    return null
+}, O2 = [X.LightingValue.BACKLIGHT_USE_7U_SPACEBAR, X.LightingValue.BACKLIGHT_USE_ISO_ENTER, X.LightingValue.BACKLIGHT_USE_SPLIT_BACKSPACE, X.LightingValue.BACKLIGHT_USE_SPLIT_LEFT_SHIFT, X.LightingValue.BACKLIGHT_USE_SPLIT_RIGHT_SHIFT, X.LightingValue.BACKLIGHT_DISABLE_HHKB_BLOCKER_LEDS], N2 = [
+    [X.LightingValue.BACKLIGHT_USE_7U_SPACEBAR, "Use 7U Spacebar LEDs"],
+    [X.LightingValue.BACKLIGHT_USE_ISO_ENTER, "Use ISO Enter LEDs"],
+    [X.LightingValue.BACKLIGHT_USE_SPLIT_BACKSPACE, "Use Split Backspace LEDs"],
+    [X.LightingValue.BACKLIGHT_USE_SPLIT_LEFT_SHIFT, "Use Split Left Shift LEDs"],
+    [X.LightingValue.BACKLIGHT_USE_SPLIT_RIGHT_SHIFT, "Use Split Right Shift LEDs"],
+    [X.LightingValue.BACKLIGHT_DISABLE_HHKB_BLOCKER_LEDS, "Disable HHKB Blocker LEDs"]
+], G2 = () => {
+    const e = wt(),
+        t = p(Un),
+        o = p($e);
+    if (Tt(), !t) return null;
+    if (!X.isVIADefinitionV2(o)) throw new Error("This lighting component is only compatible with v2 definitions");
+    const n = X.getLightingDefinition(o.lighting);
+    if (n.supportedLightingValues.length !== 0) {
+        const a = N2.filter(r => n.supportedLightingValues.indexOf(r[0]) !== -1);
+        return s(Ke, {
+            children: a.map(([r, i]) => {
+                const c = t && t[r],
+                    l = c && c[0];
+                return m(Oe, {
+                    children: [s(me, {
+                        children: i
+                    }), s(Se, {
+                        children: s(Qt, {
+                            isChecked: !!l,
+                            onChange: u => e(Ln(r, +u))
+                        })
+                    })]
+                }, r)
+            })
+        })
+    }
+    return null
+}, B2 = [X.LightingValue.BACKLIGHT_DISABLE_WHEN_USB_SUSPENDED, X.LightingValue.BACKLIGHT_DISABLE_AFTER_TIMEOUT, X.LightingValue.BACKLIGHT_CAPS_LOCK_INDICATOR_COLOR, X.LightingValue.BACKLIGHT_CAPS_LOCK_INDICATOR_ROW_COL, X.LightingValue.BACKLIGHT_LAYER_1_INDICATOR_COLOR, X.LightingValue.BACKLIGHT_LAYER_1_INDICATOR_ROW_COL, X.LightingValue.BACKLIGHT_LAYER_2_INDICATOR_COLOR, X.LightingValue.BACKLIGHT_LAYER_2_INDICATOR_ROW_COL, X.LightingValue.BACKLIGHT_LAYER_3_INDICATOR_COLOR, X.LightingValue.BACKLIGHT_LAYER_3_INDICATOR_ROW_COL], U2 = S.span `
+  color: var(--color_accent);
+`, F2 = [
+    [X.LightingValue.BACKLIGHT_DISABLE_WHEN_USB_SUSPENDED, "Disable LEDs when USB is suspended", {
+        type: "slider"
+    }],
+    [X.LightingValue.BACKLIGHT_DISABLE_AFTER_TIMEOUT, () => {
+        const e = p(Un),
+            t = e && e[X.LightingValue.BACKLIGHT_DISABLE_AFTER_TIMEOUT];
+        return t ? m("span", {
+            children: ["LED Sleep Timeout:", " ", s(U2, {
+                children: t[0] ? `After ${t[0]} mins` : "Never"
+            })]
+        }) : null
+    }, {
+        type: "range",
+        min: 0,
+        max: 255
+    }],
+    [X.LightingValue.BACKLIGHT_CAPS_LOCK_INDICATOR_COLOR, "Caps Lock indicator color", {
+        type: "color"
+    }],
+    [X.LightingValue.BACKLIGHT_CAPS_LOCK_INDICATOR_ROW_COL, "Caps Lock indicator", {
+        type: "row_col"
+    }],
+    [X.LightingValue.BACKLIGHT_LAYER_1_INDICATOR_COLOR, "Layer 1 indicator color", {
+        type: "color"
+    }],
+    [X.LightingValue.BACKLIGHT_LAYER_1_INDICATOR_ROW_COL, "Layer 1 indicator", {
+        type: "row_col"
+    }],
+    [X.LightingValue.BACKLIGHT_LAYER_2_INDICATOR_COLOR, "Layer 2 indicator color", {
+        type: "color"
+    }],
+    [X.LightingValue.BACKLIGHT_LAYER_2_INDICATOR_ROW_COL, "Layer 2 indicator", {
+        type: "row_col"
+    }],
+    [X.LightingValue.BACKLIGHT_LAYER_3_INDICATOR_COLOR, "Layer 3 indicator color", {
+        type: "color"
+    }],
+    [X.LightingValue.BACKLIGHT_LAYER_3_INDICATOR_ROW_COL, "Layer 3 indicator", {
+        type: "row_col"
+    }]
+], H2 = () => {
+    const e = p(Un),
+        t = p($e);
+    if (X.isVIADefinitionV2(t) && e) {
+        const {
+            supportedLightingValues: o
+        } = X.getLightingDefinition(t.lighting);
+        return s(Ke, {
+            children: F2.filter(n => o.indexOf(n[0]) !== -1).map(n => s(Os, {
+                meta: n
+            }))
+        })
+    }
+    return null
+}, ba = {
+    General: {
+        label: "General",
+        Menu: I2
+    },
+    Layout: {
+        label: "Layout",
+        Menu: G2
+    },
+    Advanced: {
+        label: "Advanced",
+        Menu: H2
+    }
+}, $2 = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, W2 = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, V2 = S.div `
+  padding: 15px 20px 20px 10px;
+`, Y2 = () => {
+    const e = p($e);
+    Tt();
+    const [t, o] = C.useState(ba.General);
+    return m(Ke, {
+        children: [s(Bc, {
+            children: s(V2, {
+                children: (() => {
+                    if (!X.isVIADefinitionV2(e)) throw new Error("This lighting component is only compatible with v2 definitions");
+                    const a = O2.some(i => X.getLightingDefinition(e.lighting).supportedLightingValues.indexOf(i) !== -1),
+                        r = B2.some(i => X.getLightingDefinition(e.lighting).supportedLightingValues.indexOf(i) !== -1);
+                    return [ba.General, ...a ? [ba.Layout] : [], ...r ? [ba.Advanced] : []].filter(({
+                        Menu: i
+                    }) => !!i)
+                })().map(a => s(kr, {
+                    $selected: t === a,
+                    onClick: () => o(a),
+                    children: a.label
+                }, a.label))
+            })
+        }), s(Dr, {
+            children: s($2, {
+                children: s(W2, {
+                    children: s(t.Menu, {})
+                })
+            })
+        })]
+    })
+}, z2 = Q1, X2 = X1, G_ = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Category: ba,
+    Icon: z2,
+    Pane: Y2,
+    Title: X2
+}, Symbol.toStringTag, {
+    value: "Module"
+})), Q2 = e => s("svg", {
+    width: 11.9,
+    height: 17,
+    ...e,
+    children: s("path", {
+        d: "M3.4 16.15a.853.853 0 00.85.85h3.4a.852.852 0 00.85-.85v-.85H3.4zM5.95 0a5.947 5.947 0 00-3.4 10.829v1.921a.852.852 0 00.85.85h5.1a.852.852 0 00.85-.85v-1.921A5.947 5.947 0 005.95 0zm2.422 9.435l-.722.51V11.9h-3.4V9.945l-.722-.51a4.25 4.25 0 114.845 0z",
+        fill: "currentColor"
+    })
+}), j2 = "ProLighting", q2 = Q2, Z2 = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, $l = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, J2 = () => {
+    const e = wt(),
+        [t, o] = C.useState(!1),
+        n = p($e),
+        a = p(ut),
+        r = p(st),
+        i = p(Oc),
+        c = p(ut),
+        {
+            t: l
+        } = Tt();
+    if (!n || !a || !r) return null;
+    F.useEffect(() => (o(!0), () => {}), []);
+    const u = (h, f) => {
+            c && (e(Ac([h, f])), e(r1(h, f, c)))
+        },
+        _ = p(i_);
+    return F.useEffect(() => () => {}, [_]), F.useEffect(() => (t || c && e(Lc(c)), () => {}), [t]), F.useEffect(() => () => {}, [i]), s(to, {
+        children: m(Z2, {
+            children: [s($l, {
+                children: s(Eo, {
+                    children: s(Be, {
+                        children: l("Prolighting Info")
+                    })
+                })
+            }), s($l, {
+                children: m(Oe, {
+                    children: [m(me, {
+                        children: ["HS ", l("Color"), " (", _[0], ",", " ", _[1], ")"]
+                    }), s(Se, {
+                        children: s($c, {
+                            color: _,
+                            setColor: (h, f) => u(h, f)
+                        })
+                    })]
+                })
+            })]
+        })
+    })
+}, eK = q2, tK = j2, B_ = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: eK,
+    Pane: J2,
+    Title: tK
+}, Symbol.toStringTag, {
+    value: "Module"
+})), oK = "Macros", nK = e => s(Kt, {
+    icon: GC
+}), U_ = [d.KC_ESC, d.KC_F1, d.KC_F2, d.KC_F3, d.KC_F4, d.KC_F5, d.KC_F6, d.KC_F7, d.KC_F8, d.KC_F9, d.KC_F10, d.KC_F11, d.KC_F12, d.KC_PSCR, d.KC_SLCK, d.KC_PAUS, d.KC_MUTE, d.KC_VOLD, d.KC_VOLU, d.KC_NO, d.KC_GRV, d.KC_1, d.KC_2, d.KC_3, d.KC_4, d.KC_5, d.KC_6, d.KC_7, d.KC_8, d.KC_9, d.KC_0, d.KC_MINS, d.KC_EQL, d.KC_BSPC, d.KC_INS, d.KC_HOME, d.KC_PGUP, d.KC_NLCK, d.KC_PSLS, d.KC_PAST, d.KC_PMNS, d.KC_TAB, d.KC_Q, d.KC_W, d.KC_E, d.KC_R, d.KC_T, d.KC_Y, d.KC_U, d.KC_I, d.KC_O, d.KC_P, d.KC_LBRC, d.KC_RBRC, d.KC_BSLS, d.KC_DEL, d.KC_END, d.KC_PGDN, d.KC_P7, d.KC_P8, d.KC_P9, d.KC_PPLS, d.KC_CAPS, d.KC_A, d.KC_S, d.KC_D, d.KC_F, d.KC_G, d.KC_H, d.KC_J, d.KC_K, d.KC_L, d.KC_SCLN, d.KC_QUOT, d.KC_ENT, d.KC_P4, d.KC_P5, d.KC_P6, d.KC_LSFT, d.KC_Z, d.KC_X, d.KC_C, d.KC_V, d.KC_B, d.KC_N, d.KC_M, d.KC_COMM, d.KC_DOT, d.KC_SLSH, d.KC_RSFT, d.KC_UP, d.KC_P1, d.KC_P2, d.KC_P3, d.KC_PENT, d.KC_LCTL, d.KC_LGUI, d.KC_LALT, d.KC_SPC, d.KC_RALT, d.KC_RGUI, d.KC_APP, d.KC_RCTL, d.KC_LEFT, d.KC_DOWN, d.KC_RGHT, d.KC_P0, d.KC_PDOT], aK = [d.KC_ESC, d.KC_F1, d.KC_F2, d.KC_F3, d.KC_F4, d.KC_F5, d.KC_F6, d.KC_F7, d.KC_F8, d.KC_F9, d.KC_F10, d.KC_F11, d.KC_F12, d.KC_PSCR, d.KC_SLCK, d.KC_PAUS, d.KC_GRV, d.KC_1, d.KC_2, d.KC_3, d.KC_4, d.KC_5, d.KC_6, d.KC_7, d.KC_8, d.KC_9, d.KC_0, d.KC_MINS, d.KC_EQL, d.KC_BSPC, d.KC_INS, d.KC_HOME, d.KC_PGUP, d.KC_NLCK, d.KC_PSLS, d.KC_PAST, d.KC_PMNS, d.KC_TAB, d.KC_Q, d.KC_W, d.KC_E, d.KC_R, d.KC_T, d.KC_Y, d.KC_U, d.KC_I, d.KC_O, d.KC_P, d.KC_LBRC, d.KC_RBRC, d.KC_BSLS, d.KC_DEL, d.KC_END, d.KC_PGDN, d.KC_P7, d.KC_P8, d.KC_P9, d.KC_PPLS, d.KC_CAPS, d.KC_A, d.KC_S, d.KC_D, d.KC_F, d.KC_G, d.KC_H, d.KC_J, d.KC_K, d.KC_L, d.KC_SCLN, d.KC_QUOT, d.KC_ENT, d.KC_P4, d.KC_P5, d.KC_P6, d.KC_LSFT, d.KC_Z, d.KC_X, d.KC_C, d.KC_V, d.KC_B, d.KC_N, d.KC_M, d.KC_COMM, d.KC_DOT, d.KC_SLSH, d.KC_RSFT, d.KC_UP, d.KC_P1, d.KC_P2, d.KC_P3, d.KC_PENT, d.KC_LCTL, d.KC_LGUI, d.KC_LALT, d.KC_SPC, d.KC_RALT, d.KC_RGUI, d.KC_APP, d.KC_RCTL, d.KC_LEFT, d.KC_DOWN, d.KC_RGHT, d.KC_P0, d.KC_PDOT], sK = [d.KC_ESC, d.KC_F1, d.KC_F2, d.KC_F3, d.KC_F4, d.KC_F5, d.KC_F6, d.KC_F7, d.KC_F8, d.KC_F9, d.KC_F10, d.KC_F11, d.KC_F12, d.KC_PSCR, d.KC_SLCK, d.KC_PAUS, d.KC_GRV, d.KC_1, d.KC_2, d.KC_3, d.KC_4, d.KC_5, d.KC_6, d.KC_7, d.KC_8, d.KC_9, d.KC_0, d.KC_MINS, d.KC_EQL, d.KC_BSPC, d.KC_INS, d.KC_HOME, d.KC_PGUP, d.KC_TAB, d.KC_Q, d.KC_W, d.KC_E, d.KC_R, d.KC_T, d.KC_Y, d.KC_U, d.KC_I, d.KC_O, d.KC_P, d.KC_LBRC, d.KC_RBRC, d.KC_BSLS, d.KC_DEL, d.KC_END, d.KC_PGDN, d.KC_CAPS, d.KC_A, d.KC_S, d.KC_D, d.KC_F, d.KC_G, d.KC_H, d.KC_J, d.KC_K, d.KC_L, d.KC_SCLN, d.KC_QUOT, d.KC_ENT, d.KC_LSFT, d.KC_Z, d.KC_X, d.KC_C, d.KC_V, d.KC_B, d.KC_N, d.KC_M, d.KC_COMM, d.KC_DOT, d.KC_SLSH, d.KC_RSFT, d.KC_UP, d.KC_LCTL, d.KC_LGUI, d.KC_LALT, d.KC_SPC, d.KC_RALT, d.KC_RGUI, d.KC_APP, d.KC_RCTL, d.KC_LEFT, d.KC_DOWN, d.KC_RGHT];
+d.KC_ESC, d.KC_F1, d.KC_F2, d.KC_F3, d.KC_F4, d.KC_F5, d.KC_F6, d.KC_F7, d.KC_F8, d.KC_F9, d.KC_F10, d.KC_F11, d.KC_F12, d.KC_PSCR, d.KC_SLCK, d.KC_PAUS, d.KC_CALC, d.KC_MUTE, d.KC_VOLD, d.KC_VOLU, d.KC_GRV, d.KC_1, d.KC_2, d.KC_3, d.KC_4, d.KC_5, d.KC_6, d.KC_7, d.KC_8, d.KC_9, d.KC_0, d.KC_MINS, d.KC_EQL, d.KC_BSPC, d.KC_INS, d.KC_HOME, d.KC_PGUP, d.KC_NLCK, d.KC_PSLS, d.KC_PAST, d.KC_PMNS, d.KC_TAB, d.KC_Q, d.KC_W, d.KC_E, d.KC_R, d.KC_T, d.KC_Y, d.KC_U, d.KC_I, d.KC_O, d.KC_P, d.KC_LBRC, d.KC_RBRC, d.KC_BSLS, d.KC_DEL, d.KC_END, d.KC_PGDN, d.KC_P7, d.KC_P8, d.KC_P9, d.KC_PPLS, d.KC_CAPS, d.KC_A, d.KC_S, d.KC_D, d.KC_F, d.KC_G, d.KC_H, d.KC_J, d.KC_K, d.KC_L, d.KC_SCLN, d.KC_QUOT, d.KC_ENT, d.KC_P4, d.KC_P5, d.KC_P6, d.KC_LSFT, d.KC_Z, d.KC_X, d.KC_C, d.KC_V, d.KC_B, d.KC_N, d.KC_M, d.KC_COMM, d.KC_DOT, d.KC_SLSH, d.KC_RSFT, d.KC_UP, d.KC_P1, d.KC_P2, d.KC_P3, d.KC_PENT, d.KC_LCTL, d.KC_LGUI, d.KC_LALT, d.KC_SPC, d.KC_RALT, d.KC_RGUI, d.KC_APP, d.KC_RCTL, d.KC_LEFT, d.KC_DOWN, d.KC_RGHT, d.KC_P0, d.KC_PDOT;
+const ta = {
+    Digit1: d.KC_1,
+    Digit2: d.KC_2,
+    Digit3: d.KC_3,
+    Digit4: d.KC_4,
+    Digit5: d.KC_5,
+    Digit6: d.KC_6,
+    Digit7: d.KC_7,
+    Digit8: d.KC_8,
+    Digit9: d.KC_9,
+    Digit0: d.KC_0,
+    KeyA: d.KC_A,
+    KeyB: d.KC_B,
+    KeyC: d.KC_C,
+    KeyD: d.KC_D,
+    KeyE: d.KC_E,
+    KeyF: d.KC_F,
+    KeyG: d.KC_G,
+    KeyH: d.KC_H,
+    KeyI: d.KC_I,
+    KeyJ: d.KC_J,
+    KeyK: d.KC_K,
+    KeyL: d.KC_L,
+    KeyM: d.KC_M,
+    KeyN: d.KC_N,
+    KeyO: d.KC_O,
+    KeyP: d.KC_P,
+    KeyQ: d.KC_Q,
+    KeyR: d.KC_R,
+    KeyS: d.KC_S,
+    KeyT: d.KC_T,
+    KeyU: d.KC_U,
+    KeyV: d.KC_V,
+    KeyW: d.KC_W,
+    KeyX: d.KC_X,
+    KeyY: d.KC_Y,
+    KeyZ: d.KC_Z,
+    Comma: d.KC_COMM,
+    Period: d.KC_DOT,
+    Semicolon: d.KC_SCLN,
+    Quote: d.KC_QUOT,
+    BracketLeft: d.KC_LBRC,
+    BracketRight: d.KC_RBRC,
+    Backspace: d.KC_BSPC,
+    Backquote: d.KC_GRV,
+    Slash: d.KC_SLSH,
+    Backslash: d.KC_BSLS,
+    Minus: d.KC_MINS,
+    Equal: d.KC_EQL,
+    IntlRo: d.KC_RO,
+    IntlYen: d.KC_JYEN,
+    AltLeft: d.KC_LALT,
+    AltRight: d.KC_RALT,
+    CapsLock: d.KC_CAPS,
+    ControlLeft: d.KC_LCTL,
+    ControlRight: d.KC_RCTL,
+    MetaLeft: d.KC_LGUI,
+    MetaRight: d.KC_RGUI,
+    OSLeft: d.KC_LGUI,
+    OSRight: d.KC_RGUI,
+    ShiftLeft: d.KC_LSFT,
+    ShiftRight: d.KC_RSFT,
+    ContextMenu: d.KC_APP,
+    Enter: d.KC_ENT,
+    Space: d.KC_SPC,
+    Tab: d.KC_TAB,
+    Delete: d.KC_DEL,
+    End: d.KC_END,
+    Help: d.KC_HELP,
+    Home: d.KC_HOME,
+    Insert: d.KC_INS,
+    PageDown: d.KC_PGDN,
+    PageUp: d.KC_PGUP,
+    ArrowDown: d.KC_DOWN,
+    ArrowLeft: d.KC_LEFT,
+    ArrowRight: d.KC_RGHT,
+    ArrowUp: d.KC_UP,
+    Escape: d.KC_ESC,
+    PrintScreen: d.KC_PSCR,
+    ScrollLock: d.KC_SLCK,
+    AudioVolumeUp: d.KC_VOLU,
+    AudioVolumeDown: d.KC_VOLD,
+    AudioVolumeMute: d.KC_MUTE,
+    Pause: d.KC_PAUS,
+    F1: d.KC_F1,
+    F2: d.KC_F2,
+    F3: d.KC_F3,
+    F4: d.KC_F4,
+    F5: d.KC_F5,
+    F6: d.KC_F6,
+    F7: d.KC_F7,
+    F8: d.KC_F8,
+    F9: d.KC_F9,
+    F10: d.KC_F10,
+    F11: d.KC_F11,
+    F12: d.KC_F12,
+    F13: d.KC_F13,
+    F14: d.KC_F14,
+    F15: d.KC_F15,
+    F16: d.KC_F16,
+    F17: d.KC_F17,
+    F18: d.KC_F18,
+    F19: d.KC_F19,
+    F20: d.KC_F20,
+    F21: d.KC_F21,
+    F22: d.KC_F22,
+    F23: d.KC_F23,
+    F24: d.KC_F24,
+    NumLock: d.KC_NLCK,
+    Numpad0: d.KC_P0,
+    Numpad1: d.KC_P1,
+    Numpad2: d.KC_P2,
+    Numpad3: d.KC_P3,
+    Numpad4: d.KC_P4,
+    Numpad5: d.KC_P5,
+    Numpad6: d.KC_P6,
+    Numpad7: d.KC_P7,
+    Numpad8: d.KC_P8,
+    Numpad9: d.KC_P9,
+    NumpadAdd: d.KC_PPLS,
+    NumpadComma: d.KC_COMM,
+    NumpadDecimal: d.KC_PDOT,
+    NumpadDivide: d.KC_PSLS,
+    NumpadEnter: d.KC_PENT,
+    NumpadEqual: d.KC_PEQL,
+    NumpadMultiply: d.KC_PAST,
+    NumpadSubtract: d.KC_PMNS
+};
+
+function ws(e) {
+    const t = e.code,
+        o = ta[t] || ta[e.key];
+    return o ? U_.indexOf(o) : -1
+}
+
+function Ms(e) {
+    const t = e.code,
+        o = ta[t] || ta[e.key];
+    return o ? aK.indexOf(o) : -1
+}
+
+function bs(e) {
+    const t = e.code,
+        o = ta[t] || ta[e.key];
+    return o ? sK.indexOf(o) : -1
+}
+
+function rK(e) {
+    switch (e.code) {
+        case "Digit1":
+            return "KC_1";
+        case "Digit2":
+            return "KC_2";
+        case "Digit3":
+            return "KC_3";
+        case "Digit4":
+            return "KC_4";
+        case "Digit5":
+            return "KC_5";
+        case "Digit6":
+            return "KC_6";
+        case "Digit7":
+            return "KC_7";
+        case "Digit8":
+            return "KC_8";
+        case "Digit9":
+            return "KC_9";
+        case "Digit0":
+            return "KC_0";
+        case "KeyA":
+            return "KC_A";
+        case "KeyB":
+            return "KC_B";
+        case "KeyC":
+            return "KC_C";
+        case "KeyD":
+            return "KC_D";
+        case "KeyE":
+            return "KC_E";
+        case "KeyF":
+            return "KC_F";
+        case "KeyG":
+            return "KC_G";
+        case "KeyH":
+            return "KC_H";
+        case "KeyI":
+            return "KC_I";
+        case "KeyJ":
+            return "KC_J";
+        case "KeyK":
+            return "KC_K";
+        case "KeyL":
+            return "KC_L";
+        case "KeyM":
+            return "KC_M";
+        case "KeyN":
+            return "KC_N";
+        case "KeyO":
+            return "KC_O";
+        case "KeyP":
+            return "KC_P";
+        case "KeyQ":
+            return "KC_Q";
+        case "KeyR":
+            return "KC_R";
+        case "KeyS":
+            return "KC_S";
+        case "KeyT":
+            return "KC_T";
+        case "KeyU":
+            return "KC_U";
+        case "KeyV":
+            return "KC_V";
+        case "KeyW":
+            return "KC_W";
+        case "KeyX":
+            return "KC_X";
+        case "KeyY":
+            return "KC_Y";
+        case "KeyZ":
+            return "KC_Z";
+        case "Comma":
+            return "KC_COMM";
+        case "Period":
+            return "KC_DOT";
+        case "Semicolon":
+            return "KC_SCLN";
+        case "Quote":
+            return "KC_QUOT";
+        case "BracketLeft":
+            return "KC_LBRC";
+        case "BracketRight":
+            return "KC_RBRC";
+        case "Backquote":
+            return "KC_GRV";
+        case "Slash":
+            return "KC_SLSH";
+        case "Backspace":
+            return "KC_BSPC";
+        case "Backslash":
+            return "KC_BSLS";
+        case "Minus":
+            return "KC_MINS";
+        case "Equal":
+            return "KC_EQL";
+        case "IntlRo":
+            return "KC_RO";
+        case "IntlYen":
+            return "KC_JYEN";
+        case "AltLeft":
+            return "KC_LALT";
+        case "AltRight":
+            return "KC_RALT";
+        case "CapsLock":
+            return "KC_CAPS";
+        case "ControlLeft":
+            return "KC_LCTL";
+        case "ControlRight":
+            return "KC_RCTL";
+        case "MetaLeft":
+            return "KC_LGUI";
+        case "MetaRight":
+            return "KC_RGUI";
+        case "OSLeft":
+            return "KC_LGUI";
+        case "OSRight":
+            return "KC_RGUI";
+        case "ShiftLeft":
+            return "KC_LSFT";
+        case "ShiftRight":
+            return "KC_RSFT";
+        case "ContextMenu":
+            return "KC_APP";
+        case "Apps":
+            return "KC_APP";
+        case "Enter":
+            return "KC_ENT";
+        case "Space":
+            return "KC_SPC";
+        case "Tab":
+            return "KC_TAB";
+        case "Delete":
+            return "KC_DEL";
+        case "End":
+            return "KC_END";
+        case "Help":
+            return "KC_HELP";
+        case "Home":
+            return "KC_HOME";
+        case "Insert":
+            return "KC_INS";
+        case "PageDown":
+            return "KC_PGDN";
+        case "PageUp":
+            return "KC_PGUP";
+        case "ArrowDown":
+            return "KC_DOWN";
+        case "ArrowLeft":
+            return "KC_LEFT";
+        case "ArrowRight":
+            return "KC_RGHT";
+        case "ArrowUp":
+            return "KC_UP";
+        case "Escape":
+            return "KC_ESC";
+        case "PrintScreen":
+            return "KC_PSCR";
+        case "ScrollLock":
+            return "KC_SLCK";
+        case "Pause":
+            return "KC_PAUS";
+        case "F1":
+            return "KC_F1";
+        case "F2":
+            return "KC_F2";
+        case "F3":
+            return "KC_F3";
+        case "F4":
+            return "KC_F4";
+        case "F5":
+            return "KC_F5";
+        case "F6":
+            return "KC_F6";
+        case "F7":
+            return "KC_F7";
+        case "F8":
+            return "KC_F8";
+        case "F9":
+            return "KC_F9";
+        case "F10":
+            return "KC_F10";
+        case "F11":
+            return "KC_F11";
+        case "F12":
+            return "KC_F12";
+        case "F13":
+            return "KC_F13";
+        case "F14":
+            return "KC_F14";
+        case "F15":
+            return "KC_F15";
+        case "F16":
+            return "KC_F16";
+        case "F17":
+            return "KC_F17";
+        case "F18":
+            return "KC_F18";
+        case "F19":
+            return "KC_F19";
+        case "F20":
+            return "KC_F20";
+        case "F21":
+            return "KC_F21";
+        case "F22":
+            return "KC_F22";
+        case "F23":
+            return "KC_F23";
+        case "F24":
+            return "KC_F24";
+        case "NumLock":
+            return "KC_NLCK";
+        case "Numpad0":
+            return "KC_P0";
+        case "Numpad1":
+            return "KC_P1";
+        case "Numpad2":
+            return "KC_P2";
+        case "Numpad3":
+            return "KC_P3";
+        case "Numpad4":
+            return "KC_P4";
+        case "Numpad5":
+            return "KC_P5";
+        case "Numpad6":
+            return "KC_P6";
+        case "Numpad7":
+            return "KC_P7";
+        case "Numpad8":
+            return "KC_P8";
+        case "Numpad9":
+            return "KC_P9";
+        case "NumpadAdd":
+            return "KC_PPLS";
+        case "NumpadComma":
+            return "KC_COMM";
+        case "NumpadDecimal":
+            return "KC_PDOT";
+        case "NumpadDivide":
+            return "KC_PSLS";
+        case "NumpadEnter":
+            return "KC_PENT";
+        case "NumpadEqual":
+            return "KC_PEQL";
+        case "NumpadMultiply":
+            return "KC_PAST";
+        case "NumpadSubtract":
+            return "KC_PMNS";
+        case "AudioVolumeUp":
+            return "KC_VOLU";
+        case "AudioVolumeDown":
+            return "KC_VOLD";
+        case "AudioVolumeMute":
+            return "KC_MUTE"
+    }
+}
+let Ds = {},
+    Wl = 0;
+const iK = (e, t) => {
+    const o = C.useState([]),
+        [, n] = o,
+        a = C.useMemo(() => ja().flatMap(l => l.keycodes), []);
+    C.useMemo(() => mc().flatMap(l => l.keycodes), []);
+    const r = C.useCallback((l, u) => {
+            l.preventDefault(), e && !l.repeat && n(_ => {
+                const h = a.find(y => y.code === rK(l)),
+                    f = Date.now(),
+                    K = h == null ? void 0 : h.code;
+                return _.length && t && _.push([Ae.Delay, f - Wl]), K && _.push([u, K]), Wl = f, [..._]
+            })
+        }, [e, t]),
+        i = C.useCallback(l => {
+            l.repeat || (Ds[l.code] = !0, r(l, Ae.Down))
+        }, [e]),
+        c = C.useCallback(l => {
+            Ds[l.code] = !1, r(l, Ae.Up)
+        }, [e]);
+    return C.useEffect(() => (Ds = {}, e && (window.addEventListener("keydown", i), window.addEventListener("keyup", c)), () => {
+        Ds = {}, window.removeEventListener("keydown", i), window.removeEventListener("keyup", c)
+    }), [e]), o
+};
+S.div `
+  border: 2px solid var(--bg_control);
+  transition: border-color 0.2s ease-in-out;
+  margin: 15px 0px;
+  display: inline-block;
+  &:focus-within {
+    border-color: var(--color_accent);
+  }
+  border-radius: 4px;
+  font-size: 16px;
+`;
+const Tr = S.div `
+  display: inline-flex;
+  user-select: none;
+  color: #717070;
+  padding: 6px 4px;
+  text-overflow: ellipsis;
+  min-width: 30px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  font-size: 16px;
+  border: 2px solid var(--border_color_icon);
+  background: var(--bg_control);
+  color: var(--color_label-highlighted);
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  border-radius: 2px;
+  white-space: nowrap;
+  position: relative;
+  margin: 15px 0px;
+`,
+    cK = S(Tr)
+`
+  &::after {
+    border-style: solid;
+    border-color: transparent;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--color_accent);
+    position: absolute;
+    margin-top: 55px;
+    width: 0;
+  }
+`, lK = S.div `
+  width: 20px;
+  display: inline-flex;
+  vertical-align: middle;
+  border: 1px solid var(--color_accent);
+`, dK = S(Tr)
+`
+  border-color: var(--border_color_cell);
+  background: var(--bg_menu);
+  white-space: pre-wrap;
+  min-height: 1.25em;
+  letter-spacing: 2px;
+`, uK = S(Tr)
+`
+  border-color: var(--color_accent);
+`, _K = S(Tr)
+`
+  &::after {
+    content: '';
+    border-style: solid;
+    margin-top: -55px;
+    border-color: transparent;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--color_accent);
+    position: absolute;
+    width: 0;
+  }
+`, hK = S.div `
+  display: inline-flex;
+  font-weight: bold;
+  user-select: none;
+  color: #717070;
+  text-overflow: ellipsis;
+  min-width: 30px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  font-size: 16px;
+  color: var(--color_label-highlighted);
+  box-shadow: none;
+  position: relative;
+  white-space: nowrap;
+  position: relative;
+  margin: 15px 0px;
+  box-sizing: border-box;
+  border: 2px solid;
+  padding: 4px 4px;
+  border-color: var(--color_accent);
+  border-radius: 2px;
+`, CK = S.input.attrs({
+    type: "number",
+    placeholder: "XXXXX"
+})
+`
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  color: var(--color_label);
+  width: 45px;
+  text-align: center;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color_label-highlighted);
+  margin: 0 5px 0 0;
+  &:focus {
+    color: var(--color_accent);
+  }
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    display: none;
+  }
+  &:invalid {
+    color: red;
+  }
+  &:placeholder-shown {
+    color: red;
+  }
+`, pK = e => {
+    const t = C.useRef(null),
+        o = a => {
+            (!a.data || !/^\d$/.test(a.data)) && a.preventDefault()
+        },
+        n = a => {
+            +a.target.value > 0 && +a.target.value < 1e5 && e.updateValue(e.index, +a.target.value)
+        };
+    return m(hK, {
+        children: [s(CK, {
+            ref: t,
+            onBeforeInput: o,
+            value: e.value,
+            onChange: n
+        }), "ms"]
+    })
+}, fK = e => e === Ae.Down ? cK : e === Ae.Up ? _K : e === Ae.CharacterStream ? dK : uK;
+
+function gK(e) {
+    return e[0].toUpperCase() + e.slice(1)
+}
+const Vl = e => {
+        const t = (e == null ? void 0 : e.keys) ? ? (e == null ? void 0 : e.shortName) ? ? (e == null ? void 0 : e.name) ? ? "";
+        return t.length > 1 ? gK(t) : t
+    },
+    Xc = S.button `
+  appearance: none;
+  width: 40px;
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  line-height: initial;
+  font-size: initial;
+  color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+  border-color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+  &:disabled {
+    cursor: not-allowed;
+    border-right: 1px solid var(--border_color_icon);
+    cursor: not-allowed;
+    background: var(--bg_menu);
+  }
+  &:hover {
+    color: ${e=>e.disabled?"var(--bg_control)":"var(--color_inside-accent)"};
+    border-color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+    border-right: 1px solid var(--border_color_icon);
+    background-color: ${e=>e.disabled?"var(--bg_menu)":"var(--color_accent)"};
+  }
+
+  svg {
+    color: ${e=>e.disabled?"var(--bg_control)":"var(--color_accent)"};
+  }
+  &:hover {
+    svg {
+      color: ${e=>e.disabled?"var(--bg_control)":"var(--color_inside-accent)"};
+    }
+
+    color: var(--color_label-highlighted);
+    & .tooltip {
+      transform: scale(1) translateX(0px);
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    transform: translateX(-5px) scale(0.6);
+    opacity: 0;
+  }
+`,
+    mK = S(Xc)
+`
+  cursor: pointer;
+  background: inherit;
+  border: 1px solid var(--color_accent);
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+`, vn = S(Xc)
+`
+  cursor: pointer;
+  background: var(--bg_control);
+  border-right: 1px solid var(--border_color_icon);
+`, Yl = S(Xc)
+`
+  cursor: pointer;
+  transition: all 0.4s ease;
+  background: ${e=>e.$selected?"var(--color_accent)":"var(--bg_menu)"};
+  svg {
+    color: ${e=>e.$selected?"var(--color_inside-accent)":"var(--bg_icon)"};
+  }
+  &:hover {
+    background: ${e=>e.$selected?"var(--color_accent)":"var(--bg_menu)"};
+    svg {
+      color: ${e=>e.$selected?"var(--color_inside-accent)":"var(--bg_icon)"};
+    }
+  }
+  border-right: 1px solid var(--border_color_icon);
+`, F_ = e => {
+    const t = p(Ht);
+    let o = "NanmuSquareRound";
+    switch (t) {
+        case "en":
+        default:
+            o = "Dongle";
+            break;
+        case "ko":
+            o = "NanmuSquareRound"
+    }
+    const n = C.useMemo(() => ({
+        containerStyles: {
+            position: "absolute",
+            left: "50%",
+            transformOrigin: "left",
+            transition: "all 0.1s ease-in-out",
+            top: 0,
+            marginTop: -40,
+            zIndex: 4,
+            pointerEvents: "none",
+            filter: "drop-shadow(0px 0px 1px white)"
+        },
+        contentStyles: {
+            padding: "5px 8px",
+            borderRadius: 10,
+            background: "var(--color_accent)",
+            color: "var(--color_inside-accent)",
+            fontFamily: o,
+            fontSize: 16,
+            fontWeight: 500,
+            whiteSpace: "nowrap",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textTransform: "uppercase",
+            zIndex: 5,
+            transform: "translateX(-50%)"
+        },
+        pointerStyles: {
+            borderStyle: "solid",
+            borderColor: "transparent",
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            borderTop: "6px solid var(--color_accent)",
+            position: "absolute",
+            marginLeft: -6,
+            width: 0
+        }
+    }), []);
+    return s(ua, { ...e,
+        containerStyles: n.containerStyles,
+        contentStyles: n.contentStyles,
+        pointerStyles: n.pointerStyles
+    })
+}, KK = e => {
+    const t = p(Ht);
+    let o = "NanmuSquareRound";
+    switch (t) {
+        case "en":
+        default:
+            o = "Dongle";
+            break;
+        case "ko":
+            o = "NanmuSquareRound"
+    }
+    const n = C.useMemo(() => ({
+        containerStyles: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            marginTop: -800
+        },
+        contentStyles: {
+            padding: "70px 70px",
+            background: "var(--color_accent)",
+            color: "var(--color_inside-accent)",
+            borderRadius: 100,
+            fontSize: 200,
+            fontFamily: o,
+            whiteSpace: "nowrap",
+            letterSpacing: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontWeight: "bold"
+        },
+        pointerStyles: {
+            height: 150,
+            width: 150,
+            marginTop: -100,
+            transform: "rotate(45deg)",
+            background: "var(--color_accent)"
+        }
+    }), []);
+    return s(ua, { ...e,
+        containerStyles: n.containerStyles,
+        contentStyles: n.contentStyles,
+        pointerStyles: n.pointerStyles
+    })
+}, Qc = e => {
+    const t = p(Ht);
+    let o = "NanmuSquareRound";
+    switch (t) {
+        case "en":
+        default:
+            o = "Dongle";
+            break;
+        case "ko":
+            o = "NanmuSquareRound"
+    }
+    const n = C.useMemo(() => ({
+        containerStyles: {
+            position: "absolute",
+            top: 45,
+            left: 0,
+            transformOrigin: "left",
+            transition: "all 0.1s ease-in-out",
+            marginTop: 0,
+            zIndex: 4,
+            pointerEvents: "none"
+        },
+        contentStyles: {
+            padding: "5px 10px",
+            borderRadius: 10,
+            background: "var(--color_accent)",
+            color: "var(--color_inside-accent)",
+            fontFamily: o,
+            fontSize: 18,
+            fontWeight: 500,
+            whiteSpace: "nowrap",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textTransform: "uppercase",
+            zIndex: 5,
+            transform: "translateX(-50%)",
+            marginLeft: 18
+        },
+        pointerStyles: {
+            borderStyle: "solid",
+            borderColor: "transparent",
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            borderBottom: "6px solid var(--color_accent)",
+            position: "absolute",
+            marginLeft: 15,
+            marginTop: -41,
+            width: 0
+        }
+    }), []);
+    return s(ua, { ...e,
+        containerStyles: n.containerStyles,
+        contentStyles: n.contentStyles,
+        pointerStyles: n.pointerStyles
+    })
+}, yK = e => {
+    const t = p(Ht);
+    let o = "NanmuSquareRound";
+    switch (t) {
+        case "en":
+        default:
+            o = "Dongle";
+            break;
+        case "ko":
+            o = "NanmuSquareRound"
+    }
+    const n = C.useMemo(() => ({
+        containerStyles: {
+            position: "absolute",
+            left: "50%",
+            transformOrigin: "left",
+            transition: "all 0.1s ease-in-out",
+            top: 0,
+            marginTop: -40,
+            zIndex: 4,
+            pointerEvents: "none"
+        },
+        contentStyles: {
+            padding: "5px 10px",
+            borderRadius: 10,
+            background: "var(--color_inside-accent)",
+            color: "var(--color_accent)",
+            fontFamily: o,
+            fontSize: 18,
+            fontWeight: 500,
+            whiteSpace: "nowrap",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textTransform: "uppercase",
+            zIndex: 5,
+            transform: "translateX(-50%)"
+        },
+        pointerStyles: {
+            borderStyle: "solid",
+            borderColor: "transparent",
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            borderTop: "6px solid var(--color_inside-accent)",
+            position: "absolute",
+            marginLeft: -6,
+            width: 0
+        }
+    }), []);
+    return s(ua, { ...e,
+        containerStyles: n.containerStyles,
+        contentStyles: n.contentStyles,
+        pointerStyles: n.pointerStyles
+    })
+}, qo = e => {
+    const t = p(Ht);
+    let o = "NanmuSquareRound";
+    switch (t) {
+        case "en":
+        default:
+            o = "Dongle";
+            break;
+        case "ko":
+            o = "NanmuSquareRound"
+    }
+    const n = C.useMemo(() => ({
+        containerStyles: {
+            position: "absolute",
+            top: 50,
+            left: 0,
+            transformOrigin: "left",
+            transition: "all 0.1s ease-in-out",
+            marginTop: 0,
+            zIndex: 4,
+            pointerEvents: "none"
+        },
+        contentStyles: {
+            padding: "5px 10px",
+            borderRadius: 10,
+            background: "var(--color_inside-accent)",
+            color: "var(--color_accent)",
+            fontFamily: o,
+            fontSize: 18,
+            fontWeight: 500,
+            whiteSpace: "nowrap",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textTransform: "uppercase",
+            zIndex: 5,
+            transform: "translateX(-50%)",
+            marginLeft: 18
+        },
+        pointerStyles: {
+            borderStyle: "solid",
+            borderColor: "transparent",
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            borderBottom: "6px solid var(--color_inside-accent)",
+            position: "absolute",
+            marginLeft: 15,
+            marginTop: -41,
+            width: 0
+        }
+    }), []);
+    return s(ua, { ...e,
+        containerStyles: n.containerStyles,
+        contentStyles: n.contentStyles,
+        pointerStyles: n.pointerStyles
+    })
+}, da = e => {
+    const t = p(Ht);
+    let o = "NanmuSquareRound";
+    switch (t) {
+        case "en":
+        default:
+            o = "Dongle";
+            break;
+        case "ko":
+            o = "NanmuSquareRound"
+    }
+    const n = C.useMemo(() => ({
+        containerStyles: {
+            position: "absolute",
+            top: 0,
+            left: 45,
+            transformOrigin: "left",
+            transition: "all 0.1s ease-in-out",
+            marginTop: -5,
+            zIndex: 4,
+            pointerEvents: "none"
+        },
+        contentStyles: {
+            padding: "5px 5px",
+            background: "var(--color_inside-accent)",
+            color: "var(--color_accent)",
+            borderRadius: 10,
+            fontFamily: o,
+            fontWeight: 400,
+            whiteSpace: "nowrap",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 5
+        },
+        pointerStyles: {
+            borderStyle: "solid",
+            borderColor: "transparent",
+            borderTop: "6px solid transparent",
+            borderBottom: "6px solid transparent",
+            borderRight: "6px solid var(--color_inside-accent)",
+            position: "absolute",
+            marginLeft: -9,
+            marginTop: -21,
+            width: 0
+        }
+    }), []);
+    return s(ua, { ...e,
+        containerStyles: n.containerStyles,
+        contentStyles: n.contentStyles,
+        pointerStyles: n.pointerStyles
+    })
+}, ua = e => {
+    const {
+        containerStyles: t,
+        contentStyles: o,
+        pointerStyles: n
+    } = e;
+    return m("div", {
+        style: t,
+        className: "tooltip",
+        children: [s("div", {
+            style: o,
+            children: e.children
+        }), s("div", {
+            style: n
+        })]
+    })
+}, SK = S.div `
+  background: var(--bg_menu);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+`, ks = S.div `
+  border-radius: 2px;
+  border: 1px solid var(--border_color_icon);
+  display: inline-flex;
+  > button:last-child {
+    border: none;
+  }
+`, ei = S.div `
+  background: var(--border_color_icon);
+  width: 1px;
+  height: 80%;
+  margin: 0 10px;
+`, wK = ({
+    isFullscreen: e,
+    isRecording: t,
+    recordingToggleChange: o,
+    hasUnsavedChanges: n,
+    undoChanges: a,
+    saveChanges: r,
+    recordDelays: i,
+    toggleRecordDelays: c,
+    optimizeRecording: l,
+    toggleOptimizeRecording: u,
+    isEmpty: _,
+    deleteMacro: h,
+    toggleFullscreen: f,
+    isDelaySupported: K
+}) => {
+    const {
+        t: y
+    } = Tt(), L = m(vn, {
+        onClick: () => {
+            o(!t)
+        },
+        disabled: !e,
+        children: [s(Kt, {
+            size: "sm",
+            color: "var(--color_label)",
+            icon: t ? BC : UC
+        }), s(qo, {
+            children: y(e ? t ? "Stop Recording" : "Record Keystrokes" : "Can only record when fullscreen")
+        })]
+    });
+    return m(SK, {
+        children: [n ? s(Ke, {
+            children: t ? null : m(Ke, {
+                children: [m(ks, {
+                    children: [m(vn, {
+                        disabled: !n || t,
+                        onClick: a,
+                        children: [s(Kt, {
+                            size: "sm",
+                            color: "var(--color_label)",
+                            icon: FC
+                        }), s(qo, {
+                            children: y("Undo Changes")
+                        })]
+                    }), m(vn, {
+                        disabled: !n || t,
+                        onClick: () => r(),
+                        children: [s(Kt, {
+                            size: "sm",
+                            color: "var(--color_label)",
+                            icon: HC
+                        }), s(qo, {
+                            children: y("Save Changes")
+                        })]
+                    })]
+                }), s(ei, {})]
+            })
+        }) : _ ? s(Ke, {}) : m(Ke, {
+            children: [s(ks, {
+                children: m(vn, {
+                    disabled: n || t,
+                    onClick: h,
+                    children: [s(Kt, {
+                        size: "sm",
+                        color: "var(--color_label)",
+                        icon: $C
+                    }), s(qo, {
+                        children: y("Delete Macro")
+                    })]
+                })
+            }), s(ei, {})]
+        }), m(ks, {
+            children: [L, m(vn, {
+                onClick: f,
+                children: [s(Kt, {
+                    size: "sm",
+                    color: "var(--color_label)",
+                    icon: e ? WC : VC
+                }), s(qo, {
+                    children: y(e ? "Exit Fullscreen" : "Fullscreen")
+                })]
+            })]
+        }), t ? null : m(Ke, {
+            children: [s(ei, {}), m(ks, {
+                children: [m(Yl, {
+                    $selected: l,
+                    onClick: u,
+                    children: [s(Kt, {
+                        size: "sm",
+                        icon: YC
+                    }), s(qo, {
+                        children: y(l ? "Skip Smart Optimization" : "Use Smart Optimization")
+                    })]
+                }), m(Yl, {
+                    disabled: !K,
+                    $selected: i,
+                    onClick: c,
+                    children: [s(Kt, {
+                        size: "sm",
+                        icon: zC,
+                        className: "fa-stack-1x"
+                    }), s(qo, {
+                        children: y(K ? i ? "Skip Recording Delays" : "Record Delays" : "Upgrade firmware to use delays")
+                    })]
+                })]
+            })]
+        })]
+    })
+}, MK = S.div `
+  display: inline-flex;
+  vertical-align: middle;
+  position: relative;
+  svg {
+    color: var(--bg_icon-highlighted);
+    position: absolute;
+    right: -5px;
+    top: 6px;
+    opacity: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    background: var(--bg_icon);
+    border-radius: 50%;
+    transform: scale(0.8);
+  }
+  &:hover svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+`, bK = e => m(MK, {
+    style: {
+        pointerEvents: e.disabled ? "none" : "all"
+    },
+    children: [e.children, s(Kt, {
+        icon: XC,
+        size: "lg",
+        onClick: () => e.deleteItem(e.index)
+    })]
+}), H_ = (e, ...t) => t.reduce((o, n) => n(o), e), DK = S.div `
+  font-family: ${({theme:e})=>e.fonts.regular};
+  font-style: italic;
+  color: var(--color_label-highlighted);
+`, kK = S.div `
+  max-width: 960px;
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border_color_cell);
+  border-style: ${e=>e.$isModified?"dashed":"solid"};
+  padding: 30px 20px;
+  border-radius: 15px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+`, zl = (e, t) => e.reduce((o, n, a) => (a && o.push({ ...t,
+    key: a
+}), o.push(n), o), []), Xl = ja().flatMap(e => e.keycodes).reduce((e, t) => ({ ...e,
+    [t.code]: t
+}), {}), Ql = e => H_(e, F0, H0, Cu, $0, W0), jl = e => H_(e, Cu), xK = ({
+    selectedMacro: e,
+    setUnsavedMacro: t,
+    saveMacro: o,
+    undoMacro: n,
+    isDelaySupported: a
+}) => {
+    const [r, i] = C.useState(!0), [c, l] = C.useState(!1), [u, _] = C.useState(!1), [h, f] = C.useState(!!document.fullscreenElement), {
+        smartOptimizeEnabled: K,
+        recordDelaysEnabled: y
+    } = p(A0), L = so(), {
+        t: M
+    } = Tt(), [P, ie] = iK(c, y), k = C.useRef(null), Y = C.useCallback(async ae => {
+        l(ae), ae ? (await navigator.keyboard.lock(), ie([]), i(!1), _(!0)) : (navigator.keyboard.unlock(), K && ie(Ql(P)), _(!1))
+    }, [P, l]), ee = C.useCallback(() => {
+        o(""), i(!0), _(!1)
+    }, [ie, o]), T = C.useCallback(() => {
+        n(), ie([]), i(!0), _(!1)
+    }, [n]);
+    C.useEffect(() => {
+        i(!0), _(!1), ie([])
+    }, [e]);
+    const te = () => [...r ? e ? ? [] : P],
+        B = C.useMemo(() => {
+            let ae, $ = te();
+            return r || !u || !K ? ae = $ : ae = Ql($), ae
+        }, [P, r, K, u, e]);
+    C.useEffect(() => {
+        B && t(pu(B))
+    }, [B]);
+    const de = C.useCallback(() => {
+            r && i(!1)
+        }, [r]),
+        he = C.useCallback(ae => {
+            const $ = te();
+            $.splice(ae, 1), ie(jl($)), de()
+        }, [B, e, P, r]),
+        Fe = C.useCallback((ae, $) => {
+            const be = te();
+            be.splice(ae, 1, [Ae.Delay, $]), ie(jl(be)), de()
+        }, [B, e, P, r]),
+        We = p(Ht);
+    let De = "NanmuSquareRound";
+    switch (We) {
+        case "en":
+        default:
+            De = "Dongle";
+            break;
+        case "ko":
+            De = "NanmuSquareRound"
+    }
+    const ke = C.useMemo(() => zl(B.map(([ae, $], be) => {
+        const ge = fK(ae);
+        return s(bK, {
+            index: be,
+            deleteItem: he,
+            disabled: c,
+            children: Ae.Delay !== ae ? s(ge, {
+                children: ae === Ae.CharacterStream ? zl(String($).split(" ").map((ye, xe) => s("span", {
+                    children: ye
+                }, xe)), s("span", {
+                    style: {
+                        fontFamily: De
+                    },
+                    children: "␣"
+                })) : Array.isArray($) ? $.map(ye => Vl(Xl[ye]) ? ? ye).join(" + ") : Vl(Xl[$])
+            }) : s(pK, {
+                index: be,
+                value: Number($),
+                updateValue: Fe
+            })
+        }, `${be}-${ae}`)
+    }), s(lK, {})), [B]);
+    C.useEffect(() => {
+        const ae = () => {
+            f(!!document.fullscreenElement)
+        };
+        return document.documentElement.addEventListener("fullscreenchange", ae), () => {
+            Y(!1), document.documentElement.removeEventListener("fullscreenchange", ae)
+        }
+    }, [f]);
+    const _e = C.useCallback(() => {
+        document.fullscreenElement ? document.exitFullscreen && (Y(!1), document.exitFullscreen()) : document.documentElement.requestFullscreen()
+    }, [Y]);
+    return m(Ke, {
+        children: [s(kK, {
+            ref: k,
+            $isModified: !r,
+            children: ke.length ? ke : s(DK, {
+                children: M("No macro recorded yet")
+            })
+        }), s("div", {
+            style: {
+                border: "none",
+                maxWidth: 960,
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                transform: "translate(-0px, -21px)"
+            },
+            children: s(wK, {
+                isFullscreen: h,
+                isEmpty: !e || !e.length,
+                optimizeRecording: K,
+                recordDelays: y,
+                isRecording: c,
+                addText: () => {},
+                deleteMacro: ee,
+                toggleOptimizeRecording: () => {
+                    L(Pl({
+                        smartOptimizeEnabled: !K
+                    }))
+                },
+                toggleRecordDelays: () => {
+                    L(Pl({
+                        recordDelaysEnabled: !y
+                    }))
+                },
+                toggleFullscreen: _e,
+                undoChanges: T,
+                saveChanges: () => o(),
+                hasUnsavedChanges: !r,
+                recordingToggleChange: Y,
+                isDelaySupported: a
+            })
+        })]
+    })
+}, RK = S.textarea `
+  box-sizing: border-box;
+  background: var(--bg_control);
+  padding: 5px 10px;
+  border-color: var(--border_color_icon);
+  color: var(--color_label);
+  width: 100%;
+  height: 200px;
+  font-size: 16px;
+  line-height: 18px;
+  resize: none;
+  font-family: 'Source Code Pro';
+  font-weight: 500;
+  &::placeholder {
+    color: var(--color_label);
+  }
+  &:focus {
+    color: var(--color_accent);
+    outline-color: var(--color_accent);
+  }
+`, AK = S(Po)
+`
+  margin: 0;
+  width: 100%;
+  font-size: 14px;
+  display: block;
+  &:empty {
+    display: none;
+  }
+`, $n = S.div `
+  color: var(--color_accent);
+`, TK = S.a `
+  font-size: 18x !important;
+  color: var(--color_accent);
+  text-decoration: underline;
+`, LK = S(me)
+`
+  margin: 1em 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-style: oblique;
+  padding-left: 5px;
+`, ql = S(Oe)
+`
+  height: auto;
+`, vK = ({
+    macro: e,
+    protocol: t,
+    setUnsavedMacro: o,
+    saveMacros: n,
+    macroIndex: a,
+    isDelaySupported: r
+}) => {
+    const i = e.trimEnd(),
+        [c, l] = F.useState(i),
+        [u, _] = F.useState(void 0),
+        {
+            t: h
+        } = Tt();
+    C.useEffect(() => {
+        o(c)
+    }, [c]);
+    const f = () => {
+        const L = j0(t)(c);
+        L.isValid ? (n(c), _(void 0)) : _(L.errorMessage)
+    };
+    return m(Ke, {
+        children: [s(ql, {
+            children: s(QC, {
+                value: c,
+                onChange: y => l(y.target.value),
+                loadingComponent: em,
+                style: {
+                    fontSize: "16px",
+                    lineHeight: "18px",
+                    width: "100%",
+                    height: "140px",
+                    fontFamily: "monospace",
+                    resize: "none",
+                    borderColor: u !== void 0 ? "var(--color_error)" : "var(--border_color_icon)"
+                },
+                containerStyle: {
+                    border: "none",
+                    lineHeight: "20px"
+                },
+                itemStyle: {
+                    borderColor: "var(--border_color_cell)",
+                    backgroundColor: "var(--bg_menu)"
+                },
+                dropdownStyle: {
+                    zIndex: 999,
+                    backgroundColor: "var(--bg_menu)"
+                },
+                listStyle: {
+                    position: "fixed",
+                    backgroundColor: "var(--bg_menu)",
+                    maxHeight: "210px",
+                    overflow: "auto",
+                    border: "1px solid var(--border_color_cell)"
+                },
+                minChar: 0,
+                textAreaComponent: RK,
+                movePopupAsYouType: !0,
+                placeholder: `M${a}  ${h("Enter the macro you want")} ${h("to execute...")}`,
+                trigger: {
+                    "?": {
+                        dataProvider: Zr,
+                        component: Ps,
+                        output: y => ({
+                            text: y.code,
+                            caretPosition: "end"
+                        })
+                    },
+                    "{": {
+                        dataProvider: Zr,
+                        component: Ps,
+                        output: y => ({
+                            text: `{${y.code},`,
+                            caretPosition: "end"
+                        })
+                    },
+                    ",": {
+                        dataProvider: Zr,
+                        component: Ps,
+                        output: y => ({
+                            text: `,${y.code},`,
+                            caretPosition: "end"
+                        })
+                    }
+                }
+            })
+        }), m(ql, {
+            children: [m(LK, {
+                children: [s(AK, {
+                    children: u
+                }), m($n, {
+                    children: [h("Enter text directly, or wrap"), " ", "{ ", s(TK, {
+                        href: "https://docs.qmk.fm/#/keycodes_basic",
+                        target: "_blank",
+                        children: h("Basic Keycodes")
+                    }), " ", " }"]
+                }), m($n, {
+                    children: [h("Single tap"), " ", "{KC_XXX}"]
+                }), m($n, {
+                    children: [h("Chord"), " ", "{KC_XXX, KC_YYY, KC_ZZZ}"]
+                }), m($n, {
+                    children: [h("Keydown"), " ", "{+KC_XXX}"]
+                }), m($n, {
+                    children: [h("Keyup"), " ", "{-KC_XXX}"]
+                }), r ? m($n, {
+                    children: [h("Delay (ms)"), " ", "{NNNN}", " "]
+                }) : s(Ke, {
+                    children: h("Upgrade firmware to use delays")
+                })]
+            }), s(Se, {
+                children: s(St, {
+                    disabled: e === c,
+                    onClick: f,
+                    children: h("Save")
+                })
+            })]
+        })]
+    })
+}, Zi = md(({
+    className: e,
+    ...t
+}) => s(Kd, {
+    placement: "top",
+    ...t,
+    arrow: !0,
+    classes: {
+        popper: e
+    }
+}))(({
+    theme: e
+}) => ({
+    [`& .${pl.arrow}`]: {
+        color: e.palette.common.black
+    },
+    [`& .${pl.tooltip}`]: {
+        backgroundColor: e.palette.common.black,
+        fontFamily: "NanmuSquareRound",
+        fontSize: 14
+    }
+})), Zl = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, EK = S.div `
+  position: relative;
+  margin-top: 10px;
+  &:hover {
+    & .tooltip {
+      transform: scale(1) translateY(0px);
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    transform: translateY(5px) scale(0.6);
+    opacity: 0;
+  }
+`, PK = S.div `
+  background: var(--bg_control);
+  position: relative;
+  padding: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 250px;
+
+  > span {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--color_accent);
+    height: 10px;
+    width: 100%;
+    transform: scaleX(0.1);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+  }
+`, Jl = S.span `
+  display: inline-flex;
+  border: 1px solid;
+  line-height: initial;
+  border-top: none;
+  padding: 8px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  min-width: 38px;
+  justify-content: center;
+  box-sizing: border-box;
+  color: ${e=>e.$selected?"var(--color_accent)":"var(--bg_icon)"};
+  cursor: pointer;
+  &:hover {
+    color: ${e=>e.$selected?"var(--color_accent)":"var(--bg_icon-highlighted)"};
+  }
+`, IK = S.div `
+  display: flex;
+  column-gap: 10px;
+`, OK = S.div `
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 960px;
+`, NK = S(OK)
+`
+  justify-content: center;
+`, GK = (e, t) => {
+    const o = ["Bytes", "kB", "MB", "GB"],
+        n = Math.floor(Math.log10(t) / 3),
+        a = o[n],
+        r = n === 0 ? 1 : Math.pow(1e3, n),
+        i = e / r,
+        c = t / r;
+    return `${i.toFixed(n)} / ${c.toFixed(n)} ${a} space used`
+}, BK = () => {
+    const e = p(c => c.macros.ast),
+        t = p(_g),
+        o = p(ut),
+        n = p(st);
+    if (!o || !n) return null;
+    const {
+        protocol: a
+    } = o, i = bc(a, n).rawKeycodeSequencesToMacroBytes(e).length;
+    return m(EK, {
+        children: [s(PK, {
+            children: s("span", {
+                style: {
+                    transform: `scaleX(${i/t})`
+                }
+            })
+        }), s(yK, {
+            children: GK(i, t)
+        })]
+    })
+}, UK = e => {
+    const t = e.macroExpressions[e.selectedMacro] || "",
+        [o, n] = F.useState(!1),
+        a = p(h => h.macros.ast),
+        r = p(Cg),
+        [i, c] = C.useState(t),
+        {
+            t: l
+        } = Tt();
+    C.useEffect(() => {
+        c(t)
+    }, [t]);
+    const u = C.useCallback(() => {
+            c(t)
+        }, [t]),
+        _ = C.useCallback(h => {
+            h !== void 0 ? (e.saveMacros(""), c("")) : i !== t && (e.saveMacros(i), c(i))
+        }, [i]);
+    return m(Ke, {
+        children: [s(NK, {
+            children: m(IK, {
+                children: [s(Zi, {
+                    title: l("macro record"),
+                    children: s(Jl, {
+                        $selected: !o,
+                        onClick: () => n(!1),
+                        children: s(Kt, {
+                            icon: jC
+                        })
+                    })
+                }), s(Zi, {
+                    title: l("macro code edit"),
+                    children: s(Jl, {
+                        $selected: o,
+                        onClick: () => n(!0),
+                        children: s(Kt, {
+                            icon: qC
+                        })
+                    })
+                })]
+            })
+        }), s(BK, {}), o ? s(vK, {
+            macro: t,
+            macroIndex: e.selectedMacro,
+            protocol: e.protocol,
+            isDelaySupported: r,
+            setUnsavedMacro: c,
+            saveMacros: e.saveMacros
+        }, e.selectedMacro) : s(xK, {
+            selectedMacro: a[e.selectedMacro],
+            setUnsavedMacro: c,
+            undoMacro: u,
+            saveMacro: _,
+            isDelaySupported: r
+        }), s(Zl, {
+            children: s(Eo, {
+                children: s(Be, {
+                    children: l("Can only record when fullscreen")
+                })
+            })
+        }), s(Zl, {
+            children: s(Eo, {
+                children: s(Be, {
+                    children: l("Saved macros can be assigned in the keymap.")
+                })
+            })
+        })]
+    })
+}, FK = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, HK = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px;
+  padding-top: 0;
+`, $K = S.div `
+  padding: 15px 10px 20px 10px;
+`, WK = () => {
+    const e = wt(),
+        t = p(ut),
+        o = p(gr),
+        n = p(hg),
+        [a, r] = C.useState(0),
+        i = C.useCallback(async l => {
+            if (!t) return;
+            const u = o.map((_, h) => h === a ? l : _);
+            e(ki(t, u))
+        }, [o, ki, e, t, a]),
+        c = C.useMemo(() => Array(n).fill(0).map((l, u) => u).map(l => s(kr, {
+            $selected: a === l,
+            onClick: () => r(l),
+            style: {
+                borderWidth: 0,
+                textAlign: "center"
+            },
+            children: `M${l}`
+        }, l)), [a, n]);
+    return t ? m(Ke, {
+        children: [s(h_, {
+            children: s($K, {
+                children: c
+            })
+        }), s(Dr, {
+            children: s(FK, {
+                children: s(HK, {
+                    children: s(UK, {
+                        macroExpressions: o,
+                        selectedMacro: a,
+                        saveMacros: i,
+                        protocol: t ? t.protocol : -1
+                    })
+                })
+            })
+        })]
+    }) : null
+}, VK = nK, YK = oK, $a = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: VK,
+    Pane: WK,
+    Title: YK
+}, Symbol.toStringTag, {
+    value: "Module"
+}));
+
+function $_(e) {
+    const t = e.inputRef || F.useRef();
+
+    function o(n) {
+        e.onLoad(n.target.files), t.current.value = null
+    }
+    return m(St, {
+        onClick: () => t.current && t.current.click(),
+        fontfamily: e.fontfamily,
+        children: [e.children, s("input", {
+            ref: t,
+            type: "file",
+            multiple: e.multiple,
+            accept: "application/json",
+            style: {
+                display: "none"
+            },
+            onChange: o
+        })]
+    })
+}
+const ti = {
+        KC_TILD: "S(KC_GRV)",
+        KC_EXLM: "S(KC_1)",
+        KC_AT: "S(KC_2)",
+        KC_HASH: "S(KC_3)",
+        KC_DLR: "S(KC_4)",
+        KC_PERC: "S(KC_5)",
+        KC_CIRC: "S(KC_6)",
+        KC_AMPR: "S(KC_7)",
+        KC_ASTR: "S(KC_8)",
+        KC_LPRN: "S(KC_9)",
+        KC_RPRN: "S(KC_0)",
+        KC_UNDS: "S(KC_MINS)",
+        KC_PLUS: "S(KC_EQL)",
+        KC_LCBR: "S(KC_LBRC)",
+        KC_RCBR: "S(KC_RBRC)",
+        KC_PIPE: "S(KC_BSLS)",
+        KC_COLN: "S(KC_SCLN)",
+        KC_DQUO: "S(KC_QUOT)",
+        KC_LT: "S(KC_COMM)",
+        KC_GT: "S(KC_DOT)",
+        KC_QUES: "S(KC_SLSH)",
+        SPC_FN1: "LT(1,KC_SPC)",
+        SPC_FN2: "LT(2,KC_SPC)",
+        SPC_FN3: "LT(3,KC_SPC)",
+        MACRO00: "MACRO(0)",
+        MACRO01: "MACRO(1)",
+        MACRO02: "MACRO(2)",
+        MACRO03: "MACRO(3)",
+        MACRO04: "MACRO(4)",
+        MACRO05: "MACRO(5)",
+        MACRO06: "MACRO(6)",
+        MACRO07: "MACRO(7)",
+        MACRO08: "MACRO(8)",
+        MACRO09: "MACRO(9)",
+        MACRO10: "MACRO(10)",
+        MACRO11: "MACRO(11)",
+        MACRO12: "MACRO(12)",
+        MACRO13: "MACRO(13)",
+        MACRO14: "MACRO(14)",
+        MACRO15: "MACRO(15)",
+        USER00: "CUSTOM(0)",
+        USER01: "CUSTOM(1)",
+        USER02: "CUSTOM(2)",
+        USER03: "CUSTOM(3)",
+        USER04: "CUSTOM(4)",
+        USER05: "CUSTOM(5)",
+        USER06: "CUSTOM(6)",
+        USER07: "CUSTOM(7)",
+        USER08: "CUSTOM(8)",
+        USER09: "CUSTOM(9)",
+        USER10: "CUSTOM(10)",
+        USER11: "CUSTOM(11)",
+        USER12: "CUSTOM(12)",
+        USER13: "CUSTOM(13)",
+        USER14: "CUSTOM(14)",
+        USER15: "CUSTOM(15)"
+    },
+    zK = "Save + Load",
+    XK = () => s(Kt, {
+        icon: ZC
+    }),
+    QK = e => e && e.name && e.layers && e.vendorProductId,
+    jK = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, ed = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, qK = () => {
+    const e = wt(),
+        t = p($e),
+        o = p(ut),
+        n = p(st),
+        a = p(aa),
+        r = p(k => k.macros),
+        i = p(gr),
+        {
+            basicKeyToByte: c,
+            byteToKey: l
+        } = p(yo),
+        {
+            t: u
+        } = Tt(),
+        _ = p(Ht);
+    let h = "NanmuSquareRound";
+    switch (_) {
+        case "en":
+        default:
+            h = "Dongle";
+            break;
+        case "ko":
+            h = "NanmuSquareRound"
+    }
+    if (!t || !o || !n) return null;
+    const [f, K] = C.useState(null), [y, L] = C.useState(null), M = async () => {
+        const {
+            layouts: k
+        } = t, {
+            keys: Y,
+            optionKeys: ee
+        } = k, T = [...Y, ...Object.values(ee).flatMap(te => Object.values(te)).flat()].filter(te => "ei" in te).map(te => te.ei);
+        if (T.length > 0) {
+            const te = Math.max(...T) + 1,
+                B = a.length;
+            return await Promise.all(Array(te).fill(0).map((he, Fe) => Promise.all(Array(B).fill(0).map((We, De) => Promise.all([n.getEncoderValue(De, Fe, !1), n.getEncoderValue(De, Fe, !0)]).then(ke => ke.map(_e => Qs(_e, c, l) || ""))))))
+        } else return []
+    }, P = async () => {
+        const {
+            name: k,
+            vendorProductId: Y
+        } = t, ee = k.replace(/[^a-zA-Z0-9]/g, "_").toLowerCase() + ".layout.json";
+        try {
+            const T = await window.showSaveFilePicker({
+                    suggestedName: ee
+                }),
+                te = await M(),
+                B = {
+                    name: k,
+                    vendorProductId: Y,
+                    macros: [...i],
+                    layers: a.map(We => We.keymap.map(De => Qs(De, c, l) || "")),
+                    encoders: te
+                },
+                de = JC(B),
+                he = new Blob([de], {
+                    type: "application/json"
+                }),
+                Fe = await T.createWritable();
+            await Fe.write(he), await Fe.close()
+        } catch {}
+    }, ie = ([k]) => {
+        K(null), L(null);
+        const Y = new FileReader;
+        Y.onabort = () => K("File reading was cancelled."), Y.onerror = () => K("Failed to read file."), Y.onload = async () => {
+            const ee = JSON.parse(Y.result.toString());
+            if (!QK(ee)) {
+                K("Could not load file: invalid data.");
+                return
+            }
+            if (ee.vendorProductId !== t.vendorProductId) {
+                K(`Could not import layout. This file was created for a different keyboard: ${ee.name}`);
+                return
+            }
+            if (ee.layers.findIndex((te, B) => te.length !== a[B].keymap.length) > -1) {
+                K("Could not import layout: incorrect number of keys in one or more layers.");
+                return
+            }
+            if (r.isFeatureSupported && ee.macros) {
+                if (ee.macros.length !== i.length) {
+                    K("Could not import layout: incorrect number of macros.");
+                    return
+                }
+                e(ki(o, ee.macros))
+            }
+            const T = ee.layers.map(te => te.map(B => Ao(`${ti[B]??B}`, c)));
+            e(n1(T, o)), ee.encoders && await Promise.all(ee.encoders.map((te, B) => Promise.all(te.map((de, he) => Promise.all([n.setEncoderValue(he, B, !1, Ao(`${ti[de[0]]??de[0]}`, c)), n.setEncoderValue(he, B, !0, Ao(`${ti[de[1]]??de[1]}`, c))]))))), L("Successfully updated layout!")
+        }, Y.readAsBinaryString(k)
+    };
+    return s(to, {
+        children: s(jK, {
+            children: s(ed, {
+                children: m($t, {
+                    shouldForwardProp: k => Wt(k),
+                    children: [s(ed, {
+                        children: s(Oe, {
+                            children: s(Eo, {
+                                children: s(Be, {
+                                    children: u("Save Load Info")
+                                })
+                            })
+                        })
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: u("Save Current Layout")
+                        }), s(Se, {
+                            children: s(St, {
+                                onClick: P,
+                                fontfamily: h,
+                                children: u("Save")
+                            })
+                        })]
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: u("Load Saved Layout")
+                        }), s(Se, {
+                            children: s($_, {
+                                onLoad: ie,
+                                fontfamily: h,
+                                children: u("Load")
+                            })
+                        })]
+                    }), f ? s(Po, {
+                        children: f
+                    }) : null, y ? s(Ar, {
+                        children: y
+                    }) : null]
+                })
+            })
+        })
+    })
+}, ZK = XK, JK = zK, Wa = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: ZK,
+    Pane: qK,
+    Title: JK
+}, Symbol.toStringTag, {
+    value: "Module"
+})), ey = "Trigger Pos", ty = () => s(Kt, {
+    icon: ep
+}), oy = S.span `
+  display: inline-block;
+  line-height: initial;
+  width: 140px;
+  height: 160px;
+  position: relative;
+`, ny = S.input.attrs({
+    type: "range"
+})
+`
+  accent-color: var(--color_accent);
+  width: 100%;
+  height: 100%;
+  -webkit-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -o-transform:rotate(90deg);
+  -ms-transform:rotate(90deg);
+  transform:rotate(90deg);
+`, nr = e => {
+    const t = p(yr),
+        [o, n] = C.useState(t),
+        a = (o * .05).toFixed(2) + " mm";
+    return s(oy, {
+        children: s(Zi, {
+            title: a,
+            children: s(ny, { ...e,
+                "data-tip": o,
+                onChange: i => {
+                    const c = +i.target.value;
+                    n(c), e.onChange && e.onChange(c)
+                },
+                step: e.step || 1,
+                disabled: e.disabled
+            })
+        })
+    })
+}, ay = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, td = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, sy = S.div `
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`, ry = () => {
+    const e = wt(),
+        t = p($e),
+        [o, n] = C.useState(!1),
+        a = p(Dt),
+        r = p(ut),
+        i = p(st),
+        c = p(os),
+        l = p(oo),
+        u = p(Gn);
+    p(vc);
+    const [_, h] = C.useState(!1), f = p(Ht);
+    let K = "NanmuSquareRound";
+    switch (f) {
+        case "en":
+        default:
+            K = "Dongle";
+            break;
+        case "ko":
+            K = "NanmuSquareRound"
+    }
+    p(Ec), p(Pc);
+    const y = p(yr),
+        L = (y * .05).toFixed(2),
+        M = p(ut),
+        [P, ie] = F.useState(!1),
+        {
+            t: k
+        } = Tt();
+    let Y = {
+        bRapidTrigger: 0,
+        triggerPos: 30,
+        bUseGapSingle: 1,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        dummy1: 0,
+        dummy2: 0
+    };
+    const ee = {
+        bRapidTrigger: 0,
+        triggerPos: 30,
+        bUseGapSingle: 1,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        dummy1: 0,
+        dummy2: 0
+    };
+    if (!t || !r || !i) return null;
+    const [T, te] = C.useState(null), [B, de] = C.useState(null), he = () => {
+        e(Et(null)), e(It());
+        for (let ae = 0; ae < a.length; ae++) e(Et(ae))
+    }, Fe = () => {
+        e(Et(null)), e(It())
+    }, We = ae => {
+        if (l !== null) {
+            e(Xn(ae));
+            for (let $ = 0; $ < u.length; $++) e($u(u[$], ae));
+            n(!0)
+        }
+    }, De = () => {
+        h(!0)
+    }, ke = async () => {
+        te(null), de(null);
+        const ae = 3,
+            $ = 516096;
+        let be = 0;
+        const ge = 24,
+            ye = 4096;
+        if (M && c) {
+            let xe = !1;
+            const He = 2,
+                Ce = 0,
+                Ve = 1,
+                lt = 2,
+                kt = 3,
+                Ct = 4,
+                ht = 5,
+                Ne = c.flatMap(Mt => Mt.map(rt => rt)),
+                xt = 305419896,
+                nt = 0;
+            Ne[0] !== xt && (Ne[0] = xt, Ne[1] = nt), Ne[1] !== 1 && (Ne[1] = nt);
+            for (let Mt = 0; Mt < a.length; Mt++) {
+                const {
+                    row: rt,
+                    col: Ge
+                } = a[Mt];
+                let Xe = He + (rt * 16 + Ge) * 8 + Ce;
+                const Ue = Xe,
+                    Re = c.map(O => [O[Xe++], O[Xe++], O[Xe++], O[Xe++], O[Xe++], O[Xe++], O[Xe++], O[Xe++]])[0];
+                let J = {
+                    bRapidTrigger: 0,
+                    triggerPos: 30,
+                    bUseGapSingle: 1,
+                    gapSingle: 8,
+                    gapUp: 11,
+                    gapDown: 4,
+                    dummy1: 0,
+                    dummy2: 0
+                };
+                if (Re) {
+                    if (J.bRapidTrigger = Re[0], J.triggerPos = Re[1], J.bUseGapSingle = Re[2], J.gapSingle = Re[3], J.gapUp = Re[4], J.gapDown = Re[5], J.bRapidTrigger === void 0) {
+                        let O = Ue + Ce;
+                        Ne[O] = ee.bRapidTrigger, xe = !0
+                    } else if (J.bRapidTrigger !== 1) {
+                        let O = Ue + Ce;
+                        Ne[O] = ee.bRapidTrigger, xe = !0
+                    }
+                    if (J.triggerPos === void 0) {
+                        let O = Ue + Ve;
+                        Ne[O] = ee.triggerPos, xe = !0
+                    } else if (2 <= J.triggerPos && J.triggerPos <= 80) {
+                        const O = J.triggerPos;
+                        let Ie = Ue + Ve;
+                        Ne[Ie] = O
+                    } else {
+                        let O = Ue + Ve;
+                        Ne[O] = ee.triggerPos, xe = !0
+                    }
+                    if (J.bUseGapSingle === void 0) {
+                        let O = Ue + lt;
+                        Ne[O] = ee.bUseGapSingle, xe = !0
+                    } else if (J.bUseGapSingle !== 0) {
+                        let O = Ue + lt;
+                        Ne[O] = ee.bUseGapSingle, xe = !0
+                    }
+                    if (J.gapSingle === void 0) {
+                        let O = Ue + kt;
+                        Ne[O] = ee.gapSingle, xe = !0
+                    } else if (3 <= J.gapSingle && J.gapSingle <= 47) {
+                        const O = J.gapSingle;
+                        let Ie = Ue + kt;
+                        Ne[Ie] = O
+                    } else {
+                        let O = Ue + kt;
+                        Ne[O] = ee.gapSingle, xe = !0
+                    }
+                    if (J.gapUp === void 0) {
+                        let O = Ue + Ct;
+                        Ne[O] = ee.gapUp, xe = !0
+                    } else if (3 <= J.gapUp && J.gapUp <= 47) {
+                        const O = Y.gapUp;
+                        let Ie = Ue + Ct;
+                        Ne[Ie] = O
+                    } else {
+                        let O = Ue + Ct;
+                        Ne[O] = ee.gapUp, xe = !0
+                    }
+                    if (J.gapDown === void 0) {
+                        let O = Ue + ht;
+                        Ne[O] = ee.gapDown, xe = !0
+                    } else if (3 <= J.gapDown && J.gapDown <= 47) {
+                        const O = Y.gapDown;
+                        let Ie = Ue + ht;
+                        Ne[Ie] = O
+                    } else {
+                        let O = Ue + ht;
+                        Ne[O] = ee.gapDown, xe = !0
+                    }
+                }
+            }
+            if (xe === !0) {
+                const {
+                    path: Mt,
+                    vendorProductId: rt,
+                    requiredDefinitionVersion: Ge
+                } = M, Xe = 0, Ue = await Promise.all(Ne);
+                e(ea({
+                    layerIndex: Xe,
+                    keymap: Ue,
+                    devicePath: Mt
+                }))
+            } else await Promise.all(Ne), n(!1), e(Et(null)), e(It());
+            if (Ne) {
+                const rt = [];
+                for (let Ge = 0; Ge < Ne.length; Ge++) rt.push(...bt(Ne[Ge]));
+                if (rt) {
+                    for (let Ge = 0; Ge < rt.length; Ge += ye) be = $ + Ge, e(tn(ae, be, ye, M)), Ge / rt.length * 100;
+                    i.timeout(200);
+                    for (let Ge = 0; Ge < rt.length; Ge += ge) e(on(ge, Ge, ae, $, rt, M)), Ge / rt.length * 100;
+                    i.timeout(200), e(po(M)), n(!1), e(Et(null)), e(It())
+                }
+            }
+        }
+    };
+    F.useEffect(() => (_ && (ke(), h(!1), ie(!1)), () => {}), [_]);
+    const _e = async () => {
+        te(null), de(null);
+        const ae = 3,
+            $ = 516096;
+        let be = 0;
+        const ge = 24,
+            ye = 4096;
+        if (M && c) {
+            let xe = !1;
+            const He = 2,
+                Ce = 0,
+                Ve = 1,
+                lt = 2,
+                kt = 3,
+                Ct = 4,
+                ht = 5,
+                Ne = c.flatMap(xt => xt.map(nt => nt));
+            for (let xt = 0; xt < a.length; xt++) {
+                const {
+                    row: nt,
+                    col: Mt
+                } = a[xt];
+                let rt = He + (nt * 16 + Mt) * 8 + Ce;
+                const Ge = rt,
+                    Ue = c.map(Re => [Re[rt++], Re[rt++], Re[rt++], Re[rt++], Re[rt++], Re[rt++], Re[rt++], Re[rt++]])[0];
+                let Pe = {
+                    bRapidTrigger: 0,
+                    triggerPos: 30,
+                    bUseGapSingle: 1,
+                    gapSingle: 8,
+                    gapUp: 11,
+                    gapDown: 4,
+                    dummy1: 0,
+                    dummy2: 0
+                };
+                if (Ue) {
+                    if (Pe.bRapidTrigger = Ue[0], Pe.triggerPos = Ue[1], Pe.bUseGapSingle = Ue[2], Pe.gapSingle = Ue[3], Pe.gapUp = Ue[4], Pe.gapDown = Ue[5], Pe.bRapidTrigger === void 0) {
+                        let Re = Ge + Ce;
+                        Ne[Re] = ee.bRapidTrigger, xe = !0
+                    } else if (Pe.bRapidTrigger !== 1) {
+                        let Re = Ge + Ce;
+                        Ne[Re] = ee.bRapidTrigger, xe = !0
+                    }
+                    if (Pe.triggerPos === void 0) {
+                        let Re = Ge + Ve;
+                        Ne[Re] = ee.triggerPos, xe = !0
+                    } else {
+                        let Re = Ge + Ve;
+                        Ne[Re] = ee.triggerPos, xe = !0
+                    }
+                    if (Pe.bUseGapSingle === void 0) {
+                        let Re = Ge + lt;
+                        Ne[Re] = ee.bUseGapSingle, xe = !0
+                    } else if (Pe.bUseGapSingle !== 0) {
+                        let Re = Ge + lt;
+                        Ne[Re] = ee.bUseGapSingle, xe = !0
+                    }
+                    if (Pe.gapSingle === void 0) {
+                        let Re = Ge + kt;
+                        Ne[Re] = ee.gapSingle, xe = !0
+                    } else if (!(2 <= Pe.gapSingle && Pe.gapSingle <= 47)) {
+                        let Re = Ge + kt;
+                        Ne[Re] = ee.gapSingle, xe = !0
+                    }
+                    if (Pe.gapUp === void 0) {
+                        let Re = Ge + Ct;
+                        Ne[Re] = ee.gapUp, xe = !0
+                    } else if (2 <= Pe.gapUp && Pe.gapUp <= 47) Y.gapUp;
+                    else {
+                        let Re = Ge + Ct;
+                        Ne[Re] = ee.gapUp, xe = !0
+                    }
+                    if (Pe.gapDown === void 0) {
+                        let Re = Ge + ht;
+                        Ne[Re] = ee.gapDown, xe = !0
+                    } else if (2 <= Pe.gapDown && Pe.gapDown <= 47) Y.gapDown;
+                    else {
+                        let Re = Ge + ht;
+                        Ne[Re] = ee.gapDown, xe = !0
+                    }
+                }
+            }
+            if (xe === !0) {
+                const {
+                    path: xt,
+                    vendorProductId: nt,
+                    requiredDefinitionVersion: Mt
+                } = M, rt = 0, Ge = await Promise.all(Ne);
+                e(ea({
+                    layerIndex: rt,
+                    keymap: Ge,
+                    devicePath: xt
+                }))
+            } else await Promise.all(Ne);
+            if (Ne) {
+                const nt = [];
+                nt.push(305419896), nt.push(0);
+                for (let Ge = 0; Ge < Ne.length; Ge++) nt.push(...bt(Ne[Ge]));
+                if (nt) {
+                    for (let Ge = 0; Ge < nt.length; Ge += ye) be = $ + Ge, e(tn(ae, be, ye, M));
+                    i.timeout(500);
+                    for (let Ge = 0; Ge < nt.length; Ge += ge) e(on(ge, Ge, ae, $, nt, M));
+                    i.timeout(500), e(po(M)), n(!1), e(Et(null)), e(It())
+                }
+            }
+        }
+        ie(!1)
+    };
+    return F.useEffect(() => {
+        if (c && l) {
+            const {
+                row: ae,
+                col: $
+            } = a[l], be = 2, ge = 0;
+            let ye = be + (ae * 16 + $) * 8 + ge;
+            const He = c.map(Ce => [Ce[ye++], Ce[ye++], Ce[ye++], Ce[ye++], Ce[ye++], Ce[ye++], Ce[ye++], Ce[ye++]])[0];
+            if (He && (Y.bRapidTrigger = He[0], Y.triggerPos = He[1], Y.bUseGapSingle = He[2], Y.gapSingle = He[3], Y.gapUp = He[4], Y.gapDown = He[5]), Y.bRapidTrigger !== void 0 ? Y.bRapidTrigger === 1 ? e(To(!0)) : e(To(!1)) : (Y = ee, e(To(!1))), Y.triggerPos !== void 0)
+                if (2 <= Y.triggerPos && Y.triggerPos <= 80) {
+                    const Ce = Y.triggerPos;
+                    e(Xn(Ce))
+                } else e(Xn(30));
+            if (Y.bUseGapSingle !== void 0 && (Y.bUseGapSingle === 1 ? e(Pn(!0)) : e(Pn(!1))), Y.gapSingle !== void 0)
+                if (2 <= Y.gapSingle && Y.gapSingle <= 47) {
+                    const Ce = Y.gapSingle;
+                    e(un(Ce))
+                } else e(un(8));
+            if (Y.gapUp !== void 0)
+                if (2 <= Y.gapUp && Y.gapUp <= 47) {
+                    const Ce = Y.gapUp;
+                    e(_n(Ce))
+                } else e(_n(11));
+            if (Y.gapDown !== void 0)
+                if (2 <= Y.gapDown && Y.gapDown <= 47) {
+                    const Ce = Y.gapDown;
+                    e(hn(Ce))
+                } else e(hn(4))
+        }
+    }, [c && l]), F.useEffect(() => (M && e(Tc(M)), () => {}), []), s(to, {
+        children: s(ay, {
+            children: m(td, {
+                children: [s($t, {
+                    shouldForwardProp: ae => Wt(ae),
+                    children: u.length > 0 ? m(Ke, {
+                        children: [u.length > 0 ? m(Oe, {
+                            children: [s(me, {
+                                children: k("All Select Clear")
+                            }), s(Be, {
+                                children: k("All Select Clear Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Fe,
+                                    fontfamily: K,
+                                    children: k("Clear")
+                                })
+                            })]
+                        }) : m(Oe, {
+                            children: [s(me, {
+                                children: k("All Select")
+                            }), s(Be, {
+                                children: k("All Select Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: he,
+                                    fontfamily: K,
+                                    children: k("Select")
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: k("Reset Trigger")
+                            }), s(Be, {
+                                children: k("Reset Trigger Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: _e,
+                                    fontfamily: K,
+                                    children: k("Reset")
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [m(me, {
+                                children: [k("Trigger Pos"), " (", L, "mm)"]
+                            }), s(Be, {
+                                children: k("Trigger Pos Info")
+                            }), s(sy, {
+                                children: s(Se, {
+                                    children: s(nr, {
+                                        max: 80,
+                                        min: 2,
+                                        value: y,
+                                        "data-tip": `Value: ${L} mm`,
+                                        onChange: ae => {
+                                            We(ae)
+                                        },
+                                        step: 2
+                                    })
+                                })
+                            })]
+                        }), o ? m(Oe, {
+                            children: [s(me, {
+                                children: k("Save Trigger")
+                            }), s(Be, {
+                                children: k("Save Trigger Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: De,
+                                    fontfamily: K,
+                                    children: k("Save")
+                                })
+                            })]
+                        }) : null]
+                    }) : m(Ke, {
+                        children: [s(td, {
+                            children: s(Oe, {
+                                children: s(Eo, {
+                                    children: s(Be, {
+                                        children: k("You must select the key first to set it up.")
+                                    })
+                                })
+                            })
+                        }), s(Ke, {}), u.length > 0 ? m(Oe, {
+                            children: [s(me, {
+                                children: k("All Select Clear")
+                            }), s(Be, {
+                                children: k("All Select Clear Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Fe,
+                                    fontfamily: K,
+                                    children: k("Clear")
+                                })
+                            })]
+                        }) : m(Oe, {
+                            children: [s(me, {
+                                children: k("All Select")
+                            }), s(Be, {
+                                children: k("All Select Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: he,
+                                    fontfamily: K,
+                                    children: k("Select")
+                                })
+                            })]
+                        })]
+                    })
+                }), T ? s(Po, {
+                    children: T
+                }) : null, B ? s(Ar, {
+                    children: B
+                }) : null]
+            })
+        })
+    })
+}, iy = ty, cy = ey, ly = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: iy,
+    Pane: ry,
+    Title: cy
+}, Symbol.toStringTag, {
+    value: "Module"
+})), dy = "Rapid Trigger", uy = () => s(Kt, {
+    icon: tp
+}), _y = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, oi = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, hy = () => {
+    const e = wt(),
+        t = p($e),
+        [o, n] = C.useState(!1),
+        a = p(Dt),
+        [r, i] = C.useState(!1),
+        c = p(ut),
+        l = p(st);
+    p(aa);
+    const u = p(c_),
+        _ = p(os),
+        [h, f] = F.useState(!1),
+        K = p(Ht);
+    let y = "NanmuSquareRound";
+    switch (K) {
+        case "en":
+        default:
+            y = "Dongle";
+            break;
+        case "ko":
+            y = "NanmuSquareRound"
+    }
+    const P = 7 * 16,
+        ie = p(oo),
+        k = p(Gn);
+    p(ju);
+    const Y = p(vc),
+        ee = p(Ec),
+        T = p(Pc),
+        te = p(yr),
+        B = p(Zu),
+        de = p(Ju),
+        he = p(e_);
+    (te * .05).toFixed(2);
+    const Fe = (B * .05).toFixed(2),
+        We = (de * .05).toFixed(2),
+        De = (he * .05).toFixed(2);
+    p(l_);
+    const ke = p(ut);
+    p(d_);
+    const {
+        t: _e
+    } = Tt();
+    let ae = {
+        bRapidTrigger: 0,
+        triggerPos: 30,
+        bUseGapSingle: 1,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        dummy1: 0,
+        dummy2: 0
+    };
+    const $ = {
+        bRapidTrigger: 0,
+        triggerPos: 30,
+        bUseGapSingle: 1,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        dummy1: 0,
+        dummy2: 0
+    };
+    if (!t || !c || !l) return null;
+    const [be, ge] = C.useState(null), [ye, xe] = C.useState(null), He = () => {
+        e(Et(null)), e(It());
+        for (let J = 0; J < a.length; J++) e(Et(J))
+    }, Ce = () => {
+        e(Et(null)), e(It())
+    }, Ve = J => {
+        let O = 0;
+        J === !0 && (O = 1), e(Fu(O)), n(!0)
+    }, lt = J => {
+        if (ie !== null) {
+            let O = 0;
+            J === !0 && (O = 1);
+            for (let Ie = 0; Ie < k.length; Ie++) e(Hu(k[Ie], O))
+        }
+        n(!0)
+    }, kt = J => {
+        if (ie !== null) {
+            let O = 0;
+            J === !0 && (O = 1), e(Pn(J));
+            for (let Ie = 0; Ie < k.length; Ie++) e(Wu(k[Ie], O))
+        }
+        n(!0)
+    }, Ct = J => {
+        if (ie !== null) {
+            e(un(J));
+            for (let O = 0; O < k.length; O++) e(Vu(k[O], J))
+        }
+        n(!0)
+    }, ht = J => {
+        if (ie !== null) {
+            e(_n(J));
+            for (let O = 0; O < k.length; O++) e(Yu(k[O], J))
+        }
+        n(!0)
+    }, Ne = J => {
+        if (ie !== null) {
+            e(hn(J));
+            for (let O = 0; O < k.length; O++) e(zu(k[O], J))
+        }
+        n(!0)
+    }, xt = J => {
+        let O = 0;
+        J === !0 && (O = 1);
+        for (let Ie = 0; Ie < P; Ie++) e(c1(Ie, O))
+    }, nt = J => {
+        let O = 0;
+        J === !0 && (O = 1), e(Pn(J));
+        for (let Ie = 0; Ie < P; Ie++) e(l1(Ie, O))
+    }, Mt = J => {
+        e(un(J));
+        for (let O = 0; O < P; O++) e(d1(O, J))
+    }, rt = J => {
+        e(_n(J));
+        for (let O = 0; O < P; O++) e(u1(O, J))
+    }, Ge = J => {
+        e(hn(J));
+        for (let O = 0; O < P; O++) e(_1(O, J))
+    }, Xe = async () => {
+        ge(null), xe(null);
+        const J = 3,
+            O = 516096;
+        let Ie = 0;
+        const Ye = 24,
+            pt = 4096;
+        if (u.length, ke && _) {
+            let q = !1;
+            const Te = 0,
+                tt = 1,
+                dt = 2,
+                it = 0,
+                ue = 1,
+                fe = 2,
+                qe = 3,
+                D = 4,
+                I = 5,
+                b = _.flatMap(V => V.map(x => x)),
+                R = 305419896;
+            let G = 0;
+            Y ? G = 1 : G = 0, b[Te] = R, b[tt] = G;
+            for (let V = 0; V < a.length; V++) {
+                const {
+                    row: x,
+                    col: E
+                } = a[V];
+                let z = dt + (x * 16 + E) * 8 + it;
+                const N = z,
+                    ne = _.map(Q => [Q[z++], Q[z++], Q[z++], Q[z++], Q[z++], Q[z++], Q[z++], Q[z++]])[0];
+                let v = {
+                    bRapidTrigger: 0,
+                    triggerPos: 30,
+                    bUseGapSingle: 1,
+                    gapSingle: 8,
+                    gapUp: 11,
+                    gapDown: 4,
+                    dummy1: 0,
+                    dummy2: 0
+                };
+                if (ne) {
+                    if (v.bRapidTrigger = ne[0], v.triggerPos = ne[1], v.bUseGapSingle = ne[2], v.gapSingle = ne[3], v.gapUp = ne[4], v.gapDown = ne[5], v.bRapidTrigger === void 0) {
+                        let Q = N + it;
+                        b[Q] = $.bRapidTrigger, q = !0
+                    } else if (v.bRapidTrigger === 1) {
+                        let Q = N + it;
+                        b[Q] = v.bRapidTrigger, q = !0
+                    } else {
+                        let Q = N + it;
+                        b[Q] = $.bRapidTrigger, q = !0
+                    }
+                    if (v.triggerPos === void 0) {
+                        let Q = N + ue;
+                        b[Q] = $.triggerPos, q = !0
+                    } else if (2 <= v.triggerPos && v.triggerPos <= 80) {
+                        const Q = v.triggerPos;
+                        let Z = N + ue;
+                        b[Z] = Q, q = !0
+                    } else {
+                        let Q = N + ue;
+                        b[Q] = $.triggerPos, q = !0
+                    }
+                    if (v.bUseGapSingle === void 0) {
+                        let Q = N + fe;
+                        b[Q] = $.bUseGapSingle, q = !0
+                    } else if (v.bUseGapSingle === 0) {
+                        let Q = N + fe;
+                        b[Q] = v.bUseGapSingle, q = !0
+                    } else {
+                        let Q = N + fe;
+                        b[Q] = $.bUseGapSingle, q = !0
+                    }
+                    if (v.gapSingle === void 0) {
+                        let Q = N + qe;
+                        b[Q] = $.gapSingle, q = !0
+                    } else if (3 <= v.gapSingle && v.gapSingle <= 47) {
+                        const Q = v.gapSingle;
+                        let Z = N + qe;
+                        b[Z] = Q, q = !0
+                    } else {
+                        let Q = N + qe;
+                        b[Q] = $.gapSingle, q = !0
+                    }
+                    if (v.gapUp === void 0) {
+                        let Q = N + D;
+                        b[Q] = $.gapUp, q = !0
+                    } else if (3 <= v.gapUp && v.gapUp <= 47) {
+                        const Q = ae.gapUp;
+                        let Z = N + D;
+                        b[Z] = Q, q = !0
+                    } else {
+                        let Q = N + D;
+                        b[Q] = $.gapUp, q = !0
+                    }
+                    if (v.gapDown === void 0) {
+                        let Q = N + I;
+                        b[Q] = $.gapDown, q = !0
+                    } else if (3 <= v.gapDown && v.gapDown <= 47) {
+                        const Q = ae.gapDown;
+                        let Z = N + I;
+                        b[Z] = Q, q = !0
+                    } else {
+                        let Q = N + I;
+                        b[Q] = $.gapDown, q = !0
+                    }
+                }
+            }
+            if (q === !0) {
+                const {
+                    path: V,
+                    vendorProductId: x,
+                    requiredDefinitionVersion: E
+                } = ke, z = 0, N = await Promise.all(b);
+                e(ea({
+                    layerIndex: z,
+                    keymap: N,
+                    devicePath: V
+                }))
+            } else await Promise.all(b), n(!1), e(Et(null)), e(It());
+            if (b) {
+                const x = [];
+                for (let E = 0; E < b.length; E++) x.push(...bt(b[E]));
+                if (x) {
+                    for (let E = 0; E < x.length; E += pt) Ie = O + E, e(tn(J, Ie, pt, ke)), l.timeout(50), E / x.length * 100;
+                    l.timeout(1e3);
+                    for (let E = 0; E < x.length; E += Ye) e(on(Ye, E, J, O, x, ke)), E / x.length * 100;
+                    l.timeout(1e3), e(po(ke)), n(!1), e(Et(null)), e(It())
+                }
+            }
+        }
+    }, Ue = async () => {
+        ge(null), xe(null);
+        const J = 3,
+            O = 516096;
+        let Ie = 0;
+        const Ye = 24,
+            pt = 4096;
+        if (u.length, ke && _) {
+            let q = !1;
+            const Te = 2,
+                tt = 0,
+                dt = 1,
+                it = 2,
+                ue = 3,
+                fe = 4,
+                qe = 5;
+            let D = _.flatMap(I => I.map(b => b));
+            for (let I = 0; I < P; I++) {
+                let b = Te + I * 8 + tt;
+                const R = b,
+                    V = _.map(E => [E[b++], E[b++], E[b++], E[b++], E[b++], E[b++], E[b++], E[b++]])[0];
+                let x = {
+                    bRapidTrigger: 0,
+                    triggerPos: 30,
+                    bUseGapSingle: 1,
+                    gapSingle: 8,
+                    gapUp: 11,
+                    gapDown: 4,
+                    dummy1: 0,
+                    dummy2: 0
+                };
+                if (V) {
+                    if (x.bRapidTrigger = V[0], x.triggerPos = V[1], x.bUseGapSingle = V[2], x.gapSingle = V[3], x.gapUp = V[4], x.gapDown = V[5], x.bRapidTrigger === void 0) {
+                        let E = R + tt;
+                        D[E] = $.bRapidTrigger, q = !0
+                    } else {
+                        let E = R + tt;
+                        D[E] = $.bRapidTrigger, q = !0
+                    }
+                    if (x.triggerPos === void 0) {
+                        let E = R + dt;
+                        D[E] = $.triggerPos, q = !0
+                    } else if (!(3 <= x.triggerPos && x.triggerPos <= 80)) {
+                        let E = R + dt;
+                        D[E] = $.triggerPos, q = !0
+                    }
+                    if (x.bUseGapSingle === void 0) {
+                        let E = R + it;
+                        D[E] = $.bUseGapSingle, q = !0
+                    } else {
+                        let E = R + it;
+                        D[E] = $.bUseGapSingle, q = !0
+                    }
+                    if (x.gapSingle === void 0) {
+                        let E = R + ue;
+                        D[E] = $.gapSingle, q = !0
+                    } else {
+                        let E = R + ue;
+                        D[E] = $.gapSingle, q = !0
+                    }
+                    if (x.gapUp === void 0) {
+                        let E = R + fe;
+                        D[E] = $.gapUp, q = !0
+                    } else {
+                        let E = R + fe;
+                        D[E] = $.gapUp, q = !0
+                    }
+                    if (x.gapDown === void 0) {
+                        let E = R + qe;
+                        D[E] = $.gapDown, q = !0
+                    } else {
+                        let E = R + qe;
+                        D[E] = $.gapDown, q = !0
+                    }
+                }
+            }
+            if (q === !0) {
+                const {
+                    path: I,
+                    vendorProductId: b,
+                    requiredDefinitionVersion: R
+                } = ke, G = 0, V = await Promise.all(D);
+                e(ea({
+                    layerIndex: G,
+                    keymap: V,
+                    devicePath: I
+                }))
+            } else await Promise.all(D);
+            if (D) {
+                const I = [];
+                for (let b = 0; b < D.length; b++) I.push(...bt(D[b]));
+                if (I) {
+                    for (let R = 0; R < I.length; R += pt) Ie = O + R, e(tn(J, Ie, pt, ke)), R / I.length * 100;
+                    l.timeout(500);
+                    for (let R = 0; R < I.length; R += Ye) e(on(Ye, R, J, O, I, ke)), R / D.length * 100;
+                    l.timeout(500), e(po(ke)), n(!1), e(Et(null)), e(It())
+                }
+            }
+        }
+    }, Pe = async () => {
+        ge(null), xe(null), Ve(!1), xt(!1), nt(!0); {
+            const J = $.gapSingle;
+            e(un(J)), Mt(J)
+        } {
+            const J = $.gapUp;
+            e(_n(J)), rt(J)
+        } {
+            const J = $.gapDown;
+            e(hn(J)), Ge(J)
+        }
+        Ue(), e(Et(null)), e(It()), f(!1)
+    }, Re = F.useCallback(() => {
+        r === !0 && ke && e(Tc(ke))
+    }, [r]);
+    return C.useEffect(Re, [r]), F.useEffect(() => {
+        if (_) {
+            const O = _.map(Ye => Ye[0]),
+                Ie = _.map(Ye => Ye[1]);
+            if (O[0] !== 305419896) ae.bRapidTrigger = 0, ae.triggerPos = 30, ae.bUseGapSingle = 1, ae.gapSingle = 8, ae.gapUp = 11, ae.gapDown = 4, e(Zs(!1));
+            else {
+                let Ye = Ie[0],
+                    pt = !1;
+                Ye === 1 && (pt = !0), e(Zs(pt))
+            }
+        }
+    }, [_]), F.useEffect(() => (i(!0), () => {}), []), s(to, {
+        children: s(_y, {
+            children: s(oi, {
+                children: m($t, {
+                    shouldForwardProp: J => Wt(J),
+                    children: [k.length > 0 ? m(Ke, {
+                        children: [m(Oe, {
+                            children: [s(me, {
+                                children: _e("All Select Clear")
+                            }), s(Be, {
+                                children: _e("All Select Clear Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Ce,
+                                    fontfamily: y,
+                                    children: _e("Clear")
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: _e("Use Rapid Trigger")
+                            }), s(Be, {
+                                children: _e("Use Rapid Trigger Info")
+                            }), s(Se, {
+                                children: s(Qt, {
+                                    isChecked: ee,
+                                    onChange: J => lt(J)
+                                })
+                            })]
+                        }), ee ? m(Ke, {
+                            children: [m(Oe, {
+                                children: [s(me, {
+                                    children: _e("Use Continuous Rapid Trigger")
+                                }), s(Be, {
+                                    children: _e("Use Continuous Rapid Trigger Info")
+                                }), s(Se, {
+                                    children: s(Qt, {
+                                        isChecked: Y === !0,
+                                        onChange: J => Ve(J)
+                                    })
+                                })]
+                            }), m(Oe, {
+                                children: [s(me, {
+                                    children: _e("Use Rapid Single")
+                                }), s(Be, {
+                                    children: _e("Use Rapid Single Info")
+                                }), s(Se, {
+                                    children: s(Qt, {
+                                        isChecked: T,
+                                        onChange: J => kt(J)
+                                    })
+                                })]
+                            }), T ? m(Oe, {
+                                children: [m(me, {
+                                    children: [_e("Gap Single"), " (", Fe, "mm)", " "]
+                                }), s(Be, {
+                                    children: _e("Gap Single Info")
+                                }), s(Se, {
+                                    children: s(Lo, {
+                                        max: 47,
+                                        min: 3,
+                                        value: B,
+                                        onChange: J => {
+                                            Ct(J)
+                                        }
+                                    })
+                                })]
+                            }) : m(Ke, {
+                                children: [m(Oe, {
+                                    children: [m(me, {
+                                        children: [_e("Gap Down"), " (", De, "mm)"]
+                                    }), s(Be, {
+                                        children: _e("Gap Down Info")
+                                    }), s(Se, {
+                                        children: s(Lo, {
+                                            max: 47,
+                                            min: 3,
+                                            value: he,
+                                            onChange: J => {
+                                                Ne(J)
+                                            }
+                                        })
+                                    })]
+                                }), m(Oe, {
+                                    children: [m(me, {
+                                        children: [_e("Gap Up"), " (", We, "mm)", " "]
+                                    }), s(Be, {
+                                        children: _e("Gap Up Info")
+                                    }), s(Se, {
+                                        children: s(Lo, {
+                                            max: 47,
+                                            min: 3,
+                                            value: de,
+                                            onChange: J => {
+                                                ht(J)
+                                            }
+                                        })
+                                    })]
+                                })]
+                            }), o ? m(Oe, {
+                                children: [s(me, {
+                                    children: _e("Save Rapid Trigger")
+                                }), s(Be, {
+                                    children: _e("Save Rapid Trigger Info")
+                                }), s(Se, {
+                                    children: s(St, {
+                                        onClick: Xe,
+                                        fontfamily: y,
+                                        children: _e("Save")
+                                    })
+                                })]
+                            }) : null]
+                        }) : m(Ke, {
+                            children: [k.length > 0 ? s(Ke, {}) : m(Oe, {
+                                children: [s(me, {
+                                    children: _e("All Select")
+                                }), s(Be, {
+                                    children: _e("All Select Info")
+                                }), s(Se, {
+                                    children: s(St, {
+                                        onClick: He,
+                                        fontfamily: y,
+                                        children: _e("Select")
+                                    })
+                                })]
+                            }), o ? m(Oe, {
+                                children: [s(me, {
+                                    children: _e("Save Rapid Trigger")
+                                }), s(Be, {
+                                    children: _e("Save Rapid Trigger Info")
+                                }), s(Se, {
+                                    children: s(St, {
+                                        onClick: Xe,
+                                        fontfamily: y,
+                                        children: _e("Save")
+                                    })
+                                })]
+                            }) : null]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: _e("Reset Rapid Trigger")
+                            }), s(Be, {
+                                children: _e("Reset Rapid Trigger Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Pe,
+                                    fontfamily: y,
+                                    children: _e("Reset")
+                                })
+                            })]
+                        })]
+                    }) : m(Ke, {
+                        children: [s(oi, {
+                            children: s(Oe, {
+                                children: s(Eo, {
+                                    children: s(Be, {
+                                        children: _e("You must select the key first to set it up.")
+                                    })
+                                })
+                            })
+                        }), s(oi, {
+                            children: s(Oe, {
+                                children: s(Eo, {
+                                    children: s(Be, {
+                                        children: _e("Input point settings can be set in the Trigger Pos tab.")
+                                    })
+                                })
+                            })
+                        }), k.length > 0 ? m(Oe, {
+                            children: [s(me, {
+                                children: _e("All Select Clear")
+                            }), s(Be, {
+                                children: _e("All Select Clear Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Ce,
+                                    fontfamily: y,
+                                    children: _e("Clear")
+                                })
+                            })]
+                        }) : m(Oe, {
+                            children: [s(me, {
+                                children: _e("All Select")
+                            }), s(Be, {
+                                children: _e("All Select Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: He,
+                                    fontfamily: y,
+                                    children: _e("Select")
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: _e("Reset Rapid Trigger")
+                            }), s(Be, {
+                                children: _e("Reset Rapid Trigger Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Pe,
+                                    fontfamily: y,
+                                    children: _e("Reset")
+                                })
+                            })]
+                        }), o ? m(Oe, {
+                            children: [s(me, {
+                                children: _e("Save Rapid Trigger")
+                            }), s(Be, {
+                                children: _e("Save Rapid Trigger Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Xe,
+                                    fontfamily: y,
+                                    children: _e("Save")
+                                })
+                            })]
+                        }) : null]
+                    }), be ? s(Po, {
+                        children: be
+                    }) : null, ye ? s(Ar, {
+                        children: ye
+                    }) : null]
+                })
+            })
+        })
+    })
+}, Cy = uy, py = dy, fy = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: Cy,
+    Pane: hy,
+    Title: py
+}, Symbol.toStringTag, {
+    value: "Module"
+})), gy = "Rapid Trigger", my = () => s(Kt, {
+    icon: op
+}), od = ({
+    id: e,
+    width: t,
+    minHeight: o,
+    children: n
+}) => {
+    const [a, r] = C.useState(!1), i = wt(), c = () => {
+        r(!0)
+    }, l = () => {
+        r(!1)
+    };
+    return F.useEffect(() => (a && (e === "1" && i(Do(Ee.Trigger)), e === "2" && i(Do(Ee.RapidTrigger))), () => {}), [a]), s(Ke, {
+        children: s(La, {
+            component: "div",
+            sx: {
+                width: {
+                    width: t
+                },
+                minHeight: {
+                    minHeight: o
+                },
+                border: "1px solid grey"
+            },
+            role: "presentation",
+            onMouseEnter: c,
+            onMouseLeave: l,
+            children: n
+        })
+    })
+}, Ky = "/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.1.png", jc = S.div `
+  width: 200px;
+  height: 20px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  margin: 20px auto;
+`, qc = S.div.attrs(e => ({
+    style: {
+        width: `${e.percentage}%`
+    }
+}))
+`
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+`, Zc = S.div `
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;
+`;
+S.div `
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+`;
+const yy = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, Sy = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, wy = S.div `
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`, My = () => {
+    const e = wt(),
+        t = p($e),
+        [o, n] = C.useState(!1),
+        [a, r] = C.useState(!1),
+        i = p(Dt),
+        [c, l] = C.useState(0),
+        [u, _] = C.useState(!1),
+        [h, f] = C.useState(!1),
+        K = p(ut),
+        y = p(st);
+    p(aa);
+    const L = p(c_);
+    p(sa);
+    const M = p(os);
+    F.useState(!1);
+    const [P, ie] = F.useState(2), [k, Y] = F.useState(76), [ee, T] = C.useState(Ky), te = p(Ht);
+    let B = "NanmuSquareRound";
+    switch (te) {
+        case "en":
+        default:
+            B = "Dongle";
+            break;
+        case "ko":
+            B = "NanmuSquareRound"
+    }
+    i.length;
+    const de = p(oo),
+        he = p(Gn);
+    p(ju);
+    const Fe = p(vc),
+        We = p(Ec),
+        De = p(Pc),
+        ke = p(yr),
+        _e = p(Zu),
+        ae = p(Ju),
+        $ = p(e_),
+        be = (ke * .05).toFixed(2),
+        ge = (_e * .05).toFixed(2),
+        ye = (ae * .05).toFixed(2),
+        xe = ($ * .05).toFixed(2);
+    p(l_);
+    const He = p(ut);
+    p(d_);
+    const {
+        t: Ce
+    } = Tt();
+    let Ve = {
+        bRapidTrigger: 0,
+        triggerPos: 30,
+        bUseGapSingle: 1,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        dummy1: 0,
+        dummy2: 0
+    };
+    const lt = {
+        bRapidTrigger: 0,
+        triggerPos: 30,
+        bUseGapSingle: 1,
+        gapSingle: 8,
+        gapUp: 11,
+        gapDown: 4,
+        dummy1: 0,
+        dummy2: 0
+    };
+    if (!t || !K || !y) return null;
+    const [kt, Ct] = C.useState(null), [ht, Ne] = C.useState(null), xt = () => {
+        e(Et(null)), e(It());
+        for (let q = 0; q < i.length; q++) e(Et(q))
+    }, nt = () => {
+        e(Et(null)), e(It())
+    }, Mt = q => {
+        let Te = 0;
+        q === !0 && (Te = 1), e(Fu(Te)), n(!0)
+    }, rt = q => {
+        if (de !== null) {
+            let Te = 0;
+            q === !0 && (Te = 1);
+            for (let tt = 0; tt < he.length; tt++) e(Hu(he[tt], Te))
+        }
+        n(!0)
+    }, Ge = q => {
+        if (de !== null) {
+            e(Xn(q));
+            for (let Te = 0; Te < he.length; Te++) e($u(he[Te], q))
+        }
+        n(!0)
+    }, Xe = q => {
+        if (de !== null) {
+            let Te = 0;
+            q === !0 && (Te = 1), e(Pn(q));
+            for (let tt = 0; tt < he.length; tt++) e(Wu(he[tt], Te))
+        }
+        n(!0)
+    }, Ue = q => {
+        if (de !== null) {
+            e(un(q));
+            for (let Te = 0; Te < he.length; Te++) e(Vu(he[Te], q))
+        }
+        n(!0)
+    }, Pe = q => {
+        if (de !== null) {
+            e(_n(q));
+            for (let Te = 0; Te < he.length; Te++) e(Yu(he[Te], q))
+        }
+        n(!0)
+    }, Re = q => {
+        if (de !== null) {
+            e(hn(q));
+            for (let Te = 0; Te < he.length; Te++) e(zu(he[Te], q))
+        }
+        n(!0)
+    }, J = async () => {
+        r(!0), _(!0)
+    }, O = async () => {
+        Ct(null), Ne(null);
+        const q = 3,
+            Te = 516096;
+        let tt = 0;
+        const dt = 24;
+        let it = 0;
+        const ue = 4096;
+        if (L.length, He && M) {
+            let fe = !1;
+            const qe = 0,
+                D = 1,
+                I = 2,
+                b = 0,
+                R = 1,
+                G = 2,
+                V = 3,
+                x = 4,
+                E = 5,
+                z = 6,
+                N = 7,
+                w = M.flatMap(Q => Q.map(Z => Z)),
+                ne = 305419896;
+            let v = 0;
+            Fe ? v = 1 : v = 0, w[qe] = ne, w[D] = v;
+            for (let Q = 0; Q < i.length; Q++) {
+                const {
+                    row: Z,
+                    col: U
+                } = i[Q];
+                let re = I + (Z * 16 + U) * 8 + b;
+                const oe = re,
+                    le = M.map(se => [se[re++], se[re++], se[re++], se[re++], se[re++], se[re++], se[re++], se[re++]])[0];
+                let pe = {
+                    bRapidTrigger: 0,
+                    triggerPos: 30,
+                    bUseGapSingle: 1,
+                    gapSingle: 8,
+                    gapUp: 11,
+                    gapDown: 4,
+                    dummy1: 0,
+                    dummy2: 0
+                };
+                if (le)
+                    if (pe.bRapidTrigger = le[0], pe.triggerPos = le[1], pe.bUseGapSingle = le[2], pe.gapSingle = le[3], pe.gapUp = le[4], pe.gapDown = le[5], pe.bRapidTrigger === void 0) {
+                        let se = oe + b;
+                        w[se] = lt.bRapidTrigger, se = oe + R, w[se] = lt.triggerPos, se = oe + G, w[se] = lt.bUseGapSingle, se = oe + V, w[se] = pe.bUseGapSingle, se = oe + x, w[se] = lt.gapUp, se = oe + E, w[se] = lt.gapDown, se = oe + z, w[se] = lt.dummy1, se = oe + N, w[se] = lt.dummy2, pe = lt, fe = !0
+                    } else {
+                        let se = oe + b;
+                        w[se] = pe.bRapidTrigger, se = oe + R, w[se] = pe.triggerPos, se = oe + G, w[se] = pe.bUseGapSingle, se = oe + V, w[se] = pe.bUseGapSingle, se = oe + x, w[se] = pe.gapUp, se = oe + E, w[se] = pe.gapDown, se = oe + z, w[se] = pe.dummy1, se = oe + N, w[se] = pe.dummy2, fe = !0
+                    }
+            }
+            if (fe === !0) {
+                if (await Promise.all(w), w) {
+                    const Z = [];
+                    for (let U = 0; U < w.length; U++) Z.push(...bt(w[U]));
+                    if (it = 0, Z) {
+                        for (let U = 0; U < Z.length; U += ue) tt = Te + U, await e(tn(q, tt, ue, He)), y.timeout(50), it = U / Z.length * 100, c !== it && l(it);
+                        y.timeout(1e3), it = 0, l(it);
+                        for (let U = 0; U < Z.length; U += dt) await e(on(dt, U, q, Te, Z, He)), it = U / Z.length * 100, c !== it && l(it);
+                        y.timeout(1e3), await e(po(He)), n(!1), e(Et(null)), e(It())
+                    }
+                }
+            } else await Promise.all(w), n(!1), e(Et(null)), e(It())
+        }
+        _(!1)
+    }, Ie = async () => {
+        Ct(null), Ne(null);
+        const q = 3,
+            Te = 516096;
+        let tt = 0;
+        const dt = 24;
+        let it = 0;
+        const ue = 4096;
+        if (L.length, He && M) {
+            let fe = !1;
+            const qe = 0,
+                D = 1,
+                I = 2,
+                b = 0,
+                R = 1,
+                G = 2,
+                V = 3,
+                x = 4,
+                E = 5,
+                z = 6,
+                N = 7,
+                w = M.flatMap(Q => Q.map(Z => Z)),
+                ne = 305419896;
+            let v = 0;
+            Fe ? v = 1 : v = 0, w[qe] = ne, w[D] = v;
+            for (let Q = 0; Q < i.length; Q++) {
+                const {
+                    row: Z,
+                    col: U
+                } = i[Q];
+                let re = I + (Z * 16 + U) * 8 + b;
+                const oe = re,
+                    le = M.map(se => [se[re++], se[re++], se[re++], se[re++], se[re++], se[re++], se[re++], se[re++]])[0],
+                    pe = {
+                        bRapidTrigger: 0,
+                        triggerPos: 30,
+                        bUseGapSingle: 1,
+                        gapSingle: 8,
+                        gapUp: 11,
+                        gapDown: 4,
+                        dummy1: 0,
+                        dummy2: 0
+                    };
+                if (le) {
+                    let se = oe + b;
+                    w[se] = lt.bRapidTrigger, se = oe + R, w[se] = lt.triggerPos, se = oe + G, w[se] = lt.bUseGapSingle, se = oe + V, w[se] = pe.bUseGapSingle, se = oe + x, w[se] = lt.gapUp, se = oe + E, w[se] = lt.gapDown, se = oe + z, w[se] = lt.dummy1, se = oe + N, w[se] = lt.dummy2, console.log("save rapidsDatas :", pe, Q), fe = !0
+                }
+            }
+            if (fe === !0) {
+                const {
+                    path: Q,
+                    vendorProductId: Z,
+                    requiredDefinitionVersion: U
+                } = He, re = 0, oe = await Promise.all(w);
+                if (await e(ea({
+                        layerIndex: re,
+                        keymap: oe,
+                        devicePath: Q
+                    })), w) {
+                    const le = [];
+                    for (let pe = 0; pe < w.length; pe++) le.push(...bt(w[pe]));
+                    if (it = 0, le) {
+                        for (let pe = 0; pe < le.length; pe += ue) tt = Te + pe, await e(tn(q, tt, ue, He)), y.timeout(50), it = pe / le.length * 100, console.log("erase progress:", it), c !== it && l(it);
+                        y.timeout(1e3), it = 0, l(0);
+                        for (let pe = 0; pe < le.length; pe += dt) await e(on(dt, pe, q, Te, le, He)), it = pe / le.length * 100, console.log("write progress", it), c !== it && l(it);
+                        y.timeout(1e3), await e(po(He)), n(!1), e(Et(null)), e(It())
+                    }
+                }
+            } else await Promise.all(w), n(!1), e(Et(null)), e(It())
+        }
+    }, Ye = async () => {
+        He && e(Tc(He))
+    }, pt = F.useCallback(() => {
+        h === !0 && Ye()
+    }, [h]);
+    return C.useEffect(pt, [h]), F.useEffect(() => {
+        if (M) {
+            const Te = M.map(dt => dt[0]),
+                tt = M.map(dt => dt[1]);
+            if (Te[0] !== 305419896) Ve.bRapidTrigger = 0, Ve.triggerPos = 30, Ve.bUseGapSingle = 1, Ve.gapSingle = 8, Ve.gapUp = 11, Ve.gapDown = 4, e(Zs(!1));
+            else {
+                let dt = tt[0],
+                    it = !1;
+                dt === 1 && (it = !0), e(Zs(it))
+            }
+        }
+    }, [M]), F.useEffect(() => {
+        if (M && de !== null) {
+            const {
+                row: q,
+                col: Te
+            } = i[de], tt = 0, dt = 2, it = 0, ue = 305419896;
+            let fe = dt + (q * 16 + Te) * 8 + it;
+            if (M.map(D => D[tt])[0] !== ue) Ve.bRapidTrigger = 0, Ve.triggerPos = 30, Ve.bUseGapSingle = 1, Ve.gapSingle = 8, Ve.gapUp = 11, Ve.gapDown = 4;
+            else {
+                const I = M.map(b => [b[fe++], b[fe++], b[fe++], b[fe++], b[fe++], b[fe++], b[fe++], b[fe++]])[0];
+                I && (Ve.bRapidTrigger = I[0], Ve.triggerPos = I[1], Ve.bUseGapSingle = I[2], Ve.gapSingle = I[3], Ve.gapUp = I[4], Ve.gapDown = I[5])
+            }
+            if (Ve.bRapidTrigger !== void 0 ? Ve.bRapidTrigger === 1 ? e(To(!0)) : e(To(!1)) : (Ve = lt, e(To(!1))), Ve.triggerPos !== void 0)
+                if (3 <= Ve.triggerPos && Ve.triggerPos <= 80) {
+                    const D = Ve.triggerPos;
+                    e(Xn(D))
+                } else e(Xn(30));
+            if (Ve.bUseGapSingle !== void 0 && (Ve.bUseGapSingle === 1 ? e(Pn(!0)) : e(Pn(!1))), Ve.gapSingle !== void 0)
+                if (3 <= Ve.gapSingle && Ve.gapSingle <= 47) {
+                    const D = Ve.gapSingle;
+                    e(un(D))
+                } else e(un(8));
+            if (Ve.gapUp !== void 0)
+                if (3 <= Ve.gapUp && Ve.gapUp <= 47) {
+                    const D = Ve.gapUp;
+                    e(_n(D))
+                } else e(_n(11));
+            if (Ve.gapDown !== void 0)
+                if (3 <= Ve.gapDown && Ve.gapDown <= 47) {
+                    const D = Ve.gapDown;
+                    e(hn(D))
+                } else e(hn(4))
+        }
+    }, [M && de]), F.useEffect(() => (f(!0), () => {}), []), F.useEffect(() => (a && (r(!1), O()), () => {}), [a]), F.useEffect(() => {
+        switch (ke) {
+            default:
+                case 1:
+                case 2:
+                T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.1.png");
+            break;
+            case 3:
+                    case 4:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.2.png");
+                break;
+            case 5:
+                    case 6:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.3.png");
+                break;
+            case 7:
+                    case 8:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.4.png");
+                break;
+            case 9:
+                    case 10:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.5.png");
+                break;
+            case 11:
+                    case 12:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.6.png");
+                break;
+            case 13:
+                    case 14:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.7.png");
+                break;
+            case 15:
+                    case 16:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.8.png");
+                break;
+            case 17:
+                    case 18:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.9.png");
+                break;
+            case 19:
+                    case 20:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.10.png");
+                break;
+            case 21:
+                    case 22:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.11.png");
+                break;
+            case 23:
+                    case 24:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.12.png");
+                break;
+            case 25:
+                    case 26:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.13.png");
+                break;
+            case 27:
+                    case 28:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.14.png");
+                break;
+            case 29:
+                    case 30:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.15.png");
+                break;
+            case 31:
+                    case 32:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.16.png");
+                break;
+            case 33:
+                    case 34:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.17.png");
+                break;
+            case 35:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.18.png");
+                break;
+            case 36:
+                    case 37:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.19.png");
+                break;
+            case 38:
+                    case 39:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.20.png");
+                break;
+            case 40:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.21.png");
+                break;
+            case 41:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.22.png");
+                break;
+            case 42:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.23.png");
+                break;
+            case 43:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.24.png");
+                break;
+            case 44:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.25.png");
+                break;
+            case 45:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.26.png");
+                break;
+            case 46:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.27.png");
+                break;
+            case 47:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.28.png");
+                break;
+            case 48:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.29.png");
+                break;
+            case 49:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.30.png");
+                break;
+            case 50:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.31.png");
+                break;
+            case 51:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.32.png");
+                break;
+            case 52:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.33.png");
+                break;
+            case 53:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.34.png");
+                break;
+            case 54:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.35.png");
+                break;
+            case 55:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.36.png");
+                break;
+            case 56:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.37.png");
+                break;
+            case 57:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.38.png");
+                break;
+            case 58:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.39.png");
+                break;
+            case 59:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.40.png");
+                break;
+            case 60:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.41.png");
+                break;
+            case 61:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.42.png");
+                break;
+            case 62:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.43.png");
+                break;
+            case 63:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.44.png");
+                break;
+            case 64:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.45.png");
+                break;
+            case 65:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.46.png");
+                break;
+            case 66:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.47.png");
+                break;
+            case 67:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.48.png");
+                break;
+            case 68:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.49.png");
+                break;
+            case 69:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.50.png");
+                break;
+            case 70:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.51.png");
+                break;
+            case 71:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.52.png");
+                break;
+            case 72:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.53.png");
+                break;
+            case 73:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.54.png");
+                break;
+            case 74:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.55.png");
+                break;
+            case 75:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.56.png");
+                break;
+            case 76:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.57.png");
+                break;
+            case 77:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.58.png");
+                break;
+            case 78:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.59.png");
+                break;
+            case 79:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.60.png");
+                break;
+            case 80:
+                    T("/images/MAGX_SWITCH.1001/MAGX_SWITCH.1001.61.png");
+                break
+        }
+        return () => {}
+    }, [ke]), m($t, {
+        shouldForwardProp: q => Wt(q),
+        children: [u && s(Ke, {
+            children: m(Zc, {
+                children: [s(me, {
+                    children: "Progress===="
+                }), s(jc, {
+                    children: s(qc, {
+                        percentage: c
+                    })
+                })]
+            })
+        }), s(to, {
+            children: m(yy, {
+                children: [m(Cn, {
+                    children: [he.length > 0 ? s(Ke, {}) : s(Ke, {
+                        children: s(Sy, {
+                            children: s(Eo, {
+                                children: s(Be, {
+                                    children: Ce("You must select the key first to set it up.")
+                                })
+                            })
+                        })
+                    }), s(ho, {
+                        children: he.length > 0 ? s(Ke, {
+                            children: m(ho, {
+                                children: [s(me, {
+                                    children: Ce("All Select Clear")
+                                }), s(Be, {
+                                    children: Ce("All Select Clear Info")
+                                }), s(Se, {
+                                    children: s(St, {
+                                        onClick: nt,
+                                        fontfamily: B,
+                                        children: Ce("Clear")
+                                    })
+                                })]
+                            })
+                        }) : s(Ke, {
+                            children: m(ho, {
+                                children: [s(me, {
+                                    children: Ce("All Select")
+                                }), s(Be, {
+                                    children: Ce("All Select Info")
+                                }), s(Se, {
+                                    children: s(St, {
+                                        onClick: xt,
+                                        fontfamily: B,
+                                        children: Ce("Select")
+                                    })
+                                })]
+                            })
+                        })
+                    }), m(ho, {
+                        children: [s(me, {
+                            children: Ce("Use Continuous Rapid Trigger")
+                        }), s(Be, {
+                            children: Ce("Use Continuous Rapid Trigger Info")
+                        }), s(Se, {
+                            children: s(Qt, {
+                                isChecked: Fe === !0,
+                                onChange: q => Mt(q)
+                            })
+                        })]
+                    })]
+                }), m(Cn, {
+                    children: [m(np, {
+                        direction: "row",
+                        spacing: 0,
+                        children: [m(od, {
+                            id: "1",
+                            width: 320,
+                            minHeight: 180,
+                            children: [m(Be, {
+                                children: [Ce("Trigger Pos"), " (", be, "mm)"]
+                            }), s(Be, {
+                                children: Ce("Trigger Pos Info")
+                            }), s(wy, {
+                                children: m(Se, {
+                                    children: [s("img", {
+                                        src: ee,
+                                        width: 280,
+                                        height: 174
+                                    }), he.length > 0 ? s(Ke, {
+                                        children: s(nr, {
+                                            max: k,
+                                            min: P,
+                                            value: ke,
+                                            "data-tip": `Value: ${be} mm`,
+                                            onChange: q => {
+                                                Ge(q)
+                                            },
+                                            disabled: !1
+                                        })
+                                    }) : s(Ke, {
+                                        children: s(nr, {
+                                            max: k,
+                                            min: P,
+                                            value: ke,
+                                            "data-tip": `Value: ${be} mm`,
+                                            onChange: q => {
+                                                Ge(q)
+                                            },
+                                            disabled: !0
+                                        })
+                                    })]
+                                })
+                            })]
+                        }), m(od, {
+                            id: "2",
+                            width: 700,
+                            minHeight: 180,
+                            children: [s(Cn, {
+                                children: s(Be, {
+                                    children: Ce("Use Rapid Trigger Info")
+                                })
+                            }), he.length > 0 ? m(Ke, {
+                                children: [m(ho, {
+                                    children: [s(me, {
+                                        children: Ce("Use Rapid Trigger")
+                                    }), s(Se, {
+                                        children: s(Qt, {
+                                            isChecked: We,
+                                            onChange: q => rt(q)
+                                        })
+                                    })]
+                                }), We ? m(Ke, {
+                                    children: [m(ho, {
+                                        children: [s(me, {
+                                            children: Ce("Use Rapid Single")
+                                        }), s(Be, {
+                                            children: Ce("Use Rapid Single Info")
+                                        }), s(Se, {
+                                            children: s(Qt, {
+                                                isChecked: De,
+                                                onChange: q => Xe(q)
+                                            })
+                                        })]
+                                    }), De ? m(ho, {
+                                        children: [m(me, {
+                                            children: [Ce("Gap Single"), " (", ge, "mm)", " "]
+                                        }), s(Be, {
+                                            children: Ce("Gap Single Info")
+                                        }), s(Se, {
+                                            children: s(Lo, {
+                                                max: 47,
+                                                min: 3,
+                                                value: _e,
+                                                onChange: q => {
+                                                    Ue(q)
+                                                }
+                                            })
+                                        })]
+                                    }) : m(Ke, {
+                                        children: [m(ho, {
+                                            children: [m(me, {
+                                                children: [Ce("Gap Down"), " (", xe, "mm)"]
+                                            }), s(Be, {
+                                                children: Ce("Gap Down Info")
+                                            }), s(Se, {
+                                                children: s(Lo, {
+                                                    max: 47,
+                                                    min: 3,
+                                                    value: $,
+                                                    onChange: q => {
+                                                        Re(q)
+                                                    }
+                                                })
+                                            })]
+                                        }), m(ho, {
+                                            children: [m(me, {
+                                                children: [Ce("Gap Up"), " (", ye, "mm)", " "]
+                                            }), s(Be, {
+                                                children: Ce("Gap Up Info")
+                                            }), s(Se, {
+                                                children: s(Lo, {
+                                                    max: 47,
+                                                    min: 3,
+                                                    value: ae,
+                                                    onChange: q => {
+                                                        Pe(q)
+                                                    }
+                                                })
+                                            })]
+                                        })]
+                                    })]
+                                }) : s(Ke, {})]
+                            }) : s(Ke, {})]
+                        })]
+                    }), kt ? s(Po, {
+                        children: kt
+                    }) : null, ht ? s(Ar, {
+                        children: ht
+                    }) : null, m(ho, {
+                        children: [s(me, {
+                            children: Ce("Reset Rapid Trigger")
+                        }), s(Be, {
+                            children: Ce("Reset Rapid Trigger Info")
+                        }), s(Se, {
+                            children: s(St, {
+                                onClick: Ie,
+                                fontfamily: B,
+                                children: Ce("Reset")
+                            })
+                        })]
+                    }), o ? m(ho, {
+                        children: [s(me, {
+                            children: Ce("Save Rapid Trigger")
+                        }), s(Be, {
+                            children: Ce("Save Rapid Trigger Info")
+                        }), s(Se, {
+                            children: s(St, {
+                                onClick: J,
+                                fontfamily: B,
+                                children: Ce("Save")
+                            })
+                        })]
+                    }) : null]
+                })]
+            })
+        })]
+    })
+}, by = my, Dy = gy, Ji = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: by,
+    Pane: My,
+    Title: Dy
+}, Symbol.toStringTag, {
+    value: "Module"
+})), ky = "Dynamic Keystroke", xy = () => s(Kt, {
+    icon: ap
+}), nd = {
+    YELLOW: "yellow",
+    BLUE: "blue"
+}, Ry = S.div `
+  display: inline-block;
+  position: relative;
+  cursor: se-resize;
+`, Ay = S.button `
+  position: absolute;
+  left: ${e=>e.left}px;
+  top: ${e=>e.top}px;
+  width: ${e=>e.width}px;
+  height: ${e=>e.height}px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+  background-color: #3498db; // 버튼의 배경색 설정
+  color: #ffffff; // 버튼 텍스트의 색상 설정
+
+  &:hover {
+    background-color: #2980b9; // 호버 시 배경색 변경
+  }
+`, xs = C.memo(function({
+    accept: t,
+    x: o,
+    y: n,
+    width: a,
+    height: r,
+    title: i,
+    onDrop: c,
+    keycode: l
+}) {
+    const [{
+        isOver: u,
+        draggingColor: _,
+        canDrop: h
+    }, f] = sp(() => ({
+        accept: t,
+        drop(M, P) {
+            c(P.getItemType())
+        },
+        collect: M => ({
+            isOver: M.isOver(),
+            canDrop: M.canDrop(),
+            draggingColor: M.getItemType()
+        })
+    }), [c]), K = u ? 1 : .7;
+    let y = "#fff";
+    switch (_) {
+        case nd.BLUE:
+            y = "lightblue";
+            break;
+        case nd.YELLOW:
+            y = "lightgoldenrodyellow";
+            break
+    }
+    return s(Ry, {
+        ref: f,
+        style: {
+            borderRight: "2px solid #000",
+            cursor: "resize",
+            borderRadius: "8px",
+            backgroundColor: y,
+            opacity: K
+        },
+        children: s(Ay, {
+            left: o,
+            top: n,
+            width: a,
+            height: r,
+            children: l
+        })
+    })
+}), Ty = S.div `
+  display: inline-block;
+  position: relative;
+  cursor: se-resize;
+`, Ly = S.div `
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+  background-color: #333;
+  bottom: 0;
+  right: 0;
+  cursor: col-resize; /* 커서 모양 변경 */
+  background-color: #3498db;
+`, vy = S.button `
+position: absolute;
+  display: flex;
+  transition: transform 0.2s ease-out;
+  user-select: none;
+  background-color: var(--color_inside-accent);
+  color: var(--color_accent);
+  border: 4px solid var(--border_color_icon);
+  left: ${e=>e.left}px;
+  top: ${e=>e.top}px;
+  width: ${e=>e.width}px;
+  height: ${e=>e.height}px;
+  padding: 2px;
+  margin: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;  
+  font-size: 12px;
+  text-align: center;
+  border-radius: ${e=>e.height}px;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  box-shadow: #8c8c8c 0 1px 0 0;
+  &:hover {
+    background-color: var(--bg_control); // 호버 시 배경색 변경
+    transform: translate3d(0, -2px, 0);
+    cursor: pointer;
+  }
+`;
+S.button `
+  position: absolute;
+  left: ${e=>e.left}px;
+  top: ${e=>e.top}px;
+  width: ${e=>e.width}px;
+  height: ${e=>e.height}px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+  background-color: #3498db; // 버튼의 배경색 설정
+  color: #ffffff; // 버튼 텍스트의 색상 설정
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  box-shadow: #8c8c8c 0 1px 0 0;
+  &:hover {
+    background-color: #2980b9; // 호버 시 배경색 변경
+    transform: translate3d(0, -2px, 0);
+  }
+`;
+const Ft = ({
+        x: e,
+        y: t,
+        width: o,
+        height: n,
+        state: a,
+        minwidth: r,
+        maxwidth: i,
+        onChange: c,
+        onChangeSize: l,
+        onClick: u,
+        children: _,
+        tooltip: h
+    }) => {
+        const [f, K] = C.useState(o), [y, L] = C.useState(a);
+        C.useState(0);
+        const [M, P] = C.useState(!1), ie = {
+            borderRight: "2px solid #000",
+            cursor: "resize",
+            borderRadius: "8px"
+        }, k = de => {
+            const he = de.clientX,
+                Fe = f,
+                We = ke => {
+                    const _e = Fe + ke.clientX - he;
+                    let ae = 32,
+                        $ = _e;
+                    r !== void 0 && (ae = r), i !== void 0 && (_e > i && ($ = i), _e < ae && ($ = ae)), (y === 1 || y === 2) && K($ > 0 ? $ : 0)
+                },
+                De = () => {
+                    window.removeEventListener("mousemove", We), window.removeEventListener("mouseup", De)
+                };
+            window.addEventListener("mousemove", We), window.addEventListener("mouseup", De)
+        }, Y = de => {
+            const he = de.clientX,
+                Fe = f,
+                We = ke => {
+                    Fe + ke.clientX - he
+                },
+                De = () => {
+                    let ke = 32;
+                    if (r !== void 0 && (ke = r), _ === void 0) switch (y) {
+                        default: L(0),
+                        K(ke);
+                        break;
+                        case 0:
+                                L(1);
+                            break;
+                        case 1:
+                                L(2);
+                            break;
+                        case 2:
+                                L(0),
+                            K(ke),
+                            l !== void 0 && l(ke);
+                            break
+                    }
+                    window.removeEventListener("mousemove", We), window.removeEventListener("mouseup", De)
+                };
+            window.addEventListener("mousemove", We), window.addEventListener("mouseup", De)
+        }, ee = de => {
+            if (_ === void 0) switch (de) {
+                case 0:
+                    return s(Ke, {
+                        children: s(fl, {})
+                    });
+                case 1:
+                    return s(Ke, {
+                        children: s(Ly, {
+                            onMouseDown: k
+                        })
+                    });
+                case 2:
+                    return s(Ke, {});
+                default:
+                    return s(Ke, {
+                        children: s(fl, {})
+                    })
+            } else return _
+        }, T = F.useCallback(() => {
+            M === !0 && _ === void 0 && (K(o), L(a))
+        }, [M]);
+        C.useEffect(T, [M]);
+        const te = F.useCallback(() => {
+            if (M === !0 && _ === void 0) {
+                if (y === 2) {
+                    let de = 32;
+                    200 < f ? (K(240), de = 240) : 120 < f ? (K(160), de = 160) : 40 < f ? (K(80), de = 80) : (K(32), de = 32), l !== void 0 && l(de)
+                }
+                c !== void 0 && y !== void 0 && c(y)
+            }
+        }, [y]);
+        C.useEffect(te, [y]);
+        const B = F.useCallback(() => {}, [f]);
+        return C.useEffect(B, [f]), F.useEffect(() => (P(!0), () => {}), []), s(Ty, {
+            onMouseDown: Y,
+            style: ie,
+            children: s(Kd, {
+                title: h,
+                children: s(vy, {
+                    left: e,
+                    top: t,
+                    width: f,
+                    height: n,
+                    onClick: u,
+                    children: ee(y)
+                })
+            })
+        })
+    },
+    Ey = S.div `
+  display: flex;
+  transition: transform 0.2s ease-out;
+  user-select: none;
+  color: #717070;
+  border: 2px solid var(--border_color_icon);
+  width: 140px;
+  height: 40px;
+  padding: 2px;
+  margin: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  box-shadow: #8c8c8c 0 1px 0 0;
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+`,
+    Rs = S.div `
+  display: flex;
+  transition: transform 0.2s ease-out;
+  user-select: none;
+  color: #717070;
+  border: 2px solid var(--border_color_icon);
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  margin: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  box-shadow: #8c8c8c 0 1px 0 0;
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+`,
+    Py = S.div `
+  display: flex;
+  transition: transform 0.2s ease-out;
+  user-select: none;
+  background: var(--bg_control);
+  color: var(--color_accent);
+  border: 4px solid var(--border_color_icon);
+  width: 58px;
+  height: 58px;
+  padding: 2px;
+  margin: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  box-shadow: #8c8c8c 0 1px 0 0;
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+`,
+    Iy = S.div `
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 64px);
+  grid-auto-rows: 64px;
+  justify-content: center;
+  grid-gap: 10px;
+`;
+S.div `
+  width: 60px;
+  height: 60px;
+  line-height: 18px;
+  border-radius: 64px;
+  font-size: 14px;
+  border: 4px solid var(--border_color_icon);
+  background: var(--bg_control);
+  color: var(--color_label);
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  border-radius: 6px;
+  &:hover {
+    border-color: var(--color_accent);
+    transform: translate3d(0, -2px, 0);
+  }
+  cursor: move;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
+const Oy = {
+        border: "4px solid gray",
+        height: "60px",
+        width: "60px",
+        backgroundColor: "white",
+        marginRight: "0",
+        marginBottom: "0",
+        padding: "1rem",
+        textAlign: "center",
+        fontSize: "14px",
+        cursor: "move"
+    },
+    Ny = C.memo(function({
+        name: t,
+        type: o,
+        isDropped: n
+    }) {
+        const [a, r] = C.useState(!1), [{
+            isDragging: i
+        }, c] = rp(() => ({
+            type: t,
+            canDrag: !a,
+            collect: l => ({
+                isDragging: l.isDragging()
+            })
+        }), [a, t]);
+        return C.useCallback(() => {
+            r(!a)
+        }, [a, r]), C.useMemo(() => ({ ...Oy,
+            opacity: i ? .4 : 1,
+            cursor: a ? "default" : "move"
+        }), [i, a]), m(Py, {
+            ref: c,
+            role: "DKSKeycode",
+            children: [t, " "]
+        })
+    }),
+    As = 0,
+    Xt = 1,
+    Ot = 2,
+    ft = 4,
+    ve = 8,
+    ni = S(lp)({
+        "& > svg": {
+            transform: "rotate(90deg)"
+        }
+    });
+S.div `
+  display: inline-block;
+  position: relative;
+`;
+const wo = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+  color: var(--color_accent);
+`,
+    Gy = C.memo(function() {
+        const t = so(),
+            o = wt(),
+            n = _r(),
+            a = p(r_),
+            r = p(Sr),
+            i = p(wr),
+            {
+                basicKeyToByte: c
+            } = p(yo),
+            u = (p(qu) * .05).toFixed(2),
+            _ = p(oo);
+        p(ut);
+        const h = p(Gc),
+            f = 40,
+            K = p(Dt),
+            y = p(Ht);
+        let L = "NanmuSquareRound";
+        switch (y) {
+            case "en":
+            default:
+                L = "Dongle";
+                break;
+            case "ko":
+                L = "NanmuSquareRound"
+        }
+        const [M, P] = C.useState(!1), [ie, k] = C.useState(null), [Y, ee] = C.useState(As), [T, te] = C.useState(As), [B, de] = C.useState(As), [he, Fe] = C.useState(As), [We, De] = C.useState(0), [ke, _e] = C.useState(0), [ae, $] = C.useState(0), [be, ge] = C.useState(0), [ye, xe] = C.useState(0), [He, Ce] = C.useState(0), [Ve, lt] = C.useState(0), [kt, Ct] = C.useState(0), [ht, Ne] = C.useState(0), [xt, nt] = C.useState(0), [Mt, rt] = C.useState(0), [Ge, Xe] = C.useState(0), [Ue, Pe] = C.useState(0), [Re, J] = C.useState(0), [O, Ie] = C.useState(0), [Ye, pt] = C.useState(0), [q, Te] = C.useState(0), [tt, dt] = C.useState(0), [it, ue] = C.useState(0), [fe, qe] = C.useState(0), [D, I] = C.useState(0), [b, R] = C.useState(0), [G, V] = C.useState(0), [x, E] = C.useState(0), [z, N] = C.useState(0), [w, ne] = C.useState(0), [v, Q] = C.useState(0), [Z, U] = C.useState(0), [re, oe] = C.useState(0), [Qe, le] = C.useState(0), [pe, se] = C.useState(0), [at, ze] = C.useState(0), [gt, _t] = C.useState(32), [Rt, ct] = C.useState(32), [rs, mn] = C.useState(32), [is, Kn] = C.useState(32), [cs, Io] = C.useState(32), [ls, nn] = C.useState(32), [ds, yn] = C.useState(32), [Pr, Sn] = C.useState(32), [us, Oo] = C.useState(32), [_s, an] = C.useState(32), [hs, wn] = C.useState(32), [Ir, Mn] = C.useState(32), [Cs, No] = C.useState(32), [ps, sn] = C.useState(32), [fs, bn] = C.useState(32), [Or, Dn] = C.useState(32), [Nr, gs] = C.useState(32), [Gr, lb] = C.useState(32), [Br, db] = C.useState(32), [sl, ub] = C.useState(32);
+        C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32), C.useState(32);
+        const [uh, kn] = C.useState(272), [_h, Go] = C.useState(192), [hh, Bo] = C.useState(112), [Ch, _b] = C.useState(32), [ph, xn] = C.useState(272), [fh, Uo] = C.useState(192), [gh, Fo] = C.useState(112), [mh, hb] = C.useState(32), [Kh, Rn] = C.useState(272), [yh, Ho] = C.useState(192), [Sh, $o] = C.useState(112), [wh, Cb] = C.useState(32), [Mh, An] = C.useState(272), [bh, Wo] = C.useState(192), [Dh, Vo] = C.useState(112), [kh, pb] = C.useState(32), [ha, rl] = C.useState(null), [Ca, il] = C.useState(null), [pa, cl] = C.useState(null), [fa, ll] = C.useState(null), [Yo, xh] = C.useState(null), [zo, Rh] = C.useState(null), [Xo, Ah] = C.useState(null), [Qo, Th] = C.useState(null), [dl, fb] = C.useState(a), [Lh, gb] = C.useState(null), vh = C.useCallback(A => {
+            rl(A);
+            const H = n.find(Me => Me.name === A);
+            if (H && _ !== null) {
+                const {
+                    row: Me,
+                    col: Le
+                } = K[_], j = a.length;
+                if (j !== void 0 && j <= f)
+                    for (let ot = 0; ot < j; ot++) {
+                        const Ze = a[ot];
+                        if (Ze && Ze.base.row === Me && Ze.base.col === Le && Ze.key1 && H.row !== void 0 && H.col !== void 0) {
+                            const je = H.row,
+                                yt = H.col;
+                            xh({
+                                rows: je,
+                                cols: yt
+                            })
+                        }
+                    }
+            }
+        }, []), Eh = C.useCallback(A => {
+            il(A);
+            const H = n.find(Me => Me.name === A);
+            if (H && _ !== null) {
+                const {
+                    row: Me,
+                    col: Le
+                } = K[_], j = a.length;
+                if (j !== void 0 && j <= f)
+                    for (let ot = 0; ot < j; ot++) {
+                        const Ze = a[ot];
+                        if (Ze && Ze.base.row === Me && Ze.base.col === Le && Ze.key2 && H.row !== void 0 && H.col !== void 0) {
+                            const je = H.row,
+                                yt = H.col;
+                            Rh({
+                                rows: je,
+                                cols: yt
+                            })
+                        }
+                    }
+            }
+        }, []), Ph = C.useCallback(A => {
+            cl(A);
+            const H = n.find(Me => Me.name === A);
+            if (H && _ !== null) {
+                const {
+                    row: Me,
+                    col: Le
+                } = K[_], j = a.length;
+                if (j !== void 0 && j <= f)
+                    for (let ot = 0; ot < j; ot++) {
+                        const Ze = a[ot];
+                        if (Ze && Ze.base.row === Me && Ze.base.col === Le && Ze.key3 && H.row !== void 0 && H.col !== void 0) {
+                            const je = H.row,
+                                yt = H.col;
+                            Ah({
+                                rows: je,
+                                cols: yt
+                            })
+                        }
+                    }
+            }
+        }, []), Ih = C.useCallback(A => {
+            ll(A);
+            const H = n.find(Me => Me.name === A);
+            if (H && _ !== null) {
+                const {
+                    row: Me,
+                    col: Le
+                } = K[_], j = a.length;
+                if (j !== void 0 && j <= f)
+                    for (let ot = 0; ot < j; ot++) {
+                        const Ze = a[ot];
+                        if (Ze && Ze.base.row === Me && Ze.base.col === Le && Ze.key4 && H.row !== void 0 && H.col !== void 0) {
+                            const je = H.row,
+                                yt = H.col;
+                            Th({
+                                rows: je,
+                                cols: yt
+                            })
+                        }
+                    }
+            }
+        }, []), Oh = (A, H) => {
+            const Me = new Array;
+            a && a.length > 0 && a.map((Le, j) => {
+                Le.base.row === A && Le.base.col === H || Me.push(Le)
+            }), Me && Me.length > 0 ? o(Lt({
+                dksCells: Me
+            })) : o(Lt({
+                dksCells: Me
+            })), o(Ri(!0))
+        }, Nh = async () => {
+            if (_ !== null) {
+                const {
+                    row: A,
+                    col: H
+                } = K[_], Me = a.find(Le => Le.base.row === A && Le.base.col === H);
+                Me === void 0 || (o(Zg({
+                    dksCell: Me
+                })), t(Ga(!0)), o(Ba({ ...r,
+                    [i]: !1
+                })))
+            }
+        }, Gh = A => {
+            _ !== null && o(In(_, A))
+        }, Bh = () => {
+            if (_ !== null) {
+                const {
+                    row: A,
+                    col: H
+                } = K[_];
+                Oh(A, H);
+                const Me = n.find(Le => Le.row === A && Le.col === H);
+                if (Me) {
+                    const Le = Me.code;
+                    Jo(Le, c), Gh(Ao(Le, c)), o(Ba({ ...r,
+                        [i]: !1
+                    })), t(Ga(!1))
+                }
+            }
+        }, Uh = (A, H) => {
+            const {
+                row: Me,
+                col: Le,
+                name: j,
+                code: ot,
+                keycode: Ze
+            } = A;
+            return j
+        }, ms = (A => A.map((Me, Le) => Uh(Me)))(n), Fh = (A, H) => {
+            const {
+                row: Me,
+                col: Le,
+                name: j,
+                code: ot,
+                keycode: Ze
+            } = A, we = Me.toString() + Le.toString();
+            return s(Ny, {
+                name: j,
+                type: "",
+                isDropped: !0
+            }, we)
+        }, Hh = A => {
+            const H = A.map((Me, Le) => Fh(Me));
+            return s(Iy, {
+                children: H
+            })
+        }, ul = () => {
+            t(Lu(!0))
+        }, $h = async () => {
+            if (_ !== null) {
+                const {
+                    row: hl,
+                    col: Cl
+                } = K[_], Ur = a.length;
+                if (Ur !== void 0 && Ur <= f)
+                    for (let Fr = 0; Fr < Ur; Fr++) {
+                        const ce = a[Fr];
+                        if (ce.base.row === hl && ce.base.col === Cl) {
+                            switch (ce.key1.row, ce.key1.col, ce.key1.action0, ce.key1.action1, ce.key1.action2, ce.key1.action3, ce.key1.action0) {
+                                case g.DKSA_None:
+                                    _t(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    {
+                                        De(2);
+                                        let jt = Y;jt |= Xt,
+                                        ee(jt),
+                                        _t(32)
+                                    }
+                                    break;
+                                case g.DKSA_Press:
+                                    {
+                                        De(2);
+                                        let jt = Y;jt |= Xt,
+                                        ee(jt),
+                                        ce.key1.action1 === g.DKSA_Release || ce.key1.action1 === g.DKSA_ReleaseClick || ce.key1.action1 === g.DKSA_ReleasePress ? _t(80) : ce.key1.action2 === g.DKSA_Release || ce.key1.action2 === g.DKSA_ReleaseClick || ce.key1.action2 === g.DKSA_ReleasePress ? _t(160) : (ce.key1.action3 === g.DKSA_Release || ce.key1.action3 === g.DKSA_ReleaseClick) && _t(240)
+                                    }
+                                    break;
+                                case g.DKSA_Release:
+                                    _t(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    _t(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    _t(32);
+                                    break
+                            }
+                            switch (ce.key2.action0) {
+                                case g.DKSA_None:
+                                    Io(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    xe(2), Io(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    xe(2), ce.key2.action1 === g.DKSA_Release || ce.key2.action1 === g.DKSA_ReleaseClick || ce.key2.action1 === g.DKSA_ReleasePress ? Io(80) : ce.key2.action2 === g.DKSA_Release || ce.key2.action2 === g.DKSA_ReleaseClick || ce.key2.action2 === g.DKSA_ReleasePress ? Io(160) : (ce.key2.action3 === g.DKSA_Release || ce.key2.action3 === g.DKSA_ReleaseClick) && Io(240);
+                                    break;
+                                case g.DKSA_Release:
+                                    Io(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    Io(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    Io(32);
+                                    break
+                            }
+                            switch (ce.key3.action0) {
+                                case g.DKSA_None:
+                                    Oo(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    Ne(2), Oo(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    Ne(2), ce.key3.action1 === g.DKSA_Release || ce.key3.action1 === g.DKSA_ReleaseClick || ce.key3.action1 === g.DKSA_ReleasePress ? Oo(80) : ce.key3.action2 === g.DKSA_Release || ce.key3.action2 === g.DKSA_ReleaseClick || ce.key3.action2 === g.DKSA_ReleasePress ? Oo(160) : (ce.key3.action3 === g.DKSA_Release || ce.key3.action3 === g.DKSA_ReleaseClick) && Oo(240);
+                                    break;
+                                case g.DKSA_Release:
+                                    Oo(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    Oo(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    Oo(32);
+                                    break
+                            }
+                            switch (ce.key4.action0) {
+                                case g.DKSA_None:
+                                    No(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    Pe(2), No(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    Pe(2), ce.key4.action1 === g.DKSA_Release || ce.key4.action1 === g.DKSA_ReleaseClick || ce.key4.action1 === g.DKSA_ReleasePress ? No(80) : ce.key4.action2 === g.DKSA_Release || ce.key4.action2 === g.DKSA_ReleaseClick || ce.key4.action2 === g.DKSA_ReleasePress ? No(160) : (ce.key4.action3 === g.DKSA_Release || ce.key4.action3 === g.DKSA_ReleaseClick) && No(240);
+                                    break;
+                                case g.DKSA_Release:
+                                    No(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    No(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    No(32);
+                                    break
+                            }
+                            switch (ce.key1.action1) {
+                                case g.DKSA_None:
+                                    ct(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    _e(2), ct(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    _e(2), ce.key1.action2 === g.DKSA_Release || ce.key1.action2 === g.DKSA_ReleaseClick || ce.key1.action2 === g.DKSA_ReleasePress ? ct(80) : (ce.key1.action3 === g.DKSA_Release || ce.key1.action3 === g.DKSA_ReleaseClick) && ct(160);
+                                    break;
+                                case g.DKSA_Release:
+                                    ct(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    ct(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    ct(32);
+                                    break
+                            }
+                            switch (ce.key2.action1) {
+                                case g.DKSA_None:
+                                    nn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    nn(32), Ce(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    Ce(2), ce.key2.action2 === g.DKSA_Release || ce.key2.action2 === g.DKSA_ReleaseClick || ce.key2.action2 === g.DKSA_ReleasePress ? nn(80) : (ce.key2.action3 === g.DKSA_Release || ce.key2.action3 === g.DKSA_ReleaseClick) && nn(160);
+                                    break;
+                                case g.DKSA_Release:
+                                    nn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    nn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    nn(32);
+                                    break
+                            }
+                            switch (ce.key3.action1) {
+                                case g.DKSA_None:
+                                    an(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    an(32), nt(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    nt(2), ce.key3.action2 === g.DKSA_Release || ce.key3.action2 === g.DKSA_ReleaseClick || ce.key3.action2 === g.DKSA_ReleasePress ? an(80) : (ce.key3.action3 === g.DKSA_Release || ce.key3.action3 === g.DKSA_ReleaseClick) && an(160);
+                                    break;
+                                case g.DKSA_Release:
+                                    an(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    an(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    an(32);
+                                    break
+                            }
+                            switch (ce.key4.action1) {
+                                case g.DKSA_None:
+                                    sn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    J(2), sn(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    J(2), ce.key4.action2 === g.DKSA_Release || ce.key4.action2 === g.DKSA_ReleaseClick || ce.key4.action2 === g.DKSA_ReleasePress ? sn(80) : (ce.key4.action3 === g.DKSA_Release || ce.key4.action3 === g.DKSA_ReleaseClick) && sn(160);
+                                    break;
+                                case g.DKSA_Release:
+                                    sn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    sn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    sn(32);
+                                    break
+                            }
+                            switch (ce.key1.action2) {
+                                case g.DKSA_None:
+                                    mn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    $(2), mn(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    $(2), (ce.key1.action3 === g.DKSA_Release || ce.key1.action3 === g.DKSA_ReleaseClick) && mn(80);
+                                    break;
+                                case g.DKSA_Release:
+                                    mn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    mn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    mn(32);
+                                    break
+                            }
+                            switch (ce.key2.action2) {
+                                case g.DKSA_None:
+                                    yn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    yn(32), lt(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    lt(2), (ce.key2.action3 === g.DKSA_Release || ce.key2.action3 === g.DKSA_ReleaseClick) && yn(80);
+                                    break;
+                                case g.DKSA_Release:
+                                    yn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    yn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    yn(32);
+                                    break
+                            }
+                            switch (ce.key3.action2) {
+                                case g.DKSA_None:
+                                    wn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    wn(32), rt(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    rt(2), (ce.key3.action3 === g.DKSA_Release || ce.key3.action3 === g.DKSA_ReleaseClick) && wn(80);
+                                    break;
+                                case g.DKSA_Release:
+                                    wn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    wn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    wn(32);
+                                    break
+                            }
+                            switch (ce.key4.action2) {
+                                case g.DKSA_None:
+                                    bn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    bn(32), Ie(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    Ie(2), (ce.key4.action3 === g.DKSA_Release || ce.key4.action3 === g.DKSA_ReleaseClick) && bn(80);
+                                    break;
+                                case g.DKSA_Release:
+                                    bn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    bn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    bn(32);
+                                    break
+                            }
+                            switch (ce.key1.action3) {
+                                case g.DKSA_None:
+                                    Kn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    ge(2), Kn(32);
+                                    break;
+                                case g.DKSA_Press:
+                                    ge(2), Kn(32);
+                                    break;
+                                case g.DKSA_Release:
+                                    Kn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    Kn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    Kn(32);
+                                    break
+                            }
+                            switch (ce.key2.action3) {
+                                case g.DKSA_None:
+                                    Sn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    Sn(32), Ct(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    Ct(2), Sn(32);
+                                    break;
+                                case g.DKSA_Release:
+                                    Sn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    Sn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    Sn(32);
+                                    break
+                            }
+                            switch (ce.key3.action3) {
+                                case g.DKSA_None:
+                                    Mn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    Mn(32), Xe(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    Xe(2), Mn(32);
+                                    break;
+                                case g.DKSA_Release:
+                                    Mn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    Mn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    Mn(32);
+                                    break
+                            }
+                            switch (ce.key4.action3) {
+                                case g.DKSA_None:
+                                    Dn(32);
+                                    break;
+                                case g.DKSA_Click:
+                                    Dn(32), pt(2);
+                                    break;
+                                case g.DKSA_Press:
+                                    pt(2), Dn(32);
+                                    break;
+                                case g.DKSA_Release:
+                                    Dn(32);
+                                    break;
+                                case g.DKSA_ReleaseClick:
+                                    Dn(32);
+                                    break;
+                                case g.DKSA_ReleasePress:
+                                    Dn(32);
+                                    break
+                            }
+                        }
+                        if (ce.base.row === hl && ce.base.col === Cl) {
+                            if (ce.base.ftp, ce.base.dtp, ce.key1.row !== void 0 && ce.key1.col !== void 0) {
+                                const jt = n.find(_o => _o.row === ce.key1.row && _o.col === ce.key1.col);
+                                jt && rl(jt.name)
+                            }
+                            if (ce.key2.row !== void 0 && ce.key2.col !== void 0) {
+                                const jt = n.find(_o => _o.row === ce.key2.row && _o.col === ce.key2.col);
+                                jt && il(jt.name)
+                            }
+                            if (ce.key3.row !== void 0 && ce.key3.col !== void 0) {
+                                const jt = n.find(_o => _o.row === ce.key3.row && _o.col === ce.key3.col);
+                                jt && cl(jt.name)
+                            }
+                            if (ce.key4.row !== void 0 && ce.key4.col !== void 0) {
+                                const jt = n.find(_o => _o.row === ce.key4.row && _o.col === ce.key4.col);
+                                jt && ll(jt.name)
+                            }
+                        }
+                    }
+            }
+            let A = 272,
+                H = 272,
+                Me = 272,
+                Le = 272,
+                j = 192,
+                ot = 192,
+                Ze = 192,
+                we = 192,
+                je = 112,
+                yt = 112,
+                Vt = 112,
+                Yt = 112;
+            (Y & Xt) === Xt ? (A = 272 - 32, kn(A), (Y & Ot) === Ot ? (A = 80, kn(A), (Y & ft) === ft ? (j = 80, Go(j), (Y & ve) === ve && (je = 80, Bo(je))) : (Y & ve) === ve && (j = 192 - 32, Go(j), je = 112 - 32, Bo(je))) : (Y & ft) === ft ? (A = 160, kn(A), j = 80, Go(j), (Y & ve) === ve && (je = 80, Bo(je))) : (Y & ve) === ve && (A = 240, kn(A), j = 160, Go(j), je = 80, Bo(je))) : (Y & Ot) === Ot ? (A = 32, kn(A), j = 192, Go(j), (Y & ft) === ft ? (j = 80, Go(j), (Y & ve) === ve && (je = 80, Bo(je))) : (Y & ve) === ve && (j = 192 - 32, Go(j), je = 112 - 32, Bo(je))) : (je = 112, Bo(je), (Y & ft) === ft ? (A = 160, kn(A), j = 80, Go(j), (Y & ve) === ve && (je = 80, Bo(je))) : (Y & ve) === ve && (A = 240, kn(A), j = 160, Go(j), je = 80, Bo(je))), (T & Xt) === Xt ? (H = 272 - 32, xn(H), (T & Ot) === Ot ? (H = 80, xn(H), (T & ft) === ft ? (ot = 80, Uo(ot), (T & ve) === ve && (yt = 80, Fo(yt))) : (T & ve) === ve && (ot = 192 - 32, Uo(ot), yt = 112 - 32, Fo(yt))) : (T & ft) === ft ? (H = 160, xn(H), ot = 80, Uo(ot), (T & ve) === ve && (yt = 80, Fo(yt))) : (T & ve) === ve && (H = 240, xn(H), ot = 160, Uo(ot), yt = 80, Fo(yt))) : (T & Ot) === Ot ? (H = 32, xn(H), ot = 192, Uo(ot), (T & ft) === ft ? (ot = 80, Uo(ot), (T & ve) === ve && (yt = 80, Fo(yt))) : (T & ve) === ve && (ot = 192 - 32, Uo(ot), yt = 112 - 32, Fo(yt))) : (yt = 112, Fo(yt), (T & ft) === ft ? (H = 160, xn(H), ot = 80, Uo(ot), (T & ve) === ve && (yt = 80, Fo(yt))) : (T & ve) === ve && (H = 240, xn(H), ot = 160, Uo(ot), yt = 80, Fo(yt))), (B & Xt) === Xt ? (Me = 272 - 32, Rn(Me), (B & Ot) === Ot ? (Me = 80, Rn(Me), (B & ft) === ft ? (Ze = 80, Ho(Ze), (B & ve) === ve && (Vt = 80, $o(Vt))) : (B & ve) === ve && (Ze = 192 - 32, Ho(Ze), Vt = 112 - 32, $o(Vt))) : (B & ft) === ft ? (Me = 160, Rn(Me), Ze = 80, Ho(Ze), (B & ve) === ve && (Vt = 80, $o(Vt))) : (B & ve) === ve && (Me = 240, Rn(Me), Ze = 160, Ho(Ze), Vt = 80, $o(Vt))) : (B & Ot) === Ot ? (Me = 32, Rn(Me), Ze = 192, Ho(Ze), (B & ft) === ft ? (Ze = 80, Ho(Ze), (B & ve) === ve && (Vt = 80, $o(Vt))) : (B & ve) === ve && (Ze = 192 - 32, Ho(Ze), Vt = 112 - 32, $o(Vt))) : (Vt = 112, $o(Vt), (B & ft) === ft ? (Me = 160, Rn(Me), Ze = 80, Ho(Ze), (B & ve) === ve && (Vt = 80, $o(Vt))) : (B & ve) === ve && (Me = 240, Rn(Me), Ze = 160, Ho(Ze), Vt = 80, $o(Vt))), (he & Xt) === Xt ? (Le = 272 - 32, An(Le), (he & Ot) === Ot ? (Le = 80, An(Le), (he & ft) === ft ? (we = 80, Wo(we), (Y & ve) === ve && (Yt = 80, Vo(Yt))) : (he & ve) === ve && (we = 192 - 32, Wo(we), Yt = 112 - 32, Vo(Yt))) : (he & ft) === ft ? (Le = 160, An(Le), we = 80, Wo(we), (he & ve) === ve && (Yt = 80, Vo(Yt))) : (he & ve) === ve && (Le = 240, An(Le), we = 160, Wo(we), Yt = 80, Vo(Yt))) : (he & Ot) === Ot ? (Le = 32, An(Le), we = 192, Wo(we), (he & ft) === ft ? (we = 80, Wo(we), (he & ve) === ve && (Yt = 80, Vo(Yt))) : (he & ve) === ve && (we = 192 - 32, Wo(we), Yt = 112 - 32, Vo(Yt))) : (Yt = 112, Vo(Yt), (he & ft) === ft ? (Le = 160, An(Le), we = 80, Wo(we), (he & ve) === ve && (Yt = 80, Vo(Yt))) : (he & ve) === ve && (Le = 240, An(Le), we = 160, Wo(we), Yt = 80, Vo(Yt)))
+        }, Wh = async () => {
+            const A = a.length;
+            if (_ !== null) {
+                const {
+                    row: H,
+                    col: Me
+                } = K[_];
+                if (A !== void 0 && A <= f)
+                    for (let Le = 0; Le < A; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === H && j.base.col === Me) {
+                            const ot = {
+                                    row: j.key1.row,
+                                    col: j.key1.col,
+                                    action0: q,
+                                    action1: tt,
+                                    action2: it,
+                                    action3: fe
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: ot,
+                                    key2: j.key2,
+                                    key3: j.key3,
+                                    key4: j.key4
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === H && je.base.col === Me || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, Vh = async () => {
+            const A = a.length;
+            if (_ !== null) {
+                const {
+                    row: H,
+                    col: Me
+                } = K[_];
+                if (A !== void 0 && A <= f)
+                    for (let Le = 0; Le < A; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === H && j.base.col === Me) {
+                            const ot = {
+                                    row: j.key2.row,
+                                    col: j.key2.col,
+                                    action0: D,
+                                    action1: b,
+                                    action2: G,
+                                    action3: x
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: j.key1,
+                                    key2: ot,
+                                    key3: j.key3,
+                                    key4: j.key4
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === H && je.base.col === Me || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, Yh = async () => {
+            const A = a.length;
+            if (_ !== null) {
+                const {
+                    row: H,
+                    col: Me
+                } = K[_];
+                if (A !== void 0 && A <= f)
+                    for (let Le = 0; Le < A; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === H && j.base.col === Me) {
+                            const ot = {
+                                    row: j.key3.row,
+                                    col: j.key3.col,
+                                    action0: z,
+                                    action1: w,
+                                    action2: v,
+                                    action3: Z
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: j.key1,
+                                    key2: j.key2,
+                                    key3: ot,
+                                    key4: j.key4
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === H && je.base.col === Me || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, zh = async () => {
+            const A = a.length;
+            if (_ !== null) {
+                const {
+                    row: H,
+                    col: Me
+                } = K[_];
+                if (A !== void 0 && A <= f)
+                    for (let Le = 0; Le < A; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === H && j.base.col === Me) {
+                            const ot = {
+                                    row: j.key4.row,
+                                    col: j.key4.col,
+                                    action0: re,
+                                    action1: Qe,
+                                    action2: pe,
+                                    action3: at
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: j.key1,
+                                    key2: j.key2,
+                                    key3: j.key3,
+                                    key4: ot
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === H && je.base.col === Me || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, _l = async () => {
+            if (_ !== null) {
+                if (K[_], We === 2) switch (Nr) {
+                    case 240:
+                        Te(g.DKSA_Press), dt(g.DKSA_None), ue(g.DKSA_None), qe(g.DKSA_Release);
+                        break;
+                    case 160:
+                        Te(g.DKSA_Press), dt(g.DKSA_None), ue(g.DKSA_Release), qe(g.DKSA_None);
+                        break;
+                    case 80:
+                        Te(g.DKSA_Press), dt(g.DKSA_Release), ue(g.DKSA_None), qe(g.DKSA_None);
+                        break;
+                    case 32:
+                        Te(g.DKSA_Click), dt(g.DKSA_None), ue(g.DKSA_None), qe(g.DKSA_None);
+                        break
+                }
+                if (ke === 2) switch (Gr) {
+                    case 160:
+                        dt(g.DKSA_Press), ue(g.DKSA_None), qe(g.DKSA_Release);
+                        break;
+                    case 80:
+                        dt(g.DKSA_Press), ue(g.DKSA_Release), qe(g.DKSA_None);
+                        break;
+                    case 32:
+                        dt(g.DKSA_None), ue(g.DKSA_None), qe(g.DKSA_None);
+                        break
+                }
+                if (ae === 2) switch (Br) {
+                    case 80:
+                        ue(g.DKSA_Press), qe(g.DKSA_Release);
+                        break;
+                    case 32:
+                        ue(g.DKSA_Click), qe(g.DKSA_None);
+                        break
+                }
+                be === 2 && qe(g.DKSA_Click)
+            }
+        }, Xh = async () => {
+            if (_ !== null) {
+                if (K[_], ye === 2) switch (cs) {
+                    case 240:
+                        I(g.DKSA_Press), R(g.DKSA_None), V(g.DKSA_None), E(g.DKSA_Release);
+                        break;
+                    case 160:
+                        I(g.DKSA_Press), R(g.DKSA_None), V(g.DKSA_Release), E(g.DKSA_None);
+                        break;
+                    case 80:
+                        I(g.DKSA_Press), R(g.DKSA_Release), V(g.DKSA_None), E(g.DKSA_None);
+                        break;
+                    case 32:
+                        I(g.DKSA_Click), R(g.DKSA_None), V(g.DKSA_None), E(g.DKSA_None);
+                        break
+                }
+                if (He === 2) switch (ls) {
+                    case 160:
+                        R(g.DKSA_Press), V(g.DKSA_None), E(g.DKSA_Release);
+                        break;
+                    case 80:
+                        R(g.DKSA_Press), V(g.DKSA_Release), E(g.DKSA_None);
+                        break;
+                    case 32:
+                        R(g.DKSA_None), V(g.DKSA_None), E(g.DKSA_None);
+                        break
+                }
+                if (Ve === 2) switch (ds) {
+                    case 80:
+                        V(g.DKSA_Press), E(g.DKSA_Release);
+                        break;
+                    case 32:
+                        V(g.DKSA_Click), E(g.DKSA_None);
+                        break
+                }
+                kt === 2 && E(g.DKSA_Click)
+            }
+        }, Qh = async () => {
+            if (_ !== null) {
+                if (K[_], ht === 2) switch (us) {
+                    case 240:
+                        N(g.DKSA_Press), ne(g.DKSA_None), Q(g.DKSA_None), U(g.DKSA_Release);
+                        break;
+                    case 160:
+                        N(g.DKSA_Press), ne(g.DKSA_None), Q(g.DKSA_Release), U(g.DKSA_None);
+                        break;
+                    case 80:
+                        N(g.DKSA_Press), ne(g.DKSA_Release), Q(g.DKSA_None), U(g.DKSA_None);
+                        break;
+                    case 32:
+                        N(g.DKSA_Click), ne(g.DKSA_None), Q(g.DKSA_None), U(g.DKSA_None);
+                        break
+                }
+                if (xt === 2) switch (_s) {
+                    case 160:
+                        ne(g.DKSA_Press), Q(g.DKSA_None), U(g.DKSA_Release);
+                        break;
+                    case 80:
+                        ne(g.DKSA_Press), Q(g.DKSA_Release), U(g.DKSA_None);
+                        break;
+                    case 32:
+                        ne(g.DKSA_None), Q(g.DKSA_None), U(g.DKSA_None);
+                        break
+                }
+                if (Mt === 2) switch (hs) {
+                    case 80:
+                        Q(g.DKSA_Press), U(g.DKSA_Release);
+                        break;
+                    case 32:
+                        Q(g.DKSA_Click), U(g.DKSA_None);
+                        break
+                }
+                Ge === 2 && U(g.DKSA_Click)
+            }
+        }, jh = async () => {
+            if (_ !== null) {
+                if (K[_], Ue === 2) switch (Cs) {
+                    case 240:
+                        oe(g.DKSA_Press), le(g.DKSA_None), se(g.DKSA_None), ze(g.DKSA_Release);
+                        break;
+                    case 160:
+                        oe(g.DKSA_Press), le(g.DKSA_None), se(g.DKSA_Release), ze(g.DKSA_None);
+                        break;
+                    case 80:
+                        oe(g.DKSA_Press), le(g.DKSA_Release), se(g.DKSA_None), ze(g.DKSA_None);
+                        break;
+                    case 32:
+                        oe(g.DKSA_Click), le(g.DKSA_None), se(g.DKSA_None), ze(g.DKSA_None);
+                        break
+                }
+                if (Re === 2) switch (ps) {
+                    case 160:
+                        le(g.DKSA_Press), se(g.DKSA_None), ze(g.DKSA_Release);
+                        break;
+                    case 80:
+                        le(g.DKSA_Press), se(g.DKSA_Release), ze(g.DKSA_None);
+                        break;
+                    case 32:
+                        le(g.DKSA_None), se(g.DKSA_None), ze(g.DKSA_None);
+                        break
+                }
+                if (O === 2) switch (fs) {
+                    case 80:
+                        se(g.DKSA_Press), ze(g.DKSA_Release);
+                        break;
+                    case 32:
+                        se(g.DKSA_Click), ze(g.DKSA_None);
+                        break
+                }
+                Ye === 2 && ze(g.DKSA_Click)
+            }
+        }, qh = async () => {
+            if (_ !== null) {
+                const {
+                    row: A,
+                    col: H
+                } = K[_], Me = a.length;
+                if (Me !== void 0 && Me <= f)
+                    for (let Le = 0; Le < Me; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === A && j.base.col === H) {
+                            const ot = {
+                                    row: Yo == null ? void 0 : Yo.rows,
+                                    col: Yo == null ? void 0 : Yo.cols,
+                                    action0: j.key1.action0,
+                                    action1: j.key1.action1,
+                                    action2: j.key1.action2,
+                                    action3: j.key1.action3
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: ot,
+                                    key2: j.key2,
+                                    key3: j.key3,
+                                    key4: j.key4
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === A && je.base.col === H || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, Zh = async () => {
+            if (_ !== null) {
+                const {
+                    row: A,
+                    col: H
+                } = K[_], Me = a.length;
+                if (Me !== void 0 && Me <= f)
+                    for (let Le = 0; Le < Me; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === A && j.base.col === H) {
+                            const ot = {
+                                    row: zo == null ? void 0 : zo.rows,
+                                    col: zo == null ? void 0 : zo.cols,
+                                    action0: j.key2.action0,
+                                    action1: j.key2.action1,
+                                    action2: j.key2.action2,
+                                    action3: j.key2.action3
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: j.key1,
+                                    key2: ot,
+                                    key3: j.key3,
+                                    key4: j.key4
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === A && je.base.col === H || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, Jh = async () => {
+            if (_ !== null) {
+                const {
+                    row: A,
+                    col: H
+                } = K[_], Me = a.length;
+                if (Me !== void 0 && Me <= f)
+                    for (let Le = 0; Le < Me; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === A && j.base.col === H) {
+                            const ot = {
+                                    row: Xo == null ? void 0 : Xo.rows,
+                                    col: Xo == null ? void 0 : Xo.cols,
+                                    action0: j.key3.action0,
+                                    action1: j.key3.action1,
+                                    action2: j.key3.action2,
+                                    action3: j.key3.action3
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: j.key1,
+                                    key2: j.key2,
+                                    key3: ot,
+                                    key4: j.key4
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === A && je.base.col === H || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, eC = async () => {
+            if (_ !== null) {
+                const {
+                    row: A,
+                    col: H
+                } = K[_], Me = a.length;
+                if (Me !== void 0 && Me <= f)
+                    for (let Le = 0; Le < Me; Le++) {
+                        let j = a[Le];
+                        if (j && j.base.row === A && j.base.col === H) {
+                            const ot = {
+                                    row: Qo == null ? void 0 : Qo.rows,
+                                    col: Qo == null ? void 0 : Qo.cols,
+                                    action0: j.key4.action0,
+                                    action1: j.key4.action1,
+                                    action2: j.key4.action2,
+                                    action3: j.key4.action3
+                                },
+                                Ze = {
+                                    base: j.base,
+                                    key1: j.key1,
+                                    key2: j.key2,
+                                    key3: j.key3,
+                                    key4: ot
+                                },
+                                we = new Array;
+                            a && a.length > 0 && a.map((je, yt) => {
+                                je.base.row === A && je.base.col === H || we.push(je)
+                            }), we.push(Ze), we && we.length > 0 ? o(Lt({
+                                dksCells: we
+                            })) : o(Lt({
+                                dksCells: we
+                            }))
+                        }
+                    }
+            }
+        }, tC = F.useCallback(() => {
+            Yo !== null && qh()
+        }, [Yo]);
+        C.useEffect(tC, [Yo]);
+        const oC = F.useCallback(() => {}, [dl]);
+        C.useEffect(oC, [dl]), F.useCallback(() => {}, [Lh]);
+        const nC = F.useCallback(() => {
+            zo !== null && Zh()
+        }, [zo]);
+        C.useEffect(nC, [zo]);
+        const aC = F.useCallback(() => {
+            Xo !== null && Jh()
+        }, [Xo]);
+        C.useEffect(aC, [Xo]);
+        const sC = F.useCallback(() => {
+            Qo !== null && eC()
+        }, [Qo]);
+        C.useEffect(sC, [Qo]);
+        const rC = F.useCallback(() => {
+            $h()
+        }, [Y, T, B, he]);
+        C.useEffect(rC, [Y, T, B, he]);
+        const iC = F.useCallback(() => {
+            M === !0 && _l()
+        }, [Nr, Gr, Br, sl]);
+        C.useEffect(iC, [Nr, Gr, Br, sl]);
+        const cC = F.useCallback(() => {
+            M === !0 && Wh()
+        }, [q, tt, it, fe]);
+        C.useEffect(cC, [q, tt, it, fe]);
+        const lC = F.useCallback(() => {
+            M === !0 && Vh()
+        }, [D, b, G, x]);
+        C.useEffect(lC, [D, b, G, x]);
+        const dC = F.useCallback(() => {
+            M === !0 && Yh()
+        }, [z, w, v, Z]);
+        C.useEffect(dC, [z, w, v, Z]);
+        const uC = F.useCallback(() => {
+            M === !0 && zh()
+        }, [re, Qe, pe, at]);
+        C.useEffect(uC, [re, Qe, pe, at]);
+        const _C = F.useCallback(() => {
+            M === !0 && _l()
+        }, [gt, Rt, rs, is]);
+        C.useEffect(_C, [gt, Rt, rs, is]);
+        const hC = F.useCallback(() => {
+            M === !0 && Xh()
+        }, [cs, ls, ds, Pr]);
+        C.useEffect(hC, [cs, ls, ds, Pr]);
+        const CC = F.useCallback(() => {
+            M === !0 && Qh()
+        }, [us, _s, hs, Ir]);
+        C.useEffect(CC, [us, _s, hs, Ir]);
+        const pC = F.useCallback(() => {
+            M === !0 && jh()
+        }, [Cs, ps, fs, Or]);
+        C.useEffect(pC, [Cs, ps, fs, Or]);
+        const fC = F.useCallback(() => {
+            ha && n.find(A => A.name === ha), Ca && n.find(A => A.name === Ca), pa && n.find(A => A.name === pa), fa && n.find(A => A.name === fa)
+        }, [ha, Ca, pa, fa]);
+        C.useEffect(fC, [ha, Ca, pa, fa]);
+        const gC = F.useCallback(() => {
+            h && h.flatMap(A => A.map(H => H))
+        }, [h]);
+        C.useEffect(gC, [h]);
+        const mC = F.useCallback(() => {}, [M]);
+        return C.useEffect(mC, [M]), F.useEffect(() => {
+            P(!0);
+            const A = window.navigator.userAgent;
+            return A.match(/Windows/i) ? k("Windows") : A.match(/Macintosh/i) ? k("MacOS") : A.match(/Linux/i) ? k("Linux") : k("Unknown"), () => {}
+        }, [gt, Rt, rs, is]), s(Ke, {
+            children: m($t, {
+                shouldForwardProp: A => Wt(A),
+                children: [s(to, {
+                    children: m(ip, {
+                        children: [m($1, {
+                            children: [s(me, {
+                                children: zt("Reset Keyboard")
+                            }), m(Se, {
+                                children: [s(St, {
+                                    onClick: Nh,
+                                    fontfamily: L,
+                                    children: zt("Save")
+                                }), s(St, {
+                                    onClick: Bh,
+                                    fontfamily: L,
+                                    children: zt("Reset")
+                                })]
+                            })]
+                        }), s(Da, {}), m(Cn, {
+                            children: [s(wo, {
+                                children: s(So, {
+                                    children: s(Be, {
+                                        children: zt("You can set up to four different bindings to one key.")
+                                    })
+                                })
+                            }), s(wo, {
+                                children: s(So, {
+                                    children: s(Be, {
+                                        children: zt("KeyAssign Info")
+                                    })
+                                })
+                            }), s(wo, {
+                                children: s(So, {
+                                    children: s(Be, {
+                                        children: zt("When you are done editing, save it.")
+                                    })
+                                })
+                            }), s(wo, {
+                                children: s(So, {
+                                    children: s(Be, {
+                                        children: zt("If you want to cancel without saving the changes, click on the keyboard screen.")
+                                    })
+                                })
+                            })]
+                        })]
+                    })
+                }), s(Da, {}), m(cp, {
+                    children: [m(gl, {
+                        xxl: 6,
+                        md: 5,
+                        sm: 12,
+                        xs: 24,
+                        offset: 1,
+                        children: [m(Cn, {
+                            children: [m(Be, {
+                                children: [zt("DKS Pos"), " ", u, " mm"]
+                            }), s(wo, {
+                                children: m(So, {
+                                    children: [s(ni, {
+                                        children: s(Hr, {})
+                                    }), s(Be, {
+                                        children: zt("Start of key press")
+                                    })]
+                                })
+                            }), s(wo, {
+                                children: m(So, {
+                                    children: [s(ml, {}), s(Be, {
+                                        children: zt("Key fully pressed")
+                                    })]
+                                })
+                            }), s(wo, {
+                                children: m(So, {
+                                    children: [s(Kl, {}), s(Be, {
+                                        children: zt("Key released from fully pressed")
+                                    })]
+                                })
+                            }), s(wo, {
+                                children: m(So, {
+                                    children: [s($r, {}), s(Be, {
+                                        children: zt("Release of the key")
+                                    })]
+                                })
+                            }), s(wo, {
+                                children: m(So, {
+                                    children: [s(ni, {
+                                        children: s(Hr, {})
+                                    }), s($r, {}), s(Be, {
+                                        children: zt("Click to edit the positions of the entry and exit points.")
+                                    })]
+                                })
+                            })]
+                        }), s(Ke, {
+                            children: m(Cn, {
+                                children: [m(La, {
+                                    component: "div",
+                                    sx: {
+                                        width: 370,
+                                        minHeight: 294,
+                                        border: "2px solid grey"
+                                    },
+                                    role: "presentation",
+                                    children: [m("div", {
+                                        children: [m(Ft, {
+                                            x: 316,
+                                            y: 0,
+                                            width: 40,
+                                            height: 40,
+                                            onClick: ul,
+                                            tooltip: zt("Release of the key"),
+                                            children: [" ", s($r, {})]
+                                        }), s(Ft, {
+                                            x: 236,
+                                            y: 0,
+                                            width: 40,
+                                            height: 40,
+                                            tooltip: zt("Key released from fully pressed"),
+                                            children: s(Kl, {})
+                                        }), s(Ft, {
+                                            x: 156,
+                                            y: 0,
+                                            width: 40,
+                                            height: 40,
+                                            tooltip: zt("Key fully pressed"),
+                                            children: s(ml, {})
+                                        }), s(Ft, {
+                                            x: 76,
+                                            y: 0,
+                                            width: 40,
+                                            height: 40,
+                                            onClick: ul,
+                                            tooltip: zt("Start of key press"),
+                                            children: s(ni, {
+                                                children: s(Hr, {})
+                                            })
+                                        })]
+                                    }), m("div", {
+                                        children: [s(Ft, {
+                                            x: 320,
+                                            y: 40,
+                                            width: is,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: Ch,
+                                            state: be,
+                                            onChange: A => {
+                                                let H = Y;
+                                                A === 2 ? H |= ve : H ^= ve, ee(H), ge(A)
+                                            },
+                                            onChangeSize: A => {
+                                                Kn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 240,
+                                            y: 40,
+                                            width: rs,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: hh,
+                                            state: ae,
+                                            onChange: A => {
+                                                let H = Y;
+                                                A === 2 ? H |= ft : H ^= ft, ee(H), $(A)
+                                            },
+                                            onChangeSize: A => {
+                                                mn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 160,
+                                            y: 40,
+                                            width: Rt,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: _h,
+                                            state: ke,
+                                            onChange: A => {
+                                                let H = Y;
+                                                A === 2 ? H |= Ot : H ^= Ot, ee(H), _e(A)
+                                            },
+                                            onChangeSize: A => {
+                                                ct(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 80,
+                                            y: 40,
+                                            width: gt,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: uh,
+                                            state: We,
+                                            onChange: A => {
+                                                let H = Y;
+                                                A === 2 ? H |= Xt : H ^= Xt, ee(H), De(A)
+                                            },
+                                            onChangeSize: A => {
+                                                200 < A ? gs(240) : 120 < A ? gs(160) : 40 < A ? gs(80) : gs(32)
+                                            }
+                                        }), s(xs, {
+                                            x: 0,
+                                            y: 40,
+                                            width: 40,
+                                            height: 40,
+                                            title: "",
+                                            onDrop: vh,
+                                            keycode: ha,
+                                            accept: ms
+                                        })]
+                                    }), m("div", {
+                                        children: [s(Ft, {
+                                            x: 320,
+                                            y: 80,
+                                            width: Pr,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: mh,
+                                            state: kt,
+                                            onChange: A => {
+                                                let H = T;
+                                                A === 2 ? H |= ve : H ^= ve, te(H), Ct(A)
+                                            },
+                                            onChangeSize: A => {
+                                                Sn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 240,
+                                            y: 80,
+                                            width: ds,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: gh,
+                                            state: Ve,
+                                            onChange: A => {
+                                                let H = T;
+                                                A === 2 ? H |= ft : H ^= ft, te(H), lt(A)
+                                            },
+                                            onChangeSize: A => {
+                                                yn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 160,
+                                            y: 80,
+                                            width: ls,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: fh,
+                                            state: He,
+                                            onChange: A => {
+                                                let H = T;
+                                                A === 2 ? H |= Ot : H ^= Ot, te(H), Ce(A)
+                                            },
+                                            onChangeSize: A => {
+                                                nn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 80,
+                                            y: 80,
+                                            width: cs,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: ph,
+                                            state: ye,
+                                            onChange: A => {
+                                                let H = T;
+                                                A === 2 ? H |= Xt : H ^= Xt, te(H), xe(A)
+                                            },
+                                            onChangeSize: A => {
+                                                Io(A)
+                                            }
+                                        }), s(xs, {
+                                            x: 0,
+                                            y: 80,
+                                            width: 40,
+                                            height: 40,
+                                            title: "",
+                                            onDrop: Eh,
+                                            keycode: Ca,
+                                            accept: ms
+                                        })]
+                                    }), m("div", {
+                                        children: [s(Ft, {
+                                            x: 320,
+                                            y: 120,
+                                            width: Ir,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: wh,
+                                            state: Ge,
+                                            onChange: A => {
+                                                let H = B;
+                                                A === 2 ? H |= ve : H ^= ve, de(H), Xe(A)
+                                            },
+                                            onChangeSize: A => {
+                                                Mn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 240,
+                                            y: 120,
+                                            width: hs,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: Sh,
+                                            state: Mt,
+                                            onChange: A => {
+                                                let H = B;
+                                                A === 2 ? H |= ft : H ^= ft, de(H), rt(A)
+                                            },
+                                            onChangeSize: A => {
+                                                wn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 160,
+                                            y: 120,
+                                            width: _s,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: yh,
+                                            state: xt,
+                                            onChange: A => {
+                                                let H = B;
+                                                A === 2 ? H |= Ot : H ^= Ot, de(H), nt(A)
+                                            },
+                                            onChangeSize: A => {
+                                                an(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 80,
+                                            y: 120,
+                                            width: us,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: Kh,
+                                            state: ht,
+                                            onChange: A => {
+                                                let H = B;
+                                                A === 2 ? H |= Xt : H ^= Xt, de(H), Ne(A)
+                                            },
+                                            onChangeSize: A => {
+                                                Oo(A)
+                                            }
+                                        }), s(xs, {
+                                            x: 0,
+                                            y: 120,
+                                            width: 40,
+                                            height: 40,
+                                            title: "",
+                                            onDrop: Ph,
+                                            keycode: pa,
+                                            accept: ms
+                                        })]
+                                    }), m("div", {
+                                        children: [s(Ft, {
+                                            x: 320,
+                                            y: 160,
+                                            width: Or,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: kh,
+                                            state: Ye,
+                                            onChange: A => {
+                                                let H = he;
+                                                A === 2 ? H |= ve : H ^= ve, Fe(H), pt(A)
+                                            },
+                                            onChangeSize: A => {
+                                                Dn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 240,
+                                            y: 160,
+                                            width: fs,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: Dh,
+                                            state: O,
+                                            onChange: A => {
+                                                let H = he;
+                                                A === 2 ? H |= ft : H ^= ft, Fe(H), Ie(A)
+                                            },
+                                            onChangeSize: A => {
+                                                bn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 160,
+                                            y: 160,
+                                            width: ps,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: bh,
+                                            state: Re,
+                                            onChange: A => {
+                                                let H = he;
+                                                A === 2 ? H |= Ot : H ^= Ot, Fe(H), J(A)
+                                            },
+                                            onChangeSize: A => {
+                                                sn(A)
+                                            }
+                                        }), s(Ft, {
+                                            x: 80,
+                                            y: 160,
+                                            width: Cs,
+                                            height: 32,
+                                            minwidth: 32,
+                                            maxwidth: Mh,
+                                            state: Ue,
+                                            onChange: A => {
+                                                let H = he;
+                                                A === 2 ? H |= Xt : H ^= Xt, Fe(H), Pe(A)
+                                            },
+                                            onChangeSize: A => {
+                                                No(A)
+                                            }
+                                        }), s(xs, {
+                                            x: 0,
+                                            y: 160,
+                                            width: 40,
+                                            height: 40,
+                                            title: "",
+                                            onDrop: Ih,
+                                            keycode: fa,
+                                            accept: ms
+                                        })]
+                                    })]
+                                }), s(wo, {
+                                    children: s(So, {
+                                        children: s(Be, {
+                                            children: zt("Drag and drop the binding you want.")
+                                        })
+                                    })
+                                })]
+                            })
+                        })]
+                    }), s(Da, {
+                        orientation: "vertical",
+                        variant: "middle",
+                        flexItem: !0
+                    }), s(gl, {
+                        xxl: 16,
+                        md: 16,
+                        sm: 12,
+                        xs: 24,
+                        children: s(Y1, {
+                            children: Hh(n)
+                        })
+                    })]
+                })]
+            })
+        })
+    }),
+    By = e => m("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "-50 -50 600 600",
+        focusable: "false",
+        ...e,
+        children: [s("defs", {
+            children: s("style", {
+                children: ".cls-1{fill:currentColor}"
+            })
+        }), m("g", {
+            children: [s("g", {
+                children: m("g", {
+                    children: [s("path", {
+                        fill: "currentColor",
+                        d: `M477.3,202.4c13.9,14.2,19.3,34.2,14.4,53.4l-45.3,177.6c-8.5,33.3-38.5,56.6-72.9,56.6H121.2\r
+  c-17.6,0-33.8-8-44.6-21.8s-14.4-31.6-10.1-48.6l15.2-59.3c2.6-10.1,12.8-16.1,22.9-13.5c10.1,2.6,16.1,12.8,13.5,22.9L103,428.9\r
+  c-1.4,5.7-0.2,11.6,3.4,16.2c3.6,4.6,9,7.3,14.9,7.3h252.2c17.2,0,32.2-11.6,36.4-28.3l45.3-177.6c1.6-6.4-0.2-13.1-4.8-17.8\r
+  c-7.3-7.4-7.1-19.3,0.3-26.6C458.1,194.8,470,195,477.3,202.4z`
+                    }), s("path", {
+                        fill: "currentColor",
+                        d: `M429.9,30.5c10.8,13.8,14.4,31.6,10.1,48.5l-45.3,177.6c-8.5,33.3-38.5,56.6-72.9,56.6H69.5\r
+  c-17.6,0-33.8-8-44.6-21.8s-14.4-31.6-10.1-48.6L60.4,65.3C69,32,98.9,8.7,133.3,8.7h252C402.8,8.7,419.1,16.7,429.9,30.5z\r
+   M403.5,69.8c1.4-5.7,0.2-11.6-3.4-16.2c-3.6-4.6-9-7.3-14.9-7.3h-252c-17.2,0-32.2,11.6-36.4,28.3L51.3,252.2\r
+  c-1.5,5.7-0.2,11.6,3.4,16.2c3.6,4.6,9,7.3,14.9,7.3h252.2c17.2,0,32.2-11.6,36.4-28.3L403.5,69.8z`
+                    }), s("path", {
+                        fill: "currentColor",
+                        d: `M400.2,53.6c3.6,4.6,4.8,10.5,3.4,16.2l-45.3,177.6c-4.3,16.7-19.2,28.3-36.4,28.3H69.5\r
+  c-5.9,0-11.3-2.7-14.9-7.3c-3.6-4.6-4.8-10.5-3.4-16.2L96.9,74.6c4.3-16.6,19.3-28.3,36.4-28.3h252\r
+  C391.1,46.3,396.6,49,400.2,53.6z`
+                    })]
+                })
+            }), s("polygon", {
+                fill: "currentColor",
+                points: "414.1,29.5 96.6,32.1 81.8,45.8 28.6,257.9 61.8,287.9 362.4,287.9 426.3,74.8 "
+            }), m("g", {
+                children: [s("path", {
+                    fill: "#333333",
+                    d: `M174.9,160.9c-6.2,20.2-16.6,35.6-31.4,46.3c-14.7,10.7-33,16.1-54.6,16.1H54.3l37.4-122.4h38.4\r
+c20,0,33.9,5.3,41.7,15.8C179.7,127.2,180.7,142,174.9,160.9z M147.7,161.6c8-26.3,0.4-39.4-22.8-39.4h-13.8l-24.4,79.7h11.1\r
+C122.9,201.8,139.5,188.4,147.7,161.6z`
+                }), s("path", {
+                    fill: "#333333",
+                    d: `M279.7,223.3h-29.5l-16.3-51.6l-13.4,7.9l-13.4,43.7h-26l37.4-122.4h26l-17.1,56l14.6-14.4l45.9-41.6h28.8\r
+L257.5,155L279.7,223.3z`
+                }), s("path", {
+                    fill: "#333333",
+                    d: `M377.7,189.3c-3.4,11.1-10,19.8-19.9,26.1c-9.9,6.4-21.9,9.5-36.1,9.5c-13.1,0-23.9-2.5-32.4-7.4l7.4-24.1\r
+c7.1,3.7,13.3,6.3,18.6,7.8c5.3,1.5,10.3,2.3,15,2.3c5.7,0,10.4-1.1,14.1-3.3c3.7-2.2,6.2-5.4,7.5-9.7c0.7-2.4,0.7-4.5,0-6.4\r
+c-0.8-1.9-2.2-3.7-4.3-5.4c-2.1-1.7-6.5-4.5-13.3-8.3c-6.4-3.5-11-6.9-13.7-10.1c-2.8-3.2-4.6-7-5.5-11.3\r
+c-0.9-4.3-0.5-9.3,1.3-15.1c3.3-10.8,9.6-19.3,18.8-25.5c9.2-6.2,20.3-9.3,33.3-9.3c6.4,0,12.2,0.8,17.5,2.3s10.7,3.6,16.2,6.4\r
+l-14.5,20.2c-5.7-2.7-10.5-4.5-14.5-5.6c-3.9-1.1-8-1.6-12.1-1.6c-4.9,0-9,1.1-12.4,3.4c-3.3,2.3-5.5,5.3-6.7,9\r
+c-0.7,2.3-0.8,4.3-0.2,6c0.5,1.7,1.7,3.3,3.6,4.9c1.8,1.6,6.4,4.5,13.8,8.6c9.8,5.5,15.9,11,18.5,16.5\r
+C380.1,174.6,380.2,181.3,377.7,189.3z`
+                })]
+            })]
+        })]
+    }),
+    Uy = md(ir)(({
+        theme: e
+    }) => ({
+        "& .MuiDialogContent-root": {
+            padding: e.spacing(2)
+        },
+        "& .MuiDialogActions-root": {
+            padding: e.spacing(1)
+        }
+    }));
+
+function Fy() {
+    const {
+        t: e
+    } = Tt(), t = wt(), o = p(a_), [n, a] = F.useState(o), r = () => {
+        t(Tu(!1)), a(!1)
+    };
+    return s(F.Fragment, {
+        children: m(ir, {
+            open: n,
+            onClose: r,
+            "aria-labelledby": "alert-dialog-title",
+            "aria-describedby": "alert-dialog-description",
+            children: [s(cr, {
+                id: "alert-dialog-title",
+                children: "Use Google's location service?"
+            }), s(rc, {
+                children: s(bd, {
+                    id: "alert-dialog-description",
+                    children: e("The maximum number of DKS that can be set is 40.")
+                })
+            }), s(ic, {
+                children: s(Dd, {
+                    onClick: r,
+                    autoFocus: !0,
+                    children: "OK"
+                })
+            })]
+        })
+    })
+}
+
+function Hy() {
+    const e = wt(),
+        t = p(qu),
+        o = (t * .05).toFixed(2),
+        n = p(b1),
+        {
+            t: a
+        } = Tt(),
+        r = () => {
+            e(Lu(!1))
+        };
+    return s(F.Fragment, {
+        children: s($t, {
+            shouldForwardProp: i => Wt(i),
+            children: m(Uy, {
+                onClose: r,
+                "aria-labelledby": "customized-dialog-title",
+                open: n,
+                children: [s(cr, {
+                    sx: {
+                        m: 0,
+                        p: 2
+                    },
+                    id: "customized-dialog-title",
+                    children: "Modal title"
+                }), s(wd, {
+                    "aria-label": "close",
+                    onClick: r,
+                    sx: {
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                        color: i => i.palette.grey[500]
+                    },
+                    children: s(Cp, {})
+                }), s(rc, {
+                    dividers: !0,
+                    children: s(La, {
+                        component: "div",
+                        sx: {
+                            width: 450,
+                            minHeight: "30vh"
+                        },
+                        role: "presentation",
+                        children: m(Cn, {
+                            children: [s(me, {
+                                children: a("DKS Pos")
+                            }), s(Se, {
+                                children: s(nr, {
+                                    max: 80,
+                                    min: 3,
+                                    defaultValue: t,
+                                    onChange: i => {
+                                        e(zg(i))
+                                    }
+                                })
+                            }), m(me, {
+                                children: [o, " mm"]
+                            })]
+                        })
+                    })
+                }), s(ic, {
+                    children: s(Dd, {
+                        autoFocus: !0,
+                        onClick: r,
+                        children: s(me, {
+                            children: a("Save Changes")
+                        })
+                    })
+                })]
+            })
+        })
+    })
+}
+const W_ = ["DKS"];
+
+function $y(e) {
+    const [t, o] = C.useState(!1), n = p(oo), a = wt(), {
+        onClose: r,
+        selectedValue: i,
+        open: c
+    } = e;
+    p(yo);
+    const l = p(Dt),
+        u = _r(),
+        [_, h] = C.useState([]),
+        [f, K] = C.useState([]);
+    p(Gc);
+    const y = p(T => fn(T) || []),
+        [L, M] = C.useState(null),
+        P = () => {
+            r(i)
+        },
+        ie = T => {
+            if (n !== null) {
+                const {
+                    row: te,
+                    col: B
+                } = l[n], de = u.find(_e => _e.row === te && _e.col === B);
+                if (de) {
+                    const _e = {
+                        row: te,
+                        col: B,
+                        text: de == null ? void 0 : de.name
+                    };
+                    _.find($ => $.row === te && $.col === B) === void 0 && h([..._, _e])
+                }
+                const he = {
+                        row: te,
+                        col: B,
+                        ftp: 20,
+                        dtp: 72
+                    },
+                    Fe = {
+                        row: te,
+                        col: B,
+                        action0: g.DKSA_Press,
+                        action1: g.DKSA_None,
+                        action2: g.DKSA_None,
+                        action3: g.DKSA_Release
+                    },
+                    We = {
+                        row: void 0,
+                        col: void 0,
+                        action0: g.DKSA_None,
+                        action1: g.DKSA_None,
+                        action2: g.DKSA_None,
+                        action3: g.DKSA_None
+                    },
+                    De = {
+                        base: he,
+                        key1: Fe,
+                        key2: We,
+                        key3: We,
+                        key4: We
+                    };
+                f.find(_e => _e.base.row === te && _e.base.col === B) === void 0 ? (K([...f, De]), M({
+                    rows: te,
+                    cols: B
+                })) : M({
+                    rows: te,
+                    cols: B
+                })
+            }
+        },
+        k = () => {
+            for (let T = 0; T < y.length; T++)
+                if (y[T] == 32278) {
+                    const {
+                        row: te,
+                        col: B
+                    } = l[T], de = u.find(_e => _e.row === te && _e.col === B);
+                    if (de) {
+                        const _e = {
+                            row: te,
+                            col: B,
+                            text: de == null ? void 0 : de.name
+                        };
+                        _.find($ => $.row === te && $.col === B) === void 0 && h([..._, _e])
+                    }
+                    const he = {
+                            row: te,
+                            col: B,
+                            ftp: 20,
+                            dtp: 72
+                        },
+                        Fe = {
+                            row: te,
+                            col: B,
+                            action0: g.DKSA_Press,
+                            action1: g.DKSA_None,
+                            action2: g.DKSA_None,
+                            action3: g.DKSA_Release
+                        },
+                        We = {
+                            row: void 0,
+                            col: void 0,
+                            action0: g.DKSA_None,
+                            action1: g.DKSA_None,
+                            action2: g.DKSA_None,
+                            action3: g.DKSA_None
+                        },
+                        De = {
+                            base: he,
+                            key1: Fe,
+                            key2: We,
+                            key3: We,
+                            key4: We
+                        };
+                    f.find(_e => _e.base.row === te && _e.base.col === B) === void 0 && K([...f, De])
+                } else {
+                    const {
+                        row: te,
+                        col: B
+                    } = l[T];
+                    if (_.find(he => he.row === te && he.col === B)) {
+                        const he = _.filter(Fe => Fe.row !== te && Fe.col !== B);
+                        h(he)
+                    }
+                }
+        },
+        Y = F.useCallback(() => {
+            k()
+        }, [f]);
+    C.useEffect(Y, [f]);
+    const ee = F.useCallback(() => {
+        if (L !== null) {
+            const T = L == null ? void 0 : L.rows,
+                te = L == null ? void 0 : L.cols;
+            u.find(de => de.row === T && de.col === te) && (a(Xg({
+                addDKSMatrix: {
+                    rows: T,
+                    cols: te
+                }
+            })), M(null), P())
+        }
+    }, [L]);
+    return C.useEffect(ee, [L]), F.useEffect(() => (o(!0), () => {}), []), s($t, {
+        shouldForwardProp: T => Wt(T),
+        children: m(ir, {
+            onClose: P,
+            open: c,
+            children: [s(cr, {
+                children: "Set backup account"
+            }), s(yd, {
+                sx: {
+                    pt: 0
+                },
+                children: W_.map(T => s(Sd, {
+                    disableGutters: !0,
+                    children: m(Md, {
+                        onClick: () => ie(),
+                        children: [s(pp, {
+                            children: s(fp, {
+                                sx: {
+                                    bgcolor: yl[100],
+                                    color: yl[600]
+                                },
+                                children: s(By, {})
+                            })
+                        }), s(gp, {
+                            primary: T
+                        })]
+                    })
+                }, T))
+            })]
+        })
+    })
+}
+const Wy = () => {
+        const e = wt(),
+            t = so(),
+            o = p(st);
+        C.useState(!1);
+        const [n, a] = C.useState(!1), [r, i] = C.useState(!1), [c, l] = C.useState(!1), u = p(y1), _ = p(S1), h = p(w1), [f, K] = C.useState(null), [y, L] = C.useState([]), M = p(r_), [P, ie] = C.useState(M), [k, Y] = C.useState([]), [ee, T] = F.useState(!1), [te, B] = F.useState(!1), [de, he] = F.useState(!1), {
+            t: Fe
+        } = Tt(), We = p(K1), De = p(ut);
+        if (!De || !o) return null;
+        const ke = p(Gc),
+            _e = p(E1),
+            ae = p(D1),
+            $ = p(k1),
+            be = p(x1),
+            [ge, ye] = C.useState(0),
+            [xe, He] = C.useState(!1),
+            Ce = p(a_),
+            Ve = p(Ht);
+        let lt = "NanmuSquareRound";
+        switch (Ve) {
+            case "en":
+            default:
+                lt = "Dongle";
+                break;
+            case "ko":
+                lt = "NanmuSquareRound"
+        }
+        const kt = 40,
+            Ct = p(oo),
+            ht = p(Dt),
+            Ne = async () => {
+                if (ke && Ct) {
+                    ht[Ct];
+                    const b = ke.flatMap(R => R.map(G => G));
+                    if (De) {
+                        const {
+                            path: R,
+                            vendorProductId: G,
+                            requiredDefinitionVersion: V
+                        } = De, x = 305419896, E = 0;
+                        for (let N = 0; N < b.length; N++) b[N] = 4294967295;
+                        b[0] = x, b[1] = 0;
+                        const z = await Promise.all(b);
+                        e(Wn({
+                            layerIndex: E,
+                            keymap: z,
+                            devicePath: R
+                        }))
+                    }
+                }
+            };
+        if (ke && Ct) {
+            ht[Ct];
+            const b = ke.flatMap(E => E.map(z => z));
+            let R = !1;
+            const G = 2,
+                V = b[1],
+                x = 305419896;
+            if (V !== void 0)
+                if (V <= kt)
+                    for (let E = 0; E < V; E++) {
+                        let z = G + E * 5;
+                        const w = ke.map(ne => [ne[z++], ne[z++], ne[z++], ne[z++], ne[z++]])[0];
+                        w[0], w[1], w[2], w[3], w[4]
+                    } else b[0] = x, b[1] = 0, R = !0;
+                else b[0] = x, b[1] = 0, R = !0;
+            R && Ne()
+        }
+        const xt = p(b => fn(b) || []),
+            nt = _r(),
+            Mt = p(Sr),
+            rt = p(wr),
+            {
+                basicKeyToByte: Ge
+            } = p(yo),
+            Xe = (b, R, G, V) => x => {
+                x.type === "keydown" && (x.key === "Tab" || x.key === "Shift") || (G !== void 0 && V !== void 0 && Re(G, V), e(Ba({ ...Mt,
+                    [b]: R
+                })), R === !1 && e(Ga(!1)))
+            },
+            Ue = b => s(mp, {
+                backend: Kp,
+                children: s(La, {
+                    component: "div",
+                    sx: {
+                        width: b === "top" || b === "bottom" ? "auto" : 250,
+                        minHeight: "50vh"
+                    },
+                    role: "presentation",
+                    onKeyDown: Xe(b, !1, void 0, void 0),
+                    children: s(Gy, {})
+                })
+            }),
+            Pe = b => {
+                Ct !== null && e(In(Ct, b))
+            };
+        F.useEffect(() => {
+            if (ke && ke.length > 0) {
+                const b = ke.flatMap(x => x.map(E => E)),
+                    R = 2,
+                    G = b[1],
+                    V = 305419896;
+                if (b[0].toString(16) === "12345678") {
+                    const x = new Array;
+                    if (G !== void 0)
+                        if (G <= kt) {
+                            for (let E = 0; E < G; E++) {
+                                let z = R + E * 5;
+                                const w = ke.map(ct => [ct[z++], ct[z++], ct[z++], ct[z++], ct[z++]])[0],
+                                    ne = w[0],
+                                    v = w[1],
+                                    Q = w[2],
+                                    Z = w[3],
+                                    U = w[4],
+                                    re = Df(ne),
+                                    oe = ys(v),
+                                    Qe = ys(Q),
+                                    le = ys(Z),
+                                    pe = ys(U);
+                                let se = {
+                                    row: void 0,
+                                    col: void 0,
+                                    ftp: 20,
+                                    dtp: 72
+                                };
+                                se.row = re[0], se.col = re[1], se.ftp = re[2], se.dtp = re[3];
+                                const at = {
+                                        row: oe[0],
+                                        col: oe[1],
+                                        action0: oe[2],
+                                        action1: oe[3],
+                                        action2: oe[4],
+                                        action3: oe[5]
+                                    },
+                                    ze = {
+                                        row: Qe[0],
+                                        col: Qe[1],
+                                        action0: Qe[2],
+                                        action1: Qe[3],
+                                        action2: Qe[4],
+                                        action3: Qe[5]
+                                    },
+                                    gt = {
+                                        row: le[0],
+                                        col: le[1],
+                                        action0: le[2],
+                                        action1: le[3],
+                                        action2: le[4],
+                                        action3: le[5]
+                                    },
+                                    _t = {
+                                        row: pe[0],
+                                        col: pe[1],
+                                        action0: pe[2],
+                                        action1: pe[3],
+                                        action2: pe[4],
+                                        action3: pe[5]
+                                    };
+                                let Rt = {
+                                    base: se,
+                                    key1: at,
+                                    key2: ze,
+                                    key3: gt,
+                                    key4: _t
+                                };
+                                x.push(Rt)
+                            }
+                            x && x.length > 0 && ie(x)
+                        } else b[0] = V, b[1] = 0;
+                    else b[0] = V, b[1] = 0
+                }
+            }
+            return () => {}
+        }, [ke]), F.useEffect(() => {
+            if (P && P.length > 0) {
+                for (let b = 0; b < P.length; b++) {
+                    const R = P[b].base,
+                        G = P[b].key1,
+                        V = P[b].key2,
+                        x = P[b].key3,
+                        E = P[b].key4;
+                    nt.find(z => z.row === R.row && z.col === R.col), nt.find(z => z.row === G.row && z.col === G.col), nt.find(z => z.row === V.row && z.col === V.col), nt.find(z => z.row === x.row && z.col === x.col), nt.find(z => z.row === E.row && z.col === E.col)
+                }
+                e(Lt({
+                    dksCells: P
+                }))
+            }
+            return () => {}
+        }, [P]), F.useEffect(() => (c && (e(Lt({
+            dksCells: k
+        })), ie(k), Y([]), He(!1), l(!1)), () => {}), [c]);
+        const Re = (b, R) => {
+                for (let G = 0; G < ht.length; G++) {
+                    const {
+                        row: V,
+                        col: x
+                    } = ht[G];
+                    if (V === b && x === R) {
+                        e(Lt({
+                            dksCells: P
+                        })), t(Et(G));
+                        break
+                    }
+                }
+            },
+            J = (b, R) => {
+                if (b !== void 0 && R !== void 0) {
+                    K({
+                        rows: b,
+                        cols: R
+                    });
+                    const G = new Array;
+                    M && M.length > 0 && M.map((V, x) => {
+                        V.base.row === b && V.base.col === R || G.push(V)
+                    }), G && G.length > 0 ? e(Lt({
+                        dksCells: G
+                    })) : e(Lt({
+                        dksCells: G
+                    })), ie(G), he(!0)
+                }
+            },
+            [O, Ie] = F.useState(W_[0]),
+            Ye = b => {
+                e(Ru(!1)), Ie(b)
+            },
+            pt = async () => {
+                if (ae !== null) {
+                    const b = ae == null ? void 0 : ae.rows,
+                        R = ae == null ? void 0 : ae.cols,
+                        G = nt.find(V => V.row === b && V.col === R);
+                    if (G) {
+                        const V = y.find(v => v.row === b && v.col === R),
+                            x = {
+                                row: b,
+                                col: R,
+                                text: G == null ? void 0 : G.name
+                            };
+                        V === void 0 && L([...y, x]);
+                        const E = {
+                                row: b,
+                                col: R,
+                                ftp: 20,
+                                dtp: 72
+                            },
+                            z = {
+                                row: b,
+                                col: R,
+                                action0: g.DKSA_Press,
+                                action1: g.DKSA_None,
+                                action2: g.DKSA_None,
+                                action3: g.DKSA_Release
+                            },
+                            N = {
+                                row: void 0,
+                                col: void 0,
+                                action0: g.DKSA_None,
+                                action1: g.DKSA_None,
+                                action2: g.DKSA_None,
+                                action3: g.DKSA_None
+                            },
+                            w = {
+                                base: E,
+                                key1: z,
+                                key2: N,
+                                key3: N,
+                                key4: N
+                            };
+                        if (P.find(v => v.base.row === b && v.base.col === R) === void 0)
+                            if (i(!0), P.length < 40) {
+                                const v = "CC_DKS";
+                                Jo(v, Ge), Pe(Ao(v, Ge)), ie([...P, w])
+                            } else e(Tu(!0));
+                        else {
+                            const v = new Array;
+                            M && M.length > 0 && M.map((Q, Z) => {
+                                Q.base.row === b && Q.base.col === R || v.push(Q)
+                            }), Y(v)
+                        }
+                    }
+                    e(jg())
+                }
+            },
+            q = async () => {
+                let G = 0;
+                const V = 24;
+                let x = 0;
+                const E = 4096,
+                    z = 305419896;
+                if (ke) {
+                    const N = M.length,
+                        w = ke.flatMap(v => v.map(Q => Q)),
+                        ne = 2;
+                    if (N !== void 0) {
+                        for (let v = 0; v < w.length; v++) w[v] = 4294967295;
+                        if (N <= kt) {
+                            w[0] = z, w[1] = N;
+                            for (let v = 0; v < N; v++) {
+                                let Q = ne + v * 5;
+                                const Z = M[v];
+                                let U = 255,
+                                    re = 255;
+                                Z.base.row !== void 0 && (U = Z.base.row), Z.base.col !== void 0 && (re = Z.base.col);
+                                const oe = Z.base.ftp,
+                                    Qe = Z.base.dtp;
+                                Q = ne + v * 5;
+                                const le = Yr([U, re, oe, Qe]);
+                                w[Q++] = le, U = 255, re = 255, Z.key1.row !== void 0 && (U = Z.key1.row), Z.key1.col !== void 0 && (re = Z.key1.col);
+                                const pe = co([U, re, Z.key1.action0, Z.key1.action1, Z.key1.action2, Z.key1.action3]);
+                                w[Q++] = pe, U = 255, re = 255, Z.key2.row !== void 0 && (U = Z.key2.row), Z.key2.col !== void 0 && (re = Z.key2.col);
+                                const se = co([U, re, Z.key2.action0, Z.key2.action1, Z.key2.action2, Z.key2.action3]);
+                                w[Q++] = se, U = 255, re = 255, Z.key3.row !== void 0 && (U = Z.key3.row), Z.key3.col !== void 0 && (re = Z.key3.col);
+                                const at = co([U, re, Z.key3.action0, Z.key3.action1, Z.key3.action2, Z.key3.action3]);
+                                w[Q++] = at, U = 255, re = 255, Z.key4.row !== void 0 && (U = Z.key4.row), Z.key4.col !== void 0 && (re = Z.key4.col);
+                                const ze = co([U, re, Z.key4.action0, Z.key4.action1, Z.key4.action2, Z.key4.action3]);
+                                w[Q++] = ze
+                            }
+                            if (De) {
+                                const {
+                                    path: v,
+                                    vendorProductId: Q,
+                                    requiredDefinitionVersion: Z
+                                } = De;
+                                if (w) {
+                                    const U = [];
+                                    for (let Qe = 0; Qe < w.length; Qe++) U.push(...bt(w[Qe]));
+                                    if (x = 0, ye(x), U) {
+                                        for (let le = 0; le < U.length; le += E) G = 512e3 + le, await e(tn(3, G, E, De)), o.timeout(50), x = le / U.length * 100, ge !== x && ye(x);
+                                        x = 0, ye(x), o.timeout(1e3);
+                                        for (let le = 0; le < U.length; le += V) await e(on(V, le, 3, 512e3, U, De)), x = le / U.length * 100, ge !== x && ye(x);
+                                        ye(100), e(po(De)), He(!1)
+                                    }
+                                    const re = 0,
+                                        oe = await Promise.all(w);
+                                    await e(Wn({
+                                        layerIndex: re,
+                                        keymap: oe,
+                                        devicePath: v
+                                    }))
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+        F.useEffect(() => (ae !== null && pt(), () => {}), [ae]);
+        const Te = F.useCallback(() => {
+            if (be !== null) {
+                const b = be == null ? void 0 : be.base.row,
+                    R = be == null ? void 0 : be.base.col,
+                    G = new Array;
+                M && M.length > 0 && M.map((x, E) => {
+                    x.base.row === b && x.base.col === R || G.push(x)
+                }), G && G.length > 0 ? e(Lt({
+                    dksCells: G
+                })) : e(Lt({
+                    dksCells: G
+                })), nt.find(x => x.row === b && x.col === R) && (i(!0), e(Jg()))
+            }
+        }, [be]);
+        C.useEffect(Te, [be]);
+        const tt = F.useCallback(() => {
+            _ === !0 && (q(), e(Ri(!1)))
+        }, [_]);
+        C.useEffect(tt, [_]), F.useEffect(() => (a(!0), () => {}), []);
+        const dt = async () => {
+            De && await e(o1(De)), a(!1)
+        };
+        F.useEffect(() => (n === !0 && dt(), () => {}), [n]), F.useEffect(() => {
+            if (De && $ !== null) {
+                const b = $.rows,
+                    R = $.cols,
+                    G = {
+                        row: b,
+                        col: R,
+                        ftp: 20,
+                        dtp: 72
+                    },
+                    V = {
+                        row: b,
+                        col: R,
+                        action0: g.DKSA_Press,
+                        action1: g.DKSA_None,
+                        action2: g.DKSA_None,
+                        action3: g.DKSA_Release
+                    },
+                    x = {
+                        row: void 0,
+                        col: void 0,
+                        action0: g.DKSA_None,
+                        action1: g.DKSA_None,
+                        action2: g.DKSA_None,
+                        action3: g.DKSA_None
+                    },
+                    E = {
+                        base: G,
+                        key1: V,
+                        key2: x,
+                        key3: x,
+                        key4: x
+                    };
+                if (P.find(N => N.base.row === b && N.base.col === R) === void 0) Y([...P, E]);
+                else {
+                    const N = new Array;
+                    P && P.length > 0 && P.map((w, ne) => {
+                        w.base.row === b && w.base.col === R || N.push(w)
+                    }), N && N.length > 0 ? Y([...N, E]) : Y([...N, E])
+                }
+                e(qg())
+            }
+            return () => {}
+        }, [$]);
+        const it = async () => {
+            let G = 0;
+            const V = 24;
+            let x = 0,
+                E = 1e3;
+            const z = 4096,
+                N = 305419896;
+            if (ke) {
+                const w = k.length,
+                    ne = ke.flatMap(Q => Q.map(Z => Z)),
+                    v = 2;
+                if (w !== void 0) {
+                    for (let Q = 0; Q < ne.length; Q++) ne[Q] = 4294967295;
+                    if (w <= kt) {
+                        ne[0] = N, ne[1] = w;
+                        for (let Q = 0; Q < w; Q++) {
+                            let Z = v + Q * 5;
+                            const U = k[Q];
+                            let re = 255,
+                                oe = 255;
+                            U.base.row !== void 0 && (re = U.base.row), U.base.col !== void 0 && (oe = U.base.col);
+                            const Qe = U.base.ftp,
+                                le = U.base.dtp;
+                            Z = v + Q * 5;
+                            const pe = Yr([re, oe, Qe, le]);
+                            ne[Z++] = pe, re = 255, oe = 255, U.key1.row !== void 0 && (re = U.key1.row), U.key1.col !== void 0 && (oe = U.key1.col);
+                            const se = co([re, oe, U.key1.action0, U.key1.action1, U.key1.action2, U.key1.action3]);
+                            ne[Z++] = se, re = 255, oe = 255, U.key2.row !== void 0 && (re = U.key2.row), U.key2.col !== void 0 && (oe = U.key2.col);
+                            const at = co([re, oe, U.key2.action0, U.key2.action1, U.key2.action2, U.key2.action3]);
+                            ne[Z++] = at, re = 255, oe = 255, U.key3.row !== void 0 && (re = U.key3.row), U.key3.col !== void 0 && (oe = U.key3.col);
+                            const ze = co([re, oe, U.key3.action0, U.key3.action1, U.key3.action2, U.key3.action3]);
+                            ne[Z++] = ze, re = 255, oe = 255, U.key4.row !== void 0 && (re = U.key4.row), U.key4.col !== void 0 && (oe = U.key4.col);
+                            const gt = co([re, oe, U.key4.action0, U.key4.action1, U.key4.action2, U.key4.action3]);
+                            ne[Z++] = gt
+                        }
+                        if (De) {
+                            const {
+                                path: Q,
+                                vendorProductId: Z,
+                                requiredDefinitionVersion: U
+                            } = De;
+                            if (ne) {
+                                const re = [];
+                                for (let le = 0; le < ne.length; le++) re.push(...bt(ne[le]));
+                                if (x = 0, ye(x), re) {
+                                    for (let le = 0; le < re.length; le += z) G = 512e3 + le, await e(tn(3, G, z, De)), o.timeout(50), x = le / re.length * 100, ge !== x && ye(x);
+                                    x = 0, ye(x), o.timeout(E);
+                                    for (let le = 0; le < re.length; le += V) await e(on(V, le, 3, 512e3, re, De)), x = le / re.length * 100, ge !== x && ye(x);
+                                    ye(100), e(po(De)), He(!1)
+                                }
+                                const oe = 0,
+                                    Qe = await Promise.all(ne);
+                                await e(Wn({
+                                    layerIndex: oe,
+                                    keymap: Qe,
+                                    devicePath: Q
+                                }))
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        F.useEffect(() => {
+            k && k.length > 0 && (it(), e(Lt({
+                dksCells: k
+            })), Y([]))
+        }, [k]), F.useEffect(() => {
+            if (De && h === !0) {
+                if (M.map((b, R) => {
+                        if (b.base.row !== void 0 && b.base.col !== void 0) {
+                            const G = b.base,
+                                V = b.key1,
+                                x = b.key2,
+                                E = b.key3,
+                                z = b.key4,
+                                N = nt.find(w => w.row === G.row && w.col === G.col);
+                            nt.find(w => w.row === V.row && w.col === V.col), nt.find(w => w.row === x.row && w.col === x.col), nt.find(w => w.row === E.row && w.col === E.col), nt.find(w => w.row === z.row && w.col === z.col), N == null || N.row, N == null || N.col
+                        }
+                    }), Ct !== null) {
+                    const {
+                        row: b,
+                        col: R
+                    } = ht[Ct];
+                    J(b, R)
+                }
+                e(Au(!1))
+            }
+            return () => {}
+        }, [h]);
+        const ue = async () => {
+                if (De) {
+                    const {
+                        path: b
+                    } = De;
+                    if (ke) {
+                        const R = M.length,
+                            G = ke.flatMap(x => x.map(E => E)),
+                            V = 1;
+                        if (R !== void 0 && R <= kt && G[0] !== R) {
+                            G[0] = R;
+                            for (let x = 0; x < R; x++) {
+                                let E = V + x * 20;
+                                const z = M[x];
+                                let N = 255,
+                                    w = 255;
+                                z.base.row && (N = z.base.row), z.base.col && (w = z.base.col);
+                                const ne = z.base.ftp,
+                                    v = z.base.dtp;
+                                E = V + x * 20;
+                                const Q = Yr([N, w, ne, v]);
+                                G[E++] = Q, N = 255, w = 255, z.key1.row && (N = z.key1.row), z.key1.col && (w = z.key1.col);
+                                const Z = co([N, w, z.key1.action0, z.key1.action1, z.key1.action2, z.key1.action3]);
+                                G[E++] = Z, N = 255, w = 255, z.key2.row && (N = z.key2.row), z.key2.col && (w = z.key2.col);
+                                const U = co([N, w, z.key2.action0, z.key2.action1, z.key2.action2, z.key2.action3]);
+                                G[E++] = U, N = 255, w = 255, z.key3.row && (N = z.key3.row), z.key3.col && (w = z.key3.col);
+                                const re = co([N, w, z.key3.action0, z.key3.action1, z.key3.action2, z.key3.action3]);
+                                G[E++] = re, N = 255, w = 255, z.key4.row && (N = z.key4.row), z.key4.col && (w = z.key4.col);
+                                const oe = co([N, w, z.key4.action0, z.key4.action1, z.key4.action2, z.key4.action3]);
+                                G[E++] = oe
+                            }
+                            if (G) {
+                                const E = await Promise.all(G);
+                                await e(Wn({
+                                    layerIndex: 0,
+                                    keymap: E,
+                                    devicePath: b
+                                }))
+                            }
+                        }
+                    }
+                }
+            },
+            fe = (b, R) => {
+                if (b !== void 0 && R !== void 0) {
+                    const G = new Array;
+                    M && M.length > 0 && M.map((V, x) => {
+                        V.base.row === b && V.base.col === R || G.push(V)
+                    }), be && G.push(be), Y(G), He(!0)
+                }
+            };
+        F.useEffect(() => {
+            u && (be && fe(be.base.row, be.base.col), e(Ba({ ...Mt,
+                [rt]: !1
+            })), t(Ga(!1)))
+        }, [u]), F.useEffect(() => {}, [Ce]);
+        const qe = async () => {
+                B(!0), He(!0)
+            },
+            D = async () => {
+                let G = 0;
+                const V = 24;
+                let x = 0;
+                const E = 4096,
+                    z = 305419896;
+                for (let N = 0; N < xt.length; N++)
+                    if (xt[N] == 32278) {
+                        const {
+                            row: w,
+                            col: ne
+                        } = ht[N], v = nt.find(Q => Q.row === w && Q.col === ne);
+                        if (v) {
+                            const Q = v.code;
+                            Jo(Q, Ge), await e(In(N, Ao(Q, Ge)))
+                        }
+                    }
+                if (ie([]), ke) {
+                    const w = ke.flatMap(v => v.map(Q => Q)),
+                        ne = 1e3; {
+                        for (let v = 0; v < w.length; v++) w[v] = 4294967295;
+                        if (w[0] = z, w[1] = 0, De) {
+                            const {
+                                path: v,
+                                vendorProductId: Q,
+                                requiredDefinitionVersion: Z
+                            } = De, U = 0, re = await Promise.all(w);
+                            if (e(Wn({
+                                    layerIndex: U,
+                                    keymap: re,
+                                    devicePath: v
+                                })), w) {
+                                const oe = [];
+                                for (let Qe = 0; Qe < w.length; Qe++) oe.push(...bt(w[Qe]));
+                                if (x = 0, ye(x), oe) {
+                                    for (let Qe = 0; Qe < oe.length; Qe += E) G = 512e3 + Qe, await e(tn(3, G, E, De)), o.timeout(50), x = Qe / oe.length * 100, ge !== x && ye(x);
+                                    x = 0, ye(x), o.timeout(ne);
+                                    for (let Qe = 0; Qe < oe.length; Qe += V) await e(on(V, Qe, 3, 512e3, oe, De)), x = Qe / oe.length * 100, ge !== x && ye(x);
+                                    ye(100), await e(po(De)), He(!1)
+                                }
+                            }
+                        }
+                    }
+                }
+                De && await e(po(De)), e(Lt({
+                    dksCells: []
+                }))
+            },
+            I = async () => {
+                if (f !== null) {
+                    const b = f == null ? void 0 : f.rows,
+                        R = f == null ? void 0 : f.cols,
+                        G = nt.find(V => V.row === b && V.col === R);
+                    if (G) {
+                        const V = G.code;
+                        Jo(V, Ge);
+                        for (let x = 0; x < ht.length; x++) {
+                            const {
+                                row: E,
+                                col: z
+                            } = ht[x];
+                            if (E === b && z === R) {
+                                const N = G.code;
+                                Jo(N, Ge), await e(In(x, Ao(N, Ge)));
+                                break
+                            }
+                        }
+                    }
+                    e(Ri(!0))
+                }
+            };
+        return F.useEffect(() => {
+            te && (D(), B(!1), He(!1))
+        }, [te]), F.useEffect(() => {
+            de && (I(), he(!1))
+        }, [de]), F.useEffect(() => {}, [ee]), F.useEffect(() => {
+            M && r === !0 && i(!1)
+        }, [M]), F.useEffect(() => {
+            _e && ue()
+        }, [_e]), s(Ke, {
+            children: s(to, {
+                children: m($t, {
+                    shouldForwardProp: b => Wt(b),
+                    children: [xe && s(Ke, {
+                        children: m(Zc, {
+                            children: [s(me, {
+                                children: "Progress===="
+                            }), s(jc, {
+                                children: s(qc, {
+                                    percentage: ge
+                                })
+                            })]
+                        })
+                    }), Ce && s(Fy, {}), m(Cn, {
+                        children: [s(jr, {
+                            children: s(Oe, {
+                                children: s(Eo, {
+                                    children: s(Be, {
+                                        children: Fe("To set it up, first select a key on your keyboard to add the DKS function.")
+                                    })
+                                })
+                            })
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: Fe("Reset DKS")
+                            }), s(Be, {
+                                children: Fe("Reset DKS Info")
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: qe,
+                                    fontfamily: lt,
+                                    children: Fe("Reset")
+                                })
+                            })]
+                        }), m("div", {
+                            children: [s("br", {}), s(jr, {
+                                children: m(dp, {
+                                    variant: "subtitle1",
+                                    component: "div",
+                                    children: ["Binding: ", P.length.toString(), " / 40"]
+                                })
+                            }), s(jr, {
+                                children: s(Eo, {
+                                    children: s(Be, {
+                                        children: Fe("Click on the list to edit.")
+                                    })
+                                })
+                            }), s(Hy, {}), s($y, {
+                                selectedValue: O,
+                                open: We,
+                                onClose: Ye
+                            })]
+                        }), s("div", {
+                            children: ["bottom"].map(b => s(F.Fragment, {
+                                children: s(up, {
+                                    anchor: b,
+                                    open: Mt[b],
+                                    onClose: Xe(b, !1, void 0, void 0),
+                                    children: Ue(b)
+                                })
+                            }, b))
+                        }), s(yd, {
+                            sx: {
+                                width: "100%",
+                                maxWidth: 430,
+                                bgcolor: "background.paper"
+                            },
+                            children: P.length > 0 ? P.map((b, R) => {
+                                if (b.base.row !== void 0 && b.base.col !== void 0) {
+                                    const G = b.base,
+                                        V = b.key1,
+                                        x = b.key2,
+                                        E = b.key3,
+                                        z = b.key4,
+                                        N = nt.find(re => re.row === G.row && re.col === G.col),
+                                        w = nt.find(re => re.row === V.row && re.col === V.col),
+                                        ne = nt.find(re => re.row === x.row && re.col === x.col),
+                                        v = nt.find(re => re.row === E.row && re.col === E.col),
+                                        Q = nt.find(re => re.row === z.row && re.col === z.col),
+                                        Z = N == null ? void 0 : N.row,
+                                        U = N == null ? void 0 : N.col;
+                                    return s(La, {
+                                        component: "div",
+                                        height: 50,
+                                        width: "99%",
+                                        my: 1,
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: 1,
+                                        p: 0,
+                                        sx: {
+                                            border: "2px solid grey"
+                                        },
+                                        children: s(Sd, {
+                                            secondaryAction: s(wd, {
+                                                edge: "end",
+                                                "aria-label": "delete",
+                                                onClick: () => J(Z, U),
+                                                children: s(_p, {})
+                                            }),
+                                            disablePadding: !0,
+                                            children: m(Md, {
+                                                role: void 0,
+                                                onClick: Xe("bottom", !0, N == null ? void 0 : N.row, N == null ? void 0 : N.col),
+                                                dense: !0,
+                                                children: [s(hp, {
+                                                    children: s(Ey, {
+                                                        children: N == null ? void 0 : N.name
+                                                    })
+                                                }), s("div", {}), s("div", {}), s("div", {}), s(Da, {
+                                                    orientation: "vertical",
+                                                    variant: "middle",
+                                                    flexItem: !0
+                                                }), s(Rs, {
+                                                    children: w == null ? void 0 : w.name
+                                                }), s(Rs, {
+                                                    children: ne == null ? void 0 : ne.name
+                                                }), s(Rs, {
+                                                    children: v == null ? void 0 : v.name
+                                                }), s(Rs, {
+                                                    children: Q == null ? void 0 : Q.name
+                                                }), s(Da, {
+                                                    orientation: "vertical",
+                                                    variant: "middle",
+                                                    flexItem: !0
+                                                })]
+                                            })
+                                        }, N == null ? void 0 : N.name)
+                                    }, N == null ? void 0 : N.name)
+                                }
+                            }) : s(Ke, {
+                                children: " "
+                            })
+                        }, "dkslist")]
+                    })]
+                })
+            })
+        })
+    },
+    Vy = xy,
+    Yy = ky,
+    ec = Object.freeze(Object.defineProperty({
+        __proto__: null,
+        Icon: Vy,
+        Pane: Wy,
+        Title: Yy
+    }, Symbol.toStringTag, {
+        value: "Module"
+    })),
+    zy = e => m("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "24",
+        height: "24",
+        viewBox: "0 0 24 24",
+        children: [s("path", {
+            d: "M0 0h24v24H0z",
+            fill: "none"
+        }), s("path", {
+            d: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z",
+            fill: "currentColor"
+        })]
+    }),
+    Xy = "Layouts",
+    Qy = zy,
+    jy = e => {
+        const {
+            onChange: t,
+            meta: o
+        } = e, {
+            labels: n,
+            selectedOption: a
+        } = o;
+        if (Array.isArray(n)) {
+            const [r, ...i] = n, c = i.map((l, u) => ({
+                label: l,
+                value: `${u}`
+            }));
+            return m(Oe, {
+                children: [s(me, {
+                    children: r
+                }), s(Se, {
+                    children: s(fo, {
+                        defaultValue: c[a],
+                        options: c,
+                        onChange: l => {
+                            l && t(+l.value)
+                        }
+                    })
+                })]
+            })
+        } else return m(Oe, {
+            children: [s(me, {
+                children: n
+            }), s(Se, {
+                children: s(Qt, {
+                    isChecked: !!a,
+                    onChange: r => t(+r)
+                })
+            })]
+        })
+    },
+    qy = S(uo)
+`
+  height: 100%;
+  background: var(--color_dark_grey);
+`, Zy = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, Jy = () => {
+    const e = wt(),
+        t = p($e),
+        o = p(Rc);
+    if (!t || !o) return null;
+    const {
+        layouts: n
+    } = t, a = n.labels || [];
+    return s(to, {
+        children: s(qy, {
+            children: s(Zy, {
+                children: a.map((r, i) => s(jy, {
+                    onChange: c => e(vg(i, c)),
+                    meta: {
+                        labels: r,
+                        selectedOption: o[i]
+                    }
+                }, i))
+            })
+        })
+    })
+}, eS = Xy, tS = Qy, Va = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    Icon: tS,
+    Pane: Jy,
+    Title: eS
+}, Symbol.toStringTag, {
+    value: "Module"
+})), Lr = 2, vr = 3, gn = {
+    ENABLED_ENCODER_MODES: 128,
+    OLED_DEFAULT_MODE: 129,
+    ENCODER_CUSTOM: 130,
+    OLED_MODE: 131
+}, oS = async e => {
+    const t = [gn.ENABLED_ENCODER_MODES],
+        [, , o] = await e.hidCommand(Lr, t);
+    return o
+}, nS = async (e, t) => {
+    const o = [gn.ENABLED_ENCODER_MODES, t];
+    await e.hidCommand(vr, o)
+}, aS = async e => {
+    const t = [gn.OLED_DEFAULT_MODE],
+        [, , o] = await e.hidCommand(Lr, t);
+    return o
+}, sS = async (e, t) => {
+    const o = [gn.OLED_DEFAULT_MODE, t];
+    await e.hidCommand(vr, o)
+}, rS = async e => {
+    const t = [gn.OLED_MODE],
+        [, , o] = await e.hidCommand(Lr, t);
+    return o
+}, iS = async (e, t) => {
+    const o = [gn.OLED_MODE, t];
+    await e.hidCommand(vr, o)
+}, ai = async (e, t) => {
+    const o = [gn.ENCODER_CUSTOM, t],
+        n = await e.hidCommand(Lr, o),
+        [, , , a, r, i, c, l, u] = n;
+    return [a << 8 | r, i << 8 | c, l << 8 | u]
+}, cS = async (e, t, o, n) => {
+    const a = (n & 65280) >> 8,
+        r = n & 255,
+        i = [gn.ENCODER_CUSTOM, t, o, a, r];
+    await e.hidCommand(vr, i)
+}, ad = {
+    ENC_MODE_VOLUME: 0,
+    ENC_MODE_MEDIA: 1,
+    ENC_MODE_SCROLL: 2,
+    ENC_MODE_BRIGHTNESS: 3,
+    ENC_MODE_BACKLIGHT: 4,
+    ENC_MODE_CUSTOM0: 5,
+    ENC_MODE_CUSTOM1: 6,
+    ENC_MODE_CUSTOM2: 7
+}, si = {
+    ENC_MODE_VOLUME: "Volume",
+    ENC_MODE_MEDIA: "Media",
+    ENC_MODE_SCROLL: "Scroll",
+    ENC_MODE_BRIGHTNESS: "Brightness",
+    ENC_MODE_BACKLIGHT: "Backlight",
+    ENC_MODE_CUSTOM0: "Custom 0",
+    ENC_MODE_CUSTOM1: "Custom 1",
+    ENC_MODE_CUSTOM2: "Custom 2"
+}, lS = S.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`, dS = S.div `
+  display: flex;
+  flex-direction: column;
+`;
+class uS extends F.Component {
+    constructor() {
+        super(...arguments);
+        et(this, "handleInputChange", o => {
+            const {
+                enabledModes: n,
+                onChange: a
+            } = this.props, {
+                target: {
+                    checked: r,
+                    name: i
+                }
+            } = o, c = 1 << ad[i], l = r ? n | c : n & ~c;
+            a(l)
+        });
+        et(this, "isChecked", o => (1 << o & this.props.enabledModes) > 0)
+    }
+    render() {
+        return m(lS, {
+            children: [s("h3", {
+                children: "Enabled Encoder Modes:"
+            }), s("p", {
+                children: "Only the selected encoder modes will be available on the keyboard"
+            }), s(dS, {
+                children: Object.entries(ad).map(([o, n]) => m("label", {
+                    htmlFor: si[o],
+                    children: [s("input", {
+                        name: o,
+                        id: si[o],
+                        type: "checkbox",
+                        checked: this.isChecked(n),
+                        onChange: this.handleInputChange
+                    }, n), si[o]]
+                }, n))
+            })]
+        })
+    }
+}
+const V_ = S.input `
+  border: none;
+  border-bottom: 1px solid var(--bg_control);
+  color: var(--color_accent);
+  background: var(--bg_menu);
+  transition: all 0.4s ease-out;
+  font-size: 18px;
+  margin-bottom: 25px;
+  height: 30px;
+  padding: 0 5px;
+  &:focus {
+    outline: none;
+    color: var(--color_accent);
+    border-color: var(--color_accent);
+  }
+  &::placeholder {
+    color: var(--bg_control);
+  }
+`,
+    _S = S(V_)
+`
+  border-color: #d15e5e;
+  color: #d15e5e;
+`;
+class hS extends F.Component {
+    constructor(o) {
+        super(o);
+        et(this, "handleChange", o => {
+            const n = o.target.value;
+            this.setState({
+                currentValue: n
+            })
+        });
+        et(this, "handleBlur", o => {
+            const {
+                onBlur: n,
+                basicKeyToByte: a
+            } = this.props, {
+                lastDefault: r
+            } = this.state, i = o.target.value.trim().toUpperCase(), c = Zn(i, a);
+            Object.keys(a).includes(i) ? (r !== a[i] && n(a[i]), this.setState({
+                isError: !1
+            })) : c !== 0 ? (r !== c && n(c), this.setState({
+                isError: !1
+            })) : new RegExp(/^0x[0-9A-Fa-f]{1,4}$/g).test(o.target.value.trim()) ? (n(parseInt(o.target.value.trim(), 16)), this.setState({
+                isError: !1
+            })) : this.setState({
+                isError: !0
+            })
+        });
+        const {
+            defaultValue: n,
+            basicKeyToByte: a,
+            byteToKey: r
+        } = o;
+        let i = Xs(n, a, r);
+        this.state = {
+            lastDefault: n,
+            defaultValueAsString: i,
+            currentParsed: n,
+            currentValue: i,
+            isError: !1
+        }
+    }
+    static getDerivedStateFromProps(o, n) {
+        return n.lastDefault !== o.defaultValue && n.currentParsed !== o.defaultValue ? { ...n,
+            currentValue: Xs(o.defaultValue, o.basicKeyToByte, o.byteToKey),
+            currentParsed: o.defaultValue,
+            lastDefault: o.defaultValue
+        } : n
+    }
+    render() {
+        const {
+            currentValue: o,
+            isError: n
+        } = this.state;
+        return s(n ? _S : V_, {
+            type: "text",
+            placeholder: this.props.defaultValue ? this.state.defaultValueAsString : "KC_NO, 0xFF, etc.",
+            value: o,
+            onChange: this.handleChange,
+            onBlur: this.handleBlur,
+            className: this.props.className
+        })
+    }
+}
+const CS = S.div `
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
+`,
+    pS = S.span `
+  font-weight: 650;
+  margin-right: 8px;
+  width: 80px;
+`,
+    ri = S(hS)
+`
+  width: 64px;
+  margin-right: 8px;
+`, ii = e => {
+    const {
+        encoderIdx: t,
+        onChange: o,
+        title: n,
+        behaviors: [a, r, i]
+    } = e, {
+        basicKeyToByte: c,
+        byteToKey: l
+    } = p(yo), u = (_, h) => {
+        o(t, h, _)
+    };
+    return m(CS, {
+        children: [s(pS, {
+            children: n
+        }), s(ri, {
+            defaultValue: a,
+            basicKeyToByte: c,
+            byteToKey: l,
+            onBlur: _ => u(_, 0)
+        }), s(ri, {
+            defaultValue: r,
+            basicKeyToByte: c,
+            byteToKey: l,
+            onBlur: _ => u(_, 1)
+        }), s(ri, {
+            defaultValue: i,
+            basicKeyToByte: c,
+            byteToKey: l,
+            onBlur: _ => u(_, 2)
+        })]
+    })
+}, fS = S.div `
+  display: flex;
+  color: #717070;
+  padding: 24px;
+  font-family: NanmuSquareRound;
+  h3 {
+    margin: 4px 0;
+  }
+  p {
+    margin: 4px 0 8px 0;
+    width: 288px;
+    font-size: 13px;
+    text-align: center;
+  }
+`, ci = S.div `
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+`, sd = S.div `
+  width: 156px;
+  margin-bottom: 12px;
+`, gS = S.div `
+  padding-left: 112px;
+  display: flex;
+  flex-direction: row;
+`, li = S.span `
+  font-weight: 650;
+  margin-right: 8px;
+  width: 64px;
+`, Ts = [{
+    value: 0,
+    label: "Default"
+}, {
+    value: 1,
+    label: "Time"
+}, {
+    value: 2,
+    label: "Off"
+}], mS = () => {
+    const e = p(st);
+    return e ? s(KS, {
+        api: e
+    }) : null
+};
+class KS extends C.Component {
+    constructor() {
+        super(...arguments);
+        et(this, "state", {
+            enabledModes: 31,
+            defaultOLEDMode: 0,
+            currOLEDMode: 0,
+            encoderBehaviors: [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0]
+            ]
+        });
+        et(this, "fetchDataAndSet", async () => {
+            const {
+                api: o
+            } = this.props, n = [oS(o), aS(o), rS(o), ai(o, 0), ai(o, 1), ai(o, 2)], [a, r, i, c, l, u] = await Promise.all(n);
+            this.setState({
+                enabledModes: a,
+                defaultOLEDMode: r,
+                currOLEDMode: i,
+                encoderBehaviors: [c, l, u]
+            })
+        });
+        et(this, "onEncoderModeChange", o => {
+            const {
+                api: n
+            } = this.props, {
+                enabledModes: a
+            } = this.state;
+            a !== o && (this.setState({
+                enabledModes: o
+            }), nS(n, o))
+        });
+        et(this, "onEncoderCustomConfigChange", (o, n, a) => {
+            const {
+                api: r
+            } = this.props, i = [...this.state.encoderBehaviors];
+            i[o][n] = a, this.setState({
+                encoderBehaviors: i
+            }), cS(r, o, n, a)
+        });
+        et(this, "onOLEDDefaultChange", o => {
+            const {
+                value: n
+            } = o, {
+                api: a
+            } = this.props, {
+                defaultOLEDMode: r
+            } = this.state;
+            r !== n && (this.setState({
+                defaultOLEDMode: n
+            }), sS(a, n))
+        });
+        et(this, "onOLEDChange", o => {
+            const {
+                value: n
+            } = o, {
+                api: a
+            } = this.props, {
+                currOLEDMode: r
+            } = this.state;
+            r !== n && (this.setState({
+                currOLEDMode: n
+            }), iS(a, n))
+        })
+    }
+    componentDidMount() {
+        this.fetchDataAndSet()
+    }
+    render() {
+        const {
+            api: o
+        } = this.props, {
+            enabledModes: n,
+            defaultOLEDMode: a,
+            currOLEDMode: r,
+            encoderBehaviors: i
+        } = this.state;
+        return o ? m(fS, {
+            children: [s(ci, {
+                children: s(uS, {
+                    onChange: this.onEncoderModeChange,
+                    enabledModes: n
+                })
+            }), m(ci, {
+                children: [s("h3", {
+                    children: "Default OLED Mode:"
+                }), s("p", {
+                    children: "This is the OLED mode that will be selected by default when you plug in your keyboard."
+                }), s(sd, {
+                    children: s(mi, {
+                        value: Ts.find(c => c.value === a),
+                        onChange: this.onOLEDDefaultChange,
+                        options: Ts
+                    })
+                }), s("h3", {
+                    children: "Current OLED Mode:"
+                }), m("p", {
+                    children: ["Change your ", "keyboard's", " current OLED mode"]
+                }), s(sd, {
+                    children: s(mi, {
+                        value: Ts.find(c => c.value === r),
+                        onChange: this.onOLEDChange,
+                        options: Ts,
+                        menuPlacement: "top"
+                    })
+                })]
+            }), m(ci, {
+                children: [s("h3", {
+                    children: "Custom Encoder Configuration:"
+                }), s("p", {
+                    children: "Configure the behavior of encoder custom modes"
+                }), m(gS, {
+                    children: [s(li, {
+                        children: "CW"
+                    }), s(li, {
+                        children: "CCW"
+                    }), s(li, {
+                        children: "Press"
+                    })]
+                }), s(ii, {
+                    title: "Custom 0",
+                    encoderIdx: 0,
+                    behaviors: i[0],
+                    onChange: this.onEncoderCustomConfigChange
+                }), s(ii, {
+                    title: "Custom 1",
+                    encoderIdx: 1,
+                    behaviors: i[1],
+                    onChange: this.onEncoderCustomConfigChange
+                }), s(ii, {
+                    title: "Custom 2",
+                    encoderIdx: 2,
+                    behaviors: i[2],
+                    onChange: this.onEncoderCustomConfigChange
+                })]
+            })]
+        }) : null
+    }
+}
+const rd = 16.187,
+    yS = e => s("svg", {
+        width: rd,
+        height: rd,
+        ...e,
+        children: s("path", {
+            d: "M10.791 5.4H5.4v5.4h5.4zM8.991 9h-1.8V7.2h1.8zm7.194-1.8V5.4h-1.8V3.6a1.8 1.8 0 00-1.8-1.8h-1.8V0h-1.8v1.8h-1.8V0H5.4v1.8H3.6a1.8 1.8 0 00-1.8 1.8v1.8H0v1.8h1.8V9H0v1.8h1.8v1.8a1.8 1.8 0 001.8 1.8h1.8v1.8h1.8v-1.8H9v1.8h1.8v-1.8h1.8a1.8 1.8 0 001.8-1.8v-1.8h1.8V9h-1.8V7.2zm-3.6 5.4H3.6v-9h8.99z",
+            fill: "currentColor"
+        })
+    }),
+    SS = mS,
+    wS = "Custom Features",
+    MS = yS,
+    Y_ = Object.freeze(Object.defineProperty({
+        __proto__: null,
+        Icon: MS,
+        Pane: SS,
+        Title: wS
+    }, Symbol.toStringTag, {
+        value: "Module"
+    })),
+    bS = S.div `
+  position: absolute;
+  left: 15px;
+  font-weight: 400;
+  top: 10px;
+`,
+    DS = S.label `
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--color_label-highlighted);
+  margin-right: 6px;
+`,
+    kS = S.button `
+  outline: none;
+  font-variant-numeric: tabular-nums;
+  border: none;
+  background: ${e=>e.$selected?"var(--color_accent)":"transparent"};
+  color: ${e=>e.$selected?"var(--color_inside-accent)":"var(--color_label-highlighted)"};
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  &:hover {
+    border: none;
+    background: ${e=>e.$selected?"auto":"var(--bg_menu)"};
+    color: ${e=>e.$selected?"auto":"var(--color_label-highlighted)"};
+  }
+`,
+    xS = () => {
+        const e = so(),
+            t = p(Mr),
+            o = p(Bn),
+            n = C.useMemo(() => new Array(t).fill(0).map((a, r) => r).map(a => s(kS, {
+                $selected: a === o,
+                onClick: () => e(xu(a)),
+                children: a
+            }, a)), [t, o]);
+        return m(bS, {
+            children: [s(DS, {
+                children: "Layer"
+            }), n]
+        })
+    },
+    z_ = (e, t) => {
+        const o = {
+            retriesLeft: e,
+            timeoutWait: t
+        };
+        return {
+            retry: i => {
+                o.retriesLeft = o.retriesLeft - 1, o.retriesLeft <= 0 ? console.error("Exhausted all retries") : (setTimeout(i, o.timeoutWait), o.timeoutWait = o.timeoutWait * 2)
+            },
+            clear: () => {
+                o.retriesLeft = e, o.timeoutWait = t
+            },
+            retriesLeft: () => o.retriesLeft >= 1
+        }
+    },
+    di = z_(8, 100),
+    RS = e => async (t, o) => {
+        t(_a());
+        const n = On(o())[e];
+        n && t(Jc(n))
+    },
+    Jc = e => async t => {
+        const o = lo(e);
+        try {
+            t(fr(e)), t(lg(e)), t(Ig());
+            const {
+                protocol: n
+            } = e;
+            try {
+                n < 11 ? t(B1(e)) : n >= 11 && t(jm(e))
+            } catch {
+                t(xo({
+                    message: "Loading lighting/menu data failed",
+                    deviceInfo: o
+                }))
+            }
+            t(s1(e)), t(Lc(e)), t(a1(e)), t(Ia(!1)), await t(t1(e)), di.clear()
+        } catch (n) {
+            di.retriesLeft() ? (t(xo({
+                message: "Loading device failed - retrying",
+                deviceInfo: o
+            })), di.retry(() => {
+                t(Jc(e))
+            })) : (t(xo({
+                message: "All retries failed for attempting connection with device",
+                deviceInfo: o
+            })), console.log("Hard resetting device store:", n), t(pr()))
+        }
+    },
+    _a = () => async (e, t) => {
+        const o = t(),
+            n = io(o),
+            a = ag(o);
+        if (!ng(o)) {
+            const i = Dc(o),
+                c = await Af(i, a),
+                l = await Promise.all(c.map(y => new dc(y.path).getProtocolVersion())),
+                u = c.filter((y, L) => l[L] === -1);
+            u.length && u.forEach(y => {
+                const L = lo(y);
+                e(xo({
+                    message: "Received invalid protocol version from device",
+                    deviceInfo: L
+                }))
+            });
+            const _ = c.filter((y, L) => l[L] !== -1).map((y, L) => {
+                const {
+                    path: M,
+                    productId: P,
+                    vendorId: ie,
+                    productName: k
+                } = y, Y = l[L];
+                return {
+                    path: M,
+                    productId: P,
+                    vendorId: ie,
+                    protocol: Y,
+                    productName: k,
+                    hasResolvedDefinition: !1,
+                    requiredDefinitionVersion: Y >= 11 ? "v3" : "v2",
+                    vendorProductId: Ro(y.vendorId, y.productId)
+                }
+            });
+            e(Og(_));
+            const h = Nn(t()),
+                f = _.filter((y, L) => Gl(y, h)).reduce((y, L, M) => (y[L.path] = { ...L,
+                    hasResolvedDefinition: !0
+                }, y), {});
+            _.filter(y => !Gl(y, h)).forEach(ff);
+            const K = Object.entries(f);
+            if (K.forEach(([y, L]) => {}), e(J0(f)), (!n || !f[n]) && K.length > 0) {
+                const y = K[0][1];
+                e(Jc(y))
+            } else K.length === 0 && (e(fr(null)), e(pr()), e(tg(!0)))
+        }
+    },
+    AS = () => async e => {
+        await vf(), await e(eg(Pf())), await e(Mu(If())), await e(Pg()), await e(_a())
+    },
+    ss = /Electron/.test(navigator.userAgent),
+    TS = S.div `
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  font-size: 18px;
+  pointer-events: none;
+  font-weight: 400;
+`,
+    LS = S.label `
+  pointer-events: all;
+  display: inline-block;
+  background: var(--color_accent);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--color_inside-accent);
+  padding: 1px 10px;
+  margin-right: 10px;
+  border: solid 1px var(--bg_control);
+  border-top: none;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  &:hover {
+    filter: brightness(0.7);
+  }
+`,
+    vS = S.ul `
+  padding: 0;
+  border: 1px solid var(--bg_control);
+  width: 160px;
+  border-radius: 6px;
+  background-color: var(--bg_menu);
+  margin: 0;
+  margin-top: 5px;
+  right: 10px;
+  position: absolute;
+  pointer-events: ${e=>e.$show?"all":"none"};
+  transition: all 0.2s ease-out;
+  z-index: 11;
+  opacity: ${e=>e.$show?1:0};
+  overflow: hidden;
+  transform: ${e=>e.$show?0:"translateY(-5px)"};
+`,
+    id = S.button `
+  display: block;
+  text-align: center;
+  outline: none;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  border: none;
+  background: ${e=>e.$selected?"var(--bg_icon-highlighted)":"transparent"};
+  color: ${e=>e.$selected?"var(--color_icon_highlighted)":"var(--color_label-highlighted)"};
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  &:hover {
+    border: none;
+    background: ${e=>e.$selected?"var(--bg_icon-highlighted)":"var(--bg_control)"};
+    color: ${e=>e.$selected?"var(--color_control-highlighted)":"var(--color_label-highlighted)"};
+  }
+`,
+    ES = S.div `
+  position: fixed;
+  z-index: 10;
+  pointer-events: all;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  background: rgba(0, 0, 0, 0.75);
+`,
+    PS = e => {
+        const t = async () => {
+            const o = await cc.requestDevice();
+            o && e.selectKeyboard(o.__path)
+        };
+        return m(Ke, {
+            children: [e.show && s(ES, {
+                onClick: e.onClickOut
+            }), m(vS, {
+                $show: e.show,
+                children: [e.keyboards.map(([o, n]) => s(id, {
+                    $selected: o === e.selectedPath,
+                    onClick: () => e.selectKeyboard(o),
+                    children: n.name
+                }, o)), !ss && m(id, {
+                    onClick: t,
+                    children: ["Authorize New", s(Kt, {
+                        icon: Ya,
+                        style: {
+                            marginLeft: "10px"
+                        }
+                    })]
+                })]
+            })]
+        })
+    },
+    IS = () => {
+        const e = wt(),
+            t = p(Nn),
+            o = p($e),
+            n = p(On),
+            a = p(io),
+            [r, i] = C.useState(!1),
+            c = C.useMemo(() => Object.entries(n).map(([l, u]) => [l, t[u.vendorProductId] && t[u.vendorProductId][u.requiredDefinitionVersion]]).filter(l => l[1]), [n, t]);
+        return !o || !a ? null : s(Ke, {
+            children: m(TS, {
+                children: [m(LS, {
+                    onClick: () => i(!r),
+                    children: [o.name, s(Kt, {
+                        icon: yp,
+                        style: {
+                            transform: r ? "rotate(180deg)" : "",
+                            transition: "transform 0.2s ease-out",
+                            marginLeft: "5px"
+                        }
+                    })]
+                }), s(PS, {
+                    show: r,
+                    selectedPath: a,
+                    keyboards: c,
+                    onClickOut: () => i(!1),
+                    selectKeyboard: l => {
+                        e(RS(l)), i(!1)
+                    }
+                })]
+            })
+        })
+    },
+    ui = z_(8, 100),
+    X_ = e => async t => {
+        const o = lo(e);
+        try {
+            t(yu(e)), ui.clear()
+        } catch {
+            ui.retriesLeft() ? (t(xo({
+                message: "Loading device failed - retrying",
+                deviceInfo: o
+            })), ui.retry(() => {
+                t(X_(e))
+            })) : (t(xo({
+                message: "All retries failed for attempting connection with device",
+                deviceInfo: o
+            })), t(kc()))
+        }
+    },
+    Q_ = () => async (e, t) => {
+        const o = t(),
+            n = mr(o),
+            c = (await Tf(!0)).map((u, _) => {
+                const {
+                    path: h,
+                    productId: f,
+                    vendorId: K,
+                    productName: y
+                } = u;
+                return {
+                    path: h,
+                    productId: f,
+                    vendorId: K,
+                    productName: y,
+                    vendorProductId: Ro(u.vendorId, u.productId)
+                }
+            }).reduce((u, _, h) => (u[_.path] = { ..._
+            }, u), {}),
+            l = Object.entries(c);
+        if (l.forEach(([u, _]) => {
+                console.info("Setting connected device update:", _.protocol, u, _)
+            }), e(gg(c)), !n && l.length > 0) {
+            const u = l[0][1];
+            e(X_(u))
+        } else l.length === 0 && (e(yu(null)), e(kc()), e(en(!1)))
+    },
+    OS = S.div `
+  padding: 15px 10px 20px 10px;
+`;
+[...Ym([])];
+
+function NS(e) {
+    return e.find(t => t === X.CustomFeaturesV2.RotaryEncoder) ? [Y_] : []
+}
+const GS = () => {
+        const e = p(dg),
+            t = p(Jm),
+            o = p($e),
+            n = p(Mr),
+            a = p(Oc);
+        return o ? X.isVIADefinitionV2(o) ? BS(o, e, n) : X.isVIADefinitionV3(o) ? a === 1 ? [...tc(o, e, n, [Ha, Va, $a, Wa, Ji, ec, B_])] : [...tc(o, e, n, [Ha, Va, $a, Wa, Ji, ec]), ...t] : [] : []
+    },
+    tc = (e, t, o, n) => {
+        const {
+            layouts: a
+        } = e;
+        let r = [];
+        return a.optionKeys && Object.entries(a.optionKeys).length !== 0 || (r = [...r, Va]), o === 0 && (r = [...r, Ha, Wa]), t || (r = [...r, $a]), n.filter(c => !r.includes(c))
+    },
+    BS = (e, t, o) => {
+        let n = [Ha, Va, $a, Wa];
+        if (X.isVIADefinitionV2(e)) {
+            const {
+                lighting: a,
+                customFeatures: r
+            } = e, {
+                supportedLightingValues: i
+            } = X.getLightingDefinition(a);
+            i.length !== 0 && (n = [...n, G_]), r && (n = [...n, ...NS(r)])
+        }
+        return tc(e, t, o, n)
+    };
+
+function US() {
+    const {
+        t: e
+    } = Tt(), t = wt(), o = p(s_), [n, a] = F.useState(o), r = p(Ic), i = zs(r), c = p(Nc), l = zs(c), u = p(ut), _ = `${i[0]}.${i[1]}${i[2]} => ${l[0]}.${l[1]}${l[2]}`, h = async () => {
+        u && (await t(Nu(1, u)), t(gu(!0)), t(pr()), t(en(!1)), t(Ia(!0))), t(er(!1)), a(!1)
+    }, f = () => {
+        t(er(!1)), a(!1)
+    };
+    return s(F.Fragment, {
+        children: m(ir, {
+            open: n,
+            onClose: f,
+            "aria-labelledby": "alert-dialog-title",
+            "aria-describedby": "alert-dialog-description",
+            children: [s(cr, {
+                id: "alert-dialog-title",
+                children: "Use Google's location service?"
+            }), m(rc, {
+                children: [s(bd, {
+                    id: "alert-dialog-description",
+                    children: e("Updatable")
+                }), s(me, {
+                    children: _
+                })]
+            }), m(ic, {
+                children: [s(Ua, {
+                    onClick: h,
+                    children: "YES"
+                }), s(Ua, {
+                    onClick: f,
+                    children: "NO"
+                })]
+            })]
+        })
+    })
+}
+const FS = e => {
+        const {
+            loadProgress: t,
+            selectedDefinition: o
+        } = e, n = wt(), a = p(qa);
+        if (!a) return n(iu("OLIVIA_DARK")), null;
+        const r = p(On),
+            i = p(Dc),
+            c = !Object.values(i).length,
+            l = !Object.values(r).length,
+            [u, _] = C.useState(!1),
+            {
+                t: h
+            } = Tt(),
+            f = "NanmuSquareRound",
+            [K, y] = C.useState(!1),
+            L = async () => {
+                y(!0)
+            };
+        return F.useEffect(() => (K && (n(_a()), y(!1)), () => {}), [K]), C.useEffect(() => {
+            const M = setTimeout(() => {
+                o || _(!0)
+            }, 6e3);
+            return () => clearTimeout(M)
+        }, [o]), m(el, {
+            children: [s(xr, {
+                theme: a,
+                progress: t || null
+            }), (u || l) && !c && !ss ? s($t, {
+                shouldForwardProp: M => Wt(M),
+                children: m(as, {
+                    onClick: L,
+                    fontfamily: f,
+                    children: [h("Authorize device"), s(Kt, {
+                        style: {
+                            marginLeft: "10px"
+                        },
+                        icon: Ya
+                    })]
+                })
+            }) : s(Rr, {
+                isSearching: !o
+            })]
+        })
+    },
+    cd = e => {
+        const {
+            loadProgress: t,
+            selectedDefinition: o
+        } = e, n = wt(), a = p(qa), r = p(Ja);
+        p(Kr);
+        const i = p(xc),
+            c = !Object.values(i).length,
+            [l, u] = C.useState(!1),
+            {
+                t: _
+            } = Tt(),
+            h = "NanmuSquareRound",
+            [f, K] = C.useState(!1),
+            y = async () => {
+                K(!0)
+            };
+        return F.useEffect(() => (f && (n(Q_()), K(!1)), () => {}), [f]), C.useEffect(() => {
+            const L = setTimeout(() => {
+                r || u(!0)
+            }, 3e3);
+            return () => clearTimeout(L)
+        }, [r]), s(el, {
+            children: m(Qn, {
+                children: [s(xr, {
+                    theme: a,
+                    progress: t || null
+                }), (l || c) && !ss ? s($t, {
+                    shouldForwardProp: L => Wt(L),
+                    children: m(as, {
+                        onClick: y,
+                        fontfamily: h,
+                        children: [_("Engine Update device"), s(Kt, {
+                            style: {
+                                marginLeft: "10px"
+                            },
+                            icon: Ya
+                        })]
+                    })
+                }) : s(Rr, {
+                    isSearching: !o
+                })]
+            })
+        })
+    },
+    HS = e => {
+        const {
+            loadProgress: t
+        } = e, o = wt(), n = p(qa), a = p(Ja);
+        p(Su), p(Kr);
+        const r = p(xc),
+            i = !Object.values(r).length,
+            [c, l] = C.useState(!1),
+            {
+                t: u
+            } = Tt(),
+            _ = "NanmuSquareRound",
+            [h, f] = C.useState(!1),
+            K = async () => {
+                f(!0)
+            };
+        return F.useEffect(() => (h && (o(fg(!0)), f(!1)), () => {}), [h]), F.useEffect(() => (f(!0), () => {}), []), C.useEffect(() => {
+            const y = setTimeout(() => {
+                a || l(!0)
+            }, 3e3);
+            return () => clearTimeout(y)
+        }, [a]), s(el, {
+            children: m(Qn, {
+                children: [s(xr, {
+                    theme: n,
+                    progress: t || null
+                }), (c || i) && !ss ? s($t, {
+                    shouldForwardProp: y => Wt(y),
+                    children: m(as, {
+                        onClick: K,
+                        fontfamily: _,
+                        children: [u("Start"), s(Kt, {
+                            style: {
+                                marginLeft: "10px"
+                            },
+                            icon: Ya
+                        })]
+                    })
+                }) : s(Rr, {
+                    isSearching: !r
+                })]
+            })
+        })
+    },
+    el = S(uo)
+`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  row-gap: 50px;
+  position: absolute;
+  bottom: 50px;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+`, Qn = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, $S = () => {
+    const e = p($e),
+        t = p(ts),
+        o = p(Mc),
+        n = p(Su);
+    p(s_), p(M1);
+    const a = p(R0),
+        r = wt(),
+        i = p(Ja),
+        c = p(ut),
+        l = p(Kr);
+    p(Oc);
+    const u = p(Ic);
+    p(Nc);
+    const [_, h] = F.useState(), [f, K] = F.useState(), y = p(t_), L = p(o_), M = p(n_), {
+        t: P
+    } = Tt();
+    y[2], y[3], y[0], y[1];
+    const [ie, k] = C.useState(!1), [Y, ee] = C.useState(!1), [T, te] = C.useState(0), [B, de] = C.useState(!1), [he, Fe] = C.useState(!1), [We, De] = C.useState(!1), [ke, _e] = C.useState(!1), [ae, $] = C.useState(!1), [be, ge] = C.useState(!1), [ye, xe] = C.useState(!1), [He, Ce] = C.useState(0), [Ve, lt] = C.useState(0), kt = !e || t !== 1;
+    F.useEffect(() => (ee(!0), () => {}), []), F.useEffect(() => {
+        if (c) {
+            let Xe = 0;
+            Ve !== L && (Xe = 1), xe(Xe === 1)
+        }
+        return () => {}
+    }, [Ve]);
+    const Ct = async () => {
+            c && (await r(Eu()), await r(tr()), r(en(!1)))
+        },
+        ht = async Xe => {
+            const Pe = await (await fetch(Xe)).arrayBuffer(),
+                Re = new Uint8Array(Pe);
+            let O = Xe.split(".")[0].split("_");
+            O.length - 1;
+            const Ie = O.length - 2;
+            lt(parseInt(O[Ie], 16)), h(Re)
+        },
+        Ne = async () => {
+            if (c && ye) {
+                let Ue = 0;
+                if (await r(Pu(c)), _) {
+                    const J = _;
+                    for (let O = 0; O < _.length; O += 24) await r(Bu(24, O, 1, 1048576, J, c)), Ue = O / _.length * 100, T !== Ue && te(Ue)
+                }
+                te(0), _e(!1)
+            }
+        };
+    F.useEffect(() => (ye === !0 && Ne(), () => {}), [ye]);
+    const xt = async Xe => {
+            let Pe = Xe.split(".")[0].split("_");
+            Pe.length - 1;
+            const Re = Pe.length - 2;
+            Ce(parseInt(Pe[Re], 16));
+            const O = await (await fetch(Xe)).arrayBuffer(),
+                Ie = new Uint8Array(O);
+            K(Ie), de(!0)
+        },
+        nt = async Xe => {
+            const Pe = await (await fetch(Xe, {
+                    cache: "reload"
+                })).json(),
+                Re = jn([Pe.version1, Pe.version2, Pe.version3]);
+            if (u < Re ? (r(Js(Re)), r(er(!0)), $(!0)) : ($(!1), r(er(!1))), c) {
+                await r(tr());
+                const J = lo(c),
+                    O = Ro(J.vendorId, J.productId),
+                    Ie = `/firmware/${O}/${Pe.ldrom}`,
+                    Ye = `/firmware/${O}/${Pe.file}`;
+                ht(Ie), xt(Ye)
+            }
+        };
+    F.useEffect(() => {
+        if (u && c) {
+            Ct();
+            const Xe = lo(c),
+                Ue = Ro(Xe.vendorId, Xe.productId),
+                Pe = `/firmware/${Ue}/${Ue}.json`;
+            nt(Pe)
+        }
+        return () => {}
+    }, [u]), F.useEffect(() => (Fe(!!a), () => {}), [a]);
+    const Mt = async () => {
+            let Xe = 0;
+            const Ue = 2,
+                Pe = 0,
+                Re = 24;
+            let J = 0;
+            const O = 4096;
+            if (te(0), l && f) {
+                for (let q = 0; q < 393216; q += O) Xe = Pe + q, await r(Iu(Ue, Xe, O, l));
+                de(!1), te(0);
+                const Ye = f;
+                for (let q = 0; q < Ye.length; q += Re) await r(Uu(Re, q, Ue, Pe, Ye, l)), J = q / Ye.length * 100, T !== J && te(J);
+                const pt = f.length % O;
+                f.length - pt, f.length, k(!0)
+            }
+        },
+        rt = async (Xe, Ue) => {
+            const Re = await (await fetch(Xe, {
+                    cache: "reload"
+                })).json(),
+                J = jn([Re.version1, Re.version2, Re.version3]);
+            u < J ? (r(Js(J)), $(!0)) : $(!1);
+            const O = `/firmware/${Ue}/${Re.file}`;
+            xt(O)
+        };
+    F.useEffect(() => (l ? (r(en(!0)), De(!1)) : De(!0), () => {}), [l]), F.useEffect(() => {
+        if (l) {
+            const Xe = y[2],
+                Ue = y[3],
+                Pe = y[0],
+                Re = y[1],
+                J = qt([Ue, Xe]),
+                O = qt([Re, Pe]),
+                Ie = Ro(J, O);
+            if (J === 65535 && O === 65535) rt("/firmware/68584007/68584007.json", 68584007);
+            else {
+                let Ye = `/firmware/${Ie}/${Ie}.json`;
+                rt(Ye, Ie)
+            }
+        }
+        return () => {}
+    }, [y]), F.useEffect(() => (n && (_e(!0), ge(!0)), () => {}), [n]), F.useEffect(() => (be && Mt(), () => {}), [be]);
+    const Ge = async () => {
+        l && (r(Gu(1, l)), r(gu(!1)), r(kc()), r(en(!1)), r(Ia(!1)))
+    };
+    return F.useEffect(() => (de(!1), M !== 0 && He === M && Ge(), () => {}), [M]), F.useEffect(() => (kt || c && r(Lc(c)), () => {}), [kt]), F.useEffect(() => {
+        if (ie) {
+            if (l && f) {
+                const Ue = f.length;
+                r(Ou(0, Ue))
+            }
+            k(!1), ge(!1)
+        }
+        return () => {}
+    }, [ie]), he ? We ? s(cd, {
+        selectedDefinition: e || null,
+        loadProgress: t
+    }) : i ? m(Ke, {
+        children: [ke && s(Ke, {
+            children: m(Zc, {
+                children: [s(me, {
+                    children: P("Firmware Update")
+                }), s(jc, {
+                    children: s($t, {
+                        shouldForwardProp: Xe => Wt(Xe),
+                        children: s(qc, {
+                            percentage: T
+                        })
+                    })
+                }), s(Qn, {})]
+            })
+        }), !ke && s(Ke, {
+            children: s(HS, {
+                loadProgress: t
+            })
+        })]
+    }) : s(Ke, {
+        children: s(cd, {
+            selectedDefinition: e || null,
+            loadProgress: t
+        })
+    }) : kt ? o === "2D" ? s(FS, {
+        selectedDefinition: e || null,
+        loadProgress: t
+    }) : null : s($t, {
+        shouldForwardProp: Xe => Wt(Xe),
+        children: m(V1, {
+            children: [ae && s(US, {}), s(WS, {})]
+        })
+    })
+}, WS = () => {
+    var _, h;
+    const e = so(),
+        t = p(oo),
+        [o, n] = C.useState(!1),
+        [a, r] = C.useState(0),
+        i = GS(),
+        c = (_ = i[a]) == null ? void 0 : _.Pane,
+        l = (h = i[a]) == null ? void 0 : h.Title,
+        {
+            t: u
+        } = Tt();
+    return C.useEffect(() => {
+        l === "Keymap" ? (e(bo()), e(It()), e(Tn(!0)), e(Do(Ee.Keymap)), n(!0)) : l === "Performance" ? (e(bo()), e(It()), e(Tn(!0)), e(Do(Ee.Performance)), n(!0)) : l === "Trigger Pos" ? (e(bo()), e(It()), e(Tn(!0)), e(Do(Ee.Trigger)), n(!1)) : l === "Rapid Trigger" || l === "Rapid" ? (e(bo()), e(It()), e(Tn(!0)), e(Do(Ee.RapidTrigger)), n(!1)) : l === "Dynamic Keystroke" ? (e(bo()), e(It()), e(Tn(!0)), e(Do(Ee.Dks)), n(!1)) : (e(bo()), e(It()), e(Tn(!1)), e(Do(Ee.UnSelect)), n(!1))
+    }, [l]), m(Ke, {
+        children: [o && t === null ? m(Ke, {
+            children: [" ", s(Qn, {
+                children: s(qr, {
+                    children: s(Be, {
+                        children: u("You must select the button first to set it up.")
+                    })
+                })
+            }), s(Qn, {
+                children: s(qr, {
+                    children: s(Be, {
+                        children: u("USB Apply Error")
+                    })
+                })
+            }), s(Qn, {
+                children: s(qr, {
+                    children: s(Be, {
+                        children: u("USB Apply Error Msg")
+                    })
+                })
+            })]
+        }) : null, s(H1, {
+            onClick: f => {
+                f.target.nodeName !== "CANVAS" && e(bo())
+            },
+            style: {
+                pointerEvents: "none",
+                position: "absolute",
+                top: 50,
+                left: 0,
+                right: 0
+            },
+            children: m("div", {
+                style: {
+                    pointerEvents: "all"
+                },
+                children: [s(xS, {}), s(IS, {})]
+            })
+        }), m(ra, {
+            style: {
+                pointerEvents: "none"
+            },
+            children: [s(ia, {
+                style: {
+                    pointerEvents: "all"
+                },
+                children: s(OS, {
+                    children: (i || []).map(({
+                        Icon: f,
+                        Title: K
+                    }, y) => s(Fn, {
+                        onClick: L => r(y),
+                        $selected: a === y,
+                        children: m(ca, {
+                            children: [s(f, {}), s(da, {
+                                children: K
+                            })]
+                        })
+                    }, y))
+                })
+            }), c && s(c, {})]
+        })]
+    })
+};
+
+function VS({
+    definition: e,
+    onLayoutChange: t,
+    RowComponent: o = Ai
+}) {
+    const n = p(v_),
+        a = so();
+    if (F.useEffect(() => {
+            a(Ra([]))
+        }, [e]), F.useEffect(() => {
+            t(n)
+        }, [n]), !e.layouts.labels) return null;
+    const r = e.layouts.labels.map((i, c) => {
+        const l = e.layouts.optionKeys[c];
+        if (Array.isArray(i)) {
+            const u = i[0],
+                _ = i.slice(1),
+                h = _.map((f, K) => ({
+                    label: f,
+                    value: l[K]
+                }));
+            return m(o, {
+                children: [s(me, {
+                    children: u
+                }), s(Se, {
+                    children: s(fo, {
+                        onChange: f => {
+                            if (f && f.label) {
+                                const K = _.indexOf(f.label),
+                                    y = Array.from(n).map(L => L || 0);
+                                y[c] = K, a(Ra(y))
+                            }
+                        },
+                        value: n[c] ? h[n[c]] : h[0],
+                        options: h
+                    })
+                })]
+            }, `${c}-${u}`)
+        }
+        return typeof i == "string" ? m(o, {
+            children: [s(me, {
+                children: i
+            }), s(Se, {
+                children: s(Qt, {
+                    isChecked: !!n[c],
+                    onChange: u => {
+                        const _ = Array.from(n).map(h => h || 0);
+                        _[c] = Number(u), a(Ra(_))
+                    }
+                })
+            })]
+        }, `${c}-${i}`) : null
+    });
+    return s(Ke, {
+        children: r
+    })
+}
+const YS = S.dialog `
+  padding: 0;
+  border-width: 0;
+
+  background: transparent;
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  & > div {
+    transition: transform 0.2s ease-out;
+    transform: translateY(-20px);
+  }
+
+  &[open] > div {
+    transform: translateY(0px);
+  }
+`,
+    zS = S.div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`,
+    XS = e => {
+        const t = C.useRef(null),
+            o = C.useCallback(() => {
+                t.current && t.current.close(), e.onClose && e.onClose()
+            }, [t.current, e.onClose]);
+        return C.useEffect(() => (t.current && (e.isOpen ? t.current.showModal() : t.current.close()), () => {
+            o()
+        }), [e.isOpen]), s(YS, {
+            ref: t,
+            children: m(p_, {
+                children: [s(f_, {
+                    children: e.children
+                }), s(zS, {
+                    children: s(St, {
+                        onClick: o,
+                        children: "Confirm"
+                    })
+                })]
+            })
+        })
+    };
+let Ns = Number(localStorage.getItem("designWarningSeen") || 0),
+    ld = sessionStorage.getItem("hideDesignWarning") || Ns > 4;
+const QS = S(Po)
+`
+  margin: 0;
+  font-style: italic;
+`, jS = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`, qS = S(Hn)
+`
+  display: grid;
+  max-width: 100vw;
+  grid-template-columns: 100vw;
+  grid-template-rows: min-content;
+`, ZS = S.div `
+  height: 200px;
+  width: 50%;
+  cursor: pointer;
+  max-width: 560px;
+  border-radius: 6px;
+  margin: 50px 10px;
+  animation-duration: 1.5s;
+  animation-name: border-glow;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    color: transparent;
+    stroke-width: 8px;
+    animation-duration: 1.5s;
+    animation-name: text-glow;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    font-size: 100px;
+  }
+`, JS = e => new Promise((t, o) => {
+    const n = new FileReader;
+    n && (n.onload = () => {
+        if (!n.result) return o();
+        t([e.name, n.result.toString()])
+    }, n.onerror = o, n.onabort = o, n.readAsBinaryString(e))
+}), ew = e => X.isVIADefinitionV2(e) || X.isVIADefinitionV3(e);
+
+function j_(e, t, o, n) {
+    Promise.all(e.map(JS)).then(a => {
+        let r = [];
+        n([]);
+        const i = a.map(([c, l]) => {
+            if (r.length > 0) return null;
+            try {
+                const u = JSON.parse(l.toString());
+                if (t === "v2" ? X.isKeyboardDefinitionV2(u) || X.isVIADefinitionV2(u) : X.isKeyboardDefinitionV3(u) || X.isVIADefinitionV3(u)) return t === "v2" ? X.isVIADefinitionV2(u) ? u : X.keyboardDefinitionV2ToVIADefinitionV2(u) : X.isVIADefinitionV3(u) ? u : X.keyboardDefinitionV3ToVIADefinitionV3(u);
+                r = (t === "v2" ? X.isKeyboardDefinitionV2.errors || X.isVIADefinitionV2.errors || [] : X.isKeyboardDefinitionV3.errors || X.isVIADefinitionV3.errors || []).map(h => `${c} ${h.dataPath?h.dataPath+": ":"Object: "}${h.message}`)
+            } catch (u) {
+                u.name ? r.push(`${u.name}: ${u.message}`) : r.push(`${u}`)
+            }
+        }).filter(ew);
+        r.length ? n(r) : (o(kg({
+            definitions: i,
+            version: t
+        })), o(Eg({
+            definitions: i,
+            version: t
+        })), o(Di({
+            productIds: i.map(c => c.vendorProductId),
+            version: t
+        })), o(fr(null)), o(_a()))
+    })
+}
+
+function tw(e, t, o, n) {
+    e.preventDefault();
+    const {
+        dataTransfer: a
+    } = e;
+    if (a != null && a.items) {
+        const r = Array.from(a.items).filter(i => i.kind === "file" && i.type === "application/json").map(i => i.getAsFile()).filter(i => i !== null);
+        r.length && j_(r, t, o, n)
+    }
+}
+const ow = () => {
+        const e = so(),
+            t = Object.values(p(na)),
+            o = p(Cr),
+            n = p(L_),
+            a = p(E_),
+            [r, i] = C.useState([]),
+            c = C.useMemo(() => t.filter(f => f[o]), [t, o]),
+            l = c.map((f, K) => ({
+                label: f[o].name,
+                value: K.toString()
+            })),
+            u = C.useRef(null),
+            _ = c[n] && c[n][o],
+            h = C.useRef();
+        return m(qS, {
+            onDragOver: f => {
+                f.dataTransfer.effectAllowed = "copyMove", f.dataTransfer.dropEffect = "none", f.preventDefault(), f.stopPropagation()
+            },
+            children: [s(XS, {
+                isOpen: !ld,
+                onClose: () => {
+                    sessionStorage.setItem("hideDesignWarning", "1"), ld = "1", Ns = Ns + 1, localStorage.setItem("designWarningSeen", `${Ns}`)
+                },
+                children: "This feature is intended for development purposes. If your keyboard is not recognized automatically by VIA, please contact your keyboard's manufacturer or vendor."
+            }), s(C_, {
+                ref: u,
+                children: !_ && s(ZS, {
+                    onClick: () => {
+                        h.current && h.current.click()
+                    },
+                    onDrop: f => tw(f, o, e, i),
+                    onDragOver: f => {
+                        f.dataTransfer.effectAllowed = "copyMove", f.dataTransfer.dropEffect = "copy", f.preventDefault(), f.stopPropagation()
+                    },
+                    children: s(Kt, {
+                        icon: Sp
+                    })
+                })
+            }), m(ra, {
+                style: {
+                    overflow: "hidden"
+                },
+                children: [s(ia, {
+                    style: {
+                        pointerEvents: "all"
+                    },
+                    children: s(la, {
+                        children: s(Fn, {
+                            $selected: !0,
+                            children: m(ca, {
+                                children: [s(Kt, {
+                                    icon: wp
+                                }), s(da, {
+                                    children: "Add Definition"
+                                })]
+                            })
+                        })
+                    })
+                }), s(to, {
+                    children: m(jS, {
+                        children: [m(Oe, {
+                            children: [s(me, {
+                                children: "Load Draft Definition"
+                            }), s(Se, {
+                                children: s($_, {
+                                    multiple: !0,
+                                    inputRef: h,
+                                    onLoad: f => {
+                                        j_(Array.from(f), o, e, i)
+                                    },
+                                    children: "Load"
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: "Use V2 definitions (deprecated)"
+                            }), s(Se, {
+                                children: s(Qt, {
+                                    isChecked: o === "v2",
+                                    onChange: f => e(k0(f ? "v2" : "v3"))
+                                })
+                            })]
+                        }), _ && s(Ke, {
+                            children: m(Oe, {
+                                children: [s(me, {
+                                    children: "Shown Keyboard Definition"
+                                }), s(Se, {
+                                    children: s(fo, {
+                                        onChange: f => {
+                                            e(Ra([])), f && e(o2(+f.value))
+                                        },
+                                        value: l[n],
+                                        options: l
+                                    })
+                                })]
+                            })
+                        }), _ && s(VS, {
+                            definition: _,
+                            onLayoutChange: f => {
+                                e(Ra(f))
+                            }
+                        }), _ && m(Oe, {
+                            children: [s(me, {
+                                children: "Show Matrix"
+                            }), s(Se, {
+                                children: s(Qt, {
+                                    isChecked: a,
+                                    onChange: f => {
+                                        e(n2(f))
+                                    }
+                                })
+                            })]
+                        }), r.map(f => s(Ai, {
+                            children: s(QS, {
+                                children: f
+                            })
+                        })), m(Oe, {
+                            children: [s(me, {
+                                children: "Draft Definitions"
+                            }), m(Se, {
+                                children: [Object.values(c).length, " Definitions"]
+                            })]
+                        }), c.map(f => m(Ai, {
+                            children: [s(W1, {
+                                children: f[o].name
+                            }), m(Se, {
+                                children: [Yc(f[o].vendorProductId, 8), s(mK, {
+                                    onClick: () => {
+                                        e(Rg({
+                                            id: f[o].vendorProductId,
+                                            version: o
+                                        }))
+                                    },
+                                    style: {
+                                        marginLeft: 10,
+                                        borderRadius: 4
+                                    },
+                                    children: s(Kt, {
+                                        icon: Mp,
+                                        size: "lg"
+                                    })
+                                })]
+                            })]
+                        }, `${o}-${f[o].vendorProductId}`))]
+                    })
+                })]
+            })]
+        })
+    },
+    q_ = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`;
+S(q_)
+`
+  margin-top: 20px;
+  padding-top: 20px;
+`;
+S(Po)
+`
+  margin: 0;
+  font-family: ${({theme:e})=>e.fonts.regular};
+  font-style: italic;
+`;
+const nw = () => {
+        const e = so(),
+            t = p(cu),
+            o = p(Sc),
+            n = p(T0),
+            a = p(du),
+            r = p(uu),
+            i = p(Mc);
+        p(ut);
+        const c = p(Ht);
+        C.useState(!1);
+        const l = Object.keys(vd).map(k => ({
+                label: k.replaceAll("_", " "),
+                value: k
+            })),
+            u = l.find(k => k.value === r),
+            _ = Object.keys(Us).map(k => ({
+                label: k.replaceAll("_", " "),
+                value: k
+            })),
+            h = _.find(k => k.value === a),
+            f = au ? [{
+                label: "2D",
+                value: "2D"
+            }, {
+                label: "3D",
+                value: "3D"
+            }] : [{
+                label: "2D",
+                value: "2D"
+            }],
+            K = f.find(k => k.value === i),
+            y = [{
+                label: "English",
+                value: "en"
+            }, {
+                label: "한국어",
+                value: "ko"
+            }],
+            L = y.find(k => k.value === c),
+            {
+                t: M,
+                i18n: P
+            } = Tt(),
+            ie = k => {
+                P.changeLanguage(k)
+            };
+        return F.useEffect(() => (P.changeLanguage(c), () => {}), []), s(Hn, {
+            children: m(ra, {
+                style: {
+                    overflow: "hidden"
+                },
+                children: [s(ia, {
+                    style: {
+                        pointerEvents: "all",
+                        borderTop: "none"
+                    },
+                    children: s(la, {
+                        children: s(Fn, {
+                            $selected: !0,
+                            children: m(ca, {
+                                children: [s(Kt, {
+                                    icon: kd
+                                }), s(da, {
+                                    children: "General"
+                                })]
+                            })
+                        })
+                    })
+                }), s(to, {
+                    style: {
+                        flex: 1,
+                        borderWidth: 0
+                    },
+                    children: m(q_, {
+                        children: [m(Oe, {
+                            children: [s(me, {
+                                children: M("Show Design tab")
+                            }), s(Se, {
+                                children: s(Qt, {
+                                    onChange: () => e(S0()),
+                                    isChecked: t
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: M("Fast Key Mapping")
+                            }), s(Se, {
+                                children: s(Qt, {
+                                    onChange: () => e(y0()),
+                                    isChecked: !o
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: M("Light Mode")
+                            }), s(Se, {
+                                children: s(Qt, {
+                                    onChange: () => e(w0()),
+                                    isChecked: n === "light"
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: M("Theme")
+                            }), s(Se, {
+                                children: s(fo, {
+                                    defaultValue: h,
+                                    options: _,
+                                    onChange: k => {
+                                        k && e(iu(k.value))
+                                    }
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: M("Keycap Theme")
+                            }), s(Se, {
+                                children: s(fo, {
+                                    defaultValue: u,
+                                    options: l,
+                                    onChange: k => {
+                                        k && e(yc(k.value))
+                                    }
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [s(me, {
+                                children: M("Render Mode")
+                            }), s(Se, {
+                                children: s(fo, {
+                                    defaultValue: K,
+                                    options: f,
+                                    onChange: k => {
+                                        k && e(D0(k.value))
+                                    }
+                                })
+                            })]
+                        }), m(Oe, {
+                            children: [m(me, {
+                                children: [" ", M("Languages Select")]
+                            }), s(Se, {
+                                children: s(fo, {
+                                    defaultValue: L,
+                                    options: y,
+                                    onChange: k => {
+                                        k && e(b0(k.value)), k && ie(k.value)
+                                    }
+                                })
+                            })]
+                        })]
+                    })
+                })]
+            })
+        })
+    },
+    aw = "Tester",
+    sw = "none",
+    rw = {
+        width: 22.5,
+        height: 6.25,
+        optionKeys: {},
+        keys: [{
+            row: 0,
+            col: 0,
+            x: 0,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "accent"
+        }, {
+            row: 0,
+            col: 1,
+            x: 2,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 2,
+            x: 3,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 3,
+            x: 4,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 4,
+            x: 5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 5,
+            x: 6.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 6,
+            x: 7.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 7,
+            x: 8.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 8,
+            x: 9.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 9,
+            x: 11,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 10,
+            x: 12,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 11,
+            x: 13,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 12,
+            x: 14,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 13,
+            x: 15.25,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 14,
+            x: 16.25,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 15,
+            x: 17.25,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 16,
+            x: 18.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 17,
+            x: 19.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 18,
+            x: 20.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 19,
+            x: 21.5,
+            y: 0,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 20,
+            x: 0,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 21,
+            x: 1,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 22,
+            x: 2,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 23,
+            x: 3,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 24,
+            x: 4,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 25,
+            x: 5,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 26,
+            x: 6,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 27,
+            x: 7,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 28,
+            x: 8,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 29,
+            x: 9,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 30,
+            x: 10,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 31,
+            x: 11,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 32,
+            x: 12,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 33,
+            x: 13,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 2,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 34,
+            x: 15.25,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 35,
+            x: 16.25,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 36,
+            x: 17.25,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 37,
+            x: 18.5,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 38,
+            x: 19.5,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 39,
+            x: 20.5,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 40,
+            x: 21.5,
+            y: 1.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 41,
+            x: 0,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.5,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 42,
+            x: 1.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 43,
+            x: 2.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 44,
+            x: 3.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 45,
+            x: 4.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 46,
+            x: 5.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 47,
+            x: 6.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 48,
+            x: 7.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 49,
+            x: 8.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 50,
+            x: 9.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 51,
+            x: 10.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 52,
+            x: 11.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 53,
+            x: 12.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 54,
+            x: 13.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.5,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 55,
+            x: 15.25,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 56,
+            x: 16.25,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 57,
+            x: 17.25,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 58,
+            x: 18.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 59,
+            x: 19.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 60,
+            x: 20.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 61,
+            x: 21.5,
+            y: 2.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 2,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 62,
+            x: 0,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.75,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 63,
+            x: 1.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 64,
+            x: 2.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 65,
+            x: 3.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 66,
+            x: 4.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 67,
+            x: 5.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 68,
+            x: 6.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 69,
+            x: 7.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 70,
+            x: 8.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 71,
+            x: 9.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 72,
+            x: 10.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 73,
+            x: 11.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 74,
+            x: 12.75,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 2.25,
+            color: "accent"
+        }, {
+            row: 0,
+            col: 75,
+            x: 18.5,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 76,
+            x: 19.5,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 77,
+            x: 20.5,
+            y: 3.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 78,
+            x: 0,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 2.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 79,
+            x: 2.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 80,
+            x: 3.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 81,
+            x: 4.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 82,
+            x: 5.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 83,
+            x: 6.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 84,
+            x: 7.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 85,
+            x: 8.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 86,
+            x: 9.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 87,
+            x: 10.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 88,
+            x: 11.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 89,
+            x: 12.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 2.75,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 90,
+            x: 16.25,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 91,
+            x: 18.5,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 92,
+            x: 19.5,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 93,
+            x: 20.5,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 94,
+            x: 21.5,
+            y: 4.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 2,
+            w: 1,
+            color: "accent"
+        }, {
+            row: 0,
+            col: 95,
+            x: 0,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 96,
+            x: 1.25,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 97,
+            x: 2.5,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 98,
+            x: 3.75,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 6.25,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 99,
+            x: 10,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 100,
+            x: 11.25,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 101,
+            x: 12.5,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 102,
+            x: 13.75,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1.25,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 103,
+            x: 15.25,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 104,
+            x: 16.25,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 105,
+            x: 17.25,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "mod"
+        }, {
+            row: 0,
+            col: 106,
+            x: 18.5,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 2,
+            color: "alpha"
+        }, {
+            row: 0,
+            col: 107,
+            x: 20.5,
+            y: 5.25,
+            r: 0,
+            rx: 0,
+            ry: 0,
+            h: 1,
+            w: 1,
+            color: "alpha"
+        }]
+    },
+    iw = {
+        rows: 1,
+        cols: 108
+    },
+    cw = 0,
+    oc = {
+        name: aw,
+        lighting: sw,
+        layouts: rw,
+        matrix: iw,
+        vendorProductId: cw
+    },
+    lw = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`,
+    dw = S(Hn)
+`
+  display: flex;
+  height: 100%;
+  max-width: 100vw;
+  flex-direction: column;
+`, tl = F.createContext([{
+    clearTestKeys: () => {}
+}, (...e) => {}]), uw = () => {
+    const e = so(),
+        t = p(ut),
+        o = p($e),
+        n = p(Dt),
+        a = p(lu),
+        r = p(wc),
+        [i] = C.useContext(tl),
+        {
+            progress: c
+        } = lr(),
+        l = p(Ht);
+    let u = "NanmuSquareRound";
+    switch (l) {
+        case "en":
+        default:
+            u = "Dongle";
+            break;
+        case "ko":
+            u = "NanmuSquareRound"
+    }
+    t && o && n && bf <= t.protocol;
+    const h = a ? o : oc,
+        {
+            t: f
+        } = Tt();
+    if (!h || typeof h == "string") return null;
+    const K = [{
+            label: "Sine",
+            value: "sine"
+        }, {
+            label: "Triangle",
+            value: "triangle"
+        }, {
+            label: "Sawtooth",
+            value: "sawtooth"
+        }, {
+            label: "Square",
+            value: "square"
+        }],
+        y = K.find(P => P.value === r.waveform),
+        L = [{
+            label: "Wicki-Hayden",
+            value: xa.WickiHayden
+        }, {
+            label: "Chromatic",
+            value: xa.Chromatic
+        }, {
+            label: "Random",
+            value: xa.Random
+        }],
+        M = L.find(P => P.value === r.mode);
+    return F.useEffect(() => (e(Do(Ee.Keymap)), () => {}), []), c !== 100 ? null : s(dw, {
+        children: m(ra, {
+            children: [s(ia, {
+                style: {
+                    pointerEvents: "all"
+                },
+                children: s(la, {
+                    children: s(Fn, {
+                        $selected: !0,
+                        children: m(ca, {
+                            children: [s(Kt, {
+                                icon: bp
+                            }), s(da, {
+                                children: f("Check Key")
+                            })]
+                        })
+                    })
+                })
+            }), s(to, {
+                children: m(lw, {
+                    children: [m(Oe, {
+                        children: [s(me, {
+                            children: f("Reset Keyboard")
+                        }), s(Be, {
+                            children: f("Reset Keyboard Info")
+                        }), s(Se, {
+                            children: s($t, {
+                                shouldForwardProp: P => Wt(P),
+                                children: s(St, {
+                                    onClick: i.clearTestKeys,
+                                    fontfamily: u,
+                                    children: f("Reset")
+                                })
+                            })
+                        })]
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: f("Key Sounds")
+                        }), s(Be, {
+                            children: f("Key Sounds Info")
+                        }), s(Se, {
+                            children: s(Qt, {
+                                isChecked: r.isEnabled,
+                                onChange: P => {
+                                    e(ya({
+                                        isEnabled: P
+                                    }))
+                                }
+                            })
+                        })]
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: f("Volume")
+                        }), s(Be, {
+                            children: f("Volume Info")
+                        }), s(Se, {
+                            children: s(Lo, {
+                                max: 100,
+                                min: 0,
+                                defaultValue: r.volume,
+                                onChange: P => {
+                                    e(ya({
+                                        volume: P
+                                    }))
+                                }
+                            })
+                        })]
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: f("Transpose")
+                        }), s(Be, {
+                            children: f("Transpose Info")
+                        }), s(Se, {
+                            children: s(Lo, {
+                                max: 24,
+                                min: -24,
+                                defaultValue: r.transpose,
+                                onChange: P => {
+                                    e(ya({
+                                        transpose: P
+                                    }))
+                                }
+                            })
+                        })]
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: f("Waveform")
+                        }), s(Be, {
+                            children: f("Waveform Info")
+                        }), s(Se, {
+                            children: s(fo, {
+                                isSearchable: !1,
+                                defaultValue: y,
+                                options: K,
+                                onChange: P => {
+                                    P && e(ya({
+                                        waveform: P.value
+                                    }))
+                                }
+                            })
+                        })]
+                    }), m(Oe, {
+                        children: [s(me, {
+                            children: f("Mode")
+                        }), s(Be, {
+                            children: f("Mode Info")
+                        }), s(Se, {
+                            children: s(fo, {
+                                isSearchable: !1,
+                                defaultValue: M,
+                                options: L,
+                                onChange: P => {
+                                    P && e(ya({
+                                        mode: P.value
+                                    }))
+                                }
+                            })
+                        })]
+                    })]
+                })
+            })]
+        })
+    })
+};
+
+function _w({
+    polynomial: e,
+    numTables: t
+}) {
+    const o = new Uint32Array(256 * t);
+    for (let n = 0; n < 256; n++) {
+        let a = n;
+        a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, a = (a & 1) * e ^ a >>> 1, o[n] = a
+    }
+    for (let n = 256; n < o.length; n++) {
+        const a = o[n - 256];
+        o[n] = o[a & 255] ^ a >>> 8
+    }
+    return o
+}
+_w({
+    polynomial: 3988292384,
+    numTables: 8
+});
+const Yn = S.div `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12px;
+`;
+S(Yn)
+`
+  margin-top: 20px;
+  padding-top: 20px;
+`;
+S(Po)
+`
+  margin: 0;
+  font-style: italic;
+`;
+const hw = S(Hn)
+`
+  display: flex;
+  height: 100%;
+  max-width: 100vw;
+  flex-direction: column;
+`, _i = S.div `
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;
+`, hi = S.div `
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+`, Ci = S.button `
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+`, pi = S.div `
+  width: 200px;
+  height: 20px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  margin: 20px auto;
+`, fi = S.div.attrs(e => ({
+    style: {
+        width: `${e.percentage}%`
+    }
+}))
+`
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+`, Cw = S(uo)
+`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  row-gap: 50px;
+  position: absolute;
+  bottom: 50px;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+`, pw = e => {
+    const {
+        loadProgress: t,
+        selectedDefinition: o
+    } = e, n = wt(), a = p(qa);
+    p(Ja);
+    const r = p(On),
+        i = p(Dc),
+        c = !Object.values(i).length,
+        l = !Object.values(r).length,
+        [u, _] = C.useState(!1);
+    return C.useEffect(() => {
+        const h = setTimeout(() => {
+            o || _(!0)
+        }, 3e3);
+        return () => clearTimeout(h)
+    }, [o]), s(Cw, {
+        children: m(Yn, {
+            children: [s(xr, {
+                theme: a,
+                progress: t || null
+            }), (u || l) && !c && !ss ? m(as, {
+                onClick: () => n(Q_()),
+                children: ["Engine Update device", s(Kt, {
+                    style: {
+                        marginLeft: "10px"
+                    },
+                    icon: Ya
+                })]
+            }) : s(Rr, {
+                isSearching: !o
+            })]
+        })
+    })
+}, fw = e => {
+    const t = wt();
+    p(st);
+    const o = p($e);
+    p(On);
+    const n = p(ut),
+        a = p(ut),
+        r = p(Ja);
+    p(mr);
+    const i = p(Kr),
+        c = p(ts),
+        l = p(Ic),
+        u = p(o_),
+        _ = p(n_),
+        h = zs(l),
+        f = p(Nc),
+        K = zs(f);
+    p(m1);
+    const y = `${h[0]}.${h[1]}${h[2]} => ${K[0]}.${K[1]}${K[2]}`,
+        L = `${h[0]}.${h[1]}${h[2]}`,
+        [M, P] = F.useState(),
+        [ie, k] = F.useState(),
+        [Y, ee] = C.useState(!1),
+        T = !i && r,
+        te = p(t_);
+    te[2], te[3], te[0], te[1], C.useState(!1);
+    const [B, de] = C.useState(!1), [he, Fe] = C.useState(!1), [We, De] = C.useState(!1), [ke, _e] = C.useState(!1), [ae, $] = C.useState(!1);
+    C.useState(!1);
+    const [be, ge] = C.useState(0), [ye, xe] = C.useState(0), [He, Ce] = C.useState(0), Ve = async O => {
+        const Ye = await (await fetch(O)).arrayBuffer(),
+            pt = new Uint8Array(Ye);
+        let Te = O.split(".")[0].split("_");
+        Te.length - 1;
+        const tt = Te.length - 2;
+        xe(parseInt(Te[tt], 16)), P(pt);
+        let dt = 0;
+        parseInt(Te[tt], 16) !== u && (dt = 1), $(dt === 1)
+    }, lt = async O => {
+        let Ye = O.split(".")[0].split("_");
+        Ye.length - 1;
+        const pt = Ye.length - 2;
+        Ce(parseInt(Ye[pt], 16));
+        const Te = await (await fetch(O)).arrayBuffer(),
+            tt = new Uint8Array(Te);
+        k(tt)
+    }, kt = async O => {
+        const Ye = await (await fetch(O, {
+                cache: "reload"
+            })).json(),
+            pt = jn([Ye.version1, Ye.version2, Ye.version3]);
+        if (l < pt ? (t(Js(pt)), De(!0)) : De(!1), n) {
+            t(tr());
+            const q = lo(n),
+                Te = Ro(q.vendorId, q.productId),
+                tt = `/firmware/${Te}/${Ye.ldrom}`,
+                dt = `/firmware/${Te}/${Ye.file}`;
+            Ve(tt), lt(dt)
+        }
+    }, Ct = async (O, Ie) => {
+        const pt = await (await fetch(O, {
+                cache: "reload"
+            })).json(),
+            q = jn([pt.version1, pt.version2, pt.version3]);
+        l < q ? (t(Js(q)), De(!0)) : De(!1);
+        const Te = `/firmware/${Ie}/${pt.file}`;
+        lt(Te)
+    }, ht = async () => {
+        i && t(i1())
+    };
+    F.useEffect(() => (ee(!0), () => {}), []);
+    const Ne = () => {
+            Fe(!he)
+        },
+        xt = async () => {
+            t(en(!0)), t(Ia(!1))
+        },
+        nt = async () => {
+            let O = 1;
+            if (a) {
+                if (ae) {
+                    Fe(!0);
+                    const Ie = 24;
+                    let Ye = 0;
+                    if (t(Pu(a)), M) {
+                        const Te = M;
+                        for (let tt = 0; tt < M.length; tt += Ie) t(Bu(Ie, tt, 1, 1048576, Te, a)), Ye = tt / M.length * 100, be !== Ye && ge(Ye)
+                    }
+                    Fe(!1)
+                }
+                t(Nu(O, a))
+            }
+            t(en(!0))
+        },
+        Mt = async () => {
+            i && (ht(), de(!0))
+        },
+        rt = async () => {
+            _e(!0);
+            let O = 0;
+            const Ie = 2,
+                Ye = 0,
+                pt = 24;
+            let q = 0;
+            const Te = 4096;
+            if (i && ie) {
+                const tt = ie,
+                    dt = 393216;
+                for (let fe = 0; fe < dt; fe += Te) O = Ye + fe, await t(Iu(Ie, O, Te, i)), q = fe / dt * 100, be !== q && ge(q);
+                de(!1), ge(0), Fe(!0);
+                for (let fe = 0; fe < tt.length; fe += pt) await t(Uu(pt, fe, Ie, Ye, tt, i)), q = fe / tt.length * 100, be !== q && ge(q);
+                const it = ie.length % Te;
+                ie.length - it;
+                let ue = ie.length;
+                t(await Ou(Ye, ue))
+            }
+            Fe(!1)
+        };
+    C.useState(null), C.useState(null);
+    const Ge = async () => {
+            n && (t(Eu()), t(tr()), t(en(!1)))
+        },
+        Xe = async () => {
+            i && (t(Gu(1, i)), t(pr()), t(en(!1)), t(Ia(!1)))
+        },
+        Ue = F.useCallback(() => {
+            _ !== 0 && He === _ && Xe()
+        }, [_]);
+    C.useEffect(Ue, [_]);
+    const Pe = F.useCallback(() => {
+        if (n && Y === !0) {
+            if (n) {
+                Ge();
+                const O = lo(n),
+                    Ie = Ro(O.vendorId, O.productId),
+                    Ye = `/firmware/${Ie}/${Ie}.json`;
+                kt(Ye)
+            }
+            i && ht()
+        }
+    }, [Y]);
+    C.useEffect(Pe, [Y]);
+    const Re = F.useCallback(() => {
+        i && (t(vu(0)), ht())
+    }, [i]);
+    C.useEffect(Re, [i]);
+    const J = F.useCallback(() => {
+        if (i) {
+            const O = te[2],
+                Ie = te[3],
+                Ye = te[0],
+                pt = te[1],
+                q = qt([Ie, O]),
+                Te = qt([pt, Ye]),
+                tt = Ro(q, Te);
+            if (q === 65535 && Te === 65535) Ct("/firmware/68584007/68584007.json", 68584007);
+            else {
+                let dt = `/firmware/${tt}/${tt}.json`;
+                Ct(dt, tt)
+            }
+        }
+    }, [te]);
+    return C.useEffect(J, [te]), T ? s(pw, {
+        selectedDefinition: o || null,
+        loadProgress: c
+    }) : s(hw, {
+        children: m(ra, {
+            style: {
+                overflow: "hidden"
+            },
+            children: [s(ia, {
+                style: {
+                    pointerEvents: "all",
+                    borderTop: "none"
+                },
+                children: s(la, {
+                    children: s(Fn, {
+                        $selected: !0,
+                        children: m(ca, {
+                            children: [s(Kt, {
+                                icon: kd
+                            }), s(da, {
+                                children: "General"
+                            })]
+                        })
+                    })
+                })
+            }), m(to, {
+                style: {
+                    flex: 1,
+                    borderWidth: 0
+                },
+                children: [he && m(Ke, {
+                    children: [s(hi, {
+                        onClick: Ne
+                    }), m(_i, {
+                        children: [s(me, {
+                            children: "Ldrom Update"
+                        }), s(pi, {
+                            children: s($t, {
+                                shouldForwardProp: O => Wt(O),
+                                children: s(fi, {
+                                    percentage: be
+                                })
+                            })
+                        }), m(Yn, {
+                            children: [s(Se, {
+                                children: s(Ci, {
+                                    onClick: rt,
+                                    children: "Start"
+                                })
+                            }), s(Se, {
+                                children: s(Ci, {
+                                    onClick: Ne,
+                                    children: "Close"
+                                })
+                            })]
+                        })]
+                    })]
+                }), B && m(Ke, {
+                    children: [s(hi, {
+                        onClick: Ne
+                    }), m(_i, {
+                        children: [s(me, {
+                            children: "Aprom Erase"
+                        }), s(pi, {
+                            children: s($t, {
+                                shouldForwardProp: O => Wt(O),
+                                children: s(fi, {
+                                    percentage: be
+                                })
+                            })
+                        }), s(Yn, {
+                            children: ke ? s(Ke, {}) : s(Ke, {
+                                children: s(Se, {
+                                    children: s(Ci, {
+                                        onClick: rt,
+                                        children: "Start"
+                                    })
+                                })
+                            })
+                        })]
+                    })]
+                }), he && m(Ke, {
+                    children: [s(hi, {
+                        onClick: Ne
+                    }), m(_i, {
+                        children: [s(me, {
+                            children: "Aprom Update"
+                        }), s(pi, {
+                            children: s($t, {
+                                shouldForwardProp: O => Wt(O),
+                                children: s(fi, {
+                                    percentage: be
+                                })
+                            })
+                        }), s(Yn, {})]
+                    })]
+                }), s(Yn, {
+                    children: r ? s(Ke, {
+                        children: m(Oe, {
+                            children: [s(me, {
+                                children: "Start"
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: Mt,
+                                    children: "Start"
+                                })
+                            })]
+                        })
+                    }) : s(Ke, {
+                        children: We ? m(Oe, {
+                            children: [m(me, {
+                                children: ["Updatable ", y]
+                            }), s(Se, {
+                                children: s(St, {
+                                    onClick: nt,
+                                    children: "Update"
+                                })
+                            })]
+                        }) : m(Oe, {
+                            children: [m(me, {
+                                children: ["Current Firmware Version : ", L]
+                            }), !r && !a ? s(Se, {
+                                children: s(St, {
+                                    onClick: xt,
+                                    children: "Check"
+                                })
+                            }) : null]
+                        })
+                    })
+                })]
+            })]
+        })
+    })
+}, gw = S.div `
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  user-select: text;
+  border-top: 1px solid var(--color_accent);
+  &:last-of-type {
+    border-bottom: 1px solid var(--color_accent);
+  }
+`, ar = e => Yc(e, 4), mw = e => {
+    const {
+        clear: t,
+        save: o,
+        hasErrors: n
+    } = e;
+    return m(Ke, {
+        children: [m(ww, {
+            style: {
+                margin: "10px 15px"
+            },
+            children: [m(vn, {
+                onClick: t,
+                disabled: !n,
+                children: [s(Kt, {
+                    size: "sm",
+                    color: "var(--color_label)",
+                    icon: xp
+                }), s(qo, {
+                    children: "Clear"
+                })]
+            }), m(vn, {
+                onClick: o,
+                disabled: !n,
+                children: [s(Kt, {
+                    size: "sm",
+                    color: "var(--color_label)",
+                    icon: Rp
+                }), s(qo, {
+                    children: "Download"
+                })]
+            })]
+        }), e.children]
+    })
+}, Kw = ({}) => {
+    const e = p(Bd),
+        t = so();
+    return s(mw, {
+        clear: () => t(wf()),
+        save: () => Sw(e),
+        hasErrors: !!e.length,
+        children: e.map(({
+            timestamp: o,
+            deviceInfo: {
+                productId: n,
+                productName: a,
+                vendorId: r
+            },
+            message: i
+        }) => m(gw, {
+            children: [o, s("ul", {
+                children: i == null ? void 0 : i.split(`
+`).map(c => s("li", {
+                    children: c
+                }))
+            }), m("ul", {
+                children: [m("li", {
+                    children: ["Device: ", a]
+                }), m("li", {
+                    children: ["Vid: ", ar(r)]
+                }), m("li", {
+                    children: ["Pid: ", ar(n)]
+                })]
+            })]
+        }, o))
+    })
+};
+async function yw(e, t, o, n) {
+    try {
+        const a = await window.showSaveFilePicker({
+                suggestedName: `${o}.csv`
+            }),
+            r = [t.join(", ")],
+            i = e.map(n),
+            c = r.concat(...i).join(`
+`),
+            l = new Blob([c], {
+                type: "text/csv"
+            }),
+            u = await a.createWritable();
+        await u.write(l), await u.close()
+    } catch {}
+}
+const Sw = async e => yw(e, ["timestamp", "productName", "vendorId", "productId", "message"], "VIA-app-errors", ({
+        timestamp: t,
+        deviceInfo: {
+            productName: o,
+            vendorId: n,
+            productId: a
+        },
+        message: r
+    }) => `${t}, ${o}, ${ar(n)}, ${ar(a)}, "${r}"`),
+    ww = S.div `
+  border-radius: 2px;
+  border: 1px solid var(--border_color_icon);
+  display: inline-flex;
+  > button:last-child {
+    border: none;
+  }
+`,
+    gi = [
+        [1, Kw, kp, "App"]
+    ],
+    Mw = () => {
+        const [e, t] = C.useState(0), o = (gi.find(([n]) => e === n) || gi[0])[1];
+        return s(Hn, {
+            children: m(ra, {
+                style: {
+                    overflow: "hidden"
+                },
+                children: [s(ia, {
+                    style: {
+                        pointerEvents: "all",
+                        borderTop: "none"
+                    },
+                    children: s(la, {
+                        children: gi.map(([n, a, r, i]) => s(Fn, {
+                            $selected: e === n,
+                            onClick: () => {
+                                t(n)
+                            },
+                            children: m(ca, {
+                                children: [s(Kt, {
+                                    icon: r
+                                }), s(da, {
+                                    children: i
+                                })]
+                            })
+                        }, n))
+                    })
+                }), s(to, {
+                    style: {
+                        flex: 1,
+                        borderWidth: 0
+                    },
+                    children: s(o, {})
+                })]
+            })
+        })
+    },
+    bw = () => {
+        const e = p(Bd),
+            [t] = Ko(),
+            o = t === "/errors";
+        return e.length ? s(xd, {
+            to: "/errors",
+            children: m(Uc, {
+                $selected: o,
+                children: [s(Kt, {
+                    size: "xl",
+                    icon: ol.icon,
+                    color: o ? "inherit" : "gold"
+                }), m(Qc, {
+                    children: [e.length, " error", e.length > 1 ? "s" : ""]
+                })]
+            })
+        }) : null
+    },
+    ol = {
+        component: Mw,
+        path: "/errors",
+        icon: Dp,
+        key: "errors",
+        title: "Errors"
+    },
+    Z_ = [{
+        key: "default",
+        component: $S,
+        icon: gd,
+        title: "Configure",
+        path: "/"
+    }, {
+        key: "test",
+        component: uw,
+        icon: Ap,
+        path: "/test",
+        title: "Key Tester"
+    }, {
+        key: "design",
+        component: ow,
+        icon: Tp,
+        path: "/design",
+        title: "Design"
+    }, {
+        key: "settings",
+        component: nw,
+        icon: Lp,
+        path: "/settings",
+        title: "Settings"
+    }, {
+        key: "update",
+        component: fw,
+        icon: vp,
+        path: "/update",
+        title: "Update"
+    }, ol],
+    Dw = e => m("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 576 512",
+        focusable: "false",
+        ...e,
+        children: [s("defs", {
+            children: s("style", {
+                children: ".cls-1{fill:currentColor}"
+            })
+        }), s("g", {
+            children: s("path", {
+                fill: "currentColor",
+                d: "M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+            })
+        })]
+    });
+S.span `
+  position: absolute;
+  right: 1em;
+  display: flex;
+  gap: 1em;
+`;
+const kw = S.span `
+  position: absolute;
+  left: 2em;
+  display: flex;
+  gap: 1em;
+`;
+S.span `
+  position: absolute;
+  right: 1em;
+  display: flex;
+  gap: 1em;
+`;
+const xw = () => s(kw, {
+        children: s("a", {
+            href: "https://www.monsterlabs.co.kr/",
+            target: "_blank",
+            children: m(Uc, {
+                children: [s(Dw, {}), s(Qc, {
+                    children: "Hansung"
+                })]
+            })
+        })
+    }),
+    Rw = S.div `
+  width: 100vw;
+  height: 25px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border_color_cell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`,
+    {
+        DEBUG_PROD: Aw,
+        MODE: Tw,
+        DEV: Lw
+    } = {
+        BASE_URL: "/",
+        MODE: "production",
+        DEV: !1,
+        PROD: !0,
+        SSR: !1
+    },
+    vw = Tw === "development" || Aw === "true" || Lw,
+    Ew = S(Rw)
+`
+  background: var(--bg_outside-accent);
+  column-gap: 20px;
+`, Pw = () => {
+    const e = p(cu),
+        [t] = Ko(),
+        o = C.useMemo(() => Z_.filter(n => n.key !== ol.key).map(n => n.key === "design" && !e || n.key === "debug" && !vw ? null : s(xd, {
+            to: n.path,
+            children: m(Uc, {
+                $selected: n.path === t,
+                children: [s(Kt, {
+                    size: "xl",
+                    icon: n.icon
+                }), s(Qc, {
+                    children: n.title
+                })]
+            })
+        }, n.key)), [t, e]);
+    return s(F.Fragment, {
+        children: m(Ew, {
+            children: [s(bw, {}), o, s(xw, {})]
+        })
+    })
+}, dd = new URL(window.location.href).searchParams.get("override_hid_check");
+dd !== null && localStorage.setItem("override_hid_check", dd);
+const Iw = localStorage.getItem("override_hid_check") || "false",
+    Er = !!JSON.parse(Iw),
+    Ow = S.div `
+  background: var(--bg_gradient);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
+  height: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 24px;
+  position: absolute;
+  border-top: 1px solid var(--border_color_cell);
+`,
+    Nw = S.div `
+  align-items: center;
+  display: flex;
+  color: var(--color_label);
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 650px;
+  text-align: center;
+`,
+    Gw = S.div `
+  font-size: 2rem;
+`,
+    Bw = S.h1 `
+  font-family: ${({theme:e})=>e.fonts.regular};
+  margin: 1rem 0 0;
+`,
+    Uw = S.a `
+  font-family: ${({theme:e})=>e.fonts.regular};
+  text-decoration: underline;
+  color: var(--color_label-highlighted);
+`,
+    J_ = (e, t, o = 0) => () => setTimeout(() => {
+        e(), o > 0 && J_(e, t, o - 1)()
+    }, t),
+    Fw = e => {
+        const {
+            hasHIDSupport: t
+        } = e, o = wt();
+        p(oo), p($e), p(On), p(Bn), p(Dt), p(Sc), p(yo);
+        const n = p(st),
+            a = p(Ht),
+            {
+                t: r,
+                i18n: i
+            } = Tt(),
+            c = J_(() => {
+                o(_a())
+            }, 500, 1),
+            l = C.createRef();
+        return C.useEffect(() => {
+            if (t) return l.current && l.current.focus(), yf(), Ea.on("change", c), o(AS()), i.changeLanguage(a), () => {
+                Ea.off("change", c)
+            }
+        }, []), C.useEffect(() => {
+            o(Et(null))
+        }, [n]), !t && !Er ? s(Ow, {
+            ref: l,
+            tabIndex: 0,
+            children: m(Nw, {
+                children: [s(Gw, {
+                    children: "❌"
+                }), s(Bw, {
+                    children: r("USB Detection Error")
+                }), m("p", {
+                    children: [s(Be, {
+                        children: r("USB Problem Info")
+                    }), s("p", {}), m(Uw, {
+                        href: "https://caniuse.com/?search=webhid",
+                        target: "_blank",
+                        children: [r("WebHID enabled browsers"), r("Right now, we only support")]
+                    })]
+                }), m(Be, {
+                    children: [" ", r("compatible before trying again")]
+                })]
+            })
+        }) : s(Ke, {
+            children: e.children
+        })
+    },
+    sr = e => {
+        const [t, o] = C.useState();
+        return C.useLayoutEffect(() => {
+            e.current && o(e.current.getBoundingClientRect())
+        }, [e]), Ep(e, n => o(n.contentRect)), t
+    },
+    ud = 5.5 * .8,
+    Hw = () => {
+        const {
+            progress: e
+        } = lr(), t = Pp(r => r.camera), [o, n] = [7, 7], a = va({
+            config: {
+                duration: 800
+            },
+            from: {
+                x: o
+            }
+        });
+        return F.useEffect(() => {
+            e === 100 && a.x.start(n)
+        }, [e]), F.useEffect(() => () => {}, []), Rd(() => {
+            a.x.isAnimating && (t.position.setZ(a.x.get()), t.position.setY(.4 * Math.pow(a.x.get() - n, 1)), t.updateProjectionMatrix()), t.zoom !== ud && (t.zoom = ud, t.updateProjectionMatrix())
+        }), s(Ip, {
+            "position-z": o,
+            makeDefault: !0,
+            fov: 25
+        })
+    },
+    $w = S.div ``,
+    Ww = S.div `
+  background: ${e=>e.background};
+  width: ${e=>e.width}px;
+  height: ${e=>e.height}px;
+`,
+    Vw = S.div `
+  background: ${e=>e.background};
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: ${e=>e.width}px;
+  height: ${e=>e.height}px;
+`,
+    _d = 10,
+    Yw = F.memo(e => {
+        const t = p(oa),
+            o = C.useMemo(() => t[X.KeyColorType.Accent].c, [t]),
+            n = e.width * W.keyXPos - W.keyXSpacing,
+            a = W.keyYPos * e.height - W.keyYSpacing,
+            r = W.insideBorder,
+            i = n + r * 1,
+            c = n + r * 3,
+            [l, u] = [a + r, a + r * 3],
+            [_, h, f] = [.15, .25, .2].map(K => go(o, K));
+        return m($w, {
+            children: [s(Ww, {
+                background: o,
+                width: c,
+                height: u,
+                style: {
+                    borderRadius: 8,
+                    boxShadow: "var(--box-shadow-keyboard)"
+                }
+            }), s(Vw, {
+                background: `linear-gradient(200deg,${_} 40%,${h},${f} 80%)`,
+                width: i,
+                height: l,
+                style: {
+                    transform: `translate( ${i-n}px,
+           ${l-a}px)`,
+                    boxShadow: "var(--box-shadow-keyboard)",
+                    borderRadius: 8
+                }
+            })]
+        })
+    }, ro);
+var Ut = (e => (e[e.Test = 1] = "Test", e[e.Configure = 2] = "Configure", e[e.Design = 3] = "Design", e[e.ConfigureColors = 4] = "ConfigureColors", e[e.LedColor = 5] = "LedColor", e))(Ut || {}),
+    vt = (e => (e[e.UnChecked = 0] = "UnChecked", e[e.Checked = 1] = "Checked", e))(vt || {}),
+    Zt = (e => (e[e.Pressed = 1] = "Pressed", e[e.Unpressed = 2] = "Unpressed", e))(Zt || {});
+const eh = S.div `
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  height: 54px;
+  &:hover {
+    z-index: 1;
+    & .tooltip {
+      transform: scale(1) translateY(0px);
+      opacity: 1;
+    }
+  }
+  .tooltip {
+    transform: translateY(5px) scale(0.6);
+    opacity: 0;
+  }
+`,
+    th = S.div `
+  position: absolute;
+  transform: rotate(${e=>e.$rotate}rad);
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+`,
+    oh = S.div `
+  transition: all 0.2s ease-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+`,
+    Ls = S.div `
+  transition: all 0.2s ease-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+`,
+    zw = S.div ``,
+    nc = S.div `
+  box-shadow: inset -1px -1px 0 rgb(0 0 0 / 20%),
+    inset 1px 1px 0 rgb(255 255 255 / 10%);
+`,
+    Xw = e => {
+        const {
+            normalizedRects: t,
+            clipPath: o,
+            overflowsTexture: n,
+            macroData: a,
+            label: r,
+            canvasRef: i,
+            onClick: c,
+            onPointerDown: l,
+            onPointerOver: u,
+            onPointerOut: _,
+            disabled: h,
+            ...f
+        } = e, [K, y] = t;
+        return s(Ke, {
+            children: m(eh, { ...f,
+                children: [m(Qw, {
+                    $selected: e.selected,
+                    onClick: c,
+                    onPointerDown: l,
+                    onPointerOver: u,
+                    onPointerOut: _,
+                    style: {
+                        cursor: h ? "initial" : "pointer",
+                        position: "relative",
+                        animation: e.disabled ? "initial" : e.selected ? ".75s infinite alternate select-glow" : "",
+                        transform: `translateX(${-Math.abs(K[0]-y[0])*W.keyXPos/2}px) perspective(100px) translateZ(${e.keycapZ}px)`,
+                        width: Math.max(K[2], y[2]) * W.keyXPos - W.keyXSpacing,
+                        height: Math.max(K[3], y[3]) * W.keyYPos - W.keyYSpacing,
+                        clipPath: o
+                    },
+                    children: [s(hd, {
+                        style: {
+                            position: "absolute",
+                            borderRadius: 3,
+                            background: go(e.color.c, .8),
+                            transform: `translate(${W.keyXPos*K[0]}px,${W.keyYPos*K[1]}px)`,
+                            width: K[2] * W.keyXPos - W.keyXSpacing,
+                            height: K[3] * W.keyYPos - W.keyYSpacing
+                        }
+                    }), s(hd, {
+                        style: {
+                            position: "absolute",
+                            borderRadius: 3,
+                            transform: `translate(${W.keyXPos*y[0]}px,${W.keyYPos*y[1]}px)`,
+                            background: go(e.color.c, .8),
+                            width: y[2] * W.keyXPos - W.keyXSpacing,
+                            height: y[3] * W.keyYPos - W.keyYSpacing
+                        }
+                    }), s(jw, {
+                        style: {
+                            position: "absolute",
+                            borderRadius: 3,
+                            background: go(e.color.c, .8),
+                            transform: `translate(${W.keyXPos*K[0]+1}px,${1+W.keyYPos*K[1]}px)`,
+                            width: K[2] * W.keyXPos - W.keyXSpacing - 2,
+                            height: K[3] * W.keyYPos - W.keyYSpacing - 2
+                        }
+                    }), s(nc, {
+                        style: {
+                            borderRadius: 4,
+                            background: e.color.c,
+                            position: "absolute",
+                            transform: `translate(${W.keyXPos*K[0]+W.faceXPadding[0]}px,${W.faceYPadding[0]+W.keyYPos*K[1]}px)`,
+                            width: K[2] * W.keyXPos - W.keyXSpacing - W.faceXPadding[0] - W.faceXPadding[1],
+                            height: K[3] * W.keyYPos - W.keyYSpacing - W.faceYPadding[0] - W.faceYPadding[1]
+                        }
+                    }), s(nc, {
+                        style: {
+                            borderRadius: 4,
+                            background: e.color.c,
+                            position: "absolute",
+                            transform: `translate(${W.keyXPos*y[0]+W.faceXPadding[0]}px,${W.faceYPadding[0]+W.keyYPos*y[1]}px)`,
+                            width: y[2] * W.keyXPos - W.keyXSpacing - W.faceXPadding[0] - W.faceXPadding[1],
+                            height: y[3] * W.keyYPos - W.keyYSpacing - W.faceYPadding[0] - W.faceYPadding[1]
+                        }
+                    }), s(zw, {
+                        style: {
+                            borderRadius: 4,
+                            background: e.color.c,
+                            position: "absolute",
+                            transform: `translate(${1+W.keyXPos*K[0]+W.faceXPadding[0]}px,${1+W.faceYPadding[0]+W.keyYPos*K[1]}px)`,
+                            width: K[2] * W.keyXPos - W.keyXSpacing - W.faceXPadding[0] - W.faceXPadding[1] - 2,
+                            height: K[3] * W.keyYPos - W.keyYSpacing - W.faceYPadding[0] - W.faceYPadding[1] - 2
+                        },
+                        children: s("canvas", {
+                            ref: i,
+                            style: {}
+                        })
+                    }), Ut.Test === e.mode ? s(oh, {
+                        style: {
+                            background: e.keycapColor,
+                            opacity: e.keycapOpacity
+                        }
+                    }) : null]
+                }), (e.macroData || e.overflowsTexture) && s(th, {
+                    $rotate: e.rotation[2],
+                    children: s(F_, {
+                        children: e.macroData || e.label && e.label.tooltipLabel
+                    })
+                })]
+            })
+        })
+    },
+    Qw = S.div `
+  box-sizing: border-box;
+  transition: transform 0.2s ease-out;
+  animation: ${e=>e.$selected?".75s infinite alternate select-glow":"initial"};
+  &:hover {
+    transform: perspective(100px) translateZ(-5px);
+    animation: 0.5s 1 forwards select-glow;
+  }
+`,
+    hd = S.div `
+  box-sizing: border-box;
+  padding: 2px 6px 10px 6px;
+  box-shadow: inset -1px -1px 0 rgb(0 0 0 / 20%),
+    inset 1px 1px 0 rgb(255 255 255 / 20%);
+`,
+    jw = S.div `
+  box-sizing: border-box;
+  padding: 3px 7px 10px 6px;
+`,
+    qw = S.div `
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  opacity: 1;
+  height: 52px;
+  &:hover {
+    z-index: 1;
+    animation: 0.75s infinite alternate select-glow;
+  }
+`,
+    Zw = S.div `
+  --inner-padding: ${e=>e.$innerPadding}px;
+  --size: ${e=>e.$size}px;
+  --inner-size: ${e=>e.$size-e.$innerPadding*2}px;
+  --half-size: ${e=>(e.$size-e.$innerPadding*2)/2}px;
+  --half-size-p1: ${e=>1+(e.$size-e.$innerPadding*2)/2}px;
+  --half-size-p05p: ${e=>e.$innerPadding/2+(e.$size-e.$innerPadding*2)/2}px;
+  background-color: currentColor;
+  padding: var(--inner-padding);
+  min-width: var(--size);
+  min-height: var(--size);
+  clip-path: polygon(
+    50% 0%,
+    46.93% 3.1%,
+    43.47% 0.43%,
+    40.83% 3.9%,
+    37.06% 1.7%,
+    34.89% 5.49%,
+    30.87% 3.81%,
+    29.21% 7.85%,
+    25% 6.7%,
+    23.89% 10.92%,
+    19.56% 10.33%,
+    19.01% 14.66%,
+    14.64% 14.64%,
+    14.66% 19.01%,
+    10.33% 19.56%,
+    10.92% 23.89%,
+    6.7% 25%,
+    7.85% 29.21%,
+    3.81% 30.87%,
+    5.49% 34.89%,
+    1.7% 37.06%,
+    3.9% 40.83%,
+    0.43% 43.47%,
+    3.1% 46.93%,
+    0% 50%,
+    3.1% 53.07%,
+    0.43% 56.53%,
+    3.9% 59.17%,
+    1.7% 62.94%,
+    5.49% 65.11%,
+    3.81% 69.13%,
+    7.85% 70.79%,
+    6.7% 75%,
+    10.92% 76.11%,
+    10.33% 80.44%,
+    14.66% 80.99%,
+    14.64% 85.36%,
+    19.01% 85.34%,
+    19.56% 89.67%,
+    23.89% 89.08%,
+    25% 93.3%,
+    29.21% 92.15%,
+    30.87% 96.19%,
+    34.89% 94.51%,
+    37.06% 98.3%,
+    40.83% 96.1%,
+    43.47% 99.57%,
+    46.93% 96.9%,
+    50% 100%,
+    53.07% 96.9%,
+    56.53% 99.57%,
+    59.17% 96.1%,
+    62.94% 98.3%,
+    65.11% 94.51%,
+    69.13% 96.19%,
+    70.79% 92.15%,
+    75% 93.3%,
+    76.11% 89.08%,
+    80.44% 89.67%,
+    80.99% 85.34%,
+    85.36% 85.36%,
+    85.34% 80.99%,
+    89.67% 80.44%,
+    89.08% 76.11%,
+    93.3% 75%,
+    92.15% 70.79%,
+    96.19% 69.13%,
+    94.51% 65.11%,
+    98.3% 62.94%,
+    96.1% 59.17%,
+    99.57% 56.53%,
+    96.9% 53.07%,
+    100% 50%,
+    96.9% 46.93%,
+    99.57% 43.47%,
+    96.1% 40.83%,
+    98.3% 37.06%,
+    94.51% 34.89%,
+    96.19% 30.87%,
+    92.15% 29.21%,
+    93.3% 25%,
+    89.08% 23.89%,
+    89.67% 19.56%,
+    85.34% 19.01%,
+    85.36% 14.64%,
+    80.99% 14.66%,
+    80.44% 10.33%,
+    76.11% 10.92%,
+    75% 6.7%,
+    70.79% 7.85%,
+    69.13% 3.81%,
+    65.11% 5.49%,
+    62.94% 1.7%,
+    59.17% 3.9%,
+    56.53% 0.43%,
+    53.07% 3.1%
+  );
+
+  background-image: radial-gradient(
+      currentColor var(--half-size),
+      transparent var(--half-size-p1)
+    ),
+    radial-gradient(
+      rgba(255, 255, 255, 0.6) var(--half-size),
+      transparent var(--half-size-p1)
+    ),
+    radial-gradient(
+      rgba(0, 0, 0, 0.2) var(--half-size),
+      transparent var(--half-size-p05p)
+    ),
+    radial-gradient(
+      rgba(0, 0, 0, 0.2) var(--half-size),
+      transparent var(--half-size-p05p)
+    );
+  background-size: var(--size) var(--size);
+  background-position: 0px 0px, -0.5px -0.5px, 0px 0px,
+    calc(var(--inner-padding) / 2) calc(var(--inner-padding) / 2);
+  background-repeat: repeat;
+
+  transition: transform 0.5s ease-out;
+  transform: rotate(0);
+  box-sizing: border-box;
+  &:hover {
+    transform: rotate(450deg);
+  }
+`,
+    Jw = e => s(qw, {
+        onClick: e.onClick,
+        style: e.style,
+        children: s(Zw, {
+            $size: e.size && +e.size,
+            $innerPadding: 5 * e.size / 52
+        })
+    });
+let At = {
+    bRapidTrigger: 0,
+    triggerPos: 30,
+    bUseGapSingle: 1,
+    gapSingle: 8,
+    gapUp: 11,
+    gapDown: 4,
+    dummy1: 0,
+    dummy2: 0
+};
+const e3 = ({
+        macroExpression: e,
+        label: t
+    }) => t && t.length > 15 ? t : e && e.length ? e : null,
+    t3 = F.memo(e => {
+        const {
+            label: t,
+            scale: o,
+            color: n,
+            selected: a,
+            disabled: r,
+            mode: i,
+            rotation: c,
+            keyState: l,
+            shouldRotate: u,
+            textureWidth: _,
+            textureHeight: h,
+            skipFontCheck: f,
+            idx: K
+        } = e, y = t && e3(t), [L, M] = C.useState(!1), [P, ie] = C.useState(!1), k = C.useRef(null), Y = C.useRef(null), [ee] = Ko(), T = p(os), te = p(Gn), B = p(br), de = p(ue => fn(ue) || []), he = p(Ht);
+        let Fe = "NanmuSquareRound",
+            We = 12,
+            De = 10;
+        switch (he) {
+            case "en":
+            default:
+                Fe = "Dongle", We = 16, De = 14;
+                break;
+            case "ko":
+                Fe = "NanmuSquareRound", We = 12, De = 10
+        }
+        const ke = p(Dt),
+            _e = de[K];
+        let ae = "";
+        if (ee === "/test") ae = "";
+        else switch (_e) {
+            default: ae = "";
+            break;
+            case 32256:
+                    ae = Ti;
+                break;
+            case 32257:
+                    ae = Li;
+                break;
+            case 32258:
+                    ae = vi;
+                break;
+            case 32259:
+                    ae = Ei;
+                break;
+            case 32260:
+                    ae = Pi;
+                break;
+            case 32261:
+                    ae = Ii;
+                break;
+            case 32262:
+                    ae = Oi;
+                break;
+            case 32263:
+                    ae = Ni;
+                break;
+            case 32264:
+                    ae = Gi;
+                break;
+            case 32265:
+                    ae = Bi;
+                break;
+            case 32266:
+                    ae = Ui;
+                break;
+            case 32267:
+                    ae = Fi;
+                break;
+            case 32268:
+                    ae = Hi;
+                break;
+            case 32269:
+                    ae = $i;
+                break;
+            case 32270:
+                    ae = Wi;
+                break;
+            case 32271:
+                    ae = Vi;
+                break;
+            case 32272:
+                    ae = Yi;
+                break;
+            case 32273:
+                    ae = zi;
+                break;
+            case 32274:
+                    ae = Xi;
+                break;
+            case 32275:
+                    ae = Qi;
+                break;
+            case 32276:
+                    ae = ji;
+                break;
+            case 32277:
+                    ae = qi;
+                break
+        }
+        let $ = !1,
+            be = 0,
+            ge = 30,
+            ye = 1,
+            xe = 8,
+            He = 11,
+            Ce = 4;
+        if (te.find(ue => ue === K) === void 0 ? (At.bRapidTrigger = 0, At.triggerPos = 30, At.bUseGapSingle = 1, At.gapSingle = 8, At.gapUp = 11, At.gapDown = 4, $ = !1) : $ = !0, T && T.length > 0 && Ut.Test !== i && K < ke.length) {
+            const {
+                row: ue,
+                col: fe
+            } = ke[K], qe = 305419896, D = 0, I = 2, b = 0;
+            let R = I + (ue * 16 + fe) * 8 + b;
+            if (T.map(V => V[D])[0] !== qe) At.bRapidTrigger = 0, At.triggerPos = 30, At.bUseGapSingle = 1, At.gapSingle = 8, At.gapUp = 11, At.gapDown = 4;
+            else {
+                const x = T.map(E => [E[R++], E[R++], E[R++], E[R++], E[R++], E[R++], E[R++], E[R++]])[0];
+                x && (At.bRapidTrigger = x[0], At.triggerPos = x[1], At.bUseGapSingle = x[2], At.gapSingle = x[3], At.gapUp = x[4], At.gapDown = x[5]), At.bRapidTrigger !== void 0 && (be = At.bRapidTrigger), At.triggerPos !== void 0 && (ge = At.triggerPos), At.bUseGapSingle !== void 0 && (ye = At.bUseGapSingle), At.gapSingle !== void 0 && (xe = At.gapSingle), At.gapUp !== void 0 && (He = At.gapUp), At.gapDown !== void 0 && (Ce = At.gapDown)
+            }
+        }
+        C.useEffect(() => {
+            const ue = k.current;
+            if (!ue) return;
+            const fe = ue.getContext("2d");
+            fe && (Y.current = fe)
+        }, []);
+        const [lt, kt] = [W.keyWidth, W.keyHeight], Ct = lt * _ - W.faceXPadding.reduce((ue, fe) => ue + fe, 0), ht = kt * h - W.faceYPadding.reduce((ue, fe) => ue + fe, 0);
+        C.useEffect(() => {
+            const ue = k.current;
+            if (!ue) return;
+            const fe = ue.getContext("2d");
+            fe && fe.clearRect(0, 0, Ct, ht)
+        }, [Ct, ht]), C.useEffect(() => {
+            const ue = k.current,
+                fe = Y.current;
+            if (!ue || !fe) return;
+            const qe = {
+                x: 3,
+                y: 0
+            };
+            let D = ht / 2;
+            if (fe.textAlign = "left", ae !== "" && ee !== "/test") {
+                const I = new Image;
+                I.src = ae, I.onload = () => {
+                    let b = 13,
+                        R = .75 * b,
+                        G = "UnKnown";
+                    const V = window.navigator.userAgent;
+                    V.match(/Windows/i) ? G = "Windows" : V.match(/Macintosh/i) ? G = "MacOS" : V.match(/Linux/i) ? G = "Linux" : G = "UnKnown", fe.font = `normal ${b}px NanmuSquareRound`;
+                    const x = "#FFFF80";
+                    fe.fillStyle = x, fe.clearRect(0, 0, ue.width, ue.height);
+                    const E = Ct / 2 - ht / 2,
+                        z = ht / 2 - ht / 2;
+                    switch (fe.drawImage(I, E, z, ht, ht), B) {
+                        default: break;
+                        case Ee.Performance:
+                                break;
+                        case Ee.Trigger:
+                                if (ge) {
+                                const N = "#FF0080";
+                                fe.fillStyle = N;
+                                const w = (ge * .05).toFixed(2);
+                                let ne = w.toString().length * b / 2,
+                                    v = Ct / 2 - ne;
+                                G === "MacOS" ? v = qe.x : v = Ct / 2 - ne / 2, fe.fillText(w.toString(), v, D - R - 1)
+                            }break;
+                        case Ee.RapidTrigger:
+                                if (be === 1)
+                                if (ye === 1) {
+                                    if (xe) {
+                                        const N = "#FF0080";
+                                        fe.fillStyle = N;
+                                        const w = (xe * .05).toFixed(2);
+                                        let ne = w.toString().length * b / 2,
+                                            v = lt / 2 - ne;
+                                        G === "MacOS" ? v = qe.x : v = Ct / 2 - ne / 2, fe.fillText(w.toString(), v, D - R - 1)
+                                    }
+                                } else {
+                                    if (He) {
+                                        const N = "#FF0080";
+                                        fe.fillStyle = N;
+                                        const w = (He * .05).toFixed(2);
+                                        let ne = w.toString().length * b / 2,
+                                            v = lt / 2 - ne;
+                                        G === "MacOS" ? v = qe.x : v = Ct / 2 - ne / 2, fe.fillText(w.toString(), v, kt)
+                                    }
+                                    if (Ce) {
+                                        const N = "#FF0080";
+                                        fe.fillStyle = N;
+                                        const w = (Ce * .05).toFixed(2);
+                                        let ne = w.toString().length * b / 2,
+                                            v = lt / 2 - ne;
+                                        G === "MacOS" ? v = qe.x : v = Ct / 2 - ne / 2, fe.fillText(w.toString(), v, D - R - 1)
+                                    }
+                                }break
+                    }
+                }
+            }
+        }, [ae, _e, B, T, ee]);
+        const Ne = (ue, fe, qe) => {
+                const D = ue.getContext("2d");
+                if (D == null) return;
+                const I = devicePixelRatio,
+                    [b, R] = [ue.width, ue.height];
+                ue.width = b * I, ue.height = R * I, ue.style.width = `${b}px`, ue.style.height = `${R}px`, D.scale(I, I);
+                const G = Fe,
+                    V = {
+                        x: 4,
+                        y: 4
+                    },
+                    x = {
+                        x: 4,
+                        y: 4
+                    },
+                    E = {
+                        x: 3,
+                        y: 0
+                    },
+                    z = {
+                        x: 4,
+                        y: 4
+                    };
+                if (D.beginPath(), D.moveTo(0, 0), D.lineTo(ue.width, 0), D.lineTo(ue.width, ue.height), D.lineTo(0, ue.height), D.lineTo(0, 0), D.clip(), D.fillStyle = fe, qe !== void 0) {
+                    if (qe.topLabel && qe.bottomLabel) {
+                        let N = De,
+                            w = .75 * N,
+                            ne = qe.offset[0] * w,
+                            v = qe.offset[1] * w;
+                        D.font = `semibold ${N}px ${G}`, D.fillText(qe.topLabel, V.x, V.y + ne + w), D.fillText(qe.bottomLabel, x.x, R - x.y - v)
+                    } else if (qe.centerLabel) {
+                        let N = We * qe.size,
+                            w = .75 * N,
+                            ne = R / 2;
+                        return D.font = `semibold ${N}px ${G}`, D.fillText(qe.label, E.x, ne + .5 * w), D.measureText(qe.centerLabel).width > b - E.x
+                    } else if (typeof qe.label == "string") {
+                        let N = 22,
+                            w = .75 * N;
+                        D.font = `semibold ${N}px ${G}`, D.fillText(qe.label, z.x, z.y + w)
+                    }
+                }
+            },
+            xt = (ue, fe, qe, D, I) => {
+                const [b, R] = [W.keyWidth, W.keyHeight];
+                if (ue.width = b * fe - W.faceXPadding.reduce((V, x) => V + x, 0), ue.height = R * qe - W.faceYPadding.reduce((V, x) => V + x, 0), ue.getContext("2d") != null) return Ne(ue, D, I)
+            },
+            nt = (ue, fe, qe, D, I, b, R, G, V, x, E, z, N) => {
+                const w = ue.getContext("2d");
+                if (w == null) return;
+                let ne = "UnKnown";
+                const v = window.navigator.userAgent;
+                v.match(/Windows/i) ? ne = "Windows" : v.match(/Macintosh/i) ? ne = "MacOS" : v.match(/Linux/i) ? ne = "Linux" : ne = "UnKnown";
+                const Q = devicePixelRatio,
+                    [Z, U] = [fe, qe];
+                ue.style.width = `${Z}px`, ue.style.height = `${U}px`, w.scale(Q, Q);
+                const re = Fe,
+                    oe = {
+                        x: 3,
+                        y: 0
+                    },
+                    Qe = {
+                        x: 4,
+                        y: 4
+                    };
+                if (w.beginPath(), w.moveTo(0, 0), w.lineTo(fe, 0), w.lineTo(fe, qe), w.lineTo(0, qe), w.lineTo(0, 0), w.clip(), w.textAlign = "left", w.fillStyle = D, I.topLabel && I.bottomLabel) {
+                    let le = We,
+                        pe = .75 * le;
+                    I.offset[0] * pe, I.offset[1] * pe, I.topLabel.length * le / 2;
+                    const se = I.bottomLabel.length * le / 2;
+                    let at = oe.x;
+                    ne === "MacOS" ? at = oe.x : at = Z / 2 - se / 2, at < 0 && (at = oe.x);
+                    const ze = U / 2;
+                    switch (w.font = `semibold ${le}px ${re}`, he) {
+                        case "en":
+                        default:
+                            w.fillText(I.bottomLabel, at, ze + .5 * pe);
+                            break;
+                        case "ko":
+                            Qa(I.topLabel) ? w.fillText(I.topLabel, at, ze + .5 * pe) : w.fillText(I.bottomLabel, at, ze + .5 * pe)
+                    }
+                    switch (B) {
+                        default: break;
+                        case Ee.Performance:
+                                break;
+                        case Ee.Trigger:
+                                if (R) {
+                                const gt = "#FF0080";
+                                w.fillStyle = gt;
+                                const _t = (R * .05).toFixed(2);
+                                let Rt = _t.toString().length * le / 2,
+                                    ct = Z / 2 - Rt;
+                                ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2, w.fillText(_t.toString(), ct, ze - pe - 1)
+                            }break;
+                        case Ee.RapidTrigger:
+                                if (b === 1)
+                                if (G === 1) {
+                                    if (V) {
+                                        const gt = "#FF0080";
+                                        w.fillStyle = gt;
+                                        const _t = (V * .05).toFixed(2);
+                                        let Rt = _t.toString().length * le / 2,
+                                            ct = Z / 2 - Rt;
+                                        ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2, w.fillText(_t.toString(), ct, ze - pe - 1)
+                                    }
+                                } else {
+                                    if (x) {
+                                        const gt = "#FF0080";
+                                        w.fillStyle = gt;
+                                        const _t = (x * .05).toFixed(2);
+                                        let Rt = _t.toString().length * le / 2,
+                                            ct = Z / 2 - Rt;
+                                        ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2, w.fillText(_t.toString(), ct, U)
+                                    }
+                                    if (E) {
+                                        const gt = "#FF0080";
+                                        w.fillStyle = gt;
+                                        const _t = (E * .05).toFixed(2);
+                                        let Rt = _t.toString().length * le / 2,
+                                            ct = Z / 2 - Rt;
+                                        ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2, w.fillText(_t.toString(), ct, ze - pe - 1)
+                                    }
+                                }break
+                    }
+                } else if (I.centerLabel) {
+                    const le = We,
+                        pe = .75 * le;
+                    w.font = `semibold ${le}px ${re}`;
+                    const se = U / 2;
+                    switch (B) {
+                        default: {
+                            const at = I.label.length * le / 2;
+                            let ze = Z / 2 - at;ne === "MacOS" ? ze = oe.x : ze = Z / 2 - at / 2 - oe.x,
+                            w.fillText(I.label, ze, se + .5 * pe)
+                        }
+                        break;
+                        case Ee.Performance:
+                            {
+                                const at = I.label.length * le / 2;
+                                let ze = Z / 2 - at;ne === "MacOS" ? ze = oe.x : ze = Z / 2 - at / 2 - oe.x,
+                                w.fillText(I.label, ze, se + .5 * pe)
+                            }
+                            break;
+                        case Ee.Trigger:
+                            {
+                                let at = I.label.length * le / 2,
+                                    ze = Z / 2 - at;
+                                if (ne === "MacOS" ? ze = oe.x : ze = Z / 2 - at / 2 - oe.x, w.fillText(I.label, ze, se + 1), R) {
+                                    const gt = "#FF0080";
+                                    w.fillStyle = gt;
+                                    const _t = (R * .05).toFixed(2);
+                                    let Rt = _t.toString().length * le / 2,
+                                        ct = Z / 2 - Rt;
+                                    ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2 - oe.x, w.fillText(_t.toString(), ct, se - pe - 1)
+                                }
+                            }
+                            break;
+                        case Ee.RapidTrigger:
+                                if (b === 1) {
+                                let at = I.label.length * le / 2,
+                                    ze = Z / 2 - at;
+                                if (ne === "MacOS" ? ze = oe.x : ze = Z / 2 - at / 2 - oe.x, w.fillText(I.label, ze, se + 1), G === 1) {
+                                    if (V) {
+                                        const gt = "#FF0080";
+                                        w.fillStyle = gt;
+                                        const _t = (V * .05).toFixed(2);
+                                        let Rt = _t.toString().length * le / 2,
+                                            ct = Z / 2 - Rt;
+                                        ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2 - oe.x, w.fillText(_t.toString(), ct, se - pe - 1)
+                                    }
+                                } else {
+                                    if (x) {
+                                        const gt = "#FF0080";
+                                        w.fillStyle = gt;
+                                        const _t = (x * .05).toFixed(2);
+                                        let Rt = _t.toString().length * le / 2,
+                                            ct = Z / 2 - Rt;
+                                        ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2 - oe.x, w.fillText(_t.toString(), ct, U)
+                                    }
+                                    if (E) {
+                                        const gt = "#FF0080";
+                                        w.fillStyle = gt;
+                                        const _t = (E * .05).toFixed(2);
+                                        let Rt = _t.toString().length * le / 2,
+                                            ct = Z / 2 - Rt;
+                                        ne === "MacOS" ? ct = oe.x : ct = Z / 2 - Rt / 2 - oe.x, w.fillText(_t.toString(), ct, se - pe - 1)
+                                    }
+                                }
+                            } else {
+                                let at = I.label.length * le / 2,
+                                    ze = Z / 2 - at;
+                                ne === "MacOS" ? ze = oe.x : ze = Z / 2 - at / 2 - oe.x, w.fillText(I.label, ze, se + .5 * pe)
+                            }break
+                    }
+                    return w.measureText(I.centerLabel).width > Z - oe.x
+                } else if (typeof I.label == "string") {
+                    let le = 22,
+                        pe = .75 * le;
+                    w.font = `semibold ${le}px ${re}`, w.clearRect(0, 0, ue.width, ue.height), w.fillText(I.label, Qe.x, Qe.y + pe)
+                }
+            },
+            Mt = (ue, fe, qe, D, I, b, R, G, V, x, E, z, N) => {
+                const [w, ne] = [W.keyWidth, W.keyHeight];
+                if (ue.width = w * fe - W.faceXPadding.reduce((U, re) => U + re, 0), ue.height = ne * qe - W.faceYPadding.reduce((U, re) => U + re, 0), ue.getContext("2d") == null) return;
+                const Q = w * fe - W.faceXPadding.reduce((U, re) => U + re, 0),
+                    Z = ne * qe - W.faceYPadding.reduce((U, re) => U + re, 0);
+                return nt(ue, Q, Z, D, I, b, R, G, V, x, E)
+            },
+            rt = F.useCallback(() => {
+                if (k.current && n && t && (document.fonts.check('bold 16px "NanmuSquareRound"', t.label) || f) && te)
+                    if (B === Ee.Trigger) {
+                        const ue = Mt(k.current, _, h, n.t, t, be, ge, ye, xe, He, Ce);
+                        M(!!ue)
+                    } else if (B === Ee.RapidTrigger) {
+                    const ue = Mt(k.current, _, h, n.t, t, be, ge, ye, xe, He, Ce);
+                    M(!!ue)
+                } else {
+                    const ue = xt(k.current, _, h, n.t, t);
+                    M(!!ue)
+                }
+            }, [k.current, _, t && t.key, o[0], o[1], n && n.t, n && n.c, u, be, ge, ye, xe, He, Ce, B, _e, T, ee, ae]);
+        C.useEffect(rt, [t && t.key, f, n && n.c, n && n.t, T, be, ge, ye, xe, He, Ce, B, _e, K, ee, ae]), C.useEffect(() => (document.fonts.addEventListener("loadingdone", rt), () => {
+            document.fonts.removeEventListener("loadingdone", rt)
+        }), []);
+        const [Ge, Xe] = [-8, 0], Pe = (ue => {
+            if (B === Ee.Performance) return $ ? vt.Checked : vt.UnChecked;
+            if (B === Ee.Trigger) return $ ? vt.Checked : vt.UnChecked;
+            if (B === Ee.RapidTrigger) return $ ? vt.Checked : vt.UnChecked;
+            switch (ue) {
+                case Ut.Test:
+                    return Pt.KeyDown === l ? Zt.Pressed : Zt.Unpressed;
+                case Ut.LedColor:
+                    return $ ? vt.Checked : vt.UnChecked;
+                default:
+                    return P || a ? Zt.Pressed : Zt.Unpressed
+            }
+        })(i), [Re] = Pe === Zt.Pressed ? [Ge, c[2]] : [Xe, c[2] + Math.PI * Number(u)], J = l === Pt.KeyUp, O = sc(I_), Ye = (ue => {
+            if (B === Ee.Performance) return Pe === vt.Checked ? O.color : "lightgrey";
+            if (B === Ee.Trigger) return Pe === vt.Checked ? O.color : "lightgrey";
+            if (B === Ee.RapidTrigger) return Pe === vt.Checked ? O.color : "lightgrey";
+            switch (ue) {
+                case Ut.Test:
+                    return Pe === Zt.Unpressed ? J ? "mediumvioletred" : "lightgrey" : "mediumvioletred";
+                case Ut.LedColor:
+                    return Pe === vt.Checked ? O.color : "lightgrey";
+                default:
+                    return Pe === Zt.Unpressed, "lightgrey"
+            }
+        })(i), pt = ue => {
+            if (B === Ee.Performance) return s(Ls, {
+                style: {
+                    background: Ye,
+                    opacity: q
+                }
+            });
+            if (B === Ee.Trigger && Pe === vt.Checked) return s(Ls, {
+                style: {
+                    background: Ye,
+                    opacity: q
+                }
+            });
+            if (B === Ee.RapidTrigger && Pe === vt.Checked) return s(Ls, {
+                style: {
+                    background: Ye,
+                    opacity: q
+                }
+            });
+            switch (ue) {
+                case Ut.Test:
+                    return s(oh, {
+                        style: {
+                            background: Ye,
+                            opacity: q
+                        }
+                    });
+                case Ut.LedColor:
+                    return s(Ls, {
+                        style: {
+                            background: Ye,
+                            opacity: q
+                        }
+                    })
+            }
+        }, q = Pe === Zt.Unpressed ? J ? .4 : 0 : .6, [Te, tt, dt, it] = C.useMemo(() => {
+            const ue = () => {};
+            return r ? [ue, ue, ue, ue] : e.mode === Ut.ConfigureColors ? [ue, fe => {
+                e.onPointerOver && e.onPointerOver(fe, K)
+            }, ue, fe => {
+                e.onPointerDown && e.onPointerDown(fe, K)
+            }] : [fe => e.onClick(fe, K, B, _e), fe => {
+                e.onPointerOver && e.onPointerOver(fe, K), ie(!0)
+            }, () => ie(!1), fe => {
+                e.onPointerDown && e.onPointerDown(fe, K)
+            }]
+        }, [r, e.onClick, e.onPointerDown, e.onPointerOver, ie, K, i, B, _e]);
+        return u ? s(Jw, {
+            onClick: Te,
+            size: _ * W.keyWidth,
+            style: {
+                transform: `translate(${e.position[0]-(W.keyWidth*_-W.keyWidth)/2}px,${_*(W.keyHeight-W.keyWidth)/2+e.position[1]-(W.keyHeight*h-W.keyHeight)/2}px) rotate(${-e.rotation[2]}rad)`,
+                borderRadius: 3,
+                color: e.color.c
+            }
+        }) : e.clipPath ? s(Xw, { ...e,
+            onClick: Te,
+            onPointerDown: it,
+            onPointerOver: tt,
+            onPointerOut: dt,
+            keycapZ: Re,
+            keycapOpacity: q,
+            keycapColor: Ye,
+            canvasRef: k,
+            macroData: y,
+            overflowsTexture: L,
+            style: {
+                transform: `translate(${W.keyWidth/2+e.position[0]-(W.keyXPos*_-W.keyXSpacing)/2}px,${W.keyHeight/2+e.position[1]-(W.keyYPos*h-W.keyYSpacing)/2}px) rotate(${-e.rotation[2]}rad)`,
+                width: _ * W.keyXPos - W.keyXSpacing,
+                height: h * W.keyYPos - W.keyYSpacing
+            }
+        }) : s(Ke, {
+            children: m(eh, {
+                onClick: Te,
+                onPointerDown: it,
+                onPointerOver: tt,
+                onPointerOut: dt,
+                style: {
+                    transform: `translate(${W.keyWidth/2+e.position[0]-(W.keyXPos*_-W.keyXSpacing)/2}px,${W.keyHeight/2+e.position[1]-(W.keyYPos*h-W.keyYSpacing)/2}px) rotate(${-e.rotation[2]}rad)`,
+                    width: _ * W.keyXPos - W.keyXSpacing,
+                    height: h * W.keyYPos - W.keyYSpacing,
+                    cursor: r ? "initial" : "pointer"
+                },
+                children: [m(o3, {
+                    $selected: a,
+                    style: {
+                        animation: r ? "initial" : a ? ".75s infinite alternate select-glow" : "",
+                        background: go(e.color.c, .8),
+                        transform: `perspective(100px) translateZ(${Re}px)`,
+                        borderRadius: 3,
+                        width: _ * W.keyXPos - W.keyXSpacing,
+                        height: h * W.keyYPos - W.keyYSpacing
+                    },
+                    children: [pt(i), s(nc, {
+                        style: {
+                            borderRadius: 4,
+                            background: e.color.c,
+                            height: "100%"
+                        },
+                        children: s("canvas", {
+                            ref: k,
+                            style: {}
+                        })
+                    })]
+                }), (y || L) && s(th, {
+                    $rotate: c[2],
+                    children: s(F_, {
+                        children: y || t && t.tooltipLabel
+                    })
+                })]
+            })
+        })
+    }, ro),
+    o3 = S.div `
+  box-sizing: border-box;
+  padding: 2px 6px 10px 6px;
+  transition: transform 0.2s ease-out;
+  box-shadow: inset -1px -1px 0 rgb(0 0 0 / 20%),
+    inset 1px 1px 0 rgb(255 255 255 / 20%);
+  animation: ${e=>e.$selected?".75s infinite alternate select-glow":"initial"};
+  &:hover {
+    transform: perspective(100px) translateZ(-5px);
+    animation: 0.5s 1 forwards select-glow;
+  }
+`;
+
+function nh(e, t, o, n, a, r, i, c, l, u) {
+    const {
+        position: _,
+        rotation: h,
+        scale: f,
+        color: K,
+        idx: y,
+        onClick: L,
+        onPointerDown: M,
+        onPointerOver: P
+    } = n.coords[t], ie = e.ei !== void 0;
+    return {
+        mode: o.mode,
+        position: _,
+        rotation: h,
+        scale: c0(e, f),
+        textureWidth: e.w,
+        textureHeight: e.h,
+        textureOffsetX: e.w2 ? Math.abs(e.w2 - e.w) : 0,
+        color: K,
+        shouldRotate: ie,
+        onPointerDown: M,
+        onPointerOver: P,
+        keyState: o.pressedKeys ? o.pressedKeys[t] : -1,
+        disabled: !o.selectable,
+        selected: t === a,
+        checkedKeys: l,
+        checked: c,
+        idx: y,
+        configureType: u,
+        label: r[t],
+        onClick: L,
+        key: n.indices[t],
+        skipFontCheck: i
+    }
+}
+const n3 = e => (t, o) => {
+    const n = t.ei !== void 0;
+    return `${e}-${o}-${t.w}-${t.h}-${n}`
+};
+
+function rr(e, t, o, n) {
+    return e.matrixKeycodes.length ? e.keys.map((a, r) => l0(e.matrixKeycodes[r], a.w, t, e.definition, o, n)) : []
+}
+
+function Aa(e, t, o, n) {
+    return e.matrixKeycodes.length ? e.keys.map((a, r) => d0(e.matrixKeycodes[r], a.w, t, e.definition, o, n)) : []
+}
+
+function Ta(e, t, o, n) {
+    return e.matrixKeycodes.length ? e.keys.map((a, r) => u0(e.matrixKeycodes[r], a.w, t, e.definition, o, n)) : []
+}
+
+function ah(e, t, o, n, a, r) {
+    const {
+        keys: i,
+        matrixKeycodes: c
+    } = e, {
+        rowMap: l
+    } = Mi(i), u = i.map(X.getBoundingBox), [_, h] = [Math.min(...u.map(K => K.xStart)), Math.min(...u.map(K => K.yStart))], f = i.map(K => {
+        const y = { ...K
+        };
+        return _ < 0 && (y.x = y.x - _), h < 0 && (y.y = y.y - h), y
+    }).map(vo);
+    return {
+        indices: i.map(n3(e.definition.vendorProductId)),
+        coords: i.map((K, y) => {
+            const [L, M] = f[y], P = K.r * (2 * Math.PI) / 360, ie = Jt.keyXSpacing / Jt.keyWidth, k = Jt.keyYSpacing / Jt.keyHeight, Y = (1 + ie) * (K.w2 || K.w) - ie, ee = K.h * (1 + k) - k, T = i0(K, l[eu(K)], !1), te = e.keyColors ? y : K.color, B = t[te];
+            return {
+                position: n(L + _, M + h),
+                rotation: [0, 0, -P],
+                scale: [Y, ee, 1],
+                color: B,
+                meshKey: T,
+                idx: y,
+                onClick: (de, he, Fe, We) => {
+                    switch (de.stopPropagation(), o(Et(he)), Fe) {
+                        case Ee.Keymap:
+                            break;
+                        case Ee.Color:
+                            break;
+                        case Ee.Performance:
+                            break;
+                        case Ee.RapidTrigger:
+                            break;
+                        case Ee.Dks:
+                            We == 32278 ? o(Ga(!0)) : o(Ru(!0));
+                            break
+                    }
+                },
+                onPointerDown: e.onKeycapPointerDown,
+                onPointerOver: e.onKeycapPointerOver
+            }
+        })
+    }
+}
+
+function sh() {
+    const [e, t] = C.useState(!1), o = C.useCallback(() => {
+        t(!1)
+    }, []), n = C.useCallback(() => {
+        t(!0)
+    }, []);
+    return C.useEffect(() => {
+        document.fonts.load("Fira Sans").then(o, n)
+    }, []), e
+}
+const a3 = S.div `
+  position: absolute;
+  top: ${e=>_d*1.5}px;
+  left: ${e=>_d*1.5}px;
+`,
+    s3 = (e, t) => [e - W.keyWidth / 2, t - W.keyHeight / 2, 0],
+    r3 = e => e.map(([t, o]) => {
+        const n = Pa({
+                hue: Math.round(255 * t / 360),
+                sat: Math.round(255 * o)
+            }),
+            a = `#${new ln(n).getHexString()}`;
+        return {
+            c: a,
+            t: a
+        }
+    }),
+    i3 = e => {
+        const t = wt(),
+            o = p(oo),
+            n = p(Qu),
+            a = p(Gn),
+            r = p(br),
+            i = p(oa),
+            c = p(gr),
+            l = sh(),
+            [u] = Ko();
+        p(Sr), p(wr);
+        const _ = e.keyColors ? r3(e.keyColors) : i,
+            {
+                basicKeyToByte: h,
+                byteToKey: f
+            } = p(yo),
+            K = p(te => te.macros),
+            {
+                keys: y,
+                selectedKey: L
+            } = e,
+            M = L === void 0 ? o : L,
+            P = C.useMemo(() => ah(e, _, t, s3), [y, _, e.onKeycapPointerDown, e.onKeycapPointerOver]),
+            ie = p(Ht),
+            k = C.useMemo(() => {
+                if (u === "/test") switch (ie) {
+                    case "en":
+                    default:
+                        return Aa(e, c, h, f);
+                    case "ko":
+                        return Ta(e, c, h, f)
+                } else if (u === "/") switch (r) {
+                    default: switch (ie) {
+                        case "en":
+                        default:
+                            return Aa(e, c, h, f);
+                        case "ko":
+                            return Ta(e, c, h, f)
+                    }
+                    break;
+                    case Ee.Keymap:
+                            case Ee.Performance:
+                            switch (ie) {
+                            case "en":
+                            default:
+                                return Aa(e, c, h, f);
+                            case "ko":
+                                return Ta(e, c, h, f)
+                        }
+                        break;
+                    case Ee.Trigger:
+                            case Ee.RapidTrigger:
+                            return rr(e, c, h, f)
+                }
+                else return rr(e, c, h, f)
+            }, [y, e.matrixKeycodes, K, e.definition, o, ie, u]),
+            {
+                width: Y,
+                height: ee
+            } = hr(y),
+            T = C.useMemo(() => e.keys.map((te, B) => te.d ? null : s(t3, { ...e0(te),
+                ...nh(te, B, e, P, M, k, l, n, a, r)
+            })), [y, M, k, e.pressedKeys, e.selectable, _, e.definition.vendorProductId, l, u]);
+        return s(a3, {
+            height: ee,
+            width: Y,
+            style: {
+                pointerEvents: e.selectable ? "all" : "none"
+            },
+            children: T
+        })
+    },
+    rh = (e, t, o) => {
+        const n = e.filter(i => i.ei === void 0 && !i.d),
+            a = n.reduce((i, c) => (i[c.row][c.col] = vo(c), i), Array(t).fill(0).map(() => Array(o).fill(0))).map(i => i.sort((c, l) => c[0] - l[0])),
+            r = n.reduce((i, c) => (i[c.col][c.row] = vo(c), i), Array(o).fill(0).map(() => Array(t).fill(0))).map(i => i.sort((c, l) => c[1] - l[1]));
+        return {
+            rowKeys: a,
+            colKeys: r
+        }
+    },
+    c3 = ({
+        rowKeys: e,
+        colKeys: t
+    }) => m(l3, {
+        style: {
+            position: "absolute",
+            top: W.insideBorder,
+            left: W.insideBorder
+        },
+        children: [e.map((o, n) => s(d3, {
+            points: o.map(a => (a || []).join(",")).join(" ")
+        }, n)), t.map((o, n) => s(u3, {
+            points: o.map(a => (a || []).join(",")).join(" ")
+        }, n))]
+    }),
+    l3 = S.svg `
+  transform: rotateZ(0);
+  width: 100%;
+  height: 100%;
+`,
+    d3 = S.polyline `
+  stroke: var(--color_accent);
+  stroke-width: 3;
+  fill-opacity: 0;
+  stroke-opacity: 0.4;
+  stroke-linecap: round;
+`,
+    u3 = S.polyline `
+  stroke: var(--color_light-grey);
+  stroke-width: 3;
+  fill-opacity: 0;
+  stroke-opacity: 0.4;
+  stroke-linecap: round;
+`,
+    _3 = ({
+        keys: e,
+        rows: t,
+        cols: o,
+        width: n,
+        height: a
+    }) => {
+        const {
+            rowKeys: r,
+            colKeys: i
+        } = rh(e, t, o);
+        return s(c3, {
+            rowKeys: r,
+            colKeys: i
+        })
+    },
+    h3 = e => {
+        const {
+            containerDimensions: t,
+            shouldHide: o,
+            ...n
+        } = e, {
+            width: a,
+            height: r
+        } = C.useMemo(() => hr(n.keys), [n.keys]), i = t.height, c = 35, l = Math.min(Math.min(1, t && t.width / ((W.keyWidth + W.keyXSpacing) * a - W.keyXSpacing + c * 2)), i / ((W.keyHeight + W.keyYSpacing) * r - W.keyYSpacing + c * 2)) || 1;
+        return s("div", {
+            style: {
+                transform: `scale(${l}, ${l})`,
+                opacity: o ? 0 : 1,
+                position: "absolute",
+                pointerEvents: o ? "none" : "all"
+            },
+            children: s(p3, { ...n,
+                width: a,
+                height: r
+            })
+        })
+    },
+    C3 = S.div `
+  position: relative;
+`,
+    p3 = F.memo(e => {
+        const {
+            matrixKeycodes: t,
+            keys: o,
+            definition: n,
+            pressedKeys: a,
+            mode: r,
+            showMatrix: i,
+            selectable: c,
+            width: l,
+            height: u
+        } = e;
+        return m(C3, {
+            children: [s(Yw, {
+                width: l,
+                height: u
+            }), s(i3, { ...e,
+                keys: o,
+                mode: r,
+                matrixKeycodes: t,
+                selectable: c,
+                definition: n,
+                pressedKeys: a
+            }), i && s(_3, {
+                keys: o,
+                rows: n.matrix.rows,
+                cols: n.matrix.cols,
+                width: l,
+                height: u
+            })]
+        })
+    }, ro),
+    f3 = F.memo(e => {
+        const t = Math.atan(2 / e.caseWidth),
+            o = (80 + -30) / 2,
+            n = 2,
+            a = 1,
+            i = -(-e.caseWidth - a * 2 - n * 2) / Math.cos(t),
+            c = .1 * i / 22,
+            l = 95,
+            u = 95 * c,
+            _ = (i - u) / 2,
+            h = C.useMemo(() => {
+                const K = new Ad;
+                return K.moveTo(c * (25 - o), c * (25 - l)), K.bezierCurveTo(c * (25 - o), c * (25 - l), c * (20 - o), c * (0 - l), c * (0 - o), c * (0 - l)), K.bezierCurveTo(c * (-30 - o), c * (0 - l), c * (-30 - o), c * (35 - l), c * (-30 - o), c * (35 - l)), K.bezierCurveTo(c * (-30 - o), c * (55 - l), c * (-10 - o), c * (77 - l), c * (25 - o), c * (95 - l)), K.bezierCurveTo(c * (60 - o), c * (77 - l), c * (80 - o), c * (55 - l), c * (80 - o), c * (35 - l)), K.bezierCurveTo(c * (80 - o), c * (35 - l), c * (80 - o), c * (0 - l), c * (50 - o), c * (0 - l)), K.bezierCurveTo(c * (35 - o), c * (0 - l), c * (25 - o), c * (25 - l), c * (25 - o), c * (25 - l)), K
+            }, [e.caseWidth, e.caseHeight, e.color]),
+            f = {
+                depth: 4,
+                bevelEnabled: !0,
+                bevelSegments: 10,
+                bevelSize: 1,
+                bevelThickness: 1
+            };
+        return m("mesh", {
+            position: [-i + _, n * 2 + a * 2 + e.caseHeight / 2, 0],
+            scale: 1,
+            rotation: [Math.PI / 2, t, Math.PI / 2],
+            children: [s("extrudeGeometry", {
+                attach: "geometry",
+                args: [h, f]
+            }), s("meshPhongMaterial", {
+                color: e.color,
+                transparent: !0,
+                opacity: 1
+            })]
+        })
+    }, ro),
+    g3 = e => {
+        const t = Math.tan(Math.PI * 7.5 / 180),
+            o = 10,
+            n = o + t * e,
+            a = e / 2,
+            r = new Ad;
+        let i = 2,
+            c = Math.PI / 2;
+        return r.moveTo(-n, a), r.absarc(-n - i, a - i, i, c * 1 + c, c * 1, !0), r.absarc(-i, a, i, c * 1, c * 1 - c, !0), r.absarc(-i, -a, i, c * 3 + c, c * 3, !0), r.absarc(-o - i, -a - i, i, c * 2 + c, c * 2, !0), r
+    },
+    m3 = F.memo(e => {
+        const t = p(oa),
+            o = C.useMemo(() => t[X.KeyColorType.Accent].c, [t]),
+            n = "#212020",
+            a = C.useMemo(() => t[X.KeyColorType.Accent].t, [t]),
+            r = e.width * Jt.keyXPos - Jt.keyXSpacing,
+            i = Jt.keyYPos * e.height - Jt.keyYSpacing,
+            c = 4,
+            l = r + c * 1,
+            u = r + c * 2.5,
+            [_, h] = C.useMemo(() => [i + c, i + c * 2].map(g3), [i]),
+            f = 1,
+            K = 10,
+            M = 10 + Math.tan(Math.PI * 7.5 / 180) * (i + c * 2);
+        return m("group", {
+            scale: 1,
+            "position-z": -f * 2,
+            "rotation-y": -Math.PI / 2,
+            children: [s(f3, {
+                caseWidth: M,
+                caseHeight: i,
+                color: a
+            }), m("mesh", {
+                position: [-f, 0, -u / 2],
+                castShadow: !0,
+                children: [s("extrudeGeometry", {
+                    attach: "geometry",
+                    args: [h, {
+                        depth: u,
+                        bevelEnabled: !0,
+                        bevelSize: f,
+                        bevelThickness: f,
+                        bevelSegments: K
+                    }]
+                }), s("meshPhongMaterial", {
+                    color: o,
+                    shininess: 100,
+                    reflectivity: 1,
+                    specular: go(o, .2)
+                })]
+            }), m("mesh", {
+                position: [0, 0, -l / 2],
+                castShadow: !0,
+                children: [s("extrudeGeometry", {
+                    attach: "geometry",
+                    args: [_, {
+                        depth: l,
+                        bevelEnabled: !0,
+                        bevelSize: f / 2,
+                        bevelThickness: f,
+                        bevelSegments: K
+                    }]
+                }), s("meshPhongMaterial", {
+                    color: n,
+                    shininess: 100,
+                    reflectivity: 1,
+                    specular: go(o, .2)
+                })]
+            })]
+        })
+    });
+let Nt = {
+    bRapidTrigger: 0,
+    triggerPos: 30,
+    bUseGapSingle: 1,
+    gapSingle: 8,
+    gapUp: 11,
+    gapDown: 4,
+    dummy1: 0,
+    dummy2: 0
+};
+const K3 = ({
+        macroExpression: e,
+        label: t
+    }) => t && t.length > 15 ? t : e && e.length ? e : null,
+    y3 = (e, [t, o], n, a) => {
+        const [c, l] = [512 * t, 512 * o];
+        e.width = c, e.height = l;
+        const u = e.getContext("2d"),
+            _ = 2.6;
+        if (u) {
+            u.fillStyle = n, u.clearRect(0, 0, e.width, e.height), u.fillRect(0, 0, e.width, e.height), u.fill(), u.fillStyle = a;
+            const h = .4 * c / _;
+            u.ellipse(.5 * c / _, 2.1 * l / _, h, h, Math.PI / 4, 0, 2 * Math.PI), u.fill()
+        }
+    },
+    S3 = F.memo(e => {
+        const {
+            label: t,
+            scale: o,
+            color: n,
+            onClick: a,
+            selected: r,
+            disabled: i,
+            mode: c,
+            rotation: l,
+            keyState: u,
+            shouldRotate: _,
+            keycapGeometry: h,
+            textureOffsetX: f,
+            textureWidth: K,
+            textureHeight: y,
+            onPointerOver: L,
+            onPointerDown: M,
+            idx: P
+        } = e, ie = C.useRef(), k = t && K3(t), [Y, ee] = C.useState(!1), [T, te] = C.useState(!1), B = C.useRef(), de = C.useRef(document.createElement("canvas")), he = p(Gn);
+        Ko();
+        const Fe = p(os),
+            We = p(br),
+            De = p(D => fn(D) || []),
+            ke = p(Dt),
+            _e = p(Ht),
+            ae = De[P];
+        let $ = !1,
+            be = 0,
+            ge = 30,
+            ye = 1,
+            xe = 8,
+            He = 11,
+            Ce = 4;
+        if (he.find(D => D === P) === void 0 ? (Nt.bRapidTrigger = 0, Nt.triggerPos = 30, Nt.bUseGapSingle = 1, Nt.gapSingle = 8, Nt.gapUp = 11, Nt.gapDown = 4, $ = !1) : $ = !0, Fe && Ut.Test !== c && P !== void 0) {
+            const {
+                row: D,
+                col: I
+            } = ke[P], b = 2, R = 0;
+            let G = b + (D * 16 + I) * 8 + R;
+            const x = Fe.map(E => [E[G++], E[G++], E[G++], E[G++], E[G++], E[G++], E[G++], E[G++]])[0];
+            x && (Nt.bRapidTrigger = x[0], Nt.triggerPos = x[1], Nt.bUseGapSingle = x[2], Nt.gapSingle = x[3], Nt.gapUp = x[4], Nt.gapDown = x[5]), Nt.bRapidTrigger !== void 0 && (be = Nt.bRapidTrigger), Nt.triggerPos !== void 0 && (ge = Nt.triggerPos), Nt.bUseGapSingle !== void 0 && (ye = Nt.bUseGapSingle), Nt.gapSingle !== void 0 && (xe = Nt.gapSingle), Nt.gapUp !== void 0 && (He = Nt.gapUp), Nt.gapDown !== void 0 && (Ce = Nt.gapDown)
+        }
+        const lt = (D, I, b, R) => {
+                const G = D.getContext("2d");
+                if (G == null) return;
+                const V = "NanmuSquareRound",
+                    x = {
+                        x: .015,
+                        y: .02
+                    },
+                    E = {
+                        x: .01,
+                        y: -.01
+                    },
+                    z = {
+                        x: .01,
+                        y: .02
+                    };
+                if (G.beginPath(), G.moveTo(I.bl.x * D.width, (1 - I.bl.y) * D.height), G.lineTo(I.bl.x * D.width, (1 - I.tr.y) * D.height), G.lineTo(I.tr.x * D.width, (1 - I.tr.y) * D.height), G.lineTo(I.tr.x * D.width, (1 - I.bl.y) * D.height), G.lineTo(I.bl.x * D.width, (1 - I.bl.y) * D.height), G.clip(), G.fillStyle = b, R !== void 0) {
+                    if (R.topLabel && R.bottomLabel) {
+                        let N = 40,
+                            w = .75 * N / D.height,
+                            ne = R.offset[0] * w,
+                            v = R.offset[1] * w;
+                        G.font = `bold ${N}px ${V}`, G.fillText(R.topLabel, (I.bl.x + x.x) * D.width, (1 - (I.tr.y - w - x.y - ne)) * D.height), G.fillText(R.bottomLabel, (I.bl.x + x.x) * D.width, (1 - (I.bl.y + x.y + v)) * D.height)
+                    } else if (R.centerLabel) {
+                        let N = 28 * R.size,
+                            w = .75 * N / D.height,
+                            ne = (I.tr.y + I.bl.y) / 2;
+                        return G.font = `bold ${N}px ${V}`, G.fillText(R.label, (I.bl.x + E.x) * D.width, (1 - (ne - .5 * w - E.y)) * D.height), G.measureText(R.centerLabel).width > (I.tr.x - (I.bl.x + E.x)) * D.width
+                    } else if (typeof R.label == "string") {
+                        let N = 75,
+                            w = .75 * N / D.height;
+                        G.font = `bold ${N}px ${V}`, G.fillText(R.label, (I.bl.x + z.x) * D.width, (1 - (I.tr.y - w - z.y)) * D.height)
+                    }
+                }
+            },
+            kt = (D, [I, b], R, G, V, x, E, z) => {
+                const N = ht(I, b, R, G, z),
+                    w = 512;
+                D.width = w * I, D.height = w * b;
+                const ne = D.getContext("2d");
+                if (ne != null) return ne.fillStyle = V, ne.fillRect(0, 0, D.width, D.height), lt(D, N.faceRect, x, E)
+            },
+            Ct = (D, I, b, R, G, V, x, E, z, N, w, ne) => {
+                const v = D.getContext("2d");
+                if (v == null) return;
+                const Q = "NanmuSquareRound, Arial Rounded MT, Arial Rounded MT Bold, Arial",
+                    Z = {
+                        x: .015,
+                        y: .02
+                    },
+                    U = {
+                        x: .01,
+                        y: -.01
+                    },
+                    re = {
+                        x: .01,
+                        y: .02
+                    };
+                if (v.beginPath(), v.moveTo(I.bl.x * D.width, (1 - I.bl.y) * D.height), v.lineTo(I.bl.x * D.width, (1 - I.tr.y) * D.height), v.lineTo(I.tr.x * D.width, (1 - I.tr.y) * D.height), v.lineTo(I.tr.x * D.width, (1 - I.bl.y) * D.height), v.lineTo(I.bl.x * D.width, (1 - I.bl.y) * D.height), v.clip(), v.fillStyle = b, R !== void 0) {
+                    if (R.imageSource) {
+                        let oe = 37.5 * R.size,
+                            Qe = .75 * oe / D.height,
+                            le = (I.tr.y + I.bl.y) / 2;
+                        switch (v.font = `bold ${oe}px ${Q}`, We) {
+                            default: break;
+                            case Ee.Performance:
+                                    break;
+                            case Ee.Trigger:
+                                    if (V) {
+                                    const pe = "#FF0080";
+                                    v.fillStyle = pe;
+                                    const se = (I.bl.x + U.x) * D.width,
+                                        at = (1 - (le - U.y)) * D.height,
+                                        ze = (V * .05).toFixed(2);
+                                    v.fillText(ze.toString(), se, at)
+                                }break;
+                            case Ee.RapidTrigger:
+                                    if (G === 1) {
+                                    const pe = (I.bl.x + U.x) * D.width,
+                                        se = (1 - (le - Qe - U.y)) * D.height;
+                                    v.fillText(R.label, pe, se)
+                                } else v.fillText(R.label, (I.bl.x + U.x) * D.width, (1 - (le - .5 * Qe - U.y)) * D.height);
+                                break
+                        }
+                        return !0
+                    } else if (R.topLabel && R.bottomLabel) {
+                        let oe = 37.5 * R.size,
+                            Qe = .75 * oe / D.height;
+                        R.offset[0] * Qe, R.offset[1] * Qe;
+                        let le = (I.tr.y + I.bl.y) / 2;
+                        v.font = `bold ${oe}px ${Q}`;
+                        let pe = (I.bl.x + Z.x) * D.width,
+                            se = (1 - (le - Qe - U.y)) * D.height;
+                        switch (_e) {
+                            case "en":
+                            default:
+                                v.fillText(R.topLabel, pe, se);
+                                break;
+                            case "ko":
+                                Qa(R.topLabel) ? v.fillText(R.topLabel, pe, se) : v.fillText(R.bottomLabel, pe, se)
+                        }
+                        switch (We) {
+                            default: break;
+                            case Ee.Performance:
+                                    break;
+                            case Ee.Trigger:
+                                    if (V) {
+                                    const at = "#FF0080",
+                                        ze = (I.bl.x + U.x) * D.width,
+                                        gt = 360,
+                                        _t = (V * .05).toFixed(2);
+                                    v.fillStyle = at, v.fillText(_t.toString(), ze, gt)
+                                }break;
+                            case Ee.RapidTrigger:
+                                    if (G === 1)
+                                    if (x === 1) {
+                                        if (E) {
+                                            const at = "#FF0080",
+                                                ze = (I.bl.x + U.x) * D.width,
+                                                gt = 360,
+                                                _t = (E * .05).toFixed(2);
+                                            v.fillStyle = at, v.fillText(_t.toString(), ze, gt)
+                                        }
+                                    } else {
+                                        if (z) {
+                                            const at = "#FF0080";
+                                            v.fillStyle = at;
+                                            const ze = (I.bl.x + U.x) * D.width,
+                                                gt = (1 - (le - U.y)) * D.height,
+                                                _t = (z * .05).toFixed(2);
+                                            v.fillText(_t.toString(), ze, gt)
+                                        }
+                                        if (N) {
+                                            const at = "#FF0080";
+                                            v.fillStyle = at;
+                                            const ze = (I.bl.x + U.x) * D.width,
+                                                gt = (1 - (le - Qe * 2 - U.y)) * D.height,
+                                                _t = (N * .05).toFixed(2);
+                                            v.fillText(_t.toString(), ze, gt)
+                                        }
+                                    }break
+                        }
+                    } else if (R.centerLabel) {
+                        let oe = 28 * R.size,
+                            Qe = .75 * oe / D.height,
+                            le = (I.tr.y + I.bl.y) / 2;
+                        v.font = `bold ${oe}px ${Q}`;
+                        let pe = (1 - (le - U.y)) * D.height;
+                        switch (pe = (1 - (le - .5 * Qe - U.y)) * D.height, We) {
+                            default: v.fillText(R.label, (I.bl.x + U.x) * D.width, pe);
+                            break;
+                            case Ee.Performance:
+                                    v.fillText(R.label, (I.bl.x + U.x) * D.width, pe);
+                                break;
+                            case Ee.Trigger:
+                                    if (pe = pe - oe, V) {
+                                    const se = "#FF0080";
+                                    v.fillStyle = se;
+                                    const at = (I.bl.x + U.x) * D.width,
+                                        ze = (V * .05).toFixed(2);
+                                    v.fillText(ze.toString(), at, pe)
+                                }pe = (1 - (le - .5 * Qe - U.y)) * D.height,
+                                v.fillText(R.label, (I.bl.x + U.x) * D.width, pe);
+                                break;
+                            case Ee.RapidTrigger:
+                                    if (pe = (1 - (le - Qe - U.y)) * D.height, G === 1) {
+                                    const se = (I.bl.x + U.x) * D.width;
+                                    if (v.fillText(R.label, se, pe), x === 1) {
+                                        if (E) {
+                                            const at = "#FF0080";
+                                            v.fillStyle = at;
+                                            const ze = (I.bl.x + U.x) * D.width,
+                                                gt = (E * .05).toFixed(2);
+                                            v.fillText(gt.toString(), ze, pe - oe)
+                                        }
+                                    } else {
+                                        if (z) {
+                                            const at = "#FF0080";
+                                            v.fillStyle = at;
+                                            const ze = (I.bl.x + U.x) * D.width,
+                                                gt = (z * .05).toFixed(2);
+                                            v.fillText(gt.toString(), ze, pe - oe)
+                                        }
+                                        if (N) {
+                                            const at = "#FF0080";
+                                            v.fillStyle = at;
+                                            const ze = (I.bl.x + U.x) * D.width,
+                                                gt = (N * .05).toFixed(2);
+                                            v.fillText(gt.toString(), ze, pe + oe)
+                                        }
+                                    }
+                                } else v.fillText(R.label, (I.bl.x + U.x) * D.width, (1 - (le - .5 * Qe - U.y)) * D.height);
+                                break
+                        }
+                        return v.measureText(R.centerLabel).width > (I.tr.x - (I.bl.x + U.x)) * D.width
+                    } else if (typeof R.label == "string") {
+                        let oe = 75,
+                            Qe = .75 * oe / D.height;
+                        v.font = `bold ${oe}px ${Q}`, v.fillText(R.label, (I.bl.x + re.x) * D.width, (1 - (I.tr.y - Qe - re.y)) * D.height)
+                    }
+                }
+                v.textAlign = "left"
+            },
+            ht = (D, I, b, R, G) => {
+                const V = .3846153846153846,
+                    z = .445 / 19.05 * V;
+                let N = Math.min(2.75, b),
+                    w = Math.min(2.75, R);
+                (D > 1 || I > 1) && (N = 1, w = 1);
+                let ne = {
+                        bl: {
+                            x: z,
+                            y: z
+                        },
+                        tr: {
+                            x: N * V - z,
+                            y: w * V - z
+                        }
+                    },
+                    v = {
+                        bl: {
+                            x: ne.bl.x + .07,
+                            y: ne.bl.y + .08
+                        },
+                        tr: {
+                            x: ne.tr.x - .07,
+                            y: ne.tr.y - .0146
+                        }
+                    };
+                return G > 0 && (v.bl.x += G * V, v.tr.x += G * V, ne.bl.x += G * V, ne.tr.x += G * V), {
+                    keycapRect: ne,
+                    faceRect: v
+                }
+            },
+            Ne = (D, [I, b], R, G, V, x, E, z, N, w, ne, v, Q, Z, U, re) => {
+                const oe = ht(I, b, R, G, z),
+                    Qe = 512;
+                D.width = Qe * I, D.height = Qe * b;
+                const le = D.getContext("2d");
+                if (le != null) return le.fillStyle = V, le.fillRect(0, 0, D.width, D.height), Ct(D, oe.faceRect, x, E, N, w, ne, v, Q, Z)
+            },
+            xt = F.useCallback(() => {
+                if (de.current && n) {
+                    if (_) y3(de.current, [o[0], o[1]], n.c, n.t);
+                    else if (We === Ee.Trigger) {
+                        const D = Ne(de.current, [o[0], o[1]], K, y, n.c, n.t, t, f, be, ge, ye, xe, He, Ce);
+                        ee(!!D)
+                    } else if (We === Ee.RapidTrigger) {
+                        const D = Ne(de.current, [o[0], o[1]], K, y, n.c, n.t, t, f, be, ge, ye, xe, He, Ce);
+                        ee(!!D)
+                    } else {
+                        const D = kt(de.current, [o[0], o[1]], K, y, n.c, n.t, t, f);
+                        ee(!!D)
+                    }
+                    B.current.needsUpdate = !0
+                }
+            }, [de.current, K, t && t.key, o[0], o[1], n && n.t, n && n.c, _, be, ge, ye, xe, He, Ce, P, We]);
+        C.useEffect(xt, [t && t.key, n && n.c, n && n.t, Fe, be, ge, ye, xe, He, Ce, P, We]);
+        const nt = va({
+            config: {
+                duration: 800
+            },
+            from: {
+                x: 0,
+                y: "#f4a0a0"
+            },
+            loop: r ? {
+                reverse: !0
+            } : !1,
+            to: {
+                x: 100,
+                y: "#b49999"
+            }
+        });
+        let Mt = h.boundingBox.max.z;
+        const [rt, Ge] = [Mt, Mt + 8], Ue = (D => {
+            if (We === Ee.Performance) return $ ? vt.Checked : vt.UnChecked;
+            if (We === Ee.Trigger) return $ ? vt.Checked : vt.UnChecked;
+            if (We === Ee.RapidTrigger) return $ ? vt.Checked : vt.UnChecked;
+            switch (D) {
+                case Ut.Test:
+                    return Pt.KeyDown === u ? Zt.Pressed : Zt.Unpressed;
+                case Ut.LedColor:
+                    return $ ? vt.Checked : vt.UnChecked;
+                default:
+                    return T || r ? Zt.Pressed : Zt.Unpressed
+            }
+        })(c), [Pe, Re] = Ue === Zt.Pressed ? [rt, l[2]] : [Ge, l[2] + Math.PI * Number(_)], J = u === Pt.KeyUp, O = sc(I_), Ye = (D => {
+            if (We === Ee.Performance) return Ue === vt.Checked ? O.color : "lightgrey";
+            if (We === Ee.Trigger) return Ue === vt.Checked ? O.color : "lightgrey";
+            if (We === Ee.RapidTrigger) return Ue === vt.Checked ? O.color : "lightgrey";
+            switch (D) {
+                case Ut.Test:
+                    return Ue === Zt.Unpressed ? J ? "mediumvioletred" : "lightgrey" : "mediumvioletred";
+                case Ut.LedColor:
+                    return Ue === vt.Checked ? O.color : "lightgrey";
+                default:
+                    return Ue === Zt.Unpressed, "lightgrey"
+            }
+        })(c), {
+            z: pt,
+            b: q,
+            rotateZ: Te,
+            tooltipScale: tt
+        } = va({
+            config: {
+                duration: 100
+            },
+            z: Pe,
+            b: Ye,
+            rotateZ: Re,
+            tooltipScale: T ? 1 : 0
+        }), [dt, it, ue, fe] = C.useMemo(() => {
+            const D = () => {};
+            return i ? [D, D, D, D] : e.mode === Ut.ConfigureColors ? [D, I => {
+                L && L(I, P)
+            }, D, I => {
+                M && M(I, P)
+            }] : [I => a(I, P, We, ae), I => {
+                L && L(I, P), te(!0)
+            }, () => te(!1), I => {
+                M && M(I, P)
+            }]
+        }, [i, a, M, L, te, P, c, We, ae]), qe = ka.meshPhongMaterial;
+        return m(Ke, {
+            children: [s(ka.mesh, { ...e,
+                ref: ie,
+                "position-z": pt,
+                "rotation-z": Te,
+                onClick: dt,
+                onPointerDown: fe,
+                onPointerOver: it,
+                onPointerOut: ue,
+                geometry: h,
+                children: s(qe, {
+                    attach: "material",
+                    color: r ? nt.y : q,
+                    children: s("canvasTexture", {
+                        ref: B,
+                        attach: "map",
+                        image: de.current
+                    })
+                })
+            }), (k || Y) && s(F.Suspense, {
+                fallback: null,
+                children: s(ka.group, {
+                    position: e.position,
+                    "position-z": 20,
+                    scale: tt,
+                    children: s(Td, {
+                        transform: !0,
+                        style: {
+                            pointerEvents: "none"
+                        },
+                        children: s(KK, {
+                            children: k || t && t.tooltipLabel
+                        })
+                    })
+                })
+            })]
+        })
+    }, ro),
+    nl = "/assets/keyboard_components-1a09821a.glb",
+    w3 = e => e.map(([t, o]) => {
+        const n = Pa({
+                hue: Math.round(255 * t / 360),
+                sat: Math.round(255 * o)
+            }),
+            a = `#${new ln(n).convertSRGBToLinear().getHexString()}`;
+        return {
+            c: a,
+            t: a
+        }
+    }),
+    M3 = (e, t) => [Jt.keyXPos * e / W.keyXPos, -t * Jt.keyYPos / W.keyYPos, 0],
+    b3 = e => {
+        const t = wt(),
+            o = za(nl, !0).scene,
+            n = p(oo),
+            a = p(Qu),
+            r = p(Gn),
+            [i] = Ko(),
+            c = p(br),
+            l = p(L0),
+            u = p(gr),
+            _ = sh(),
+            h = e.keyColors ? w3(e.keyColors) : l,
+            {
+                basicKeyToByte: f,
+                byteToKey: K
+            } = p(yo),
+            y = p(B => B.macros);
+        p(Sr), p(wr);
+        const {
+            keys: L,
+            selectedKey: M
+        } = e, P = M === void 0 ? n : M, ie = C.useMemo(() => ah(e, h, t, M3), [L, h, e.onKeycapPointerDown, e.onKeycapPointerOver]), k = p(Ht), Y = C.useMemo(() => {
+            if (i === "/test") switch (k) {
+                case "en":
+                default:
+                    return Aa(e, u, f, K);
+                case "ko":
+                    return Ta(e, u, f, K)
+            } else if (i === "/") switch (c) {
+                default:
+                    case Ee.Performance:
+                    switch (k) {
+                    case "en":
+                    default:
+                        return Aa(e, u, f, K);
+                    case "ko":
+                        return Ta(e, u, f, K)
+                }
+                break;
+                case Ee.Trigger:
+                        case Ee.RapidTrigger:
+                        return rr(e, u, f, K)
+            }
+            else return rr(e, u, f, K)
+        }, [L, e.matrixKeycodes, y, e.definition, n, k, i]), {
+            width: ee,
+            height: T
+        } = hr(L), te = C.useMemo(() => e.keys.map((B, de) => {
+            const {
+                meshKey: he
+            } = ie.coords[de];
+            return B.d ? null : s(S3, {
+                keycapGeometry: (o.getObjectByName(he) || o.getObjectByName("K-R1-100")).geometry,
+                ...nh(B, de, e, ie, P, Y, _, a, r, c)
+            })
+        }), [L, P, Y, e.pressedKeys, e.selectable, h, e.definition.vendorProductId, _]);
+        return s("group", {
+            scale: 1,
+            position: [(-ee * Jt.keyXPos + Jt.keyXSpacing) / 2, (Jt.keyYPos * T - Jt.keyYSpacing) / 2, 0],
+            children: te
+        })
+    },
+    D3 = ({
+        keys: e,
+        rows: t,
+        cols: o,
+        width: n,
+        height: a
+    }) => {
+        const [r, i] = ["lightpink", "lightgrey"], {
+            rowKeys: c,
+            colKeys: l
+        } = rh(e, t, o);
+        return s("group", {
+            scale: .35,
+            rotation: [Math.PI, 0, 0],
+            position: [-n * Jt.keyXPos / 2, (a + .4) * Jt.keyYPos / 2, 11],
+            children: m(Op, {
+                lineWidth: 1,
+                children: [c.flatMap(u => {
+                    const _ = u.filter(h => h);
+                    return _.length >= 2 ? _.reduce((h, f, K) => h.prev === null ? {
+                        res: [],
+                        prev: f
+                    } : {
+                        res: [...h.res, s(Sl, {
+                            start: [h.prev[0], h.prev[1], 0],
+                            end: [f[0], f[1], 0],
+                            color: r
+                        }, `row-${K}`)],
+                        prev: f
+                    }, {
+                        res: [],
+                        prev: null
+                    }).res : []
+                }), l.flatMap(u => {
+                    const _ = u.filter(h => h);
+                    return _.length >= 2 ? _.reduce((h, f, K) => h.prev === null ? {
+                        res: [],
+                        prev: f
+                    } : {
+                        res: [...h.res, s(Sl, {
+                            start: [h.prev[0], h.prev[1], 0],
+                            end: [f[0], f[1], 0],
+                            color: i
+                        }, `col-${K}`)],
+                        prev: f
+                    }, {
+                        res: [],
+                        prev: null
+                    }).res : []
+                })]
+            })
+        }, `${t}-${o}-${n}-${a}`)
+    },
+    k3 = e => {
+        const {
+            containerDimensions: t,
+            shouldHide: o,
+            ...n
+        } = e, {
+            width: a,
+            height: r
+        } = C.useMemo(() => hr(n.keys), [n.keys]), [i, c] = C.useState(!1), {
+            verticalPostion: l,
+            tilt: u
+        } = va({
+            config: {
+                tension: 35,
+                friction: 5,
+                mass: .3
+            },
+            verticalPostion: i ? 1 : -3,
+            tilt: i ? -.15 : 0
+        });
+        C.useEffect(() => {
+            const h = document.querySelector("canvas");
+            h && (h.addEventListener("mouseenter", () => {
+                c(!0)
+            }), h.addEventListener("mouseleave", () => {
+                c(!1)
+            }))
+        }, []);
+        const _ = Math.min(Math.min(1, t && t.width / ((W.keyWidth + W.keyXSpacing) * a - W.keyXSpacing + 70)), 500 / ((W.keyHeight + W.keyYSpacing) * r - W.keyYSpacing + 70)) || 1;
+        return s("group", {
+            position: [0, -0, -19],
+            scale: .015 * _,
+            visible: !o,
+            children: s(x3, { ...n,
+                width: a,
+                height: r,
+                verticalPostion: l,
+                tilt: u
+            })
+        })
+    },
+    x3 = F.memo(e => {
+        const {
+            matrixKeycodes: t,
+            keys: o,
+            definition: n,
+            pressedKeys: a,
+            mode: r,
+            showMatrix: i,
+            selectable: c,
+            width: l,
+            height: u,
+            verticalPostion: _,
+            tilt: h
+        } = e;
+        return s(ka.group, {
+            "position-y": _,
+            "rotation-x": h,
+            children: m(Ld, {
+                enabled: e.mode !== Ut.ConfigureColors,
+                global: !0,
+                snap: !0,
+                speed: 1,
+                zoom: 1,
+                polar: [-Math.PI / 10, Math.PI / 10],
+                azimuth: [-Math.PI / 16, Math.PI / 16],
+                config: {
+                    mass: 1,
+                    tension: 170,
+                    friction: 26
+                },
+                children: [s(m3, {
+                    width: l,
+                    height: u
+                }), s(b3, { ...e,
+                    keys: o,
+                    mode: r,
+                    matrixKeycodes: t,
+                    selectable: c,
+                    definition: n,
+                    pressedKeys: a
+                }), i && s(D3, {
+                    keys: o,
+                    rows: n.matrix.rows,
+                    cols: n.matrix.cols,
+                    width: l,
+                    height: u
+                })]
+            })
+        })
+    }, ro),
+    R3 = (e, t) => {
+        const o = !e,
+            n = C.useState({}),
+            [a, r] = n,
+            i = t;
+
+        function c(u) {
+            switch (u.preventDefault(), i) {
+                default:
+                    case 108:
+                    !o && !u.repeat && a[ws(u) ? ? -1] !== Pt.KeyDown && r(_ => ({ ..._,
+                    [ws(u)]: Pt.KeyDown
+                }));
+                break;
+                case 104:
+                        !o && !u.repeat && a[Ms(u) ? ? -1] !== Pt.KeyDown && r(_ => ({ ..._,
+                        [Ms(u)]: Pt.KeyDown
+                    }));
+                    break;
+                case 87:
+                        !o && !u.repeat && a[bs(u) ? ? -1] !== Pt.KeyDown && r(_ => ({ ..._,
+                        [bs(u)]: Pt.KeyDown
+                    }));
+                    break
+            }
+        }
+        const l = u => {
+            switch (u.preventDefault(), i) {
+                default:
+                    case 108:
+                    !o && a[ws(u)] !== Pt.KeyUp && r(_ => ({ ..._,
+                    [ws(u)]: Pt.KeyUp
+                }));
+                break;
+                case 104:
+                        !o && a[Ms(u)] !== Pt.KeyUp && r(_ => ({ ..._,
+                        [Ms(u)]: Pt.KeyUp
+                    }));
+                    break;
+                case 87:
+                        !o && a[bs(u)] !== Pt.KeyUp && r(_ => ({ ..._,
+                        [bs(u)]: Pt.KeyUp
+                    }));
+                    break
+            }
+        };
+        return C.useEffect(() => (e && (window.addEventListener("keydown", c), window.addEventListener("keyup", l)), () => {
+            window.removeEventListener("keydown", c), window.removeEventListener("keyup", l)
+        }), [e]), n
+    },
+    A3 = e => e === Pt.KeyDown ? Pt.KeyUp : Pt.KeyDown,
+    T3 = (e, t, o, n) => {
+        const a = C.useState([]),
+            [, r] = a,
+            i = so(),
+            c = C.useRef(e);
+        C.useEffect(() => {
+            let _ = [];
+            const h = () => {
+                    c.current = !1
+                },
+                f = async (K, y, L, M) => {
+                    if (e && K && L) {
+                        const {
+                            cols: P,
+                            rows: ie
+                        } = L.matrix, k = Math.ceil(P / 8), Y = Math.floor(28 / k);
+                        try {
+                            let ee = [];
+                            for (let te = 0; te < ie; te += Y) {
+                                const B = Math.min(ie * k - ee.length, k * Y);
+                                ee.push(...await K.getKeyboardValue(dr.SWITCH_MATRIX_STATE, y >= 12 ? [te] : [], B))
+                            }
+                            if (!ee.some((te, B) => te ^ (M[B] || 0))) {
+                                await K.timeout(20), c.current && f(K, y, L, M);
+                                return
+                            }
+                            r(te => ee.reduce((B, de, he) => {
+                                const Fe = de ^ (M[he] || 0);
+                                if (Fe === 0) return B;
+                                const We = ~~(he / k),
+                                    De = 8 * (k - 1 - he % k);
+                                return Array(Math.max(0, Math.min(8, P - De))).fill(0).reduce((ke, _e, ae) => {
+                                    const $ = P * We + ae + De;
+                                    return ke[$] = (Fe >> ae & 1) === 1 ? A3(ke[$]) : ke[$], ke
+                                }, B)
+                            }, Array.isArray(te) && te.length === ie * P ? [...te] : Array(ie * P).fill(Pt.Initial))), await K.timeout(20), c.current && f(K, y, L, ee)
+                        } catch {
+                            c.current = !1, i(ru(!1))
+                        }
+                    }
+                };
+            return e && t && o && n && (c.current = !0, f(t, o.protocol, n, _)), () => {
+                h()
+            }
+        }, [e, n, t]);
+        const l = _ => {
+                _.preventDefault()
+            },
+            u = _ => {
+                _.preventDefault()
+            };
+        return C.useEffect(() => (e && (window.addEventListener("keydown", l), window.addEventListener("keyup", u)), () => {
+            window.removeEventListener("keydown", l), window.removeEventListener("keyup", u)
+        }), [e]), a
+    },
+    L3 = (e, t) => {
+        const o = p(ut),
+            n = p(st),
+            a = p(Vc) || {
+                __perKeyRGB: []
+            },
+            [r, i] = C.useState([]);
+        C.useEffect(() => {
+            const l = a.__perKeyRGB ? ? [],
+                _ = (e.find(h => "li" in h) ? e.map(h => h.li ? ? -1) : []).map(h => {
+                    const f = l[h ? ? -1];
+                    if (f) return h0(f)
+                });
+            i(_)
+        }, [a.__perKeyRGB && a.__perKeyRGB.length, e]);
+        const c = C.useCallback((l, u) => {
+            if (l.buttons === 1 && n) {
+                const _ = Math.round(t[0] * 255 / 360),
+                    h = Math.round(t[1] * 255),
+                    f = e[u].li;
+                f !== void 0 && (n.setPerKeyRGBMatrix(f, _, h), n.commitCustomMenu(0), i(K => (K[u] = t, [...K])))
+            }
+        }, [i, t, e, o]);
+        return {
+            keyColors: r,
+            onKeycapPointerDown: c,
+            onKeycapPointerOver: c
+        }
+    },
+    al = e => e === "2D" ? h3 : k3,
+    ih = e => {
+        const {
+            selectable: t,
+            dimensions: o
+        } = e, n = p(y => fn(y) || []), a = p(Dt), r = p($e), i = p(qm), c = p(R1), {
+            keyColors: l,
+            onKeycapPointerDown: u,
+            onKeycapPointerOver: _
+        } = L3(a, c), [h, f] = C.useMemo(() => l && a ? [a.filter((y, L) => l[L] && l[L].length), l.filter(y => y && y.length)] : [null, null], [a, l]);
+        if (!r || !o) return null;
+        const K = al(e.nDimension);
+        return m(Ke, {
+            children: [s(K, {
+                matrixKeycodes: n,
+                keys: a,
+                selectable: !!t,
+                definition: r,
+                containerDimensions: o,
+                mode: Ut.Configure,
+                shouldHide: i
+            }), h && h.length && f && f.length ? s(K, {
+                matrixKeycodes: n,
+                keys: h,
+                selectable: i,
+                definition: r,
+                containerDimensions: o,
+                mode: Ut.ConfigureColors,
+                keyColors: f,
+                onKeycapPointerDown: u,
+                onKeycapPointerOver: _,
+                shouldHide: !i
+            }) : null]
+        })
+    },
+    Cd = e => {
+        const {
+            selectable: t,
+            containerDimensions: o,
+            matrixKeycodes: n,
+            keys: a,
+            pressedKeys: r,
+            definition: i,
+            nDimension: c
+        } = e;
+        if (!o) return null;
+        const l = al(c);
+        return s(l, {
+            matrixKeycodes: n,
+            keys: a,
+            selectable: !!t,
+            definition: i,
+            pressedKeys: r,
+            containerDimensions: o,
+            mode: Ut.Test
+        })
+    },
+    v3 = e => {
+        const {
+            containerDimensions: t,
+            showMatrix: o,
+            definition: n,
+            selectedOptionKeys: a
+        } = e, {
+            keys: r,
+            optionKeys: i
+        } = n.layouts;
+        if (!t) return null;
+        const c = C.useMemo(() => i ? Object.entries(i).flatMap(([_, h]) => {
+                const f = parseInt(_);
+                return a[f] ? h[a[f]] : h[0]
+            }) : [], [i, a]),
+            l = C.useMemo(() => [...r, ...c], [r, c]),
+            u = al(e.nDimension);
+        return s(u, {
+            matrixKeycodes: ac,
+            keys: l,
+            selectable: !1,
+            definition: n,
+            containerDimensions: t,
+            mode: Ut.Design,
+            showMatrix: o
+        })
+    },
+    ch = e => {
+        const t = Object.values(p(na)),
+            o = p(Cr),
+            n = p(L_),
+            a = p(v_),
+            r = p(E_),
+            i = C.useMemo(() => t.filter(l => l[o]), [t, o]),
+            c = i[n] && i[n][o];
+        return c && s(v3, {
+            containerDimensions: e.dimensions,
+            definition: c,
+            selectedOptionKeys: a,
+            showMatrix: r,
+            nDimension: e.nDimension
+        })
+    },
+    ac = [],
+    lh = e => {
+        const t = wt(),
+            [o] = Ko(),
+            n = o === "/test",
+            a = p(st),
+            r = p(ut),
+            i = p($e),
+            c = p(Dt),
+            l = p(lu),
+            u = p(wc),
+            _ = p(P => fn(P) || []),
+            [h, f] = R3(!l && n, c.length),
+            [K, y] = T3(l && n, a, r, i),
+            L = C.useCallback(() => {
+                f(ac), y(ac)
+            }, [f, y]),
+            M = C.useContext(tl);
+        if (C.useEffect(() => {
+                M[0].clearTestKeys !== L && M[1]({
+                    clearTestKeys: L
+                })
+            }, [M, L]), C.useEffect(() => {
+                o !== "/test" && (t(ru(!1)), M[0].clearTestKeys()), o !== "/" && t(xu(0))
+            }, [o]), r) {
+            const P = i,
+                ie = c;
+            if (c && c.map(({
+                    row: te,
+                    col: B
+                }) => i && K[te * i.matrix.cols + B]), !P || typeof P == "string") return null;
+            const k = h,
+                {
+                    partitionedKeys: Y
+                } = C.useMemo(() => Mi(ie), [ie]),
+                ee = h,
+                T = Y.map(te => te.map(({
+                    row: B,
+                    col: de
+                }) => ee[B * P.matrix.cols + de]));
+            return m(Ke, {
+                children: [s(Cd, {
+                    definition: P,
+                    keys: ie,
+                    pressedKeys: k,
+                    matrixKeycodes: _,
+                    containerDimensions: e.dimensions,
+                    nDimension: e.nDimension
+                }), T && u.isEnabled && s(Dl, {
+                    pressedKeys: T
+                })]
+            })
+        } else {
+            const P = oc,
+                ie = oc.layouts.keys,
+                k = l && c ? c.map(({
+                    row: B,
+                    col: de
+                }) => i && K[B * i.matrix.cols + de]) : [];
+            if (!P || typeof P == "string") return null;
+            const Y = l ? k : h,
+                {
+                    partitionedKeys: ee
+                } = C.useMemo(() => Mi(ie), [ie]),
+                T = l ? K : h,
+                te = ee.map(B => B.map(({
+                    row: de,
+                    col: he
+                }) => T[de * P.matrix.cols + he]));
+            return m(Ke, {
+                children: [s(Cd, {
+                    definition: P,
+                    keys: ie,
+                    pressedKeys: Y,
+                    matrixKeycodes: l ? _ : U_,
+                    containerDimensions: e.dimensions,
+                    nDimension: e.nDimension
+                }), te && u.isEnabled && s(Dl, {
+                    pressedKeys: te
+                })]
+            })
+        }
+    },
+    E3 = () => {
+        const e = za(nl, !0).scene;
+        return C.useEffect(() => {
+            Object.values(e.children).forEach(t => {
+                if (t.isGroup) return;
+                const o = t,
+                    n = 1 / 2.6,
+                    a = o.geometry,
+                    {
+                        min: r
+                    } = a.boundingBox,
+                    i = 19.05,
+                    c = .445,
+                    l = o.geometry.attributes.position;
+                o.geometry.attributes.uv || o.geometry.setAttribute("uv", new Np(new Float32Array(l.count * 2), 2, !1));
+                const u = o.geometry.attributes.uv,
+                    _ = new Float32Array(u.count * 2);
+                for (let h = 0; h < o.geometry.attributes.uv.count; h++) _[2 * h] = n * (l.array[h * 3] - r.x + c) / i, _[2 * h + 1] = n * (l.array[h * 3 + 1] - r.y + c) / i;
+                u.copyArray(_), a.center(), u.needsUpdate = !0
+            })
+        }, [e]), null
+    },
+    dh = "/assets/cubey-495d68a6.glb",
+    P3 = F.memo(({
+        visible: e,
+        theme: t
+    }) => {
+        const o = za(dh),
+            n = C.useRef(),
+            a = e ? -.3 : 10,
+            r = go(t.accent.c, .8),
+            i = {
+                "upper-body": new ln(t.mod.c),
+                "lower-body": new ln(t.mod.t),
+                accent: new ln(r),
+                bowtie: new ln(r)
+            };
+        return o.scene.children.forEach(c => {
+            const l = c.name.split("_")[0],
+                u = i[l];
+            u && (c.material.color = u)
+        }), Rd(({
+            clock: c
+        }) => {
+            e && (n.current.rotation.z = Math.sin(c.elapsedTime) * (Math.PI / 40), n.current.rotation.y = Math.PI + Math.sin(.6 * c.elapsedTime) * (Math.PI / 16), n.current.position.y = a + .2 * Math.sin(c.elapsedTime))
+        }), s(Ke, {
+            children: s("group", {
+                scale: .6,
+                position: [0, a, -19],
+                children: s(Ld, {
+                    enabled: !0,
+                    global: !0,
+                    snap: !0,
+                    speed: 1,
+                    zoom: 1,
+                    rotation: [0, 0, 0],
+                    polar: [-Math.PI / 3, Math.PI / 3],
+                    config: {
+                        mass: 2,
+                        tension: 200,
+                        friction: 14
+                    },
+                    children: s("group", {
+                        ref: n,
+                        children: s("primitive", {
+                            object: o.scene
+                        })
+                    })
+                })
+            })
+        })
+    }, ro);
+za.preload(dh);
+za.preload(nl);
+const I3 = F.memo(e => {
+        const {
+            onClick: t,
+            visible: o,
+            color: n
+        } = e;
+        return m("mesh", {
+            receiveShadow: !0,
+            position: [0, -5.75, 0],
+            rotation: [-Math.PI / 2 + Math.PI / 14, 0, 0],
+            onClick: t,
+            visible: o,
+            children: [s("planeGeometry", {
+                args: [100, 100]
+            }), s("meshStandardMaterial", {
+                color: n
+            })]
+        })
+    }, ro),
+    O3 = () => {
+        const [e] = Ko(), t = C.useRef(document.body), o = C.useRef(null), n = p(ts), {
+            progress: a
+        } = lr(), r = wt(), i = sr(t), c = Object.values(p(na)), l = p($e), u = p(Cr), _ = p(oa), {
+            t: h
+        } = Tt(), f = "NanmuSquareRound";
+        if (_) {
+            const K = C.useMemo(() => _[X.KeyColorType.Accent].c, [_]),
+                [y, L] = C.useState(!1),
+                M = e === "/" && (!l || n !== 1),
+                P = C.useMemo(() => c.filter(de => de[u]), [c, u]),
+                ie = e === "/design" && !P.length,
+                k = e === "/" && (!l || (n + a / 100) / 2 !== 1),
+                Y = C.useCallback(() => {
+                    r(Et(null))
+                }, [r]),
+                ee = "hid" in navigator || Er,
+                T = !ee || ["/settings", "/errors", "/update"].includes(e) || ie || k,
+                te = p(Xu),
+                B = M;
+            return C.useEffect(() => {
+                document.fonts.load("bold 16px Fira Sans").finally(() => {
+                    L(!0)
+                })
+            }, []), s(Ke, {
+                children: m($t, {
+                    shouldForwardProp: de => Wt(de),
+                    children: [s(E3, {}), s("div", {
+                        style: {
+                            height: 500,
+                            width: "100%",
+                            top: 0,
+                            transform: T ? B ? i ? `translateY(${-300+i.height/2}px)` : "" : "translateY(-500px)" : "",
+                            position: T && !B ? "absolute" : "relative",
+                            overflow: "visible",
+                            zIndex: 0,
+                            visibility: T && !B ? "hidden" : "visible"
+                        },
+                        ref: o,
+                        children: m(Fp, {
+                            flat: !0,
+                            shadows: !0,
+                            style: {
+                                overflow: "visible"
+                            },
+                            children: [s(N3, {}), s(I3, {
+                                onClick: Y,
+                                color: K,
+                                visible: !B
+                            }), s(Hp, {
+                                enabled: !1
+                            }), s(Hw, {}), s(P3, {
+                                theme: _,
+                                visible: B && !l
+                            }), s(Td, {
+                                center: !0,
+                                position: [0, B ? l ? 0 : -1 : 10, -19],
+                                children: ee ? l ? s(Ke, {
+                                    children: s("div", {
+                                        style: {
+                                            textAlign: "center",
+                                            color: "var(--color_accent)",
+                                            fontSize: 60
+                                        },
+                                        children: s(Kt, {
+                                            spinPulse: !0,
+                                            icon: Wp
+                                        })
+                                    })
+                                }) : m(as, {
+                                    onClick: () => r(_a()),
+                                    style: {
+                                        width: "max-content"
+                                    },
+                                    fontfamily: f,
+                                    children: [h("Authorize device"), s(Kt, {
+                                        style: {
+                                            marginLeft: "10px"
+                                        },
+                                        icon: $p
+                                    })]
+                                }) : null
+                            }), y ? s(G3, {
+                                containerRef: o,
+                                configureKeyboardIsSelectable: te,
+                                loadProgress: n
+                            }) : null]
+                        })
+                    })]
+                })
+            })
+        } else return r(yc("RETRO_POINT")), null
+    },
+    N3 = F.memo(() => {
+        const r = C.useRef(null);
+        C.useEffect(() => {
+            r.current && (r.current.shadow.mapSize.width = 2048, r.current.shadow.mapSize.height = 2048)
+        }, [r.current]);
+        const i = F.useMemo(() => {
+            const l = new Gp;
+            return l.position.set(0, 0, -19), l.updateMatrixWorld(), l
+        }, []);
+        return !0 ? m(Ke, {
+            children: [s("ambientLight", {
+                intensity: 0
+            }), s(Bp, {
+                ref: r,
+                distance: 12 + 3,
+                position: [0, 12, -19 + 2],
+                angle: Math.PI / 5,
+                attenuation: 5,
+                target: i,
+                intensity: 10,
+                castShadow: !0,
+                anglePower: 5
+            }), s("pointLight", {
+                position: [3, .5, -15],
+                intensity: .8
+            }), s("pointLight", {
+                position: [-3, .5, -15],
+                intensity: .8
+            })]
+        }) : m(Ke, {
+            children: [s("ambientLight", {
+                intensity: .4
+            }), s("pointLight", {
+                position: [-.5, .5, -15],
+                intensity: 1.5
+            })]
+        })
+    }, ro),
+    Gs = e => {
+        switch (e) {
+            case "/debug":
+                return -60;
+            case "/design":
+                return -40;
+            case "/test":
+                return -20;
+            case "/":
+                return 0;
+            default:
+                return -60
+        }
+    },
+    G3 = F.memo(e => {
+        const {
+            loadProgress: t,
+            configureKeyboardIsSelectable: o
+        } = e, [n] = Ko(), a = Gs(n), r = va({
+            config: Up.stiff,
+            x: a
+        }), i = sr(e.containerRef);
+        return s(ka.group, {
+            "position-x": r.x,
+            children: s(B3, {
+                configureKeyboardIsSelectable: o,
+                loadProgress: t,
+                dimensions: i
+            })
+        })
+    }, ro),
+    B3 = F.memo(e => {
+        const {
+            loadProgress: t,
+            dimensions: o,
+            configureKeyboardIsSelectable: n
+        } = e, a = -Gs("/test"), r = -Gs("/design"), i = -Gs("/debug");
+        return m(Ke, {
+            children: [s("group", {
+                visible: t === 1,
+                children: s(ih, {
+                    dimensions: o,
+                    selectable: n,
+                    nDimension: "3D"
+                })
+            }), s("group", {
+                "position-x": a,
+                children: s(lh, {
+                    dimensions: o,
+                    nDimension: "3D"
+                })
+            }), s("group", {
+                "position-x": r,
+                children: s(ch, {
+                    dimensions: o,
+                    nDimension: "3D"
+                })
+            }), s("group", {
+                "position-x": i
+            })]
+        })
+    }, ro),
+    U3 = S.div `
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: ${e=>`linear-gradient(30deg, rgba(150,150,150,1) 10%,${go(e.$color)} 50%, rgba(150,150,150,1) 90%)`};
+  opacity: ${e=>e.$visible?1:0};
+`,
+    vs = S.div `
+  position: absolute;
+  left: 0;
+  transform: translateX(${e=>e.$position*100}vw);
+  height: 100%;
+  width: 100vw;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`,
+    F3 = () => {
+        const [e] = Ko(), t = C.useRef(document.body), o = C.useRef(null), n = p(ts), {
+            progress: a
+        } = lr(), r = wt(), i = sr(o), c = sr(t), l = Object.values(p(na)), u = p($e), _ = p(Cr), h = p(oa);
+        if (h) {
+            const f = C.useMemo(() => h[X.KeyColorType.Accent].c, [h]),
+                K = e === "/" && (!u || n !== 1),
+                y = C.useMemo(() => l.filter(T => T[_]), [l, _]),
+                L = e === "/design" && !y.length,
+                M = e === "/" && (!u || (n + a / 100) / 2 !== 1),
+                P = C.useCallback(() => {
+                    r(Et(null))
+                }, [r]),
+                k = !("hid" in navigator || Er) || ["/settings", "/errors", "/update"].includes(e) || L || M,
+                Y = p(Xu),
+                ee = K;
+            return s(Ke, {
+                children: s("div", {
+                    style: {
+                        height: 500,
+                        width: "100%",
+                        top: 0,
+                        transform: k ? ee ? c ? `translateY(${-300+c.height/2}px)` : "" : "translateY(-500px)" : "",
+                        position: k && !ee ? "absolute" : "relative",
+                        overflow: "visible",
+                        zIndex: 2,
+                        visibility: k && !ee ? "hidden" : "visible"
+                    },
+                    onClick: T => {
+                        T.target.nodeName !== "CANVAS" && r(bo())
+                    },
+                    ref: o,
+                    children: k ? null : s(Ke, {
+                        children: m($t, {
+                            shouldForwardProp: T => Wt(T),
+                            children: [s(U3, {
+                                onClick: P,
+                                $color: f,
+                                $visible: !ee
+                            }), s(W3, {
+                                containerDimensions: i,
+                                configureKeyboardIsSelectable: Y,
+                                loadProgress: n
+                            })]
+                        })
+                    })
+                })
+            })
+        } else return r(yc("RETRO_POINT")), null
+    },
+    H3 = e => {
+        switch (e) {
+            case "/debug":
+                return -300;
+            case "/design":
+                return -200;
+            case "/test":
+                return -100;
+            case "/":
+                return 0;
+            default:
+                return -300
+        }
+    },
+    $3 = S.div `
+  z-index: 2;
+  display: block;
+  white-space: nowrap;
+  height: 100%;
+  background: linear-gradient(90deg, red, blue);
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+`,
+    W3 = F.memo(e => {
+        const {
+            loadProgress: t,
+            configureKeyboardIsSelectable: o,
+            containerDimensions: n
+        } = e, [a] = Ko(), r = C.useRef(null), i = H3(a), c = {
+            transition: "transform 0.25s ease-in-out",
+            transform: `translate(${i}vw, 0px)`
+        }, l = C.useCallback(() => {
+            r.current && (r.current.style.transition = c.transition)
+        }, [r.current]), u = C.useCallback(() => {
+            r.current && (r.current.style.transition = "")
+        }, [r.current]);
+        return C.useEffect(() => (r.current && (r.current.addEventListener("transitionend", u), r.current.style.transform = c.transform), () => {
+            var _;
+            r.current && ((_ = r.current) == null || _.removeEventListener("transitionend", u))
+        }), []), C.useEffect(() => {
+            r.current && r.current.style.transform !== c.transform && (l(), r.current.style.transform = c.transform)
+        }, [i]), s($3, {
+            ref: r,
+            children: s(V3, {
+                configureKeyboardIsSelectable: o,
+                loadProgress: t,
+                dimensions: n
+            })
+        })
+    }, ro),
+    V3 = F.memo(e => {
+        const {
+            dimensions: t,
+            configureKeyboardIsSelectable: o
+        } = e;
+        return m(Ke, {
+            children: [s(vs, {
+                $position: 0,
+                children: s(ih, {
+                    dimensions: t,
+                    selectable: o,
+                    nDimension: "2D"
+                })
+            }), s(vs, {
+                $position: 1,
+                children: s(lh, {
+                    dimensions: t,
+                    nDimension: "2D"
+                })
+            }), s(vs, {
+                $position: 2,
+                children: s(ch, {
+                    dimensions: t,
+                    nDimension: "2D"
+                })
+            }), s(vs, {
+                $position: 3
+            })]
+        })
+    }, ro),
+    Y3 = Vp `
+  *:focus {
+    outline: none;
+  }
+`,
+    z3 = () => {
+        const e = "hid" in navigator || Er,
+            t = p(Mc),
+            o = C.useMemo(() => Z_.map(r => s(Yp, {
+                component: r.component,
+                path: r.path
+            }, r.key)), []),
+            n = t === "2D" ? F3 : O3,
+            a = C.useState({
+                clearTestKeys: () => {}
+            });
+        return n ? s(Ke, {
+            children: s(zp, {
+                showDialog: !0,
+                children: m(tl.Provider, {
+                    value: a,
+                    children: [s(Y3, {}), e && s(Pw, {}), s(n, {}), s(Fw, {
+                        hasHIDSupport: e,
+                        children: o
+                    })]
+                })
+            })
+        }) : null
+    },
+    X3 = {
+        fonts: {
+            regular: "NanmuSquareRound",
+            en: "Dongle"
+        }
+    },
+    Q3 = () => s(Xp, {
+        theme: X3,
+        children: s(Qp, {
+            store: Fa,
+            children: s(z3, {})
+        })
+    });
+const j3 = "Hello world!",
+    q3 = "English",
+    Z3 = "한국어",
+    J3 = "Theme",
+    eM = "Home",
+    tM = "Configure",
+    oM = "Test",
+    nM = "Design",
+    aM = "Settings",
+    sM = "Update",
+    rM = "Reset",
+    iM = "Save",
+    cM = "Volume",
+    lM = "Transpose",
+    dM = "Waveform",
+    uM = "Mode",
+    _M = "Load",
+    hM = "Fullscreen",
+    CM = "Backlight",
+    pM = "Color",
+    fM = "Select",
+    gM = "Clear",
+    mM = "CONFIGURE",
+    KM = "SETTINGS",
+    yM = "UPDATE",
+    SM = "KEYMAP",
+    wM = "MACROS",
+    MM = "PROLIGHTING",
+    bM = "You can update the firmware.",
+    DM = "Chord: ",
+    kM = "Keydown: ",
+    xM = "Keyup: ",
+    RM = {
+        hello: j3,
+        language_en: q3,
+        language_ko: Z3,
+        "Show Design tab": "Show Design tab",
+        "Fast Key Mapping": "Fast Key Mapping",
+        "Light Mode": "Light Mode",
+        Theme: J3,
+        "Keycap Theme": "Keycap Theme",
+        "Render Mode": "Render Mode",
+        "Show Diagnostic Information": "Show Diagnostic Information",
+        "Requires connected device": "Requires connected device",
+        "Languages Select": "Languages Select",
+        Home: eM,
+        Configure: tM,
+        "Key Tester": "Key Tester",
+        Test: oM,
+        Design: nM,
+        Settings: aM,
+        Update: sM,
+        "Use Rapid Trigger": "Use Rapid Trigger",
+        "Use Continuous Rapid Trigger": "Use Continuous Rapid Trigger",
+        "Rapid Trigger Pos": "Rapid Trigger Pos",
+        "Use Rapid Single": "Use Rapid Single",
+        "Gap Single": "Gap Single",
+        "Gap Up": "Gap Up",
+        "Gap Down": "Gap Down",
+        "Reset Rapid Trigger": "Reset Rapid Trigger",
+        "Save Rapid Trigger": "Save Rapid Trigger",
+        "Use Rapid Trigger Info": "Adjusts the sensitivity of how far a key must be released before you can press it again to type.",
+        "Use Continuous Rapid Trigger Info": "When enabled, keys can be continuously pressed regardless of the keystroke point setting.",
+        "Rapid Trigger Pos Info": "Rapid Trigger Pos Info",
+        "Use Rapid Single Info": "Make the sensitivity the same when pressed and released",
+        "Gap Single Info": "Sensitivity ( Release & Press )",
+        "Gap Up Info": "Release Sensitivity",
+        "Gap Down Info": "Press Sensitivity",
+        "Reset Rapid Trigger Info": "Sets values to initial values.",
+        "Save Rapid Trigger Info": "Save and apply the value.",
+        Reset: rM,
+        Save: iM,
+        "You must select the button first to set it up.": "You must select the button first to set it up.",
+        "To set it up, first select a key on your keyboard to add the DKS function.": "To set it up, first select a key on your keyboard to add the DKS function.",
+        "You must select the key first to set it up.": "You must select the key first to set it up.",
+        "Input point settings can be set in the Trigger Pos tab.": "Input point settings can be set in the Trigger Pos tab.",
+        "Click on the list to edit.": "Click on the list to edit.",
+        "Authorize device": "Authorize device",
+        "Check Key": "Check Key",
+        "Reset Keyboard": "Reset Keyboard",
+        "Test Matrix": "Test Matrix",
+        "Key Sounds": "Key Sounds",
+        Volume: cM,
+        Transpose: lM,
+        Waveform: dM,
+        Mode: uM,
+        "Reset Keyboard Info": "Returns the pressed keyboard state to its initial state.",
+        "Test Matrix Info": "Test Matrix",
+        "Key Sounds Info": "Outputs key press sound effects to the speaker.",
+        "Volume Info": "Adjust the volume size.",
+        "Transpose Info": "Changes the frequency of key press sound effects.",
+        "Waveform Info": "Changes the waveform of the sound effect.",
+        "Mode Info": "Change mode settings.",
+        "Save Current Layout": "Save Current Layout",
+        "Load Saved Layout": "Load Saved Layout",
+        Load: _M,
+        "Undo Changes": "Undo Changes",
+        "Save Changes": "Save Changes",
+        "Delete Macro": "Delete Macro",
+        "Exit Fullscreen": "Exit Fullscreen",
+        Fullscreen: hM,
+        "Use Smart Optimization": "Use Smart Optimization",
+        "Skip Smart Optimization": "Skip Smart Optimization",
+        "Record Delays": "Record Delays",
+        "Skip Recording Delays": "Skip Recording Delays",
+        "Stop Recording": "Stop Recording",
+        "Record Keystrokes": "Record Keystrokes",
+        "Can only record when fullscreen": "Can only record when fullscreen",
+        "Saved macros can be assigned in the keymap.": "Saved macros can be assigned in the keymap.",
+        "Upgrade firmware to use delays": "Upgrade firmware to use delays",
+        "VIA Firmware Protocol": "VIA Firmware Protocol",
+        "Background Brightness": "Background Brightness",
+        "LED Effect": "LED Effect",
+        "Effect Speed": "Effect Speed",
+        Backlight: CM,
+        Color: pM,
+        "KEY Effect": "KEY Effect",
+        "All Select": "All Select",
+        "All Select Clear": "All Select Clear",
+        "Reset Trigger": "Reset Trigger",
+        "Save Trigger": "Save Trigger",
+        "Trigger Pos": "Trigger Pos",
+        "All Select Info": "All keys on the keyboard will be selected.",
+        "All Select Clear Info": "All keys on the keyboard will become unselected.",
+        "Reset Trigger Info": "The keyboard input point value is reset.",
+        "Save Trigger Info": "Saves the input point value.",
+        "Trigger Pos Info": "Set the point at which keystrokes are recognized. ( 0.1 mm to 3.8 mm )",
+        Select: fM,
+        Clear: gM,
+        "Release of the key": "Release of the key",
+        "Key released from fully pressed": "Key released from fully pressed",
+        "Key fully pressed": "Key fully pressed",
+        "Start of key press": "Start of key press",
+        "DKS Pos": "Input start and end points of DKS action",
+        CONFIGURE: mM,
+        "KEY TESTER": "KEY TESTER",
+        SETTTINGS: KM,
+        UPDATE: yM,
+        KEYMAP: SM,
+        MACROS: wM,
+        "SAVE + LOAD": "SAVE + LOAD",
+        "TRIGGER POS": "TRIGGER POS",
+        "RAPID TRIGGER": "RAPD TRIGGER",
+        PROLIGHTING: MM,
+        "DYNAMIC KEYSTROKE": "DYNAMIC KEYSTROKE",
+        "Reset DKS": "Reset DKS",
+        "Reset DKS Info": "Initializes configured DKS features.",
+        "USB Problem Info": "Looks like there was a problem getting USB detection working.",
+        "WebHID enabled browsers": "browsers that have WebHID enabled",
+        "compatible before trying again": ", so make sure yours is compatible before trying again.",
+        "Right now, we only support": " Right now, we only support",
+        "USB Detection Error": "USB Detection Error",
+        "No macro recorded yet": "No macro recorded yet...",
+        "Prolighting Info": "In pro mode, only LED color settings are possible.",
+        "Save Load Info": "You can save key mapping data and macro data, load them again, and apply them",
+        "The maximum number of DKS that can be set is 40.": "The maximum number of DKS that can be set is 40.",
+        "You can set up to four different bindings to one key.": "You can set up to four different bindings to one key.",
+        "Drag and drop the binding you want.": "Drag and drop the desired binding onto the light blue button.",
+        "KeyAssign Info": "You can assign one key each when the key starts to be pressed, when it is fully pressed, when it starts to be released after being fully pressed, and when it is completely released.",
+        "When you are done editing, save it.": "When you're done editing, save it.",
+        "If you want to cancel without saving the changes, click on the keyboard screen.": "If you want to cancel without saving the changes, click on the keyboard screen.",
+        "USB Apply Error": "If the function does not apply, refresh the web browser screen and try again.",
+        "USB Apply Error Msg": "If it still does not work, disconnect the keyboard from the USB port and reconnect it.",
+        "Click to edit the positions of the entry and exit points.": "Click to edit the positions of the entry and exit points.",
+        Updatable: bM,
+        "Firmware Update Start": "Firmware Update Start",
+        "Firmware Update": "Firmware Update",
+        "macro record": "Macro Record Tab",
+        "macro code edit": "Macro Script Code Edit",
+        "Enter text directly, or wrap": "Enter text directly, or wrap",
+        "Basic Keycodes": "Basic Keycodes",
+        "Single tap": "Single tap: ",
+        Chord: DM,
+        Keydown: kM,
+        Keyup: xM,
+        "Delay (ms)": "Delay (ms): ",
+        "Enter the macro you want": "Enter the macro you want",
+        "to execute...": "to execute..."
+    },
+    AM = "안녕하세요",
+    TM = "English",
+    LM = "한국어",
+    vM = "테마",
+    EM = "홈",
+    PM = "키 할당",
+    IM = "테스트",
+    OM = "디자인",
+    NM = "설정",
+    GM = "업데이트",
+    BM = "초기화",
+    UM = "저장",
+    FM = "볼륨",
+    HM = "바꾸기",
+    $M = "파형",
+    WM = "모드",
+    VM = "불러오기",
+    YM = "전체화면",
+    zM = "백라이트",
+    XM = "색상",
+    QM = "선택",
+    jM = "해제",
+    qM = "CONFIGURE",
+    ZM = "SETTINGS",
+    JM = "UPDATE",
+    eb = "KEYMAP",
+    tb = "MACROS",
+    ob = "PROLIGHTING",
+    nb = "펌웨어를 업데이트 할 수 있습니다.",
+    ab = "조합키: ",
+    sb = "키누르기: ",
+    rb = "키때기: ",
+    ib = {
+        hello: AM,
+        language_en: TM,
+        language_ko: LM,
+        "Show Design tab": "디자인 탭 보이기",
+        "Fast Key Mapping": "빠른 키 맵핑",
+        "Light Mode": "라이트 모드",
+        Theme: vM,
+        "Keycap Theme": "키캡 테마",
+        "Render Mode": "렌더 모드",
+        "Show Diagnostic Information": "진단 정보 표시",
+        "Requires connected device": "연결된 장치가 필요합니다",
+        "Languages Select": "언어 선택",
+        Home: EM,
+        Configure: PM,
+        "Key Tester": "키 테스트",
+        Test: IM,
+        Design: OM,
+        Settings: NM,
+        Update: GM,
+        "Use Rapid Trigger": "래피드 트리거 사용",
+        "Use Continuous Rapid Trigger": "연속 래피드 트리거 사용",
+        "Rapid Trigger Pos": "키 입력 지점",
+        "Use Rapid Single": "민감도 같게하기",
+        "Gap Single": "민감도",
+        "Gap Up": "Release 지점",
+        "Gap Down": "Press 지점",
+        "Reset Rapid Trigger": "재설정",
+        "Save Rapid Trigger": "저장",
+        "Use Rapid Trigger Info": "키를 얼마나 떼야 다시 눌러서 입력할 수 있는지에 대한 민감도를 조절합니다.",
+        "Use Continuous Rapid Trigger Info": "활성화하면 키 입력 지점 설정과 상관 없이 키를 계속 연타 할 수 있습니다.",
+        "Rapid Trigger Pos Info": "키 입력 지점 Info",
+        "Use Rapid Single Info": "눌릴 때와 뗄 때의 민감도 같게하기",
+        "Gap Single Info": "민감도( Release & Press )",
+        "Gap Up Info": "Release 민감도",
+        "Gap Down Info": "Press 민감도",
+        "Reset Rapid Trigger Info": "값을 초기 값으로 설정합니다.",
+        "Save Rapid Trigger Info": "값을 저장하여 적용합니다.",
+        Reset: BM,
+        Save: UM,
+        "You must select the button first to set it up.": "설정하려면 먼저 키보드의 키를 선택하고 아래의 키를 누르면 적용이 됩니다.",
+        "To set it up, first select a key on your keyboard to add the DKS function.": "설정하려면 먼저 키보드의 키를 선택하여 DKS 기능을 추가 하세요.",
+        "You must select the key first to set it up.": "설정하려면 먼저 키보드의 키를 선택하세요.",
+        "Input point settings can be set in the Trigger Pos tab.": "입력지점 설정은 Trigger Pos 탭에서 설정 하실 수 있습니다.",
+        "Click on the list to edit.": "편집하려면 목록을 클릭하세요.",
+        "Authorize device": "장치 연결",
+        "Check Key": "키 확인",
+        "Reset Keyboard": "키보드 재설정",
+        "Test Matrix": "테스트 매트릭스",
+        "Key Sounds": "키 사운드",
+        Volume: FM,
+        Transpose: HM,
+        Waveform: $M,
+        Mode: WM,
+        "Reset Keyboard Info": "눌려진 키보드의 상태를 초기 상태로 되돌립니다.",
+        "Test Matrix Info": "테스트 매트릭스",
+        "Key Sounds Info": "키 눌리는 효과음을 스피커로 출력합니다.",
+        "Volume Info": "볼륨 크기를 조절합니다.",
+        "Transpose Info": "키 눌리는 효과음 주파수를 바꿉니다.",
+        "Waveform Info": "효과음의 파형을 바꿉니다.",
+        "Mode Info": "모드 설정을 변경합니다.",
+        "Save Current Layout": "현재 레이아웃 저장",
+        "Load Saved Layout": "저장된 레이아웃 불러오기",
+        Load: VM,
+        "Undo Changes": "변경 취소",
+        "Save Changes": "변경 사항 저장",
+        "Delete Macro": "매크로 삭제",
+        "Exit Fullscreen": "전체 화면 종료",
+        Fullscreen: YM,
+        "Use Smart Optimization": "스마트 최적화 사용 하기",
+        "Skip Smart Optimization": "스마트 최적화 사용 안하기",
+        "Record Delays": "지연시간 녹화 하기",
+        "Skip Recording Delays": "지연시간 녹화 사용 안하기",
+        "Stop Recording": "녹화 중지",
+        "Record Keystrokes": "키 입력 기록",
+        "Can only record when fullscreen": "전체 화면일 때만 녹화할 수 있습니다.",
+        "Saved macros can be assigned in the keymap.": "저장된 매크로는 키맵에서 할당 하실 수 있습니다.",
+        "Upgrade firmware to use delays": "지연시간을 사용하려면 펌웨어를 업그레이드하세요.",
+        "VIA Firmware Protocol": "VIA 펌웨어 프로토콜",
+        "Background Brightness": "백그라운드 밝기",
+        "LED Effect": "LED 효과",
+        "Effect Speed": "효과 변화 속도",
+        Backlight: zM,
+        Color: XM,
+        "KEY Effect": "KEY 효과",
+        "All Select": "전체 선택",
+        "All Select Clear": "전체 선택 해제",
+        "Reset Trigger": "트리거 초기화",
+        "Save Trigger": "트리거 저장",
+        "Trigger Pos": "입력 지점",
+        "All Select Info": "키보드의 키가 모두 선택 상태로 바뀝니다.",
+        "All Select Clear Info": "키보드의 모든 키가 선택 안된 상태로 바뀝니다.",
+        "Reset Trigger Info": "키보드의 입력지점 값이 초기화 됩니다.",
+        "Save Trigger Info": "입력지점 값을 저장합니다.",
+        "Trigger Pos Info": "키 입력이 인식되는 지점을 설정합니다. ( 0.1 mm ~ 3.8 mm )",
+        Select: QM,
+        Clear: jM,
+        "Release of the key": "키입력 종료지점",
+        "Key released from fully pressed": "키가 완전히 눌린 상태에서 떼어짐",
+        "Key fully pressed": "키가 완전히 눌림",
+        "Start of key press": "키입력 시작지점",
+        "DKS Pos": "DKS 동작의 입력 시작지점과 종료지점",
+        CONFIGURE: qM,
+        "KEY TESTER": "KEY TESTER",
+        SETTTINGS: ZM,
+        UPDATE: JM,
+        KEYMAP: eb,
+        MACROS: tb,
+        "SAVE + LOAD": "SAVE + LOAD",
+        "TRIGGER POS": "TRIGGER POS",
+        "RAPID TRIGGER": "RAPD TRIGGER",
+        PROLIGHTING: ob,
+        "DYNAMIC KEYSTROKE": "DYNAMIC KEYSTROKE",
+        "Reset DKS": "DKS 재설정",
+        "Reset DKS Info": "설정된 DKS 기능을 모두 초기화하여 기능을 해제 합니다.",
+        "USB Problem Info": "USB 감지가 작동하는 데 문제가 있는 것 같습니다.",
+        "WebHID enabled browsers": "WebHID가 활성화된 브라우저",
+        "compatible before trying again": "다시 시도하기 전에 호환되는지 확인하세요.",
+        "Right now, we only support": "만 지원 합니다",
+        "USB Detection Error": "USB 감지 오류",
+        "No macro recorded yet": "아직 기록된 매크로가 없습니다.",
+        "Prolighting Info": "프로 모드에서는 LED 색상 설정만 가능합니다.",
+        "Save Load Info": "키매핑 데이터와 매크로 데이터를 파일로 저장하고 다시 불러와서 적용할 수 있습니다.",
+        "The maximum number of DKS that can be set is 40.": "DKS는 최대 40개 설정할 수 있습니다.",
+        "You can set up to four different bindings to one key.": "4개의 다른 바인딩을 한 개의 키에 설정할 수 있어요.",
+        "Drag and drop the binding you want.": "원하는 바인딩을 하늘색 버튼 위에 끌어다 놓으세요.",
+        "KeyAssign Info": "키가 눌리기 시작했을 때, 완전히 눌렸을 때, 완전히 눌린 후 떼어지기 시작했을 때, 완전히 떼어졌을 때 각각 하나씩 할당이 가능해요.",
+        "When you are done editing, save it.": "수정이 완료되면 저장하세요.",
+        "If you want to cancel without saving the changes, click on the keyboard screen.": "수정한 내용을 저장하지 않고 취소하시려면 키보드 화면을 클릭하세요.",
+        "USB Apply Error": "해당 기능이 적용되지 않을 경우, 웹 브라우저 화면을 새로고침하고 재시도 해 보세요.",
+        "USB Apply Error Msg": "그래도 적용되지 않으면 USB 포트에서 키보드를 분리했다가 다시 연결하세요.",
+        "Click to edit the positions of the entry and exit points.": "입력지점과 종료지점의 위치를 수정하려면 클릭하세요.",
+        Updatable: nb,
+        "Firmware Update Start": "펌웨어 업데이트 시작",
+        "Firmware Update": "펌웨어 업데이트 진행 중",
+        "macro record": "매크로 녹화 탭",
+        "macro code edit": "매크로 스크립트 코드 편집 탭",
+        "Enter text directly, or wrap": "위 입력창에 텍스트를 아래 형식에 맞게 직접 입력하거나 수정하세요.",
+        "Basic Keycodes": "기본 키코드 모음 ",
+        "Single tap": "단일 키 :",
+        Chord: ab,
+        Keydown: sb,
+        Keyup: rb,
+        "Delay (ms)": "딜레이 (ms): ",
+        "Enter the macro you want": "실행하려는 매크로를 입력하세요",
+        "to execute...": " "
+    },
+    cb = {
+        en: {
+            translation: RM
+        },
+        ko: {
+            translation: ib
+        }
+    };
+jp.use(qp).init({
+    resources: cb,
+    lng: "ko",
+    fallbackLng: "en",
+    keySeparator: !1,
+    interpolation: {
+        escapeValue: !1
+    }
+});
+const pd = document.getElementById("root");
+pd && (Zp(pd).render(s(Q3, {})), document.documentElement.dataset.themeMode = Of(), tu(Nf()));

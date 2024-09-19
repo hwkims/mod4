@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vampire Survivors 😈</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            font-family: 'Courier New', Courier, monospace;
+            color: #fff;
+            overflow: hidden; /* Hide scrollbars */
+        }
+
+        #game-canvas {
+            border: 2px solid #ff0000;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 3em;
+            text-shadow: 0 0 5px #ff0000;
+            display: none; /* Initially hide the title */
+        }
+
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .info span {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vampire Survivors 😈</h1>
+    <canvas id="game-canvas" width="800" height="600"></canvas>
+    <div class="info">
+        <span>Score: <span id="score">0</span></span>
+        <span>Lives: <span id="lives">3</span></span>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('score');
+        const livesDisplay = document.getElementById('lives');
+
+        // Game variables
+        let playerX = canvas.width / 2;
+        let playerY = canvas.height / 2;
+        let playerSpeed = 5;
+        let enemies = [];
+        let score = 0;
+        let lives = 3;
+        let attackCooldown = 0;
+        let gameOver = false;
+        let isGameStarted = false; // Flag to track if the game has started
+
+        // Enemy properties
+        const enemySpeed = 1; 
+        const enemyRadius = 15; 
+        const enemySpawnRate = 0.02; // Chance of spawning an enemy each frame
+
+        // Player properties
+        const playerRadius = 15; 
+        const attackRange = 50; // Range of player attack
+
+        // Keypress handling
+        const keysDown = {};
+        document.addEventListener('keydown', (event) => {
+            keysDown[event.key] = true;
+            if (event.key === ' ') {
+                if (gameOver) {
+                    restartGame();
+                } else if (!isGameStarted) {
+                    startGame(); 
+                }
+            }
+            if (event.key === 'Enter' && attackCooldown === 0 && isGameStarted) {
+                attack();
+            }
+        });
+
+        document.addEventListener('keyup', (event) => {
+            delete keysDown[event.key];
+        });
+
+        // Game loop
+        function update() {
+            if (gameOver) {
+                return; 
+            }
+
+            // Player movement
+            if (keysDown['ArrowUp']) {
+                playerY -= playerSpeed;
+            }
+            if (keysDown['ArrowDown']) {
+                playerY += playerSpeed;
+            }
+            if (keysDown['ArrowLeft']) {
+                playerX -= playerSpeed;
+            }
+            if (keysDown['ArrowRight']) {
+                playerX += playerSpeed;
+            }
+
+            // Attack cooldown
+            if (attackCooldown > 0) {
+                attackCooldown--;
+            }
+
+            // Enemy movement and spawning
+            for (let i = 0; i < enemies.length; i++) {
+                enemies[i].x += Math.random() * enemySpeed - enemySpeed / 2;
+                enemies[i].y += Math.random() * enemySpeed - enemySpeed / 2;
+            }
+
+            if (isGameStarted && Math.random() < enemySpawnRate) {
+                enemies.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                });
+            }
+
+            // Collision detection
+            for (let i = 0; i < enemies.length; i++) {
+                if (distance(playerX, playerY, enemies[i].x, enemies[i].y) < playerRadius + enemyRadius) {
+                    lives--;
+                    enemies.splice(i, 1);
+                    if (lives <= 0) {
+                        gameOver = true; 
+                    }
+                    break; // Stop checking collisions after one hit
+                }
+            }
+        }
+
+        // Rendering
+        function render() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            ctx.fillStyle = '#ff0000'; 
+            ctx.beginPath();
+            ctx.arc(playerX, playerY, playerRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw enemies
+            ctx.fillStyle = '#00ff00'; 
+            for (let i = 0; i < enemies.length; i++) {
+                ctx.beginPath();
+                ctx.arc(enemies[i].x, enemies[i].y, enemyRadius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Draw score and lives
+            ctx.font = '18px Arial';
+            ctx.fillStyle = '#fff';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillText(`Score: ${score}`, 10, 10);
+            ctx.fillText(`Lives: ${lives}`, 10, 30);
+
+            // Draw attack button
+            if (attackCooldown === 0 && isGameStarted) {
+                ctx.font = '24px Arial';
+                ctx.fillStyle = '#00ff00'; 
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Attack! 💪', canvas.width / 2, canvas.height - 50);
+            }
+
+            // Game over screen
+            if (gameOver) {
+                ctx.font = '48px Arial';
+                ctx.fillStyle = '#ff0000'; 
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Game Over! 😱', canvas.width / 2, canvas.height / 2);
+                ctx.font = '24px Arial';
+                ctx.fillStyle = '#fff'; 
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Press space to restart', canvas.width / 2, canvas.height / 2 + 50);
+            }
+
+            // Game start screen
+            if (!isGameStarted) {
+                ctx.font = '48px Arial';
+                ctx.fillStyle = '#ff0000'; 
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Press space to start!', canvas.width / 2, canvas.height / 2);
+            }
+        }
+
+        // Helper function to calculate distance
+        function distance(x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        }
+
+        // Attack function
+        function attack() {
+            attackCooldown = 30; 
+            for (let i = 0; i < enemies.length; i++) {
+                if (distance(playerX, playerY, enemies[i].x, enemies[i].y) < playerRadius + enemyRadius + attackRange) { 
+                    score++;
+                    enemies.splice(i, 1);
+                    break; 
+                }
+            }
+        }
+
+        // Restart game function
+        function restartGame() {
+            playerX = canvas.width / 2;
+            playerY = canvas.height / 2;
+            enemies = [];
+            score = 0;
+            lives = 3;
+            attackCooldown = 0;
+            gameOver = false; 
+            isGameStarted = false; 
+            scoreDisplay.textContent = score;
+            livesDisplay.textContent = lives;
+        }
+
+        // Start game function
+        function startGame() {
+            isGameStarted = true;
+            document.querySelector('h1').style.display = 'block'; // Show title
+        }
+
+        // Initialize the game
+        restartGame();
+
+        // Start the game loop
+        setInterval(() => {
+            update();
+            render();
+        }, 16); // 60fps
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Game</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stock-graph" width="800" height="400"></canvas>
+  <div id="game-ui">
+    <h1>Stock Game</h1>
+    <p>Balance: <span id="balance">$1000</span></p>
+    <button id="buy-button">Buy</button>
+    <button id="sell-button">Sell</button>
+  </div>
+  <script>
+
+// Get the canvas element
+const canvas = document.getElementById('stock-graph');
+const ctx = canvas.getContext('2d');
+
+// Set the canvas dimensions
+canvas.width = 800;
+canvas.height = 400;
+
+// Set the graph dimensions
+const graphWidth = 700;
+const graphHeight = 300;
+const graphMargin = 50;
+
+// Initialize the data array
+const data = [];
+
+// Initialize the game state
+let balance = 1000;
+let shares = 0;
+let currentPrice = 0;
+
+// Draw the graph
+function drawGraph() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the graph background
+  ctx.fillStyle = '#f0f0f0';
+  ctx.fillRect(graphMargin, graphMargin, graphWidth, graphHeight);
+
+  // Draw the graph grid
+  ctx.strokeStyle = '#ccc';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 10; i++) {
+    ctx.beginPath();
+    ctx.moveTo(graphMargin, graphMargin + i * (graphHeight / 10));
+    ctx.lineTo(graphMargin + graphWidth, graphMargin + i * (graphHeight / 10));
+    ctx.stroke();
+  }
+
+  // Draw the data points
+  ctx.strokeStyle = '#00698f';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let i = 0; i < data.length; i++) {
+    const x = graphMargin + i * (graphWidth / data.length);
+    const y = graphMargin + graphHeight - (data[i] / 100) * graphHeight;
+    ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+}
+
+// Update the game state
+function updateGameState() {
+  // Generate a new random price
+  currentPrice = Math.random() * 100;
+
+  // Add the new price to the data array
+  data.push(currentPrice);
+
+  // Update the balance and shares
+  if (shares > 0) {
+    balance += shares * (currentPrice - data[data.length - 2]);
+  }
+
+  // Update the UI
+  document.getElementById('balance').innerText = `$${balance.toFixed(2)}`;
+}
+
+// Handle button clicks
+document.getElementById('buy-button').addEventListener('click', () => {
+  if (balance > 0) {
+    shares += 1;
+    balance -= currentPrice;
+  }
+});
+
+document.getElementById('sell-button').addEventListener('click', () => {
+  if (shares > 0) {
+    shares -= 1;
+    balance += currentPrice;
+  }
+});
+
+// Initialize the game
+updateGameState();
+setInterval(updateGameState, 1000);
+drawGraph();
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>회원가입</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+input[type="submit"] {
+    width: 155px;
+    height: 76px;
+
+  background:linear-gradient(0,#252525,#323232);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-left: 10px;
+}
+
+.checkbox-content {
+  margin-left: 20px;
+}
+
+.checkbox-content ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>회원가입</h2>
+
+  <div class="icons">
+    <ul>
+      <li><img src="신규 회원혜택.png" alt="신규 회원혜택"><br>신규 회원혜택<br>회원 가입 이벤트</li>
+      <li><img src="후기 이벤트.png" alt="후기 이벤트"><br>후기 이벤트<br>작성만 해도 혜택이</li>
+      <li><img src="5만원 이상 무료배송.png" alt="5만원 이상 무료배송"><br>5만원 이상 무료배송<br>전상품 5만원이상 무료배송</li>
+      <li><img src="주간 한정 특가.png" alt="주간 한정 특가"><br>주간 한정 특가<br>매주 할인 상품 업뎃</li>
+    </ul>
+  </div>
+
+  <form>
+    <fieldset>
+      <h2>기본정보</h2>
+      <ul>
+        <li>
+          <label for="아이디">아이디 *</label>
+          <input type="text" id="아이디" minlengt="" maxlength="" placeholder="(영문소문자/숫자, 4~16자)">
+        </li>
+        <li>
+          <label for="비밀번호">비밀번호 *</label>
+          <input type="password" id="비밀번호" minlengt="" maxlength="" placeholder="(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)">
+        </li>
+        <li>
+          <label for="비밀번호확인">비밀번호 확인 *</label>
+          <input type="password" id="비밀번호확인">
+        </li>
+        <li>
+          <label for="이름">이름 *</label>
+          <input type="text" id="이름">
+        </li>
+        <li>
+          <label for="주소">주소</label>
+          <input type="text" id="주소" placeholder="우편번호">
+          <button type="button" onclick="우편번호 버튼 클릭 이벤트">우편번호</button>
+          <input type="text" id="주소 상세" placeholder="나머지 주소를 입력하세요. (선택입력가능)">
+        </li>
+        <li>
+          <label for="일반전화">일반전화</label>
+          <select id="일반전화">
+            <option value="02">02</option>
+            <option value="031">031</option>
+            <option value="032">032</option>
+          </select>
+          <input type="tel" id="일반전화 번호">
+        </li>
+        <li>
+          <label for="휴대전화">휴대전화</label>
+          <select id="휴대전화">
+            <option value="010">010</option>
+          </select>
+          <input type="tel" id="휴대전화 번호">
+        </li>
+        <li>
+          <label for="이메일">이메일</label>
+          <input type="email" id="이메일">
+        </li>
+        <li>
+          <label for="평생회원">평생회원</label>
+          <input type="radio" id="개인회원" name="회원유형" value="개인회원">
+          <label for="개인회원">개인회원</label>
+          <input type="radio" id="유료회원" name="회원유형" value="유료회원">
+          <label for="유료회원">유료회원</label>
+          <p>- 평생회원으로 가입하시면 키작은남자 회원 탈퇴시까지는 휴면회원으로 전환되지 않으며, 고객님의 개인정보가 탈퇴시까지 안전하게 보관됩니다. <br>- 지금 평생회원으로 가입하시면 쿠폰혜택을 드립니다. (쿠폰혜택을 받으신 경우, 3개월간 평생회원을 유지하셔야 합니다.)</p>
+        </li>
+      </ul>
+    </fieldset>
+
+    <fieldset>
+      <h2>전체 동의</h2>
+      <ul>
+        <li>
+          <div class="checkbox-container">
+            <input type="checkbox" id="전체 동의">
+            <label for="전체 동의" class="checkbox-label">이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.</label>
+          </div>
+          <div class="checkbox-content">
+            <ul>
+              <li>[필수] 이용약관 동의</li>
+              <div class="checkbox-container">
+                <input type="checkbox" id="이용약관 동의">
+                <label for="이용약관 동의" class="checkbox-label">이용약관에 동의하십니까?</label>
+              </div>
+              <li>[필수] 개인정보 수집 및 이용 동의</li>
+              <div class="checkbox-container">
+                <input type="checkbox" id="개인정보 수집 이용 동의">
+                <label for="개인정보 수집 이용 동의" class="checkbox-label">개인정보 수집 및 이용에 동의하십니까?</label>
+              </div>
+              <li>[선택] 개인정보 처리 위탁 동의</li>
+              <div class="checkbox-container">
+                <input type="checkbox" id="개인정보 처리 위탁 동의">
+                <label for="개인정보 처리 위탁 동의" class="checkbox-label">개인정보 처리 위탁에 동의하십니까?</label>
+              </div>
+              <li>[선택] 쇼핑정보 수신 동의</li>
+              <div class="checkbox-container">
+                <input type="checkbox" id="쇼핑정보 수신 동의">
+                <label for="쇼핑정보 수신 동의" class="checkbox-label">SMS 수신을 동의하십니까?</label>
+              </div>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <input type="submit" value="회원가입">
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

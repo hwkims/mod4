@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { padding: 0; margin: 0;}
+        a { text-decoration: none;}
+        li { list-style: none; }
+        input { box-sizing: border-box; vertical-align: middle;}
+
+        form {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        form legend {
+            font-size: 18px; font-weight: bold; letter-spacing: -1px;
+        }
+        form ul li {
+            margin: 15px 0;
+        }
+
+        form ul li label.title {
+            display: inline-block;
+            vertical-align: middle;
+
+            width: 100px; height: 30px;
+            line-height: 30px; background: yellow;
+
+            color:#333; font-size: 16px; font-weight: bold; letter-spacing: -1px;
+
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 230px; height: 30px; border: 1px solid #ddd;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 20px; height: 20px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+
+        input[type="date"] {
+            width: 150px; height: 30px;
+            border: 1px solid #ddd; font-family: '맑은 고딕'; color:#888;
+        }
+        input[type="number"] {
+            width: 50px; height: 30px;
+            border: 1px solid #ddd; font-size: 16px; font-weight: bold;
+        }
+
+        input[type="email"] {
+            width: 150px; height: 30px;
+            border: 1px solid #ddd;
+        }
+        select {
+            width: 150px; height: 30px;
+            border: 1px solid #ddd;
+            color:red;
+            font-size: 16px;
+            font-family: '맑은 고딕';
+        }
+        select option {
+            font-size: 16px;
+            font-family: '맑은 고딕';
+            color:blue;
+        }
+
+        textarea {
+            width: 500px; height: 200px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+
+            font-size: 16px;
+            font-family: '맑은 고딕';
+            letter-spacing: -1px;
+            color:#555;
+        }
+
+    </style>
+</head>
+<body>
+   
+   <form>
+        <fieldset>
+            <legend>회원가입</legend>
+
+            <ul>
+                <li>
+                    <label class="title">ID</label>
+                    <input type="text">
+                </li>
+
+                <li>
+                    <label class="title">PW</label>
+                    <input type="password">
+                </li>
+
+                <li>
+                    <label class="title">확인</label>
+                    <input type="password">
+                </li>
+
+                <li>
+                    <label class="title">성별</label>
+                    <label><input type="radio" name="gender" value="man"> 남</label>
+                    <label><input type="radio" name="gender" value="woman"> 여</label>
+                </li>
+
+                <li>
+                    <label class="title">취미</label>
+                    <label><input type="checkbox">운동</label>
+                    <label><input type="checkbox">여행</label>
+                    <label><input type="checkbox">독서</label>
+                </li>
+
+                <li>
+                    <label class="title">생일</label>
+                    <input type="date">
+                </li>
+
+                <li>
+                    <label class="title">나이</label>
+                    <input type="number" value="10" min="10" max="100" step="10"> 대
+                </li>
+
+                <li>
+                    <label class="title">이메일</label>
+                    <input type="email"> @ 
+                    <select>
+                        <option>naver.com</option>
+                        <option>google.com</option>
+                        <option>nate.com</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label class="title">메모</label>
+                    <textarea rows="5" cols="60"></textarea>
+                </li>
+
+                <li>
+                    <input type="submit">
+                    <input type="reset">
+                </li>
+
+            </ul>
+
+           
+
+        </fieldset>
+   </form>
+
+</body>
+</html>

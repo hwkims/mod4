@@ -1,0 +1,1008 @@
+
+
+
+/*메인영역*/
+#main {
+    width: 1280px;
+    height: 620px;
+    background: url(../images/main_bg.jpg);
+    margin: 0 auto;
+
+    position: relative;
+
+}
+
+#main h4 {
+
+    padding: 210px 0 0 700px;
+    color: #554c4d;
+    font-size: 42px;
+    letter-spacing: -2px;
+
+    font-family: 'BMDOHYEON';
+    font-weight: normal;
+}
+
+#main h2 {
+
+    padding: 10px 0 0 700px;
+    color: #554c4d;
+    font-size: 70px;
+    letter-spacing: -4px;
+
+    font-family: 'BMDOHYEON';
+    font-weight: normal;
+
+    text-shadow: 1px 1px 3px #999;
+}
+
+#main h2 span {
+    color: #6fc0ad;
+}
+
+#main p {
+    border: 1px solid red;
+    display: inline-block;
+    text-align: center;
+
+    color: #bb7d70;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -2px;
+
+    margin: 40px 0 0 800px;
+}
+
+#main ul {
+    margin: 60px 0 0 750px;
+}
+
+#main ul li {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#main ul li:hover {
+    background: #000;
+}
+
+#main ul li:nth-child(5),
+#main ul li:nth-child(6) {
+    width: 3px;
+    height: 12px;
+    background: #000;
+    border-radius: 0;
+    margin: 0;
+}
+
+#sale {
+    position: absolute;
+    right: 100px;
+    top: 20px;
+
+    animation-name: move;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 1;
+}
+.sale {
+    position: absolute;
+    right: 100px;
+    top: 30px;
+    width: 150px;
+    height: 150px;
+    
+    color: #777;
+    background-color: #777;
+    border-radius: 50%;
+    z-index: 0;
+    box-shadow: #777 3px 3px 30px,
+    #777 3px 3px 20px,
+    #777 3px 3px 10px
+ 
+    ;
+    
+}
+
+
+/*로그인배너*/
+#login {
+    width: 1280px;
+    height: 180px;
+    background: #f3f3f3;
+    margin: 60px auto;
+    text-align: center;
+}
+
+#login h2 {
+    padding-top: 40px;
+
+    color: #222;
+    font-size: 20px;
+    letter-spacing: -1px;
+}
+
+#login img {
+    vertical-align: middle;
+}
+
+#login p a {
+    display: inline-block;
+    width: 135px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #333;
+    border-radius: 30px;
+
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: -1px;
+
+    margin: 25px 10px;
+
+}
+
+#login p a:hover {
+    background: #333;
+    color: #fff;
+}
+
+
+/*끝장파데 제품영역*/
+#section1 {
+    width: 1280px;
+    height: 830px;
+    margin: 0 auto;
+}
+
+#section1 h2 {
+    padding: 0 0 30px 30px;
+
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -3px;
+
+}
+
+#section1 ul li {
+    width: 320px;
+    height: 355px;
+    border: 1px solid red;
+    box-sizing: border-box;
+
+    border-top: 0;
+    border-right: 0;
+
+    float: left;
+
+    position: relative;
+    cursor: pointer;
+
+    overflow: hidden;
+
+}
+
+#section1 ul li div.box {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    position: absolute;
+    left: 0;
+    top: -355px;
+
+    text-align: center;
+    line-height: 355px;
+
+    opacity: 0;
+}
+
+#section1 ul li div.box span {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+}
+
+
+#section1 ul li:hover div.box {
+    top: 0;
+    transition: 1s;
+    opacity: 1;
+}
+
+
+
+#section1 ul li:nth-child(1) {
+    width: 640px;
+    height: 355px;
+    background: url(../images/section1_firstbox_bg.jpg);
+    border-top: 1px solid red;
+
+    position: relative;
+    cursor: pointer;
+
+}
+
+#section1 ul li:nth-child(2) {
+    border-top: 1px solid red;
+}
+
+#section1 ul li:nth-child(3) {
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+}
+
+#section1 ul li:nth-child(7) {
+    border-right: 1px solid red;
+}
+
+#section1 ul li p.img {
+    width: 318px;
+    height: 220px;
+    background: yellow;
+}
+
+#section1 ul li p.img img {
+    width: 100%;
+    height: 100%;
+}
+
+#section1 ul li p.txt1 {
+    padding-left: 40px;
+    padding-top: 50px;
+
+    color: #444;
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+#section1 ul li p.txt2 {
+    padding-left: 40px;
+
+    color: #111;
+    font-size: 28px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+#section1 ul li p.txt2 span {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+#section1 ul li:nth-child(1) p.txt1 {
+    padding-left: 40px;
+    padding-top: 30px;
+
+    color: #95776f;
+    font-size: 20px;
+    letter-spacing: -2px;
+}
+
+#section1 ul li:nth-child(1) p.txt1 span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#section1 ul li:nth-child(1) p.new {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+
+    display: inline-block;
+
+    padding: 2px 5px 4px;
+
+    font-size: 32px;
+    color: #54504f;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    margin: 30px 0 0 40px;
+}
+
+#section1 ul li:nth-child(1) p.txt2 {
+    padding: 10px 0 0 40px;
+
+    color: #54504f;
+    font-size: 44px;
+    letter-spacing: -4px;
+    font-weight: bold;
+}
+
+#section1 ul li:nth-child(1) p.txt3 {
+    background: red;
+    display: inline-block;
+
+    padding: 3px 0 6px;
+
+    padding-left: 15px;
+
+    color: #fff;
+    font-size: 35px;
+    letter-spacing: 15px;
+    font-weight: bold;
+
+    margin: 10px 0 0 40px;
+
+}
+
+#section1 ul li:nth-child(1) p.start {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+#section1 ul li:nth-child(1):hover p.start {
+    opacity: 1;
+    transition: 1s;
+
+}
+
+
+
+/*온라인 전용제품*/
+#online {
+    width: 1280px;
+    height: 580px;
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#online h2 {
+    padding: 0 0 0 30px;
+
+    color: #333;
+    font-size: 33px;
+    letter-spacing: -3px;
+}
+
+#online p.btn {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    cursor: pointer;
+}
+
+#online ul {
+    width: 1280px;
+    height: 480px;
+    background: #ccc;
+    margin: 30px 0;
+    text-align: center;
+}
+
+#online ul li {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 50px 20px;
+}
+
+#online ul li:nth-child(1) {
+    width: 390px;
+    height: 380px;
+    background: yellow;
+    text-align: left;
+}
+
+#online ul li:nth-child(1) h3 {
+    padding-top: 80px;
+
+    color: #333;
+    font-size: 32px;
+    letter-spacing: -3px;
+
+}
+
+#online ul li:nth-child(1) p.txt1 {
+    padding-top: 30px;
+
+    color: #666;
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+#online ul li:nth-child(1) p.txt2 {
+    padding-top: 10px;
+
+    color: #333;
+    font-size: 40px;
+    letter-spacing: -4px;
+    font-weight: bold;
+
+    padding: 10px;
+}
+
+#online ul li:nth-child(1) p.txt2 span {
+    color: #666;
+    font-size: 32px;
+    letter-spacing: -3px;
+    font-weight: normal;
+
+    padding-right: 10px;
+    text-decoration: line-through;
+    /*취소선*/
+}
+
+
+#online ul li:nth-child(2) {
+    width: 360px;
+    height: 380px;
+}
+
+#online ul li:nth-child(3) {
+    width: 330px;
+    height: 380px;
+    background: #fff;
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box;
+
+    position: relative;
+}
+
+#online ul li:nth-child(3) h3 {
+
+    color: #333;
+    font-size: 22px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+#online ul li:nth-child(3) p.star span {
+    color: #777;
+}
+
+#online ul li:nth-child(3) pre {
+    font-family: '맑은 고딕';
+    color: #666;
+    font-size: 13px;
+    letter-spacing: -1px;
+    line-height: 1.8;
+}
+
+/*삼각형*/
+#online ul li:nth-child(3) p.triangle {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid #fff;
+    border-left: 25px solid transparent;
+    border-right: 0px solid transparent;
+
+    position: absolute;
+    left: -25px;
+    top: 50px;
+    transform: rotate(-90deg);
+}
+
+
+/*실시간 온라인 랭킹*/
+#ranking {
+    width: 1280px;
+    height: 700px;
+    background: yellow;
+    margin: 30px auto;
+    text-align: center;
+}
+
+
+#ranking h2 {
+
+    text-align: left;
+
+    padding: 10px 0 30px;
+
+    color: #333;
+    font-size: 33px;
+    letter-spacing: -3px;
+}
+
+#ranking ul li {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+#ranking ul li:nth-child(1) {
+    width: 460px;
+    height: 540px;
+    background: pink;
+}
+
+#ranking ul li:nth-child(2) {
+    width: 380px;
+    height: 540px;
+    background: pink;
+    text-align: left;
+}
+
+#ranking ul li:nth-child(3) {
+    width: 420px;
+    height: 540px;
+    background: pink;
+    text-align: left;
+
+    border-left: 2px solid red;
+}
+
+#ranking ul li:nth-child(2) h3 {
+    padding-top: 100px;
+
+    color: #333;
+    font-size: 33px;
+    letter-spacing: -3px;
+}
+
+#ranking ul li:nth-child(2) p.txt1 {
+    padding-top: 20px;
+
+    color: #666;
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+#ranking ul li:nth-child(2) p.txt2 {
+    padding-top: 20px;
+
+    color: #333;
+    font-size: 38px;
+    letter-spacing: -3px;
+    font-weight: bold;
+}
+
+#ranking ul li:nth-child(2) p.txt2 span {
+    font-size: 22px;
+    font-weight: normal;
+}
+
+
+#ranking ul li:nth-child(3) h4 {
+    padding: 15px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+}
+
+
+#ranking ul li:nth-child(3) p {
+    width: 380px;
+    height: 50px;
+    line-height: 50px;
+
+    padding-left: 20px;
+    box-sizing: border-box;
+
+    color: #777;
+    font-size: 22px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    cursor: pointer;
+
+    margin-top: 2px;
+
+}
+
+#ranking ul li:nth-child(3) p span {
+    color: #333;
+    padding-right: 10px;
+}
+
+#ranking ul li:nth-child(3) p:hover {
+    background: #0f4138;
+    cursor: pointer;
+    color: #fff;
+}
+
+#ranking ul li:nth-child(3) p:hover span {
+    color: #fff;
+}
+
+
+/*로드킹덤배너*/
+#wrap_load_banner {
+    width: 100%;
+    height: 230px;
+    background: url(../images/banner_bg.mp4
+    
+    );
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#load_banner {
+    width: 1280px;
+    height: 230px;
+
+    /* background: radial-gradient(circle, #121d2f, #010204 30%); */
+    margin: 0 auto;
+    text-align: center;
+
+    position: relative;
+}
+
+#load_banner h2 {
+    padding-top: 70px;
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: -1px;
+
+    font-family: 'BMYEONSUNG';
+    font-weight: normal;
+
+    text-shadow: 3px 3px 1px #333;
+
+}
+
+#load_banner h2 span {
+    font-family: 'BMHANNAPro';
+    text-shadow: none;
+
+
+    background: linear-gradient(to bottom, #fff, #d9b05e, #fff);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#load_banner p.txt {
+    color: #fff;
+}
+
+#load_banner p.logo1 {
+    position: absolute;
+    left: 50px;
+    top: 30px;
+
+}
+
+#load_banner p.logo2 {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+}
+
+
+/*이니슾믿쓰템*/
+#section2 {
+    width: 1280px;
+    height: 600px;
+    margin: 30px auto;
+
+}
+
+#section2 h2 {
+    padding-top: 50px;
+
+    font-size: 30px;
+    color: #333;
+    letter-spacing: -3px;
+}
+
+#section2 h2 span {
+    font-weight: normal;
+}
+
+#section2 img {
+    vertical-align: middle;
+}
+
+#section2 ul li {
+    width: calc(100%/3);
+    height: 440px;
+    background: yellow;
+
+    float: left;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    position: relative;
+
+    margin-top: 20px;
+}
+
+#section2 ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+#section2 ul li:hover img {
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+#section2 ul li:hover p.logo img {
+    transform: scale(1);
+}
+
+#section2 ul li p.logo {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}
+
+
+/*1+1상품 4개*/
+#section3 {
+    width: 1280px;
+    height: 460px;
+    background: pink;
+    margin: 0 auto;
+
+}
+
+#section3 ul li {
+    width: 320px;
+    height: 460px;
+    background: orange;
+    float: left;
+
+    position: relative;
+}
+
+#section3 ul li p.won {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+
+    width: 60px;
+    height: 60px;
+    background: #fe3030;
+    border-radius: 50%;
+
+    text-align: center;
+    line-height: 60px;
+
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: -3px;
+}
+
+#section3 ul li p.won1 {
+    position: absolute;
+    left: 30px;
+    top: 110px;
+
+    width: 60px;
+    height: 60px;
+    background: green;
+    border-radius: 50%;
+
+    text-align: center;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -3px;
+
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+#section3 ul li p.img {
+    width: 320px;
+    height: 340px;
+    background: cyan;
+}
+
+#section3 ul li p.img img {
+    width: 100%;
+    height: 100%;
+}
+
+#section3 ul li p.img:hover img {
+    transform: rotateY(360deg);
+    transition: 1s;
+    cursor: pointer;
+}
+
+#section3 ul li p.txt1 {
+    padding: 20px 0 0 90px;
+    color: #777;
+    font-size: 20px;
+    letter-spacing: -2px;
+}
+
+#section3 ul li p.txt1 span {
+    color: #fd3130;
+}
+
+#section3 ul li p.txt2 {
+    padding: 0px 0 0 90px;
+    color: #333;
+    font-size: 30px;
+    letter-spacing: -3px;
+    font-weight: bold;
+}
+
+#section3 ul li p.txt1 span {
+    font-weight: normal;
+    font-size: 22px;
+}
+
+
+/*그린티 배너*/
+#green_banner {
+    width: 1280px;
+    height: 150px;
+    background: #e2fcd9;
+    margin: 50px auto;
+    text-align: center;
+
+}
+
+#green_banner p.box {
+    width: 200px;
+    height: 60px;
+    background: #268f6e;
+    border-radius: 30px;
+
+    padding-top: 8px;
+    box-sizing: border-box;
+    text-align: center;
+
+    color: #e1fbd6;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-family: 'BMYEONSUNG';
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-top: 30px;
+}
+
+#green_banner p.box span {
+    color: #feef92;
+}
+
+#green_banner h2 {
+    color: #fcf396;
+    font-size: 62px;
+    letter-spacing: -3px;
+    font-family: 'BMYEONSUNG';
+    text-transform: uppercase;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-left: 10px;
+    margin-top: 30px;
+
+    text-shadow:
+        2px 2px 2px #199271,
+        3px 3px 3px #199271,
+        4px 4px 4px #199271,
+        5px 5px 5px #199271,
+
+        -2px -2px 2px #199271,
+        -3px -3px 3px #199271,
+        -4px -4px 4px #199271,
+        -5px -5px 5px #199271;
+}
+
+#green_banner p.txt {
+    color: #666;
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+#green_banner p.txt span {
+    display: inline-block;
+    vertical-align: bottom;
+
+    width: 2px;
+    height: 20px;
+    background: #acdeb9;
+    margin: 0 10px;
+}
+
+
+/*멤버십 혜택 안내*/
+#membership {
+    width: 1280px;
+    height: 450px;
+    background: yellow;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+#membership h2 {
+    text-align: left;
+    padding: 30px 0 0 30px;
+    font-size: 30px;
+    letter-spacing: -3px;
+}
+
+#membership h4 {
+    text-align: left;
+    padding: 20px 0 0 30px;
+    font-size: 20px;
+    letter-spacing: -2px;
+    font-weight: normal;
+}
+
+#membership ul li {
+    width: 150px;
+    height: 230px;
+    border: 1px solid red;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 40px 25px;
+
+}
+
+#membership ul li p.icon {
+    width: 150px;
+    height: 140px;
+    background: #f3f3f3;
+    border-radius: 50%;
+
+    position: relative;
+
+}
+
+#membership ul li p.icon span {
+    display: block;
+    width: 68px;
+    height: 55px;
+    border: 1px solid blue;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../images/membership_bg1.png)no-repeat 0 0;
+}
+
+#membership ul li:nth-child(2) p.icon span {
+    background-position: -67px 0;
+}
+
+#membership ul li:nth-child(3) p.icon span {
+    background-position: -137px 0;
+}
+
+#membership ul li:nth-child(4) p.icon span {
+    background-position: 5px -60px;
+}
+
+#membership ul li:nth-child(5) p.icon span {
+    background-position: -63px -60px;
+}
+
+#membership ul li:nth-child(6) p.icon span {
+    background-position: -133px -60px;
+}
+
+#membership ul li p.txt {
+    padding-top: 30px;
+
+    color: #333;
+    font-size: 18px;
+    letter-spacing: -2px;
+
+}
+

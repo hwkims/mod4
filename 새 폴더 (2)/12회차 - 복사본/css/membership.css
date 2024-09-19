@@ -1,0 +1,190 @@
+/*웹폰트- 배달의민족 도현*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*상단배너*/
+#membership_top {
+    width: 1280px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/*위치 표시줄*/
+#location_bar {
+    width: 1280px;
+    height: 80px;
+    /* background: pink; */
+    margin: 0 auto;
+    border-bottom: 1px solid #dedede;
+}
+
+#location_bar p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#location_bar p.home {
+    width: 65px;
+    height: 80px;
+    /* background: cyan; */
+    text-align: center;
+    line-height: 80px;
+
+    margin-left: 70px;
+
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+}
+
+#location_bar p.txt1 {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#location_bar p.txt2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*서브메뉴*/
+#sub_menu {
+    width: 1000px;
+    height: 100px;
+    /* background: yellow; */
+    margin: 80px auto;
+}
+
+#sub_menu li a {
+    display: block;
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    float: left;
+
+    text-align: center;
+    line-height: 100px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+#sub_menu li:nth-child(2) a {
+    border-left: 0;
+}
+
+#sub_menu li a:hover {
+    background: #cc0001;
+    color: #fff;
+}
+
+/*멤버십 부메랑 혜택*/
+#membership_section1 {
+    width: 1280px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+#membership_section1 p.title {
+    width: 1180px;
+    margin: 0 auto;
+    border-bottom: 2px solid #444;
+
+    color: #333;
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#membership_section1 p.title img {
+    vertical-align: middle;
+}
+
+#membership_section1 ul li {
+    width: 360px;
+    height: 430px;
+    /* border: 1px solid blue; */
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 30px 20px;
+}
+
+#membership_section1 ul li p.txt1 {
+    padding-top: 20px;
+    color: #333;
+    font-size: 20px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+#membership_section1 ul li p.txt2 {
+    padding-top: 10px;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: -1px;
+}
+
+#membership_section1 ul li p.btn {
+    border: 1px solid #666;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 15px;
+
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#membership_section1 ul li p.img:hover img {
+    transform: rotateY(360deg);
+    transition: 1s;
+    cursor: pointer;
+}
+
+/*멤버십 하단 정보*/
+#membership_down {
+    width: 1280px;
+    background: #f7f7f7;
+    margin: 30px auto;
+}
+
+#membership_down pre {
+    padding: 30px;
+    font-family: '맑은 고딕';
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 1.7;
+}
+
+#membership_down pre span {
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#membership_down pre span em {
+    color: red;
+    font-style: normal;
+}
+
+
+#membership_down pre strong {
+    color: #333;
+    font-size: 18px;
+}

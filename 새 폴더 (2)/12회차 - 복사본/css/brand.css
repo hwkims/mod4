@@ -1,0 +1,256 @@
+/*웹폰트- 배달의민족 도현*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#brand_top {
+    width: 1280px;
+    height: 500px;
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#brand_top div.box {
+    width: 1280px;
+    height: 500px;
+    line-height: 500px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    opacity: 0;
+}
+
+#brand_top div.box h2 {
+    color: #fff;
+    font-size: 38px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#brand_top:hover div.box {
+    opacity: 1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+/*위치 표시줄*/
+#location_bar {
+    width: 1280px;
+    height: 80px;
+    /* background: pink; */
+    margin: 0 auto;
+    border-bottom: 1px solid #dedede;
+}
+
+#location_bar p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#location_bar p.home {
+    width: 65px;
+    height: 80px;
+    /* background: cyan; */
+    text-align: center;
+    line-height: 80px;
+
+    margin-left: 70px;
+
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+
+}
+
+#location_bar p.txt1 {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#location_bar p.txt2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*서브메뉴*/
+#sub_menu {
+    width: 1000px;
+    height: 100px;
+    background: yellow;
+    margin: 80px auto;
+}
+
+#sub_menu li a {
+    display: block;
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    float: left;
+
+    text-align: center;
+    line-height: 100px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+#sub_menu li:nth-child(2) a {
+    border-left: 0;
+}
+
+#sub_menu li a:hover {
+    background: #cc0001;
+    color: #fff;
+}
+
+/*브랜드 스토리*/
+#brand_story {
+    width: 1280px;
+    height: 1800px;
+    background: url(../images/brand_story_bg.jpg);
+    margin: 0 auto;
+    text-align: center;
+
+    position: relative;
+}
+
+#brand_story h2 {
+    padding-top: 200px;
+
+    color: #c7b19a;
+    font-size: 34px;
+    letter-spacing: -3px;
+}
+
+#brand_story p.center_line {
+    padding-top: 80px;
+}
+
+/*1980*/
+#brand_story ul.box1 {
+    width: 480px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    left: 100px;
+    top: 400px;
+    text-align: right;
+}
+
+#brand_story ul h4 {
+    color: #c7b19a;
+    font-size: 70px;
+    line-height: -7px;
+    line-height: 0.5;
+}
+
+#brand_story ul h4 span {
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+
+#brand_story ul p.txt {
+    padding-top: 20px;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+/*1988*/
+#brand_story ul.box2 {
+    width: 480px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    right: 120px;
+    top: 580px;
+    text-align: left;
+}
+
+/*1997*/
+#brand_story ul.box3 {
+    width: 480px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    left: 100px;
+    top: 1100px;
+    text-align: right;
+}
+
+/*2013*/
+#brand_story ul.box4 {
+    width: 480px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    right: 120px;
+    top: 1200px;
+    text-align: left;
+    line-height: 1.7;
+}
+
+#brand_story ul.box4 p.txt img {
+    float: left;
+    margin: 20px;
+    margin-top: 10px;
+    /* border: 1px solid blue; */
+}
+
+/*15month*/
+#brand_story ul h3 {
+    color: #cd0205;
+    font-size: 80px;
+    font-family: 'BMDOHYEON';
+    letter-spacing: -4px;
+    font-weight: normal;
+
+}
+
+#brand_story ul h3 span {
+    color: #fff;
+    font-size: 38px;
+    letter-spacing: -1px;
+}
+
+#brand_story ul p.txt2 {
+    color: #9a9a9a;
+    letter-spacing: -1px;
+}
+
+#brand_story ul.box5 {
+    width: 480px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    left: 100px;
+    top: 820px;
+    text-align: right;
+}
+
+/*store 100*/
+#brand_story ul.box6 {
+    width: 480px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    right: 120px;
+    top: 840px;
+    text-align: left;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        .tr {
+            width: 200px; height: 200px; background: red;
+            border: 1px solid #000;
+        }
+
+        #cc:hover .tr {
+            width: 100px; height: 100px; background: yellow;
+            transform: rotate(270deg);
+
+            transition: 2s ease-out;
+            /*대상(property) 실행시간(duration) 속도(timing-function) 지연시간(delay)*/
+
+            /* transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 0; */
+        }
+        
+            .box {
+                width: 100px; height: 100px; margin: 100px; background: blue;
+            }
+            #cc:hover .box {
+                transform: scale(2);
+
+                /* 2초동안 시작을 느리게 1초 딜레이 */
+
+                /* transition: 2s ease-in 1s; */
+
+                transition-property: all;
+                transition-duration: 2s;
+                transition-timing-function: ease-in;
+                transition-delay: 1s;
+            }
+        
+            @keyframes ani {
+                0% { transform: rotate(0);}
+                100% { transform: rotate(360deg);}
+            }
+
+    </style>
+
+</head>
+<body>
+    <div id="cc">
+        <div class="tr"></div>
+
+        <div class="box"></div>
+    </div>
+</body>
+</html>

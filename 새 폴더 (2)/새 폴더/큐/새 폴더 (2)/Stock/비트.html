@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bitcoin Trading Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+   .container {
+      width: 80%;
+      margin: 40px auto;
+      text-align: center;
+    }
+   .balance {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+   .bitcoin-price {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+   .buttons {
+      margin-top: 20px;
+    }
+   .button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+   .button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bitcoin Trading Game</h1>
+    <div class="balance">
+      Balance: <span id="balance">$10,000</span>
+    </div>
+    <div class="bitcoin-price">
+      Current Bitcoin Price: <span id="bitcoin-price">$35,000</span>
+    </div>
+    <div class="bitcoin-amount">
+      Bitcoin Amount: <span id="bitcoin-amount">0.00 BTC</span>
+    </div>
+    <div class="buttons">
+      <button id="buy-button" class="button">Buy Bitcoin</button>
+      <button id="sell-button" class="button">Sell Bitcoin</button>
+    </div>
+  </div>
+
+  <script>
+    let balance = 10000;
+    let bitcoinPrice = 35000;
+    let bitcoinAmount = 0;
+
+    document.getElementById("balance").innerText = `$${balance.toFixed(2)}`;
+    document.getElementById("bitcoin-price").innerText = `$${bitcoinPrice.toFixed(2)}`;
+    document.getElementById("bitcoin-amount").innerText = `${bitcoinAmount.toFixed(2)} BTC`;
+
+    document.getElementById("buy-button").addEventListener("click", () => {
+      if (balance >= bitcoinPrice * 0.01) {
+        bitcoinAmount += 0.01;
+        balance -= bitcoinPrice * 0.01;
+        document.getElementById("balance").innerText = `$${balance.toFixed(2)}`;
+        document.getElementById("bitcoin-amount").innerText = `${bitcoinAmount.toFixed(2)} BTC`;
+      } else {
+        alert("Insufficient balance!");
+      }
+    });
+
+    document.getElementById("sell-button").addEventListener("click", () => {
+      if (bitcoinAmount >= 0.01) {
+        bitcoinAmount -= 0.01;
+        balance += bitcoinPrice * 0.01;
+        document.getElementById("balance").innerText = `$${balance.toFixed(2)}`;
+        document.getElementById("bitcoin-amount").innerText = `${bitcoinAmount.toFixed(2)} BTC`;
+      } else {
+        alert("You don't have enough Bitcoin to sell!");
+      }
+    });
+
+    setInterval(() => {
+      bitcoinPrice += Math.random() * 100 - 50;
+      document.getElementById("bitcoin-price").innerText = `$${bitcoinPrice.toFixed(2)}`;
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>P2P Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #chat-log {
+      width: 400px;
+      height: 300px;
+      overflow-y: scroll;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>P2P Chat</h1>
+  <input id="message-input" type="text" placeholder="Type a message...">
+  <button id="send-btn">Send</button>
+  <div id="chat-log"></div>
+
+  <script>
+    // Get the chat log element
+    const chatLog = document.getElementById('chat-log');
+
+    // Get the message input element
+    const messageInput = document.getElementById('message-input');
+
+    // Get the send button element
+    const sendBtn = document.getElementById('send-btn');
+
+    // Create a peer connection
+    let pc;
+
+    // Create an offer
+    function createOffer() {
+      pc = new RTCPeerConnection({
+        iceServers: [{ urls: 'tun:stun.l.google.com:19302' }]
+      });
+
+      pc.createOffer().then((offer) => {
+        return pc.setLocalDescription(new RTCSessionDescription({ type: 'offer', sdp: offer }));
+      }).then(() => {
+        // Send the offer to the other peer
+        sendOffer(pc.localDescription.sdp);
+      });
+    }
+
+    // Send the offer to the other peer
+    function sendOffer(offerSdp) {
+      // Create a new message element
+      const messageElement = document.createElement('div');
+      messageElement.textContent = `Offer: ${offerSdp}`;
+      chatLog.appendChild(messageElement);
+
+      // Send the offer to the other peer using the data channel
+      pc.createDataChannel('chat').send(offerSdp);
+    }
+
+    // Handle incoming messages
+    function handleIncomingMessage(event) {
+      const message = event.data;
+      console.log(`Received message: ${message}`);
+
+      // Create a new message element
+      const messageElement = document.createElement('div');
+      messageElement.textContent = `Received: ${message}`;
+      chatLog.appendChild(messageElement);
+
+      // Handle the message
+      if (message.startsWith('Offer: ')) {
+        // Create an answer
+        createAnswer(message.substring(7));
+      } else if (message.startsWith('Answer: ')) {
+        // Set the answer
+        pc.setRemoteDescription(new RTCSessionDescription({ type: 'answer', sdp: message.substring(7) }));
+      } else {
+        // Handle the message
+        console.log(`Unknown message: ${message}`);
+      }
+    }
+
+    // Create an answer
+    function createAnswer(offerSdp) {
+      pc = new RTCPeerConnection({
+        iceServers: [{ urls: 'tun:stun.l.google.com:19302' }]
+      });
+
+      pc.setRemoteDescription(new RTCSessionDescription({ type: 'offer', sdp: offerSdp }));
+
+      pc.createAnswer().then((answer) => {
+        return pc.setLocalDescription(new RTCSessionDescription({ type: 'answer', sdp: answer }));
+      }).then(() => {
+        // Send the answer to the other peer
+        sendAnswer(pc.localDescription.sdp);
+      });
+    }
+
+    // Send the answer to the other peer
+    function sendAnswer(answerSdp) {
+      // Create a new message element
+      const messageElement = document.createElement('div');
+      messageElement.textContent = `Answer: ${answerSdp}`;
+      chatLog.appendChild(messageElement);
+
+      // Send the answer to the other peer using the data channel
+      pc.createDataChannel('chat').send(answerSdp);
+    }
+
+    // Add event listeners
+    sendBtn.addEventListener('click', createOffer);
+
+    // Create a data channel
+    pc.createDataChannel('chat').onmessage = handleIncomingMessage;
+  </script>
+</body>
+</html>

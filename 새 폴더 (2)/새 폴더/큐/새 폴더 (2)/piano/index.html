@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Pianist</title>
+<style>
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.keyboard {
+  display: flex;
+}
+
+.key {
+  width: 40px;
+  height: 150px;
+  background-color: #fff;
+  border: 1px solid #000;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.black-key {
+  width: 25px;
+  height: 100px;
+  background-color: #000;
+  border: 1px solid #000;
+  margin-left: -15px;
+  position: relative;
+  top: 50px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.key:hover, .black-key:hover {
+  background-color: #ccc;
+}
+
+.key:active, .black-key:active {
+  background-color: #999;
+}
+
+.key:focus, .black-key:focus {
+  outline: none;
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <h1>Online Pianist</h1>
+  <div class="keyboard">
+    <div class="key" data-key="65" data-letter="Q">Q</div>
+    <div class="key" data-key="87" data-letter="W">W</div>
+    <div class="key" data-key="69" data-letter="E">E</div>
+    <div class="key" data-key="82" data-letter="R">R</div>
+    <div class="key" data-key="84" data-letter="T">T</div>
+    <div class="key" data-key="89" data-letter="Y">Y</div>
+    <div class="key" data-key="85" data-letter="U">U</div>
+    <div class="key" data-key="73" data-letter="I">I</div>
+    <div class="key" data-key="79" data-letter="O">O</div>
+    <div class="key" data-key="80" data-letter="P">P</div>
+    <div class="black-key" data-key="83" data-letter="S">S</div>
+    <div class="black-key" data-key="68" data-letter="D">D</div>
+    <div class="black-key" data-key="70" data-letter="F">F</div>
+    <div class="key" data-key="71" data-letter="G">G</div>
+    <div class="key" data-key="72" data-letter="H">H</div>
+    <div class="key" data-key="74" data-letter="J">J</div>
+    <div class="key" data-key="75" data-letter="K">K</div>
+    <div class="key" data-key="76" data-letter="L">L</div>
+    <div class="black-key" data-key="81" data-letter="Z">Z</div>
+    <div class="black-key" data-key="88" data-letter="X">X</div>
+    <div class="black-key" data-key="67" data-letter="C">C</div>
+    <div class="key" data-key="86" data-letter="V">V</div>
+    <div class="key" data-key="66" data-letter="B">B</div>
+    <div class="key" data-key="78" data-letter="N">N</div>
+    <div class="key" data-key="77" data-letter="M">M</div>
+    <div class="key" data-key="188" data-letter=",">,</div>
+    <div class="key" data-key="190" data-letter=".">.</div>
+    <div class="key" data-key="191" data-letter="/">/</div>
+  </div>
+</div>
+<script>
+const keys = document.querySelectorAll('.key, .black-key');
+
+keys.forEach(key => {
+  key.addEventListener('click', () => {
+    const keyCode = key.dataset.key;
+    const audio = new Audio(`https://www.zedge.net/find/sounds/piano/${keyCode}`);
+    audio.play();
+    key.style.backgroundColor = '#ccc';
+  });
+
+  key.addEventListener('transitionend', () => {
+    key.style.backgroundColor = '#fff';
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  const keyCode = e.code;
+  const key = document.querySelector(`.key[data-letter="${keyCode}"]`);
+
+  if (key) {
+    key.classList.add('playing');
+  }
+});
+
+document.addEventListener('keyup', (e) => {
+  const keyCode = e.code;
+  const key = document.querySelector(`.key[data-letter="${keyCode}"]`);
+
+  if (key) {
+    key.classList.remove('playing');
+  }
+});
+</script>
+</body>
+</html>

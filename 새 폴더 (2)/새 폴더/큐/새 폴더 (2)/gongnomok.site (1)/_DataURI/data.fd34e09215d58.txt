@@ -1,0 +1,1 @@
+chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/web-accessible-resources/redirects/googlesyndication-adsbygoogle.js?secret=kbeovf

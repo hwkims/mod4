@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            margin: 15px;
+        }
+
+        ol li.box1::before {
+            content: "http://google.com";
+            background: lawngreen;
+        }
+        ol .box2::before {
+            content: "http://naver.com";
+            background: lawngreen;
+        }
+        ol .box3::before {
+            content: "http://kakao.com";
+            background: lawngreen;
+        }
+
+        ul .box1::after {
+            content: "♥";
+            color:red;
+        }
+
+        ul .box2::after {
+            content: "new";
+
+            padding: 2px 5px;
+
+            font-size: 14px; background: red; color:#fff;
+        }
+        li.hot::after {
+            content: "NEW!!";
+            font-size: 11px;
+            padding: 2px 4px;
+            margin: 0 10px;
+            background: #f00;
+            color:#fff;
+            border-radius: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="hot">제품 A</li>
+        <li>제품 B</li>
+        <li>제품 C</li>
+        <li class="hot">제품 D</li>
+    </ul>
+
+
+
+    <h2>::befor</h2>
+    <p>기준 요소 안의 컨텐츠 영역 앞쪽에 적용</p>
+
+    <ol>
+        <li class="box1">구글</li>
+        <li class="box2">네이버</li>
+        <li class="box3">카카오</li>
+    </ol>
+
+    <h2>::after</h2>
+    <p>기준 요소 안의 컨텐츠 영역 뒷쪽에 적용</p>
+
+    <ul>
+        <li class="box1">구글</li>
+        <li class="box2">네이버</li>
+        <li class="box3">카카오</li>
+    </ul>
+</body>
+</html>

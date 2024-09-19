@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>뒷산에서 버섯캐기</title>
+  <style>
+    /* 게임의 스타일을 정의합니다. */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+    }
+    #game-container {
+      width: 80%;
+      margin: 40px auto;
+      text-align: center;
+    }
+    #mushroom-field {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #ccc;
+      margin: 20px auto;
+      background-image: url('https://via.placeholder.com/300x300');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #mushroom-field img {
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+    }
+    #dig-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #dig-button:hover {
+      background-color: #3e8e41;
+    }
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 게임의 메인 콘텐츠를 정의합니다. -->
+  <h1>뒷산에서 버섯캐기</h1>
+  <div id="game-container">
+    <!-- 버섯을 캐는 공간을 정의합니다. -->
+    <div id="mushroom-field">
+      <!-- 버섯을 나타내는 이미지나 요소를 추가합니다. -->
+      <img id="mushroom" src="https://via.placeholder.com/50x50" alt="버섯">
+    </div>
+    <!-- 버섯을 캐는 버튼을 정의합니다. -->
+    <button id="dig-button">버섯 캐기!</button>
+    <!-- 결과를 표시하는 요소를 정의합니다. -->
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // 게임의 로직을 정의합니다.
+    const mushroomField = document.getElementById('mushroom-field');
+    const digButton = document.getElementById('dig-button');
+    const resultElement = document.getElementById('result');
+    let mushroomCount = 0;
+
+    digButton.addEventListener('click', () => {
+      // 버섯을 캐는 액션을 정의합니다.
+      const randomNum = Math.random();
+      if (randomNum < 0.5) {
+        // 버섯을 캐는 경우
+        mushroomCount++;
+        resultElement.textContent = `버섯을 캐었습니다! (총 ${mushroomCount}개)`;
+        mushroomField.innerHTML = '';
+        for (let i = 0; i < mushroomCount; i++) {
+          const mushroomImage = document.createElement('img');
+          mushroomImage.src = 'https://via.placeholder.com/50x50';
+          mushroomImage.alt = '버섯';
+          mushroomField.appendChild(mushroomImage);
+        }
+      } else {
+        // 버섯을 캐지 못하는 경우
+        resultElement.textContent = '버섯을 캐지 못했습니다!';
+      }
+    });
+  </script>
+</body>
+</html>

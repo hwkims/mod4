@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*[속성 = 값] : 특정 값을 갖는 속성을 적용*/
+        /* a[target = "_blank"] { background: yellow;} */
+
+        /*[속성 ~= 값] : 여러값 중 특정 값이 포함된 속성 단어로 일치해야함*/
+        [class ~= "button"] {
+            background: red;
+        }
+        /*[속성 *= 값] : 값의 일부가 일치하는 속성*/
+        [href *= "com"] {
+            background: blue; 
+            color:#fff;
+        }
+        /*[속성 ^= 값] : 특정 값으로 시작하는 속성*/
+        [href ^= "http"] {
+            background: red;
+        }
+
+        /*[속성 $= 값] : 특정 값으로 끝나는 속성*/
+        [href $= "com"] {
+            background: pink;
+        }
+
+        p[class *= "btn"] {
+            color:green;
+        }
+        p[class ^= "btn"] {
+            color:gold;
+        }
+        /*
+        [속성 = 값] : 특정 값을 갖는 속성에 적용
+        [속성 ~=] : 여러값 중 특정 값이 포함된 속성 단어로 일치해야함
+
+        [속성 *=] : 값의 일부가 일치하는 속성 (글자포함 *)
+        [속성 ^=] : 특정 값으로 시작하는 속성 (시작 ^)
+        [속성 $=] : 특정 값으로 끝나는 속성 (끝 $)
+        */
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="http://naver.com" target="_blank">메뉴1</a></li>
+        <li><a href="https://daum.net">메뉴2</a></li>
+        <li><a href="google.com" class="button">메뉴3</a></li>
+        <li><a href="http://gtq.or.kr" class="flat button">메뉴4</a></li>
+    </ul>
+
+    <p class="btn1">버튼1</p>
+    <p class="btn2">버튼2</p>
+    <p class="btn3">버튼3</p>
+
+</body>
+</html>

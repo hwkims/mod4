@@ -1,0 +1,73 @@
+
+
+function setPreInputData()
+{
+    if ( PRE_USE_YN == "Y" )
+    {
+        //선입력시 QR 인증 불가
+        try
+        {
+            if( kcp_curr_page_name != undefined && kcp_curr_page_name == "pushQRForm" )
+            {
+                $("div.qrCodeWrap").remove();
+                $("#ct").addClass("certifyWrap_02");
+            }
+        }catch (e)
+        {
+            var temp = "";
+        }
+
+
+        if( PRE_CERT_MODIFY_YN == "N" )
+        {
+            // 수정불가처리
+            if ( PRE_INPUT_USER_NAME != "" )
+            {
+                $("#divUserName").addClass("is-disabled");
+                $("#user_name").attr("disabled",true);
+            }
+
+            if( PRE_INPUT_BIRTH_DAY != "" )
+            {
+                $("#spanMynum1").addClass("is-disabled");
+                $("#mynum1").attr("disabled",true);
+                $("#mynum1_mark i").addClass("on");
+            }
+
+            if( PRE_INPUT_SSNO_CODE != "" )
+            {
+                $("#spanMynum2").addClass("is-disabled");
+                $("#mynum2").attr("disabled",true);
+                $("#mynum2_mark i").addClass("on");
+            }
+
+            if( PRE_INPUT_PHONE_NO != "" )
+            {
+                $("#divPhoneNo").addClass("is-disabled");
+                $("#phone_no_rKey").attr("disabled",true);
+                $("#phone_no").attr("disabled",true);
+                $("#buttonKeypad").remove();
+            }
+        }
+        else if ( PRE_CERT_MODIFY_YN == "Y" )
+        {
+            if( PRE_INPUT_BIRTH_DAY != "" )
+            {
+                $("#mynum1_mark i").addClass("on");
+            }
+
+            if( PRE_INPUT_SSNO_CODE != "" )
+            {
+                $("#mynum2_mark i").addClass("on");
+            }
+        }
+
+        if ( PRE_INPUT_USER_NAME != "" ) { $("#user_name"     ).val( PRE_INPUT_USER_NAME ); }
+        if ( PRE_INPUT_PHONE_NO  != "" ) { $("#phone_no_rKey" ).val( PRE_INPUT_PHONE_NO  ); }
+        if ( PRE_INPUT_PHONE_NO  != "" ) { $("#phone_no"      ).val( PRE_INPUT_PHONE_NO  ); }
+        if ( PRE_INPUT_BIRTH_DAY != "" ) { $("#mynum1"        ).val( PRE_INPUT_BIRTH_DAY ); }
+        if ( PRE_INPUT_SSNO_CODE != "" ) { $("#mynum2"        ).val( PRE_INPUT_SSNO_CODE ); }
+
+    }
+
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://cert.kcp.co.kr/cert/pc/telcomSelect.jsp -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="./휴대폰본인확인_통신사선택_NHN KCP_files/common.css" media="screen" rel="stylesheet">
+    <link href="./휴대폰본인확인_통신사선택_NHN KCP_files/site.css" media="screen" rel="stylesheet">
+    <link href="./휴대폰본인확인_통신사선택_NHN KCP_files/kcp_layer.css" media="screen" rel="stylesheet">
+
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/jquery-3.6.0.min.js.다운로드"></script>
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/common.js.다운로드"></script>
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/design.js.다운로드"></script>
+    <title>휴대폰본인확인_통신사선택_NHN KCP</title>
+    <script>
+        // 로컬 스토리지에서 불러온 통신사
+        var preSelectCommID = "";
+    </script>
+    
+<script>
+//공용
+var TELCOM_SELECT_URL_RW       = "telcomSelect.jsp";
+
+// 모바일
+var MO_PUSH_ACTION_URL_RW      = "pushForm.jsp";
+var MO_PASS_ACTION_URL_RW      = "passConfrim.jsp";
+
+var MO_SMS_ACTION_URL_RW       = "smsForm.jsp";
+var MO_OTP_FORM_URL_RW         = "smsOtpForm.jsp";
+var MO_PUSH_CONFIRM_URL_RW     = "pushConfirm.jsp";
+
+var MO_SMS_FAIL_URL_RW         = "smsFail.jsp";
+var MO_PASS_FAIL_URL_RW        = "passFail.jsp";
+
+var MO_PASS_APP_INSTALL_RW     = "passInstall.jsp";
+
+var MO_CERT_TELCOM_RW          = "../proc/m_cert_telcom.jsp";
+var MO_CERT_OTP_TX_RW          = "../proc/m_cert_otp_tx.jsp";
+
+var MO_MVNO_TELCOM_RW          = "mvnoTelcomConfirm.jsp";
+
+// PC
+
+var PC_MVNO_TELCOM_RW          = "mvnoTelcomConfirm.jsp";
+
+var PC_PUSH_QR_ACTION_URL_RW   = "pushQRForm.jsp";
+var PC_PUSH_CONFIRM_URL_RW     = "pushConfirm.jsp";
+var PC_PUSH_QR_FAIL_URL_RW     = "pushQRFail.jsp";
+
+var PC_SMS_ACTION_URL_RW       = "smsForm.jsp";
+var PC_OTP_FORM_URL_RW         = "smsOtpForm.jsp";
+var PC_SMS_FAIL_URL_RW         = "smsFail.jsp";
+
+var PC_PASS_APP_INSTALL_RW     = "passInstall.jsp";
+
+var PC_CERT_TELCOM_RW          = "../proc/cert_telcom.jsp";
+var PC_CERT_OTP_TX_RW          = "../proc/cert_otp_tx.jsp";
+
+var CERT_RESULT_URL_RW         = "../common/result.jsp";
+
+// 공통
+var IFRAME_TX_APP_PROCESS_RW   = "../proc/iframe_tx_app_process.jsp";
+</script>
+    <!-- TODO : 공통되다면 header 로 이동하자. 개발자 추가 JS-->
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/certCommon.js.다운로드"></script>
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/popupUtil.js.다운로드"></script>
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/iframeSizeUtil.js.다운로드"></script>
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/telcomSelect.js.다운로드"></script>
+    <script src="./휴대폰본인확인_통신사선택_NHN KCP_files/comKcpLayer.js.다운로드"></script>
+    <script>
+        var PRE_USE_YN          = "N";
+        var PRE_CERT_FIXED_TYPE = "";
+        var PRE_CERT_MODIFY_YN  = "";
+        var PRE_MASK_YN         = "";
+        var PRE_INPUT_OLD_TYPE  = "";
+
+        var PRE_INPUT_USER_NAME = "";
+        var PRE_INPUT_PHONE_NO  = "";
+        var PRE_INPUT_BIRTH_DAY = "";
+        var PRE_INPUT_SSNO_CODE = "";
+    </script>
+    <script>
+    //중요!! comKcpLayer.js 이후 호출
+    $(document).ready(function() {
+        try
+        {
+            if( "N" == "Y")
+            {
+                alert("- 작업 공지-\nSKT PASS 시스템 대개체 작업으로\n아래 작업시간 동안\nSKT, SKT 알뜰폰 PASS인증 불가합니다.\n(SKT 문자인증, KT, LGU+는 정상 이용가능)\n작업일시 : 05/23(화) 02:00 ~ 05:00");
+            }
+        }
+        catch(e){ void(0); }
+    });
+    </script>
+</head>
+
+<body>
+<!-- 푸터 .is-fixed 제거시 #wrap에 .pd-0 추가 -->
+<div id="wrap">
+    <header id="header" class="step1header">
+        <h1>
+            <a href="javascript:;"><img src="./휴대폰본인확인_통신사선택_NHN KCP_files/logo_pass.png" alt="PASS"></a>
+        </h1>
+    </header>
+
+    <section id="ct">
+        <form name="frm" id="frm" method="post" autocomplete="off" onsubmit="return false;">
+            <input type="hidden" name="m" value="auth_mobile01">
+            <input type="hidden" name="agreeOptionYn" id="agreeOptionYn" value="N">
+            <fieldset class="ui_cover agency_select">
+                <p>이용중이신 통신사를 선택해주세요.</p>
+                <!-- <legend>통신사 선택</legend> -->
+					<!-- kcp 알뜰폰을 버튼 타입으로 변경 -->
+                <ul class="agency_select__items">
+                    <li>
+                        <input type="radio" name="agency" id="agency-sk" value="SKT" title="SK telecom" aria-label="SK telecom">
+                        <label for="agency-sk" class="ui_align_mid checked"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="agency" id="agency-kt" value="KTF" title="KT" aria-label="KT">
+                        <label for="agency-kt" class="ui_align_mid checked"></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="agency" id="agency-lgu" value="LGT" title="LG U+" aria-label="LG U+">
+                        <label for="agency-lgu" class="ui_align_mid checked"></label>
+                    </li>
+                    <li>
+							<button type="button" id="agency-and" class="ui_align_mid agency-and checked" value="MVNO" title="선택 해제 됨 선택시 레이어 팝업 열림" role="button" aria-pressed="false">알뜰폰</button>
+                    </li>
+                </ul>
+
+                <!-- 전체동의 -->
+                <ul class="agreelist all">
+                    <li><div class="checkbox check2"><input type="checkbox" name="agree" id="agree_all"><label for="agree_all">전체 동의하기</label><label for="agree_all">전체 동의</label></div></li>
+                </ul>
+
+                <!-- 필수항목 -->
+                <ul class="agreelist required">
+                    <li>
+							<div class="checkbox check2">
+								<input type="checkbox" name="agree1" id="agree1" value="Y">
+                            <label for="agree1">개인정보이용 동의하기</label>
+								<button type="button" class="btn_agree_popup" id="agree1Pop" title="개인정보이용동의 레이어 팝업 열기">개인정보이용동의</button>
+							</div>
+                    </li>
+                    <li>
+							<div class="checkbox check2">
+								<input type="checkbox" name="agree2" id="agree2" value="Y">
+								<label for="agree2">고유식별정보처리 동의하기</label>
+								<button type="button" class="btn_agree_popup" id="agree2Pop" title="고유식별정보처리동의 레이어 팝업 열기">고유식별정보처리동의</button>
+							</div>
+                    </li>
+                    <li>
+							<div class="checkbox check2">
+								<input type="checkbox" name="agree3" id="agree3" value="Y">
+								<label for="agree3">서비스이용약관 동의하기</label>
+								<button type="button" class="btn_agree_popup" id="agree3Pop" title="서비스이용약관동의 레이어 팝업 열기">서비스이용약관동의</button>
+							</div>
+                    </li>
+                    <li>
+							<div class="checkbox check2">
+								<input type="checkbox" name="agree4" id="agree4" value="Y">
+								<label for="agree4">통신사이용약관 동의하기</label>
+								<button type="button" class="btn_agree_popup" id="agree4Pop" title="통신사이용약관동의 레이어 팝업 열기">통신사이용약관동의</button>
+							</div>
+                    </li>
+						<li>
+							<div class="checkbox check2">
+								<input type="checkbox" name="agree5" id="agree5" value="Y">
+								<label for="agree5">제3자정보제공동의</label>
+								<button type="button" class="btn_agree_popup" id="agree5Pop" title="제3자정보제공동의 레이어 팝업 열기">제3자정보제공동의</button>
+							</div>
+						</li>
+                </ul>
+
+                <button type="button" id="btnPass" value="PASS" class="btn_r btn_type6 btn_r btn_skip">PASS로 인증하기</button>
+                <button type="button" id="btnSms" value="SMS" class="btn_r btn_type6 btn_r btn_skip2">문자(SMS)로 인증하기</button>
+            </fieldset>
+        </form>
+        <!-- 가상키패드 방식만 사용하므로 프로그램 설치 안함 - jhpark01
+        <div class="ceri_last_wrap security_guide_txt" id="touchEnKeyBox">
+            <p class="cau">
+                안전한 본인 확인을 위해 키보드 보안 프로그램을 설치해주세요. <br>
+                <a href="#" id="btnTouchEnKeyInstall">설치</a>
+            </p>
+        </div>
+        -->
+    </section>
+
+    <!-- 알뜰폰 레이어 팝업 -->
+    <div class="layerPopupWrap">
+        <div class="dim"></div>
+        <div class="layer-pop agency_select__popup">
+            <form name="frmPop" method="post" action="javascript:void(0);" autocomplete="off" onsubmit="return false;">
+                <div class="pop-tit">알뜰폰 사업자를 선택해주세요.</div>
+					<!-- 2022-02-16 :: radio 버튼으로 수정 -->
+					<div class="pop-con_02" aria-label="알뜰폰 사업자 리스트">
+                    <ul class="licensee-list">
+                        <li>
+                            <input type="radio" name="agencyMvno" id="agency-popup-sk" value="SKM" class="agency-radio licensee_title" title="SKT(알뜰폰) 사업자목록 축소됨" aria-label="SKT(알뜰폰) 사업자목록 축소됨 선택 시 사업자 목록 확장됨">
+                            <label for="agency-popup-sk" aria-hidden="true">
+                                    <span class="ele sk"><img src="./휴대폰본인확인_통신사선택_NHN KCP_files/logo_sk.png" alt="SK telecom"></span>
+	                                    <span class="ele_title">사업자목록 <i class="icon_arrow down"></i> </span>
+                                </label>
+                            <div class="licensee_info" aria-hidden="true" tabindex="0">
+                                <p>KCT(티플러스), 아이즈비전(아이즈모바일), 유니컴즈(모빙), 큰사람(이야기모바일), 스마텔(스마텔), SK텔링크(SK세븐모바일), 이마트(이마트알뜰폰), 에스원(안심모바일), 프리텔레콤(프리티), LG헬로비전(헬로모바일), 조이텔(조이텔), 토스모바일(토스모바일), KB국민은행(리브모바일), 스테이지파이브(핀다이렉트)</p>
+                            </div>
+                        </li>
+                        <li>
+	                        <input type="radio" name="agencyMvno" id="agency-popup-kt" value="KTM" class="agency-radio licensee_title" title="KT(알뜰폰) 사업자목록 축소됨" aria-label="KT(알뜰폰) 사업자목록 축소됨 선택 시 사업자 목록 확장됨">
+                            <label for="agency-popup-kt" aria-hidden="true">
+                                    <span class="ele kt"><img src="./휴대폰본인확인_통신사선택_NHN KCP_files/logo_kt.png" alt="KT"></span>
+	                                    <span class="ele_title">사업자목록 <i class="icon_arrow down"></i> </span>
+                                </label>
+                            <div class="licensee_info" aria-hidden="true" tabindex="0">
+                                <p>(주)LG헬로비전(헬로모바일), (주)니즈텔레콤(니즈모바일), (주)더원플랫폼(아이플러스유), (주)미니게이트(M2모바일), (주)스테이지파이브(핀플레이), (주)와이엘랜드(여유알뜰폰), (주)위너스텔(웰), (주)파인디지털, (주)한국케이블텔레콤(티플러스), ACN코리아(플래시모바일), KT스카이라이프(스카이라이프모바일), KT엠모바일(Kt M 모바일), KT텔레캅, 드림라인(주)(드림모바일), 로카모빌리티(주), 토스모바일(주), 아이디스파워텔㈜, 앤알커뮤니케이션(앤텔레콤), 에스원(안심모바일), 장성모바일, ㈜세종텔레콤(스노우맨), ㈜씨엔커뮤니케이션(씨앤컴), ㈜아이즈비전(아이즈모바일), ㈜에넥스텔레콤(A모바일), ㈜에이프러스(아시아모바일), ㈜유니컴즈(모빙), ㈜제이씨티, ㈜코드모바일(이지모바일), ㈜큰사람커넥트(이야기모바일), ㈜프리텔레콤(프리티), 한국피엠오(주)(밸류컴), (주)스마텔, KB국민은행(리브엠), (주)한국이텔레콤(PNT), (주)고고팩토리(GGF), (주)더피엔엘(PNL), (주)에르엘(ERL), (주)핀샷(FNS), (주)오파스넷(OPS), (주)친구아이앤씨(CGM), (주)한패스인터내셔널(HPS)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="radio" name="agencyMvno" id="agency-popup-lgu" value="LGM" class="agency-radio licensee_title" title="LGU+(알뜰폰) 사업자목록 축소됨" aria-label="LGU+(알뜰폰) 사업자목록 축소됨 선택 시 사업자 목록 확장됨">
+                            <label for="agency-popup-lgu" aria-hidden="true">
+                                    <span class="ele lgu"><img src="./휴대폰본인확인_통신사선택_NHN KCP_files/logo_lgu.png" alt="LG U+"></span>
+                                    <span class="ele_title">사업자목록 <i class="icon_arrow down"></i> </span>
+                                </label>
+                            <div class="licensee_info" aria-hidden="true" tabindex="0">
+                                <p>ACN코리아(플래시모바일), (주)에넥스텔레콤(A모바일), (주)에이프러스(아시아모바일), (주)CK커뮤스트리(슈가모바일), SL리테일(셀모바일), (주)코드모바일(이지모바일), 에르엘모바일, (주)아이즈비전(아이즈모바일), (주)핀샷, LG헬로비전(헬로모바일), 한패스모바일, (주)보스(화인통신), 사람과연결, 인스코리아, 조이텔, 국민은행(리브모바일), 제주방송, (주)코나아이, (주)KG모빌리언스(KG모바일), (주)큰사람커넥트(이야기모바일), 토스모바일, (주)미디어로그(U+유모바일), (주)마블프로듀스(마블링), 니즈텔레콤, (주)앤알커뮤니케이션(앤텔레콤), 엔티온텔레콤, 원텔레콤, (주)스테이지파이브(핀플레이), 한국피엠오㈜(벨류컴), (주)레그원(온국민폰), 에스원안심모바일, 서경모바일, 세종텔레콤(스노우맨), 스마텔, (주)인스코비(프리티), (주)한국케이블텔레콤(티플러스), (주)유니컴즈(모빙), (주)와이드모바일(도시락모바일), (주)위너스텔(well), (주)와이엘랜드(여유텔레콤), 글로벌머니익스프레스(GME모바일), (주)친구아이앤씨(친구모바일)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pop-btn pop-btn_02">
+                    <ul>
+                            <!--
+                                * 2022-01-16 수정
+                                선택 버튼 close 클래스 제거 onclick="pop_close('agency-and')" 추가
+                            -->
+                        <li class="firstChild activeLightGray"><button type="button" id="btnMvnoCancel" onclick="pop_close(&#39;agency-and&#39;)" class="btn_r btn_type6">취소</button></li>
+                        <li class="lastChild activeDarkGray"><button type="button" id="btnMvnoSelect" onclick="pop_close(&#39;agency-and&#39;)" class="btn_r btn_type btn_type3">선택</button></li>
+                    </ul>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 약관 레이어-->
+    <div class="layerPopupWrap" id="layerAgreePop">
+        <div class="dim"></div>
+        <div class="layer-pop agreement">
+            <div class="pop-tit" id="agreeTitle">개인정보 처리방침</div>
+            <div class="pop-con">
+                <!-- NICE평가정보㈜ (이하 "회사"라 함)는「신용정보의 이용 및 보호에 관한 법률」,「정보통신망 이용촉진 및 정보보호 등에 관한 법률」,「개인정보 보호법」 등 관련 법령에 따라 본 개인정보 처리방침을 정하 고, 개인정보주체의 개인
+                정보 보호에 최선을 다하고 있습니다.<br>
+                <br>
+                제1조 개인정보의 수집·이용·처리 목적, 수집하는 개인정보의 항목 및 수집방법<br>
+                회사는 개인(신용)정보를 「신용정보의 이용 및 보 호에 관한 법률」 및 같은 법 시행령에 따라 신용 조회업무를 위한 신용정보, 개인식별정보 및 주민 등 록번호, 「정보통신망 이용촉진 및 정보보호에 관한 법률」에 따른 본인확인업무를 위한 개인정보 등을 수집하여 처리하고 있습니다. 또한 아래와 같이 구체적인 업무에 따라 수집하는 개인정보의 항목이 달라집니다. -->
+
+                <!-- kcp: iframe으로 구조 수정 -->
+                <div class="iframe-agree" title="빈프레임"><iframe src="./휴대폰본인확인_통신사선택_NHN KCP_files/pc_agree_01_skt.html" title="개인정보이용동의(skt)"></iframe></div>
+            </div>
+            <div class="pop-btn wide">
+                <ul>
+                    <li class="lastChild defaultBtn DefaultBtn">
+                        <button class="close agreeClose" onclick="pop_close()">닫기</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!-- footer 처리 -->
+
+<!-- 푸터 숨김: class="is-hide" -->
+<div id="footer" class="is-fixed">
+    <div class="footer-kcp">
+        <!-- 240122 레이어팝업으로 수정 -->
+        <p class="txt"><a href="javascript:void(0);" class="footerAgreePop" id="footerAgree01" title="이용약관">이용약관</a> <span class="bar"></span> <a href="javascript:void(0);" class="footerAgreePop" id="footerAgree02" title="개인정보처리방침">개인정보처리방침</a> <br> 고객센터 : 1666-6410 </p>
+        <!-- <p class="txt"><a href="https://m.kcp.co.kr/popup/policy" target="_blank" title="새창열림">이용약관</a> <span class="bar"></span> <a href="https://m.kcp.co.kr/popup/privacy" target="_blank" title="새창열림">개인정보처리방침</a> <br> 고객센터 : 1666-6410 </p> -->
+        <!-- //240122 레이어팝업으로 수정 -->
+        
+        <div class="logo">
+            <span><img src="./휴대폰본인확인_통신사선택_NHN KCP_files/logo_sa.png" alt="SA 소프트웨어 접근성 인증" class="img-logo"></span>
+            <span><img src="./휴대폰본인확인_통신사선택_NHN KCP_files/logo_kcp.png" alt="NHN KCP" class="img-logo"></span>
+        </div>
+    </div>
+</div>
+
+<!-- 하단 레이어팝업 -->
+<div class="addInputPop layerPopupWrap" id="layerAgreePopFooter">
+    <div class="dim"></div>
+    <div class="layer-pop agreementFooter">
+        <div class="pop-tit" id="agreeTitleFooter">하단 개인정보처리방침</div>
+        <div class="pop-con" tabindex="0">
+            <!-- NICE평가정보㈜ (이하 "회사"라 함)는「신용정보의 이용 및 보호에 관한 법률」,「정보통신망 이용촉진 및 정보보호 등에 관한 법률」,「개인정보 보호법」 등 관련 법령에 따라 본 개인정보 처리방침을 정하 고, 개인정보주체의 개인
+            정보 보호에 최선을 다하고 있습니다.<br>
+            <br>
+            제1조 개인정보의 수집·이용·처리 목적, 수집하는 개인정보의 항목 및 수집방법<br>
+            회사는 개인(신용)정보를 「신용정보의 이용 및 보 호에 관한 법률」 및 같은 법 시행령에 따라 신용 조회업무를 위한 신용정보, 개인식별정보 및 주민 등 록번호, 「정보통신망 이용촉진 및 정보보호에 관한 법률」에 따른 본인확인업무를 위한 개인정보 등을 수집하여 처리하고 있습니다. 또한 아래와 같이 구체적인 업무에 따라 수집하는 개인정보의 항목이 달라집니다. -->
+            
+            <!-- kcp: iframe으로 구조 수정 -->
+            <!-- 240122 수정 -->
+            <div class="iframe-agree"><iframe id="agreePopIframe" src="./휴대폰본인확인_통신사선택_NHN KCP_files/pc_agree_00_1.html" title="이용약관"></iframe></div>
+        </div>
+        <div class="pop-btn wide">
+            <ul>
+                <li class="lastChild defaultBtn DefaultBtn darkGrayBtn">
+                    <button class="close agreeClose" onclick="pop_close()">닫기</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--  alert confirm 처리 -->
+
+    <!-- KCP 레이어 팝업 호출  START -->
+    <!-- ALERT 레이어 팝업 -->
+    <div class="common__layerPop common__layerPop--dim" aria-modal="true" data-layerpop="kcp_layer_alert" data-shdow="">
+        <div class="common__layerPop__container" title="레이어 팝업">                         
+            <div class="common__layerPop--body " data-focus-start="start" tabindex="0">
+                <div class="common__layerPop--body--contents">
+                    <p></p>
+                </div>
+            </div>
+            <div class="common__layerPop--footer">
+                <div class="button__container">
+                    <button type="button" class="button--type--black" aria-label="확인" title="확인" id="kcpLayerOk" data-focus-last="last" data-layerpop-close="">
+                        <span>확인</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dimmed"></div>
+    </div>
+    
+    <!-- CONFIRM 레이어 팝업 -->
+    <div class="common__layerPop common__layerPop--dim" aria-modal="true" data-layerpop="kcp_layer_confirm" data-shdow="">
+        <div class="common__layerPop__container" title="레이어 팝업 확인 취소">                         
+            <div class="common__layerPop--body" data-focus-start="start" tabindex="0">
+                <div class="common__layerPop--body--contents">
+                    <p></p>
+                </div>
+            </div>
+            <div class="common__layerPop--footer">
+                <div class="button__container">
+                    <button type="button" class="button--type--gray" aria-label="취소" title="취소" id="kcpLayerCancle" data-layerpop-close="">
+                        <span>취소</span>
+                    </button>
+                    <button type="button" class="button--type--black" aria-label="확인" title="확인" id="kcpLayerConfirm" data-focus-last="last" data-layerpop-close="">
+                        <span>확인</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dimmed"></div>
+    </div>
+    <!-- KCP 레이어 팝업 호출  END -->
+</div>
+
+
+
+<!-- 인증 데이터 Form -->
+<form name="form_auth" id="form_auth" method="post">
+    <!-- 응답데이터 -->
+    <input type="hidden" name="app_token" value="">
+    <input type="hidden" name="comm_id" value="">
+    <input type="hidden" name="order_id" value="">
+    <input type="hidden" name="per_cert_no" value="">
+    <input type="hidden" name="session_id" value="">
+    <input type="hidden" name="van_tx_id" value="">
+
+    <input type="hidden" name="tx_type" value="">
+    <input type="hidden" name="phone_no" value="">
+    <input type="hidden" name="shopInfo_require_yn" value="">
+
+    <input type="hidden" name="month" value="">
+    <input type="hidden" name="day" value="">
+    <input type="hidden" name="year" value="">
+    
+    <input type="hidden" name="user_name" value="">
+    <input type="hidden" name="local_code" value="">
+    <input type="hidden" name="sex_code" value="">
+    
+    <input type="hidden" name="cert_enc_use" value="Y">
+    <input type="hidden" name="cert_enc_use_ext" value="Y">
+    
+    <input type="hidden" name="Ret_URL" value="https://cheatdot.com/plugin/kcpcert/kcpcert_result.php">
+    
+    <input type="hidden" name="log_trace_no" value="AK6MUkeee3wAUhSw">
+    
+    <input type="hidden" name="veri_up_hash" value="">
+    
+    <input type="hidden" name="ordr_idxx" value="2024070810173433">
+    
+    <input type="hidden" name="web_siteid_hashYN" value="">
+
+
+    <input type="hidden" name="cert_otp_use" value="">
+
+    <input type="hidden" name="site_cd" value="AK6MU">
+
+    <input type="hidden" name="cert_method" value="">
+
+    <input type="hidden" name="web_siteid" value="">
+
+    <input type="hidden" name="param_opt_1" value="b3B0MQ==">
+    <input type="hidden" name="param_opt_2" value="b3B0Mg==">
+    <input type="hidden" name="param_opt_3" value="b3B0Mw==">
+    <input type="hidden" name="user_name_url_yn" value=""> 
+
+    <input type="hidden" name="cert_able_yn" value="">
+
+    <input type="hidden" name="info_code" value="">
+
+    <input type="hidden" name="up_hash" value="863BEC7F327E4D324D19278937D606B504DAB0DE">
+    <input type="hidden" name="kcp_merchant_time" value="">
+
+    <input type="hidden" name="res_cd" value="">
+
+    <input type="hidden" name="res_msg" value="">
+    <input type="hidden" name="agree5" value=""> <!-- 선택 약관 앱 -->
+
+    <input type="hidden" name="cert_locale" value="">
+    <input type="hidden" name="cert_ver" value="">
+
+    <input type="hidden" name="kenc" value="D7672958A83280D28B0135623DBB69CC2A458EA07E140CE57BACB67BA9CD8008309366803E60FBDF487E26FC1A86FFE701AC19F45821B7A9628E49681A6EE0D0BB9702FBF5398F51009F42833C14666F22C7627CDE10542486822ED2990A7BBC20AECD95E12CD71D389B70A6091D7DBD27A7FB8FF1B9B62DBDE98748C92A86E23F68E53BD3358BED74606315CF71374C09578655808961A9E3F2C3E33802F24ABC5B0C02F0FC4C52A0B226DCF94812A2B5FD8B27826447F99D7FD60545B23D3D">
+
+    <input type="hidden" name="ruhs" value="24AF8384852C5B7C166D31DD41F57DDCB8CBE83F">
+    <input type="hidden" name="accessTime" value="20240708101734926">
+
+    <input type="hidden" name="localStorageData" value="">
+    
+    <input type="hidden" name="PRE_USE_YN" value="N">
+
+</form>
+
+
+
+
+</body><divcat-extension id="divcat-id"><template shadowrootmode="open"><style>*,:before,:after{box-sizing:border-box;border:0 solid #e5e7eb}:before,:after{--tw-content:""}html{-webkit-text-size-adjust:100%;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}body{line-height:inherit;margin:0}hr{color:inherit;border-top-width:1px;height:0}abbr:where([title]){text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:#0000;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{margin:0;padding:0;list-style:none}textarea{resize:vertical}input::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}[hidden]{display:none}*,:before,:after,::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.pointer-events-none{pointer-events:none}.visible{visibility:visible}.absolute{position:absolute}.relative{position:relative}.inset-y-0{top:0;bottom:0}.-start-px{inset-inline-start:-1px}.-top-8{top:-32px}.-top-\[150\%\]{top:-150%}.bottom-\[-0\.25em\]{bottom:-.25em}.left-0{left:0}.left-1\/2{left:50%}.left-14{left:56px}.right-0{right:0}.right-1{right:4px}.right-10{right:40px}.right-16{right:64px}.right-5{right:20px}.top-0{top:0}.top-1{top:4px}.top-1\/2{top:50%}.top-\[-0\.5em\]{top:-.5em}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[21474836400011\]{z-index:2147483647}.z-\[60\]{z-index:60}.z-\[99999999999999999999\],.z-\[99999999999999999\],.z-\[9999999999999999\]{z-index:2147483647}.m-0{margin:0}.ml-1{margin-left:4px}.mr-\[8px\]{margin-right:8px}.mt-1{margin-top:4px}.mt-2{margin-top:8px}.box-border{box-sizing:border-box}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.list-item{display:list-item}.hidden{display:none}.h-0{height:0}.h-1{height:4px}.h-1\.5{height:6px}.h-40{height:160px}.h-5{height:20px}.h-6{height:24px}.h-7{height:28px}.h-8{height:32px}.h-\[5px\]{height:5px}.h-auto{height:auto}.h-full{height:100%}.max-h-72{max-height:288px}.max-h-\[315px\]{max-height:315px}.max-h-fit{max-height:fit-content}.min-h-\[14rem\]{min-height:224px}.min-h-\[20rem\]{min-height:320px}.min-h-\[32px\]{min-height:32px}.w-0{width:0}.w-1{width:4px}.w-1\.5{width:6px}.w-10{width:40px}.w-20{width:80px}.w-3{width:12px}.w-5{width:20px}.w-6{width:24px}.w-80{width:320px}.w-\[22rem\]{width:352px}.w-\[300px\]{width:300px}.w-fit{width:fit-content}.w-full{width:100%}.min-w-\[160px\]{min-width:160px}.min-w-\[194px\]{min-width:194px}.max-w-\[100px\]{max-width:100px}.max-w-full{max-width:100%}.flex-1{flex:1}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.border-collapse{border-collapse:collapse}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}@keyframes bounce{0%,to{animation-timing-function:cubic-bezier(.8,0,1,1);transform:translateY(-25%)}50%{animation-timing-function:cubic-bezier(0,0,.2,1);transform:none}}.animate-bounce{animation:1s infinite bounce}.cursor-default{cursor:default}.cursor-grab{cursor:grab}.cursor-grabbing{cursor:grabbing}.cursor-pointer{cursor:pointer}.cursor-text{cursor:text}.select-none{user-select:none}.resize-y{resize:vertical}.resize{resize:both}.appearance-none{appearance:none}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-0\.5{gap:2px}.gap-1{gap:4px}.gap-1\.5{gap:6px}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-y-3{row-gap:12px}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-visible{overflow:visible}.overflow-y-auto{overflow-y:auto}.truncate{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.text-clip{text-overflow:clip}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:4px}.rounded-\[1px\]{border-radius:1px}.rounded-\[2px\]{border-radius:2px}.rounded-\[4px\]{border-radius:4px}.rounded-\[6px\]{border-radius:6px}.rounded-\[8px\]{border-radius:8px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:var(--radius)}.rounded-md{border-radius:calc(var(--radius) - 2px)}.rounded-b-\[8px\]{border-bottom-right-radius:8px;border-bottom-left-radius:8px}.rounded-t-\[8px\]{border-top-left-radius:8px;border-top-right-radius:8px}.border{border-width:1px}.border-0{border-width:0}.border-2{border-width:2px}.border-b-4,.border-b-\[4px\]{border-bottom-width:4px}.border-t{border-top-width:1px}.border-solid{border-style:solid}.border-\[\#81B96D\]\/40{border-color:#81b96d66}.border-\[\#EF9539\]\/40{border-color:#ef953966}.border-\[\#d0d7de\]{--tw-border-opacity:1;border-color:rgb(208 215 222/var(--tw-border-opacity))}.border-blue-600{--tw-border-opacity:1;border-color:rgb(37 99 235/var(--tw-border-opacity))}.border-gray-500{--tw-border-opacity:1;border-color:rgb(107 114 128/var(--tw-border-opacity))}.border-gray-600{--tw-border-opacity:1;border-color:rgb(75 85 99/var(--tw-border-opacity))}.border-inherit{border-color:inherit}.border-red-400{--tw-border-opacity:1;border-color:rgb(248 113 113/var(--tw-border-opacity))}.border-red-600{--tw-border-opacity:1;border-color:rgb(220 38 38/var(--tw-border-opacity))}.bg-\[\#0000\]{background-color:#0000}.bg-\[\#3985CF\]\/50{background-color:#3985cf80}.bg-\[\#3985CF\]\/90{background-color:#3985cfe6}.bg-\[\#81B96D\]{--tw-bg-opacity:1;background-color:rgb(129 185 109/var(--tw-bg-opacity))}.bg-\[\#81B96D\]\/90{background-color:#81b96de6}.bg-\[\#EF9539\]\/90{background-color:#ef9539e6}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity))}.bg-gray-500{--tw-bg-opacity:1;background-color:rgb(107 114 128/var(--tw-bg-opacity))}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81/var(--tw-bg-opacity))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity))}.bg-gray-800\/95{background-color:#1f2937f2}.bg-red-400{--tw-bg-opacity:1;background-color:rgb(248 113 113/var(--tw-bg-opacity))}.bg-red-950{--tw-bg-opacity:1;background-color:rgb(69 10 10/var(--tw-bg-opacity))}.bg-slate-500{--tw-bg-opacity:1;background-color:rgb(100 116 139/var(--tw-bg-opacity))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity))}.bg-slate-800\/95{background-color:#1e293bf2}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity))}.bg-teal-700{--tw-bg-opacity:1;background-color:rgb(15 118 110/var(--tw-bg-opacity))}.bg-transparent{background-color:#0000}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-opacity-50{--tw-bg-opacity:.5}.bg-none{background-image:none}.bg-\[right_8px_center\]{background-position:right 8px center}.bg-no-repeat{background-repeat:no-repeat}.fill-current{fill:currentColor}.p-0{padding:0}.p-1{padding:4px}.px-0{padding-left:0;padding-right:0}.px-0\.5{padding-left:2px;padding-right:2px}.px-1{padding-left:4px;padding-right:4px}.px-2{padding-left:8px;padding-right:8px}.px-3{padding-left:12px;padding-right:12px}.px-4{padding-left:16px;padding-right:16px}.px-\[12px\]{padding-left:12px;padding-right:12px}.py-1{padding-top:4px;padding-bottom:4px}.py-1\.5{padding-top:6px;padding-bottom:6px}.py-2{padding-top:8px;padding-bottom:8px}.pe-2{padding-inline-end:8px}.pl-2{padding-left:8px}.pl-3{padding-left:12px}.pr-2{padding-right:8px}.pr-4{padding-right:16px}.ps-5{padding-inline-start:20px}.pt-3{padding-top:12px}.pt-6{padding-top:24px}.text-left{text-align:left}.text-center{text-align:center}.indent-\[0\]{text-indent:0}.align-baseline{vertical-align:baseline}.align-middle{vertical-align:middle}.align-text-bottom{vertical-align:text-bottom}.font-\[bolder\]{font-family:bolder}.font-\[inherit\]{font-family:inherit}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-\[100\%\]{font-size:100%}.text-\[14px\]{font-size:14px}.text-\[1em\]{font-size:1em}.text-\[75\%\]{font-size:75%}.text-\[80\%\]{font-size:80%}.text-\[9px\]{font-size:9px}.text-base{font-size:16px;line-height:24px}.text-lg{font-size:18px;line-height:28px}.text-sm{font-size:14px;line-height:20px}.text-xs{font-size:12px;line-height:16px}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.lowercase{text-transform:lowercase}.normal-case{text-transform:none}.leading-3{line-height:12px}.leading-\[0\]{line-height:0}.leading-\[20px\]{line-height:20px}.leading-\[inherit\]{line-height:inherit}.leading-normal{line-height:1.5}.text-\[\#0567da\]{--tw-text-opacity:1;color:rgb(5 103 218/var(--tw-text-opacity))}.text-\[\#1F2328\]{--tw-text-opacity:1;color:rgb(31 35 40/var(--tw-text-opacity))}.text-\[\#656d76\]{--tw-text-opacity:1;color:rgb(101 109 118/var(--tw-text-opacity))}.text-\[inherit\]{color:inherit}.text-\[undefined\]{color:undefined}.text-black{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity))}.text-blue-100{--tw-text-opacity:1;color:rgb(219 234 254/var(--tw-text-opacity))}.text-blue-200{--tw-text-opacity:1;color:rgb(191 219 254/var(--tw-text-opacity))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250/var(--tw-text-opacity))}.text-blue-50{--tw-text-opacity:1;color:rgb(239 246 255/var(--tw-text-opacity))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-inherit{color:inherit}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113/var(--tw-text-opacity))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}.opacity-0{opacity:0}.opacity-100{opacity:1}.opacity-50{opacity:.5}.shadow-\[0_0_10px_10px_rgba\(0\,0\,0\,0\.3\)\]{--tw-shadow:0 0 10px 10px #0000004d;--tw-shadow-colored:0 0 10px 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[inset_0_1px_0_rgba\(208\,215\,222\,0\.2\)\]{--tw-shadow:inset 0 1px 0 #d0d7de33;--tw-shadow-colored:inset 0 1px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a;--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-red-400{--tw-shadow-color:#f87171;--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline-offset:2px;outline:2px solid #0000}.outline{outline-style:solid}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(1px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(2px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-gray-700{--tw-ring-opacity:1;--tw-ring-color:rgb(55 65 81/var(--tw-ring-opacity))}.ring-red-500{--tw-ring-opacity:1;--tw-ring-color:rgb(239 68 68/var(--tw-ring-opacity))}.ring-slate-700{--tw-ring-opacity:1;--tw-ring-color:rgb(51 65 85/var(--tw-ring-opacity))}.ring-opacity-5{--tw-ring-opacity:.05}.filter{filter:var(--tw-blur)var(--tw-brightness)var(--tw-contrast)var(--tw-grayscale)var(--tw-hue-rotate)var(--tw-invert)var(--tw-saturate)var(--tw-sepia)var(--tw-drop-shadow)}.backdrop-blur-3xl{--tw-backdrop-blur:blur(64px);backdrop-filter:var(--tw-backdrop-blur)var(--tw-backdrop-brightness)var(--tw-backdrop-contrast)var(--tw-backdrop-grayscale)var(--tw-backdrop-hue-rotate)var(--tw-backdrop-invert)var(--tw-backdrop-opacity)var(--tw-backdrop-saturate)var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);backdrop-filter:var(--tw-backdrop-blur)var(--tw-backdrop-brightness)var(--tw-backdrop-contrast)var(--tw-backdrop-grayscale)var(--tw-backdrop-hue-rotate)var(--tw-backdrop-invert)var(--tw-backdrop-opacity)var(--tw-backdrop-saturate)var(--tw-backdrop-sepia)}.backdrop-opacity-95{--tw-backdrop-opacity:opacity(.95);backdrop-filter:var(--tw-backdrop-blur)var(--tw-backdrop-brightness)var(--tw-backdrop-contrast)var(--tw-backdrop-grayscale)var(--tw-backdrop-hue-rotate)var(--tw-backdrop-invert)var(--tw-backdrop-opacity)var(--tw-backdrop-saturate)var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-\[background-color\,border-color\,color\,fill\,stroke\,opacity\,box-shadow\,transform\,filter\,backdrop-filter\,-webkit-backdrop-filter\]{transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-all{transition-property:all;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-100{transition-duration:.1s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.ease-in{transition-timing-function:cubic-bezier(.4,0,1,1)}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@keyframes enter{0%{opacity:var(--tw-enter-opacity,1);transform:translate3d(var(--tw-enter-translate-x,0),var(--tw-enter-translate-y,0),0)scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1),var(--tw-enter-scale,1))rotate(var(--tw-enter-rotate,0))}}@keyframes exit{to{opacity:var(--tw-exit-opacity,1);transform:translate3d(var(--tw-exit-translate-x,0),var(--tw-exit-translate-y,0),0)scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1),var(--tw-exit-scale,1))rotate(var(--tw-exit-rotate,0))}}.duration-100{animation-duration:.1s}.duration-300{animation-duration:.3s}.duration-500{animation-duration:.5s}.ease-in{animation-timing-function:cubic-bezier(.4,0,1,1)}.ease-in-out{animation-timing-function:cubic-bezier(.4,0,.2,1)}.paused{animation-play-state:paused}.\[animation-delay\:-\.3s\]{animation-delay:-.3s}.\[animation-delay\:-\.5s\]{animation-delay:-.5s}.\[clip-path\:_polygon\(0_0\,_0\%_100\%\,_100\%_50\%\)\]{clip-path:polygon(0 0,0% 100%,100% 50%)}.has-tooltip:hover .tooltip{visibility:visible;z-index:2147483647}.tooltip{visibility:hidden;position:fixed}.custom-scrollbar::-webkit-scrollbar{border-radius:calc(var(--radius) - 2px);width:8px;height:8px}.custom-scrollbar::-webkit-scrollbar-thumb{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity))}.custom-scrollbar::-webkit-scrollbar-track{--tw-bg-opacity:1;background-color:rgb(156 163 175/var(--tw-bg-opacity))}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:-left-full:before{content:var(--tw-content);left:-100%}.before\:top-0:before{content:var(--tw-content);top:0}.before\:z-\[-1\]:before{content:var(--tw-content);z-index:-1}.before\:h-full:before{content:var(--tw-content);height:100%}.before\:w-full:before{content:var(--tw-content);width:100%}.before\:rounded-full:before{content:var(--tw-content);border-radius:9999px}.before\:bg-gradient-to-r:before{content:var(--tw-content);background-image:linear-gradient(to right,var(--tw-gradient-stops))}.before\:from-blue-500:before{content:var(--tw-content);--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-from-position: ;--tw-gradient-to:#3b82f600 var(--tw-gradient-from-position);--tw-gradient-to-position: ;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.before\:to-blue-300:before{content:var(--tw-content);--tw-gradient-to:#93c5fd var(--tw-gradient-to-position);--tw-gradient-to-position: }.before\:transition-all:before{content:var(--tw-content);transition-property:all;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.before\:duration-500:before{content:var(--tw-content);transition-duration:.5s}.before\:ease-in-out:before{content:var(--tw-content);transition-timing-function:cubic-bezier(.4,0,.2,1)}.before\:duration-500:before{content:var(--tw-content);animation-duration:.5s}.before\:ease-in-out:before{content:var(--tw-content);animation-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:-translate-y-\[1px\]:hover{--tw-translate-y:-1px;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.hover\:cursor-pointer:hover{cursor:pointer}.hover\:border-b:hover{border-bottom-width:1px}.hover\:border-b-\[6px\]:hover{border-bottom-width:6px}.hover\:border-t-4:hover{border-top-width:4px}.hover\:bg-blue-500:hover{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity))}.hover\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity))}.hover\:bg-gray-500:hover{--tw-bg-opacity:1;background-color:rgb(107 114 128/var(--tw-bg-opacity))}.hover\:bg-gray-600:hover{--tw-bg-opacity:1;background-color:rgb(75 85 99/var(--tw-bg-opacity))}.hover\:bg-teal-600:hover{--tw-bg-opacity:1;background-color:rgb(13 148 136/var(--tw-bg-opacity))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:brightness-110:hover{--tw-brightness:brightness(1.1);filter:var(--tw-blur)var(--tw-brightness)var(--tw-contrast)var(--tw-grayscale)var(--tw-hue-rotate)var(--tw-invert)var(--tw-saturate)var(--tw-sepia)var(--tw-drop-shadow)}.hover\:brightness-150:hover{--tw-brightness:brightness(1.5);filter:var(--tw-blur)var(--tw-brightness)var(--tw-contrast)var(--tw-grayscale)var(--tw-hue-rotate)var(--tw-invert)var(--tw-saturate)var(--tw-sepia)var(--tw-drop-shadow)}.hover\:before\:left-0:hover:before{content:var(--tw-content);left:0}.focus\:outline-none:focus{outline-offset:2px;outline:2px solid #0000}.active\:translate-y-\[2px\]:active{--tw-translate-y:2px;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}.active\:border-b-\[2px\]:active{border-bottom-width:2px}.active\:opacity-75:active{opacity:.75}.active\:brightness-90:active{--tw-brightness:brightness(.9);filter:var(--tw-blur)var(--tw-brightness)var(--tw-contrast)var(--tw-grayscale)var(--tw-hue-rotate)var(--tw-invert)var(--tw-saturate)var(--tw-sepia)var(--tw-drop-shadow)}.group:hover .group-hover\:top-\[150\%\]{top:150%}:is([dir=rtl] .rtl\:rotate-180){--tw-rotate:180deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y))rotate(var(--tw-rotate))skewX(var(--tw-skew-x))skewY(var(--tw-skew-y))scaleX(var(--tw-scale-x))scaleY(var(--tw-scale-y))}:is(.dark .dark\:selection\:bg-\[undefined\] *)::-moz-selection{background-color:undefined}:is(.dark .dark\:selection\:bg-\[undefined\] *)::selection{background-color:undefined}:is(.dark .dark\:selection\:bg-\[undefined\])::-moz-selection{background-color:undefined}:is(.dark .dark\:selection\:bg-\[undefined\])::selection{background-color:undefined}@media (width>=640px){.sm\:text-sm{font-size:14px;line-height:20px}}@media (width>=768px){.md\:text-\[14px\]{font-size:14px}}</style><div id="divcat-container"></div></template></divcat-extension></html>

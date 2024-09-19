@@ -1,0 +1,26 @@
+@font-face {
+  font-family: NotoSansKR;
+  font-weight: 400;
+  src: url("../../../../resources/fonts/NotoSansKR/NotoSansKRRegular.otf");
+  src: url("../../../../resources/fonts/NotoSansKR/NotoSansKRRegular.otf") format("OpenType"),
+         url("../../../../resources/fonts/NotoSansKR/NotoSansKRRegular.ttf") format("truetype"),
+         url("../../../../resources/fonts/NotoSansKR/NotoSansKRRegular.woff") format("woff");
+}
+
+@font-face {
+  font-family: NotoSansKR;
+  font-weight: 500;
+  src: url("../../../../resources/fonts/NotoSansKR/NotoSansKRMedium.otf");
+  src: url("../../../../resources/fonts/NotoSansKR/NotoSansKRMedium.otf") format("OpenType"),
+         url("../../../../resources/fonts/NotoSansKR/NotoSansKRMedium.ttf") format("truetype"),
+         url("../../../../resources/fonts/NotoSansKR/NotoSansKRMedium.woff") format("woff");
+}
+
+@font-face {
+  font-family: NotoSansKR;
+  font-weight: 700;
+  src: url("../../../../resources/fonts/NotoSansKR/NotoSansKRBold.otf");
+  src: url("../../../../resources/fonts/NotoSansKR/NotoSansKRBold.otf") format("OpenType"),
+         url("../../../../resources/fonts/NotoSansKR/NotoSansKRBold.ttf") format("truetype"),
+         url("../../../../resources/fonts/NotoSansKR/NotoSansKRBold.woff") format("woff");
+}

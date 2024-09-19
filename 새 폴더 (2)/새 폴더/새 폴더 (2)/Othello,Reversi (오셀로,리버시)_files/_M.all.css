@@ -1,0 +1,341 @@
+/*_M.all.css 20150419*/ 
+/**
+* _M.css
+*/
+
+/**
+* 흐름 제어용 clear ,다른 CSS에서도 선언 되어있을 수 있다. 임의로 clearB라고 만들어 쓰지 말것!
+*/
+.clearB  ,.M_clearB{ clear:both; height:0; line-height:0; margin:0; padding:0; font-size:0;}
+
+/**
+* _M.DRAG
+*/
+.MDRAG { position:absolute; z-index:5500;} /* 이동 대상태그에 사용 */
+.MDRAG_CURSOR{ cursor:move;} /* 이동 제어태그에 사용 */
+.MDRAG_RELATIVE{ position:relative; z-index:5500;} /* 부모 태그에 사용 */
+.MDRAG_ABSOLUTE{ position:absolute; z-index:5500;} /* 부모 태그에 사용 */
+.MDRAG_ING{ /* 이동시 그림자 표시(HTML5용,IE안됨) */
+	-moz-box-shadow: 5px 5px 5px #ccc !important;
+	-webkit-box-shadow: 5px 5px 5px #ccc !important;
+	box-shadow: 5px 5px 5px #ccc !important;
+}/**
+* _M.css
+*/
+
+/**
+* 흐름 제어용 clear ,다른 CSS에서도 선언 되어있을 수 있다. 임의로 clearB라고 만들어 쓰지 말것!
+*/
+.clearB  ,.M_clearB{ clear:both; height:0; line-height:0; margin:0; padding:0; font-size:0;}
+
+/**
+* _M.DRAG
+*/
+.MDRAG { position:absolute; z-index:5500;} /* 이동 대상태그에 사용 */
+.MDRAG_CURSOR{ cursor:move;} /* 이동 제어태그에 사용 */
+.MDRAG_RELATIVE{ position:relative; z-index:5500;} /* 부모 태그에 사용 */
+.MDRAG_ABSOLUTE{ position:absolute; z-index:5500;} /* 부모 태그에 사용 */
+.MDRAG_ING{ /* 이동시 그림자 표시(HTML5용,IE안됨) */
+	-moz-box-shadow: 5px 5px 5px #ccc !important;
+	-webkit-box-shadow: 5px 5px 5px #ccc !important;
+	box-shadow: 5px 5px 5px #ccc !important;
+}/**
+* _M.UI.css
+*/
+
+/**
+* _M.UI.BG
+*/
+.MUIBG{
+position:fixed; _position:absolute;  
+z-index:9900; background-color:#000; filter:Alpha(opacity=40); 
+opacity:0.4; filter:Alpha(opacity=40);
+height:100%; width:100%; left:0; top:0; right:0; bottom:0;
+padding:0; margin:0;
+
+}
+/**
+* _M.UI.RESIZER
+*/
+.MUIRESIZER{
+	position:absolute;width:0px; height:0px; z-index:9901; background-color:#039;
+	left:100%; top:100%;
+	margin-top:-16px; margin-left:-16px;
+}
+.MUIRESIZER .MUIRESIZER_ICON_both
+, .MUIRESIZER .MUIRESIZER_ICON_width
+, .MUIRESIZER .MUIRESIZER_ICON_height{
+	position:absolute;width:16px; height:16px; z-index:9901; background-color:#039;
+	background:url("img/_M.UI.RESIZER/_MUIRESIZER.gif");
+}
+.MUIRESIZER .MUIRESIZER_ICON_both{
+	cursor:nw-resize !important;
+}
+.MUIRESIZER .MUIRESIZER_ICON_width{
+	cursor:e-resize !important;
+}
+.MUIRESIZER .MUIRESIZER_ICON_height{
+	cursor:n-resize !important;
+}
+
+.MUIAREASELECTOR{ position:absolute; left:0; top:0; 
+width:10px; height:10px; border:thin dotted black;
+}
+.MUIAREASELECTOR .MUIAREASELECTOR_innerDIV{ width:100%; height:100%;background-image:url("img/_M.UI.AREASELECTOR/guideBg.gif");
+opacity:0.3; filter:alpha(opacity=30);background-color:#FFF; }@charset "utf-8";
+
+
+.MUIFILELIST{}
+.MUIFILELIST .MUIFILELIST_tbl{ width:100%; border-collapse:collapse; font-size:12px;}
+.MUIFILELIST th
+,.MUIFILELIST td{ border:1px solid black; padding:1px;}
+.MUIFILELIST tr:hover{ background-color:#dee;}
+.MUIFILELIST tr.selected{ background-color:#def;}
+
+.MUIFILELIST td{cursor:pointer;}
+.MUIFILELIST th{ background-color:#abc}
+.MUIFILELIST th.MUIFILELIST_file{text-align:center;}
+.MUIFILELIST th.MUIFILELIST_size{width:5em; text-align:center;}
+.MUIFILELIST th.MUIFILELIST_mtime{width:120px; text-align:center}
+.MUIFILELIST td.MUIFILELIST_file{}
+.MUIFILELIST td.MUIFILELIST_size{text-align:right;}
+.MUIFILELIST td.MUIFILELIST_mtime{text-align:center}
+.MUIFILELIST .buttons{ text-align:center; padding:5px;}
+.MUIFILELIST .buttons input{font-size:12px;}
+.MUIFILELIST .dir{color:red; font-weight:bold;}
+.MUIFILELIST .file{color:#333;}/**
+* _M.UI.FLOATINGLAYER.css
+*/
+.MUIFL{}
+.MUIFL_BASE{ position:relative; top:0; left:0;}
+.MUIFL_LAYER{ position:absolute; top:0; left:0;}
+
+/**
+* _M.UI.IMGLAYER.css
+*/
+.MUIIMGLAYER{z-index:9990; position:absolute; top:0; left:0; width:100%; font-size:12px; padding:0; margin:0; }
+.MUIIMGLAYER dl{ width:100%;padding:0; margin:0;}
+.MUIIMGLAYER dt{ width:100%; background-color:#abc;padding:0; margin:0;}
+.MUIIMGLAYER dt div{ border:2px solid black; padding:2px; white-space:nowrap; font-weight:bold; color:#036; text-align:center}
+.MUIIMGLAYER dd{width:100%;padding:0; margin:0;}
+.MUIIMGLAYER dd div{ text-align:center; padding:5px;}
+.MUIIMGLAYER dd img{ max-width:98%; height:auto; border:5px solid black; background-image:url("img/_M.UI.IMGLAYER/bg.gif")}
+.MUIIMGLAYER .MUIIMGLAYER_IMG_HIDE{
+
+	 opacity:0;
+}
+.MUIIMGLAYER .MUIIMGLAYER_IMG_SHOW{
+	 opacity:1;
+	 transition: opacity 0.5s ease-out;
+	-webkit-transition: opacity 0.5s ease-out;
+	-moz-transition: opacity 0.5s ease-out;
+}
+
+.MUIIMGLAYER .MUIIMGLAYER_CLOSE_DIV{z-index:9990;max-width:98%; margin:17px auto 0 auto; position:relative; padding:0; height:0px;}
+.MUIIMGLAYER .MUIIMGLAYER_CLOSE_BTN{z-index:9990; padding:0; margin:0; cursor:pointer; position:absolute; right:-15px; top:-15px; width:34px; height:34px; background-image:url('img/_M.UI.IMGLAYER/_MUIIMGLAYER_CLOSE_BTN.gif'); background-repeat:no-repeat; background-position:center;}
+/**
+* _M.UI.LWINDOW.css
+*/
+.MUILWINDOW{ font-size:12px;overflow:visible;}
+.MUILWINDOW{ 
+	-moz-box-shadow: 2px 2px 2px #666;
+	-webkit-box-shadow: 2px 2px 2px #666;
+	box-shadow: 2px 2px 2px #666;
+}
+
+
+
+.MUILWINDOW dl { padding:0; margin:0; border:2px solid #369; background-color:#CCC;}
+
+.MUILWINDOW dl dt{ white-space:nowrap; overflow:hidden; border-bottom:2px solid #369;  line-height:2em; 
+padding:2px 0px 2px 0em; margin:0; background-color:#999; text-align:center; font-weight:bold; color:#039;}
+.MUILWINDOW dl dt ul{ padding:0; margin:0; }
+.MUILWINDOW dl dt ul li{ padding:0; margin:0; list-style:none inside;}
+.MUILWINDOW dl dt .MUILWINDOW_TITLEBAR{ padding:0; font-size:12px; width:100%; table-layout:fixed;}
+.MUILWINDOW dl dt .MUILWINDOW_TITLE{ overflow:hidden;text-overflow:ellipsis; text-align:left; padding-left:2px; padding-left:.5em;}
+.MUILWINDOW dl dt .MUILWINDOW_BUTTONS{ width:24px;}
+.MUILWINDOW dl dt .MUILWINDOW_CLOSEBUTTON{width:20px; height:20px; border:1px outset gray;line-height:20px; cursor:pointer; background:url(img/_M.UI.LWINDOW/MUILWINDOW_CLOSEBUTTON.gif) center center no-repeat; }
+.MUILWINDOW dl dd.MUILWINDOW_BODY{ padding:1px; margin:0;}
+
+
+.MUILWINDOW_FOCUS{ }
+.MUILWINDOW_FOCUS dl dt{ background-color:#69c !important; }
+
+
+/**
+* v2
+*/
+.MUILWINDOW_bw{ font-size:12px;overflow:visible;}
+.MUILWINDOW_bw{ 
+}
+
+
+
+.MUILWINDOW_bw dl { padding:0; margin:0; border:1px solid gray; background-color:white;}
+
+.MUILWINDOW_bw dl dt{ white-space:nowrap; overflow:hidden; border-bottom:1px solid gray; height:16px;  line-height:16px; background-color:gray; text-align:center; font-weight:bold; color:white;}
+.MUILWINDOW_bw dl dt ul{ padding:0; margin:0; }
+.MUILWINDOW_bw dl dt ul li{ padding:0; margin:0; list-style:none inside;}
+.MUILWINDOW_bw dl dt .MUILWINDOW_TITLEBAR{ padding:0; font-size:12px; width:100%; table-layout:fixed;}
+.MUILWINDOW_bw dl dt .MUILWINDOW_TITLE{ overflow:hidden;text-overflow:ellipsis; text-align:left; padding-left:2px; padding-left:.5em;}
+.MUILWINDOW_bw dl dt .MUILWINDOW_BUTTONS{width:16px;}
+.MUILWINDOW_bw dl dt .MUILWINDOW_CLOSEBUTTON{width:14px; height:14px;line-height:14px; margin:1px 1px 0 0; border:0px outset gray; cursor:pointer; background:url(img/_M.UI.LWINDOW/MUILWINDOW_CLOSEBUTTON.gif) center center no-repeat; background-color:#CCC; }
+.MUILWINDOW_bw dl dd.MUILWINDOW_BODY{ padding:1px; margin:0;}
+
+.MUILWINDOW_bw_FOCUS{ }
+.MUILWINDOW_bw_FOCUS dl dt{ background-color:black !important; }/**
+* _M.UI.MSGBOX.css
+*/
+._MUIMSGBOX{ position:absolute; left:0; top:0; width:100%; height:100%}
+._MUIMSGBOX .BG{ position:absolute; z-index:9998; background-color:#000; filter:Alpha(opacity=40); opacity:0.4; height:100%; width:100%;}
+._MUIMSGBOX .BOXLAYOUT{ position:absolute; z-index:9999;width:100%; height:1px; top:30%;}
+._MUIMSGBOX .BOX{ font-size:12px; border:2px solid gray; margin:0 auto; width:50%; background-color:#CCC; min-width:300px;}
+._MUIMSGBOX .BOX .TITLE{ background-color:#039; color:#FFF; padding:2px 2px 2px 1em;}
+._MUIMSGBOX .BOX .MSG{ padding:0.5em 2em;}
+._MUIMSGBOX .BOX .BTNS{ padding:0 2em 0.5em 2em; text-align:center }
+
+/**
+* _M.UI.PALLETE.css
+*/
+.MUIPALLETE{ font-size:12px; position:absolute; top:0; left:0;}
+.MUIPALLETE dl{ padding:0; margin:0; border:2px solid #369; background-color:#CCC; width:330px;}
+.MUIPALLETE dl.rgba{width:370px;}
+.MUIPALLETE dl.rgb{width:330px;}
+.MUIPALLETE dt{ border-bottom:2px solid #369;  line-height:2em; padding:2px 5px 2px 1em; margin:0; background-color:#abc; text-align:center; font-weight:bold; color:#039;}
+.MUIPALLETE dd{ padding:5px; margin:0;}
+
+.MUIPALLETE .clearB{ clear:both; height:0; line-height:0; margin:0; padding:0; font-size:0;}
+
+.MUIPALLETE ul {padding:0; margin:0;}
+.MUIPALLETE ul li{ padding:0; margin:0; list-style:none inside;}
+.MUIPALLETE li.left{ float:left;}
+.MUIPALLETE li.right{ float:right;}
+
+.MUIPALLETE .paletteBG{border-style:none; background-image:url("img/_M.UI.PALLETE/bg.gif"); float:left;}
+.MUIPALLETE .paletteRGB{border-style:none; background-image:url("img/_M.UI.PALLETE/rgb.png"); width:280px; height:128px;cursor:crosshair}
+.MUIPALLETE .paletteBrightness{border-style:none; background-image:url("img/_M.UI.PALLETE/brightness.png"); width:40px; height:128px;cursor:crosshair}
+.MUIPALLETE .paletteA{border-style:none; background-image:url("img/_M.UI.PALLETE/a.png") ; width:40px; height:128px;cursor:crosshair}
+.MUIPALLETE .bgBlack{ background-color:#000;}
+.MUIPALLETE .bgWhite{ background-color:#fff;}
+
+.MUIPALLETE .buttons{text-align:center;}
+
+.MUIPALLETE input{ font-size:12px; font-family:"Courier New", Courier, monospace; padding:1px;}
+.MUIPALLETE .text_pre{width:2em; border:2px solid #000; background-color:#ccc}
+.MUIPALLETE .text_r{width:2em; border:2px solid red;}
+.MUIPALLETE .text_g{width:2em; border:2px solid green;}
+.MUIPALLETE .text_b{width:2em; border:2px solid blue;}
+.MUIPALLETE .text_a{width:2em; border:2px solid gray;}
+
+.MUIPALLETE dl.rgb .a_hidden{display:none;}
+
+.MUIPALLETE dd.color16 {border-top:1px solid gray}
+.MUIPALLETE dd.colorRecent {border-top:1px solid gray;}
+.MUIPALLETE dd.buttons {border-top:1px solid gray;}
+
+
+.MUIPALLETE .ui_colors li{float:left; width:17px; height:17px; margin:1px 0 1px 1px; border:1px solid gray; cursor:pointer}
+.MUIPALLETE dl.rgba .ui_colors li{width:19px;height:19px;}
+
+.MUIPALLETE .OK
+, .MUIPALLETE .CANCEL{ border:2px outset gray; background-color:#666;}
+
+/**
+* _M.UI.POPLAYER.css
+*/
+
+._M-UI-POPLAYER-body{position:absolute;top:0;left:0;z-index:9999999}
+._M-UI-POPLAYER-body-hide{display:none}
+._M-UI-POPLAYER-body-show{display:block}
+
+._M-UI-POPLAYER-close{background-color:#abc;position:absolute;top:0;right:0;z-index:200;
+width:20px;height:20px; text-align:center; font-weight:bold; cursor:pointer;
+border-radius:0 0 0 10px;
+opacity:0.8;
+}
+._M-UI-POPLAYER-close:hover
+, ._M-UI-POPLAYER-close:focus{
+background-color:#caa;
+}
+._M-UI-POPLAYER-content{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;}
+._M-UI-POPLAYER-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;background-color:black; opacity:0.5}
+._M-UI-POPLAYER-bg-white{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;background-color:white; opacity:0.8}/**
+* _M.UI.TOOLTIP.css
+*/
+
+.MUITOOLTIP{ border:2px solid gray; background-color:#CCC; position:absolute; 
+left:0; top:0; padding:5px; margin:5px; font-size:12px; z-index:9900;
+	-moz-box-shadow: 5px 5px 5px #ccc;
+	-webkit-box-shadow: 5px 5px 5px #ccc;
+	box-shadow: 5px 5px 5px #ccc;
+}
+
+/**
+* _M.UI.TOPMENU.css
+*/
+.clearB{ clear:both; height:0; line-height:0; margin:0; padding:0; font-size:0;}
+
+.MUITM , .MUITMc{ font-size:12px; padding:0; margin:0;}
+.MUITM ul , .MUITMc ul{list-style:none; padding:0; margin:0;}
+.MUITM li , .MUITMc li{list-style:none outside; padding:0; margin:0; line-height:16px; white-space:nowrap;}
+
+.MUITM li , .MUITMc li{ float:left; padding:2px 1em; margin:0; border:1px outset #ccc; background-color:#ccc; cursor:pointer; position:relative; top:0; left:0; z-index:9900; min-width:4em; text-align:center}
+.MUITM li:hover , .MUITMc li.hover , .MUITMc li:hover
+{border:1px solid #999; background-color:#eee;z-index:9990}
+
+.MUITM li ul , .MUITMc li ul{float:none; text-align:left;}
+.MUITM li li , .MUITMc li li{float:none; text-align:left; padding-left:18px; _width:200px;}
+
+.MUITM li li.hasSub , .MUITMc li li.hasSub{ background-image:url("img/_M.UI.TOPMENU/plus.png"); background-position:left; background-repeat:no-repeat;} /*서브메뉴가있는경우*/
+.MUITM li li.hasSub:hover , .MUITMc li li.hover { background-image:url("img/_M.UI.TOPMENU/minus.png");  background-position:left; background-repeat:no-repeat;} /*서브메뉴가있는경우*/
+
+.MUITM li ul , .MUITMc li ul{ position:absolute; left:0; top:100%; margin-top:1px; border:1px solid black; z-index:99;}
+.MUITM li li ul , .MUITMc li li ul{ position:absolute; left:100%; top:0; border:1px solid black; z-index:99;}
+
+.MUITM li.split , .MUITMc li.split {
+width:200px;
+height:1px;
+font-size:1px; line-height:1px;
+overflow:hidden;
+line-height:0.5%;
+border:0px solid #666 !important;
+background-color:#666 !important; 
+cursor:auto; 
+}
+
+/* 보이고 안보이고 설정 동작 수만큼 셀렉터를 수정/추가 현재 6단까지만 됨 */
+.MUITM li ul
+, .MUITM li:hover ul li ul
+, .MUITM li:hover ul li:hover ul li ul
+, .MUITM li:hover ul li:hover ul li:hover ul li ul
+, .MUITM li:hover ul li:hover ul li:hover ul li:hover ul li ul
+, .MUITM li:hover ul li:hover ul li:hover ul li:hover ul li:hover ul li ul
+, .MUITMc li ul
+, .MUITMc li.hover ul li ul
+, .MUITMc li.hover ul li.hover ul li ul
+, .MUITMc li.hover ul li.hover ul li.hover ul li ul
+, .MUITMc li.hover ul li.hover ul li.hover ul li.hover ul li ul
+, .MUITMc li.hover ul li.hover ul li.hover ul li.hover ul li.hover ul li ul
+{ display:none;
+-webkit-transition: all 0.5s ease-out;
+-moz-transition: all 0.5s ease-out;
+}
+.MUITM li:hover ul
+, .MUITM li:hover ul li:hover ul
+, .MUITM li:hover ul li:hover ul li:hover ul
+, .MUITM li:hover ul li:hover ul li:hover ul li:hover ul
+, .MUITM li:hover ul li:hover ul li:hover ul li:hover ul li:hover ul
+, .MUITM li:hover ul li:hover ul li:hover ul li:hover ul li:hover ul li:hover ul
+, .MUITMc li.hover ul
+, .MUITMc li.hover ul li.hover ul
+, .MUITMc li.hover ul li.hover ul li.hover ul
+, .MUITMc li.hover ul li.hover ul li.hover ul li.hover ul
+, .MUITMc li.hover ul li.hover ul li.hover ul li.hover ul li.hover ul
+, .MUITMc li.hover ul li.hover ul li.hover ul li.hover ul li.hover ul li.hover ul
+{ display:list-item;}ul.MUITRM,.MUITRM ul{font-size:12px; padding:0 0 0 0; margin:0;list-style:none outside none;}
+.MUITRM li{list-style:none outside none; background:url("img/_M.UI.TREE/default.png") no-repeat; margin:0;padding:1px 0 1px 18px; line-height:16px; cursor:auto; min-height:16px;}
+.MUITRM li.default{background-image:url("img/_M.UI.TREE/default.png");}
+.MUITRM li.open{background-image:url("img/_M.UI.TREE/minus.png"); cursor:pointer}
+.MUITRM li.open ul{}
+.MUITRM li.close{background-image:url("img/_M.UI.TREE/plus.png"); cursor:pointer;}
+.MUITRM li.close ul{ display:none;}

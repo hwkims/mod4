@@ -1,0 +1,135 @@
+/* 공통하단영역 */
+/* 카피라이트 */
+#wrap_footer {
+    width: 100%;
+    height: 580px;
+    background: #f0f0f0;
+    display: flex; /* flexbox 사용하여 레이아웃 관리 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+  }
+  
+  #footer {
+    width: 1280px;
+    height: auto; /* 높이를 자동으로 설정 */
+    text-align: center;
+    display: flex; /* flexbox 사용하여 레이아웃 관리 */
+    flex-direction: column; /* 세로 방향으로 배치 */
+    gap: 30px; /* 요소 간 간격 설정 */
+  }
+  
+  /* 아이콘 */
+  #footer ul.icon {
+    display: flex; /* flexbox 사용하여 아이콘들을 가로로 배치 */
+    justify-content: center; /* 아이콘들을 가운데 정렬 */
+  }
+  
+  #footer ul.icon li {
+    margin: 0 20px; /* 여백 조정 */
+  }
+  
+  #footer ul.icon li a {
+    display: block;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: cyan url(../images/down_icon.jpg) no-repeat; /* 배경 이미지 반복 설정 */
+    transition: background-position 0.3s ease; /* 호버 효과 부드럽게 설정 */
+  }
+  
+  #footer ul.icon li:nth-child(2) a {
+    background-position: -110px 0;
+  }
+  
+  #footer ul.icon li:nth-child(3) a {
+    background-position: -220px 0;
+  }
+  
+  #footer ul.icon li:hover a {
+    background-position: 0 -110px;
+  }
+  
+  #footer ul.icon li:nth-child(2):hover a {
+    background-position: -110px -110px;
+  }
+  
+  #footer ul.icon li:nth-child(3):hover a {
+    background-position: -220px -110px;
+  }
+  
+  /* 구분선 */
+  #footer p.line {
+    width: 830px;
+    height: 2px;
+    background: #aaa;
+    margin: 0 auto; /* 가운데 정렬 */
+  }
+  
+  /* 메뉴 1 */
+  #footer ul.menu1 {
+    display: flex; /* flexbox 사용하여 메뉴 항목들을 가로로 배치 */
+    justify-content: center; /* 메뉴 항목들을 가운데 정렬 */
+  }
+  
+  #footer ul.menu1 li {
+    margin: 0 20px; /* 여백 조정 */
+  }
+  
+  #footer ul.menu1 li a {
+    color: #555;
+    font-size: 18px;
+    letter-spacing: -1px;
+    transition: color 0.3s ease; /* 호버 효과 부드럽게 설정 */
+  }
+  
+  #footer ul.menu1 li.line {
+    width: 1px;
+    height: 10px;
+    background: #bbb;
+    margin: 0 20px; /* 여백 조정 */
+  }
+  
+  #footer ul.menu1 li:hover a {
+    color: #999;
+  }
+  
+  /* 메뉴 2 */
+  #footer ul.menu2 {
+    display: flex; /* flexbox 사용하여 메뉴 항목들을 가로로 배치 */
+    justify-content: center; /* 메뉴 항목들을 가운데 정렬 */
+  }
+  
+  #footer ul.menu2 li {
+    margin: 0 20px; /* 여백 조정 */
+  }
+  
+  #footer ul.menu2 li a {
+    color: #777;
+    font-size: 16px;
+    letter-spacing: -1px;
+    transition: color 0.3s ease; /* 호버 효과 부드럽게 설정 */
+  }
+  
+  #footer ul.menu2 li.line {
+    width: 1px;
+    height: 10px;
+    background: #bbb;
+    margin: 0 20px; /* 여백 조정 */
+  }
+  
+  #footer ul.menu2 li:hover a {
+    color: #999;
+  }
+  
+  /* 텍스트 */
+  #footer p.txt {
+    padding-top: 10px;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  
+  #footer p.sk {
+    padding-top: 10px;
+  }

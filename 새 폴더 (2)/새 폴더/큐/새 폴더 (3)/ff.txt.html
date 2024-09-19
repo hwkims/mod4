@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submarine Game</title>
+	<style>body {
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    width: 800px;
+    height: 600px;
+    border: 1px solid #ccc;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submarine-select {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.submarine {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.submarine:hover {
+    border-color: #aaa;
+}
+
+#game-canvas {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #ccc;
+}
+
+#game-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#game-info p {
+    margin: 0 20px;
+}</style>
+
+</head>
+<body>
+    <div id="game-container">
+        <h1>Submarine Game</h1>
+        <div id="submarine-select">
+            <img src="submarine1.png" alt="Submarine 1" class="submarine" data-submarine="1">
+            <img src="submarine2.png" alt="Submarine 2" class="submarine" data-submarine="2">
+            <img src="submarine3.png" alt="Submarine 3" class="submarine" data-submarine="3">
+        </div>
+        <canvas id="game-canvas" width="800" height="400"></canvas>
+        <div id="game-info">
+            <p>Score: <span id="score">0</span></p>
+            <p>Health: <span id="health">100</span></p>
+        </div>
+    </div>
+
+    <script>
+	let canvas, ctx, submarines, currentSubmarine, score, health;
+
+document.addEventListener("DOMContentLoaded", init);
+
+function init() {
+    canvas = document.getElementById("game-canvas");
+    ctx = canvas.getContext("2d");
+    submarines = document.querySelectorAll(".submarine");
+    currentSubmarine = null;
+    score = 0;
+    health = 100;
+
+    submarines.forEach((submarine) => {
+        submarine.addEventListener("click", selectSubmarine);
+    });
+
+    canvas.addEventListener("click", shootMissile);
+    canvas.addEventListener("touchstart", shootMissile);
+
+    updateGameInfo();
+    drawGame();
+}
+
+function selectSubmarine(event) {
+    currentSubmarine = event.target.dataset.submarine;
+    submarines.forEach((submarine) => {
+        submarine.classList.remove("selected");
+    });
+    event.target.classList.add("selected");
+}
+
+function shootMissile(event) {
+    if (currentSubmarine) {
+        let missileX, missileY;
+        if (event.type === "click") {
+            missileX = event.clientX;
+            missileY = event.clientY;
+        } else {
+            missileX = event.touches[0].clientX;
+            missileY = event.touches[0].clientY;
+        }
+        drawMissile(missileX, missileY);
+        checkCollision(missileX, missileY);
+    }
+}
+
+function drawMissile(x, y) {
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, 2 * Math.PI);
+    ctx.fill();
+}
+
+function checkCollision(x, y) {
+    // TO DO: implement collision detection with enemy submarines
+    score += 10;
+    updateGameInfo();
+}
+
+function updateGameInfo() {
+    document.getElementById("score").innerText = score;
+    document.getElementById("health").innerText = health;
+}
+
+function drawGame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // TO DO: draw enemy submarines and background
+    requestAnimationFrame(drawGame);
+}
+
+drawGame();</script>
+</body>
+</html>

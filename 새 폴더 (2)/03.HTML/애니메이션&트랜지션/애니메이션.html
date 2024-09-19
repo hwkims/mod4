@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1 { 
+            width: 100px; height: 100px; 
+
+            animation-name: change-bg;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+         }
+
+        
+        /*점점 나오는거*/
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /*회전하기*/
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(45deg);
+            }
+        }
+
+        /*원형만들기*/
+        @keyframes shape {
+            from {
+                border: 1px solid #000;
+            }
+            to {
+                border: 1px solid red;
+                border-radius: 50%;
+            }
+        }
+        /*배경색 바꾸기*/
+        @keyframes change-bg {
+            0% {
+                background: blue;
+                border: 1px solid #000;
+            }
+            100% {
+                background: #a5d6ff;
+                border: 1px solid blue;
+                border-radius: 50%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

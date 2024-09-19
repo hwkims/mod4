@@ -1,0 +1,322 @@
+/*웹폰트- 배달의민족 도현*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*상단배너*/
+#menu_top {
+    width: 1280px; height: 700px;
+    background: url(../images/menu_topbanner_bg.jpg);
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#menu_top ul {
+    width: 420px; height: 580px;
+    /* border: 1px solid red; */
+
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+
+#menu_top ul li {
+    float: left;
+}
+#menu_top ul li:nth-child(1) {
+    width: 420px; height: 460px;
+    background: rgba(0,0,0,0.6);
+}
+
+#menu_top ul li:nth-child(1) h4 {
+    padding: 40px 0 0 40px;
+
+    font-size: 20px;
+    color:#fff;
+    letter-spacing: -2px;
+}
+
+#menu_top ul li:nth-child(1) h2 {
+    padding: 10px 0 0 40px;
+
+    font-size: 32px;
+    color:#fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Impact';
+    font-weight: normal;
+}
+
+#menu_top ul li:nth-child(1) p.txt1 {
+    padding: 10px 0 0 40px;
+
+    font-size: 14px;
+    color:#fff;
+    letter-spacing: -1px;
+}
+
+#menu_top ul li:nth-child(1) p.line {
+    width: 340px; height: 1px;
+    background: #333;
+    margin: 50px auto 20px;
+}
+
+#menu_top ul li:nth-child(1) p.txt2 {
+    padding: 20px 0 0 40px;
+
+    font-size: 16px;
+    color:#fff;
+    letter-spacing: -1px;
+}
+#menu_top ul li:nth-child(1) p.txt2 img {
+    vertical-align: bottom;
+}
+
+#menu_top ul li:nth-child(1) p.txt2 b {
+    font-size: 26px;
+    color:#b59272;
+    letter-spacing: -2px;
+}
+#menu_top ul li:nth-child(1) p.txt2 span {
+    font-size: 16px;
+    color:#886d50;
+}
+
+
+#menu_top ul li:nth-child(2) {
+    width: 210px; height: 120px;
+    background: #876c4f;
+    text-align: center;
+    cursor: pointer;
+}
+
+#menu_top ul li:nth-child(3) {
+    width: 210px; height: 120px;
+    background: #a90911;
+    text-align: center;
+    cursor: pointer;
+}
+
+#menu_top ul li p.img {
+    padding-top: 20px;
+}
+#menu_top ul li p.txt {
+    padding-top: 10px;
+    color:#fff; font-weight: bold;
+    letter-spacing: -1px;
+}
+
+#menu_top ul li:nth-child(2):hover img,
+#menu_top ul li:nth-child(3):hover img {
+   transform: rotateY(360deg);
+   transition: 1s;
+}
+
+/*over high 3cm배너*/
+#menu_banner {
+    width: 1280px; height: 290px;
+    background: url(../images/menu_over_bg.jpg);
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#menu_banner p.left {
+    position: absolute;
+    left:250px;
+    top:50px;
+}
+#menu_banner p.right {
+    position: absolute;
+    left:520px;
+    top:60px;
+}
+
+#menu_banner h2 {
+    padding: 60px 0 0 260px;
+    color:#fff;
+    font-size: 34px;
+    text-transform: uppercase;
+    font-family: 'BMDOHYEON';
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+#menu_banner h4 {
+    padding: 50px 0 0 260px;
+    color:#fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'BMDOHYEON';
+    font-weight: normal;
+    line-height: 1.7;
+}
+
+
+/*위치 표시줄*/
+#location_bar {
+    width: 1280px;
+    height: 80px;
+    /* background: pink; */
+    margin: 0 auto;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+#location_bar p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#location_bar p.home {
+    width: 65px;
+    height: 80px;
+    /* background: cyan; */
+    text-align: center;
+    line-height: 80px;
+
+    margin-left: 70px;
+
+    border-left: 1px solid #bcbcbc;
+    border-right: 1px solid #bcbcbc;
+}
+
+#location_bar p.txt1 {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#location_bar p.txt2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*서브메뉴*/
+#sub_menu {
+    width: 1000px;
+    height: 100px;
+    /* background: yellow; */
+    margin: 80px auto;
+}
+
+#sub_menu li a {
+    display: block;
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    float: left;
+
+    text-align: center;
+    line-height: 100px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+#sub_menu li:nth-child(2) a {
+    border-left: 0;
+}
+
+#sub_menu li a:hover {
+    background: #cc0001;
+    color: #fff;
+}
+
+/*3단 음식 배너*/
+#sides_banner {
+    width: 1280px;
+    height: 300px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+#sides_banner ul li {
+    width: 360px; height: 300px;
+    /* background: cyan; */
+    display: inline-block;
+    vertical-align: middle;
+    transition: 1s;
+    margin: 0 20px;
+}
+#sides_banner ul li h2 {
+    text-align: left;
+    text-transform:uppercase;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#sides_banner ul li:hover img {
+    transform: scale(0.8);
+    transition: 1s;
+    cursor: pointer;
+}
+#sides_banner ul li h4{
+    font-size: 17px;
+    font-weight: 400;
+}
+
+p.line {
+    width: 1100px; height: 1px;
+    background: #333;
+    margin: 50px auto;
+}
+
+
+/*티본배너&문구*/
+#tbone_banner {
+    width: 1280px;
+    height: 400px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+#tbone_banner div.steak {
+    width: 1180px; height: 200px;
+    background: #c0333b;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1;
+    color: #fff;
+    font-weight: 400;
+    font-size: 25px;
+
+}
+#tbone_banner div.steak h2 {
+padding-top: 60px;
+}
+#tbone_banner div.steak h2 span{
+    font-weight: 600;
+    font-size: 18px;
+}
+#tbone_banner ul li{ 
+    display: inline-block;
+    vertical-align: top;
+
+    /* border: 1px solid blue; */
+    margin-top: 30px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 2;
+}
+#tbone_banner ul li:nth-child(1){
+    font-size: 18px;
+    font-weight: 600;
+}
+#tbone_banner ul li:nth-child(3){
+    font-size: 18px;
+    font-weight: 600;
+}

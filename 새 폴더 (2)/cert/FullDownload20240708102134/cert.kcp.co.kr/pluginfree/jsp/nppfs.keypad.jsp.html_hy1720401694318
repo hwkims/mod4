@@ -1,0 +1,68 @@
+{
+	"info" : {
+		"type" : "keypad"
+		, "src" : "https://cert.kcp.co.kr/pluginfree/jsp/nppfs.keypad.jsp?m=i&k=4b76472f6a650ffe971c005e088a89a029093ac30d33e5cd985dd8767997a329c0829fe1afccb0626855c3aedded70fec279a78bb5aa1a48a93e69c9e817cf97a9b9f97b1414696f4eccdb09e746ff69fc99b2c1f1004107407653ccab819b4e&pi=N"
+		, "inputs" : {
+			  "hash" : "__KH_67383d7c5af7"
+			, "useyn" : "__KU_67383d7c5af7"
+			, "info" : "__KI_phone_no_vKey"
+		}
+		, "dynamic" : [
+			  {"k" : "__KH_67383d7c5af7", "v" : ""} 
+			, {"k" : "__KI_phone_no_vKey", "v" : "7db390341abd0fb6543447aa2a59736768274756549af9be1a69335c274b8d5dc0ad0c0be1b1b0cebbbd50c4440253b3d0b65a5ce7765e58dadd9a8d9f2f70c2c78c91d27d7854f7c7a909b2b3b06c1498447b68b70935cf06a2a8361e3db3f1"} 
+		]
+		, "iw" : 259, "ih" : 172
+		, "tw" : 430, "th" : 280
+		, "mode" : "layer"
+		, "focusmode" : "clear"
+		, "blankmode" : "half"
+		, "color" : {"nfc" : "#000000", "nbc" : "#ffcc00", "ffc" : "", "fbc" : ""}
+		, "touch" : { "use" : false }
+		, "preview" : { "use" : true, "style" : "" }
+		, "resize" : true, "resizeRadio" : 95
+		, "position" : {
+			  "x" : "center", "deltax" : 0
+			, "y" : "auto", "deltay" : 5
+		}
+		, "enter" : "hide"
+		, "shift" : true
+		, "capslock" : true
+		, "coords" : {
+			  "sx" : 23, "sy" : 52
+			, "bw" : 34, "bh" : 34
+			, "mx" : 1, "my" : 1
+			, "count" : {
+				  "line" : 3
+				, "button" : [5, 5, 4]
+				, "blank" : [1, 1, 1]
+			} 
+			, "margin" : {
+				"left" : [0, 0, 0]
+				, "top" : [0, 0, 0]
+			} 
+			, "blank" : {"type" : "blank", "mode" : "inner", "coord" : {"x1" : {"i" : -1, "d" : 0}, "y1" : {"i" : -1, "d" : 0}, "x2" : {"i" : -1, "d" : 0}, "y2" : {"i" : -1, "d" : 0}}, "image" : {"x" : 360, "y" : 174, "w" : 34, "h" : 34}}
+		}
+	}
+	, "items" : [
+		{
+			"id" : "number"
+			, "buttons" : [
+				  {"type" : "cmd", "coord" : {"x1" : {"i" : 0, "d" : 0}, "y1" : {"i" : 2, "d" : 0}, "x2" : {"i" : 0, "d" : 0}, "y2" : {"i" : 2, "d" : 0}}, "image" : {"x" : 0, "y" : 210, "w" : 34, "h" : 34}, "action" : "action:delete"}
+				, {"type" : "cmd", "coord" : {"x1" : {"i" : 1, "d" : 0}, "y1" : {"i" : 2, "d" : 0}, "x2" : {"i" : 1, "d" : 0}, "y2" : {"i" : 2, "d" : 0}}, "image" : {"x" : 36, "y" : 210, "w" : 34, "h" : 34}, "action" : "action:clear"}
+				, {"type" : "cmd", "coord" : {"x1" : {"i" : 2, "d" : 0}, "y1" : {"i" : 2, "d" : 0}, "x2" : {"i" : 2, "d" : 0}, "y2" : {"i" : 2, "d" : 0}}, "image" : {"x" : 72, "y" : 210, "w" : 34, "h" : 34}, "action" : "action:refresh"}
+				, {"type" : "cmd", "coord" : {"x1" : {"i" : -1, "d" : 217}, "y1" : {"i" : -1, "d" : 3}, "x2" : {"i" : -1, "d" : 251}, "y2" : {"i" : -1, "d" : 37}}, "image" : {"x" : 108, "y" : 210, "w" : 34, "h" : 34}, "action" : "action:close"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 0, "d" : 0}, "y1" : {"i" : 0, "d" : 0}, "x2" : {"i" : 0, "d" : 0}, "y2" : {"i" : 0, "d" : 0}}, "image" : {"x" : 0, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:4660beb15617ee009b7943ddd1e442bf05c04749:1"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 1, "d" : 0}, "y1" : {"i" : 0, "d" : 0}, "x2" : {"i" : 1, "d" : 0}, "y2" : {"i" : 0, "d" : 0}}, "image" : {"x" : 36, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:cd3eef019ef540812cd9b999484ad46bf8589ea3:2"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 2, "d" : 0}, "y1" : {"i" : 0, "d" : 0}, "x2" : {"i" : 2, "d" : 0}, "y2" : {"i" : 0, "d" : 0}}, "image" : {"x" : 72, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:75f93b60785e6443105a27aab727e885890e17dc:3"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 3, "d" : 0}, "y1" : {"i" : 0, "d" : 0}, "x2" : {"i" : 3, "d" : 0}, "y2" : {"i" : 0, "d" : 0}}, "image" : {"x" : 108, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:1966270e713569215ba5448befd776835716036f:4"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 4, "d" : 0}, "y1" : {"i" : 0, "d" : 0}, "x2" : {"i" : 4, "d" : 0}, "y2" : {"i" : 0, "d" : 0}}, "image" : {"x" : 324, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:dbc04af6aa9e42e7d33944be5803ff171d4ce140:0"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 0, "d" : 0}, "y1" : {"i" : 1, "d" : 0}, "x2" : {"i" : 0, "d" : 0}, "y2" : {"i" : 1, "d" : 0}}, "image" : {"x" : 180, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:cded5ff407427fa4b71939a6d9eb682243743dda:6"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 1, "d" : 0}, "y1" : {"i" : 1, "d" : 0}, "x2" : {"i" : 1, "d" : 0}, "y2" : {"i" : 1, "d" : 0}}, "image" : {"x" : 216, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:4cb14f3468e19381ba05b5760d34308b68b9d23b:7"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 2, "d" : 0}, "y1" : {"i" : 1, "d" : 0}, "x2" : {"i" : 2, "d" : 0}, "y2" : {"i" : 1, "d" : 0}}, "image" : {"x" : 252, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:9912053ab0396069b128baf8e68c9402d5da4526:8"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 3, "d" : 0}, "y1" : {"i" : 1, "d" : 0}, "x2" : {"i" : 3, "d" : 0}, "y2" : {"i" : 1, "d" : 0}}, "image" : {"x" : 288, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:a645c1a9c73d469251a64d60cf6f81602851d3f1:9"}
+				, {"type" : "data", "coord" : {"x1" : {"i" : 4, "d" : 0}, "y1" : {"i" : 1, "d" : 0}, "x2" : {"i" : 4, "d" : 0}, "y2" : {"i" : 1, "d" : 0}}, "image" : {"x" : 144, "y" : 174, "w" : 34, "h" : 34}, "action" : "data:43c3cac3623915e9dc9345bdca9c32e9e650c921:5"}
+				, {"type" : "cmd", "coord" : {"x1" : {"i" : 3, "d" : 0}, "y1" : {"i" : 2, "d" : 0}, "x2" : {"i" : 4, "d" : 0}, "y2" : {"i" : 2, "d" : 0}}, "image" : {"x" : 0, "y" : 246, "w" : 69, "h" : 33}, "action" : "action:enter"}
+			]
+		}
+	]
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Triple Tile Game</title>
+  <style>
+    /* Add some basic styling to make the game look nice */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    #game-board {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #ccc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tile {
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .tile:hover {
+      background-color: #eee;
+    }
+    .tile.matched {
+      background-color: #ccc;
+      cursor: default;
+    }
+    #score {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    #level {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Triple Tile Game</h1>
+  <div id="game-board"></div>
+  <div id="score">Score: 0</div>
+  <div id="level">Level: 1</div>
+  <button id="shuffle-button">Shuffle</button>
+
+  <script>
+    // Game variables
+    let tiles = [];
+    let score = 0;
+    let level = 1;
+    let gridSize = 4;
+    let pointsPerMatch = 10;
+    let comboBonus = 50;
+    let timeBonus = 100;
+    let timeLimit = 300; // 5 minutes
+    let startTime;
+
+    // Create the game board
+    for (let i = 0; i < gridSize * gridSize; i++) {
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.innerHTML = "";
+      tile.dataset.matchCount = 0;
+      tiles.push(tile);
+      document.getElementById("game-board").appendChild(tile);
+    }
+
+    // Shuffle the tiles
+    function shuffleTiles() {
+      for (let i = 0; i < tiles.length; i++) {
+        const randomIndex = Math.floor(Math.random() * tiles.length);
+        [tiles[i], tiles[randomIndex]] = [tiles[randomIndex], tiles[i]];
+      }
+    }
+
+    // Check for matches
+    function checkForMatches() {
+      for (let i = 0; i < tiles.length; i++) {
+        const tile = tiles[i];
+        if (tile.dataset.matchCount > 0) {
+          const matchCount = tile.dataset.matchCount;
+          tile.dataset.matchCount = 0;
+          score += pointsPerMatch * matchCount;
+          document.getElementById("score").innerHTML = `Score: ${score}`;
+          if (matchCount >= 3) {
+            score += comboBonus;
+            document.getElementById("score").innerHTML = `Score: ${score}`;
+          }
+        }
+      }
+    }
+
+    // Handle tile clicks
+    document.getElementById("game-board").addEventListener("click", (e) => {
+      const tile = e.target;
+      if (tile.classList.contains("tile")) {
+        if (tile.dataset.matchCount > 0) {
+          tile.dataset.matchCount++;
+          checkForMatches();
+        } else {
+          tile.dataset.matchCount = 1;
+        }
+      }
+    });
+
+    // Handle shuffle button clicks
+    document.getElementById("shuffle-button").addEventListener("click", () => {
+      shuffleTiles();
+    });
+
+    // Start the game
+    shuffleTiles();
+    startTime = new Date().getTime();
+
+    // Update the game state every second
+    setInterval(() => {
+      const currentTime = new Date().getTime();
+      const timeElapsed = (currentTime - startTime) / 1000;
+      if (timeElapsed >= timeLimit) {
+        alert(`Time's up! Your final score is ${score}`);
+        return;
+      }
+      document.getElementById("level").innerHTML = `Level: ${level}`;
+      gridSize += 2;
+      pointsPerMatch += 10;
+      level++;
+      shuffleTiles();
+    }, 1000);
+  </script>
+</body>
+</html>

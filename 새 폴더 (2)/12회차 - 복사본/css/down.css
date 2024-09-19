@@ -1,0 +1,164 @@
+/*공통하단영역*/
+/*하단배너*/
+#down_banner {
+    width: 1200px;
+    height: 160px;
+    background: orange;
+    margin: 0 auto;
+}
+
+#down_banner ul li {
+    width: 400px;
+    height: 160px;
+    background: #907355;
+
+    float: left;
+    position: relative;
+    cursor: pointer;
+
+}
+
+#down_banner ul li:nth-child(2) {
+    background: #434343;
+}
+
+#down_banner ul li:nth-child(3) {
+    background: #c40606;
+}
+
+#down_banner ul li h2 {
+    padding: 20px 0 0 20px;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+#down_banner ul li h2 span {
+    font-size: 16px;
+    letter-spacing: -1px;
+    font-weight: normal;
+}
+
+#down_banner ul li p.arrow {
+    position: absolute;
+    left: 20px;
+    bottom: 15px
+}
+
+#down_banner ul li p.icon {
+    position: absolute;
+    right: 50px;
+    top: 50px
+}
+
+#down_banner ul li:hover p.icon {
+    top: 30px
+}
+
+/*카피라이트*/
+#wrap_copyright {
+    width: 100%;
+    height: 360px;
+    background: #232323;
+
+    color: #bcbcbc;
+}
+.txt3{
+    color: #979797;  
+    font-size: 13px;
+}
+#copyright {
+    width: 1200px;
+    height: 360px;
+
+    margin: 0 auto;
+}
+
+#copyright ul li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#copyright ul li:nth-child(1) {
+    width: 130px;
+    height: 80px;
+    /* background: red; */
+
+    margin: 60px 0 0 30px;
+}
+
+#copyright ul li:nth-child(2) {
+    width: 410px;
+    height: 230px;
+ 
+
+    margin: 60px 0 0 20px;
+
+}
+
+
+#copyright ul li:nth-child(2) p.btn {
+    padding: 5px 15px;
+    border: 1px solid #979797;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 15px 10px 15px 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: -1px;
+    cursor: pointer;
+ 
+}
+
+
+#copyright ul li:nth-child(3) {
+    width: 500px;
+    height: 120px;
+    /* background: red; */
+
+    margin: 60px 0 0 60px;
+}
+
+#copyright ul li:nth-child(3) p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#copyright ul li:nth-child(3) p.menu a {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: -1px;
+}
+
+#copyright ul li:nth-child(3) p.line {
+    width: 1px;
+    height: 10px;
+    background: #bcbcbc;
+    margin: 0 5px;
+}
+
+#copyright ul li:nth-child(3) p.icon {
+    display: block;
+    margin-top: 30px;
+    text-align: right;
+}
+
+/*탑버튼*/
+p.top a {
+    display: block;
+    width: 80px; height: 80px;
+    background: #000;
+    border-radius: 50%;
+    line-height: 80px;
+    text-align: center;
+
+    color:#fff; font-weight: bold;
+    text-transform: uppercase;
+
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}

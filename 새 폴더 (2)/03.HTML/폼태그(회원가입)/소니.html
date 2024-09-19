@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>일반회원가입</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>일반회원가입</h2>
+    <form>
+      <div class="form-group">
+        <label for="email">이메일 아이디</label>
+        <input type="email" id="email" name="email" placeholder="이메일 주소를 입력하세요">
+        <span>@</span>
+        <select id="domain" name="domain">
+          <option value="gmail.com">gmail.com</option>
+          <option value="naver.com">naver.com</option>
+          <option value="daum.net">daum.net</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">비밀번호 확인</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="비밀번호를 다시 입력하세요">
+      </div>
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+      </div>
+      <div class="form-group">
+        <label for="phone">휴대폰 번호</label>
+        <input type="text" id="phone" name="phone" placeholder="- 없이 입력">
+      </div>
+      <div class="form-group">
+        <label for="birth">생년월일</label>
+        <select id="birth-year" name="birth-year">
+          <option value="">년</option>
+          </select>
+        <select id="birth-month" name="birth-month">
+          <option value="">월</option>
+          </select>
+        <select id="birth-day" name="birth-day">
+          <option value="">일</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="gender">성별</label>
+        <input type="radio" id="gender-female" name="gender" value="female">
+        <label for="gender-female">여성</label>
+        <input type="radio" id="gender-male" name="gender" value="male">
+        <label for="gender-male">남성</label>
+      </div>
+      <button type="submit">회원가입하기</button>
+    </form>
+  </div>
+  <script>
+    // 생년월일 선택 옵션 생성
+    const yearSelect = document.getElementById('birth-year');
+    const monthSelect = document.getElementById('birth-month');
+    const daySelect = document.getElementById('birth-day');
+
+    // 년도 옵션 생성
+    for (let year = 1900; year <= new Date().getFullYear(); year++) {
+      const option = document.createElement('option');
+      option.value = year;
+      option.text = year;
+      yearSelect.appendChild(option);
+    }
+
+    // 월 옵션 생성
+    for (let month = 1; month <= 12; month++) {
+      const option = document.createElement('option');
+      option.value = month;
+      option.text = month;
+      monthSelect.appendChild(option);
+    }
+
+    // 일 옵션 생성 (일은 선택된 월에 따라 달라짐)
+    monthSelect.addEventListener('change', function() {
+      // 선택된 월 가져오기
+      const selectedMonth = parseInt(monthSelect.value);
+      
+      // 기존 일 옵션 삭제
+      daySelect.innerHTML = '';
+
+      // 선택된 월에 따라 일 옵션 생성
+      let daysInMonth = 31; // 기본 31일
+      if (selectedMonth === 2) {
+        daysInMonth = 29; // 2월은 29일
+      } else if ([4, 6, 9, 11].includes(selectedMonth)) {
+        daysInMonth = 30; // 4, 6, 9, 11월은 30일
+      }
+      for (let day = 1; day <= daysInMonth; day++) {
+        const option = document.createElement('option');
+        option.value = day;
+        option.text = day;
+        daySelect.appendChild(option);
+      }
+    });
+  </script>
+</body>
+</html>

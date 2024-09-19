@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innisfree Website</title>
+    <style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-item button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.promotion {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+}
+
+.promotion h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.promotion p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.promotion button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Membership</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="product-list">
+            <h2>Best Sellers</h2>
+            <div class="product-item">
+                <img src="https://via.placeholder.com/150x150" alt="Product Image">
+                <h3>Green Tea Seed Serum</h3>
+                <p>24,000원</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://via.placeholder.com/150x150" alt="Product Image">
+                <h3>Green Tea Mist</h3>
+                <p>12,000원</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://via.placeholder.com/150x150" alt="Product Image">
+                <h3>Personal One Cream</h3>
+                <p>20,000원</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Add more product items here -->
+        </section>
+        <section class="promotion">
+            <h2>Special Offers</h2>
+            <p>Get 20% off on all products during Green Tea Week!</p>
+            <button>Shop Now</button>
+        </section>
+
+        <section class="membership">
+            <h2>이니스프리 멤버십 혜택 안내</h2>
+            <h5>이니스프리 멤버십 회원이 되시면 이니스프리에서 제공하는 다양한 혜택을 받으실 수 있습니다.</h5>
+            
+            <p></p>
+       
+        </section>
+    </main>
+    <style>
+        footer p{
+            color: #666;
+        }
+    </style>
+    <footer>
+        <p>Copyright 2023 Innisfree. All rights reserved.</p>
+        <p>Copyright 2023 Innisfree. All rights reserved.</p>
+        <p>Copyright 2023 Innisfree. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        nav { width: 960px; height: 60px; border-bottom: 2px solid red; margin: 0 auto; padding-bottom: 10px;}
+        nav ul li { display: inline-block; vertical-align: middle; width: 150px; padding: 10px;}
+
+        /*사용자 동작에 반응하는 가상 클래스
+        :link - 방문하지 않은 링크에 스타일 적용
+        :visited - 방문한 링크에 스타일 적용
+        :hover - 마우스 커서를 올렸을 때 스타일 적용
+        :active - 웹 요소를 활성화(누르고 있을때) 스타일 적용
+        :focus  - 웹 요소에 초점이 맞추어 졌을때       
+        */
+        nav ul li a:link,
+        nav ul li a:visited
+         {
+            font-size: 14px; padding: 10px; text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background: #222; color:#fff;
+        }
+        nav ul li a:active {
+            color:green
+        }
+        nav ul li a:focus {
+            background: blue;
+        } 
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#a">이용 안내</a></li>
+            <li><a href="#a">객실 소개</a></li>
+            <li><a href="#a">예약 방법 및 요금</a></li>
+            <li><a href="#a">예약하기</a></li>
+        </ul>
+    </nav>
+
+<style>
+    input:disabled {
+        background: red;
+    }
+    input:checked + span {
+        color:blue;
+    }
+</style>
+
+    <form>
+        <fieldset>
+            <legend>사용자 정보</legend>
+            <label for="name">이름</label> <input type="text" id="name" disabled>
+
+            <p>이 달에 신청할 과목을 선택하세요.</p>
+
+            <input type="radio" name="subject"> <span>회화</span>
+            <input type="radio" name="subject"> <span>문법</span>
+            <input type="radio" name="subject"> <span>작문</span>
+
+        </fieldset>
+    </form>
+
+    <style>
+        td {border: 1px solid red;}
+
+        /*홀수*/
+        table tr:nth-child(odd) {
+            background: pink;
+        }
+
+        /*짝수*/
+        table tr:nth-child(even) {
+            background: yellow;
+        }
+        ul:nth-of-type(2){
+            background: red;
+        }
+    </style>
+
+    <ul>
+        <li>테스트1</li>
+        <li>테스트2</li>
+    </ul>
+
+    <ul>
+        <li>테스트1</li>
+        <li>테스트2</li>
+    </ul>
+
+    <ul>
+        <li>테스트1</li>
+        <li>테스트2</li>
+    </ul>
+
+    <ul>
+        <li>테스트1</li>
+        <li>테스트2</li>
+    </ul>
+
+
+    <h1>건강에 좋은 건강 식품</h1>
+
+    <table>
+        <tr>
+            <td>블루베리</td>
+        </tr>
+
+        <tr>
+            <td>귀리</td>
+        </tr>
+
+        <tr>
+            <td>토마토</td>
+        </tr>
+
+        <tr>
+            <td>시금치</td>
+        </tr>
+
+        <tr>
+            <td>적도포주</td>
+        </tr>
+
+        <tr>
+            <td>견과류</td>
+        </tr>
+
+        <tr>
+            <td>브로콜리</td>
+        </tr>
+
+        <tr>
+            <td>연어</td>
+        </tr>
+    </table>
+
+</body>
+</html>

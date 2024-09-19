@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { padding: 0; margin: 0;}
+        a { text-decoration: none;}
+        li { list-style: none;}
+
+        body {
+            background: url(images/login_bg.jpg)no-repeat;
+            background-size: cover;
+            /*배경 사진 배경 크기에 맞게 덮기*/
+            background-attachment: fixed;
+            /*배경 사진 고정*/
+        }
+        #login {
+            width: 1000px; height: 2000px; 
+            margin: 0 auto;
+            text-align: center;
+        }
+        #login h2 {
+            padding-top: 50px;
+
+            color:#fff; font-size: 46px; letter-spacing: -1px;
+            text-transform: capitalize;
+        }
+
+        #login p.txt {
+            padding-top: 20px;
+
+            color:#eee; font-size: 22px; letter-spacing: -1px;
+        }
+
+        #login fieldset.up {
+            margin : 50px auto;
+            width: 800px;
+            background: rgba(255,255,255,0.6);
+            border: 0;
+            padding: 40px;
+            box-sizing: border-box;
+
+        }
+        #login fieldset.up ul li:nth-child(1) {
+            color:#333; font-size: 30px; letter-spacing: -1px;
+        }
+        #login fieldset.up ul li:nth-child(2) {
+            padding-top: 20px;
+            color:#012f6b; font-size: 36px; letter-spacing: -3px;
+        }
+        #login fieldset.up input {
+            margin-top: 30px;
+            width: 500px; height: 70px; background: #012f6b;
+            border: 0;
+
+            color:#fff; font-size: 18px; font-weight: bold; letter-spacing: -1px;
+            cursor: pointer;
+            
+        }
+
+
+        #login fieldset.down {
+            margin : 50px auto;
+            width: 800px;
+            background: rgba(255,255,255,0.6);
+            border: 0;
+            padding: 40px 0 30px;
+
+        }
+
+        #login fieldset.down input[type="email"],
+        #login fieldset.down input[type="password"],
+        #login fieldset.down input[type="submit"]
+         {
+            width: 500px; height: 60px; 
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        #login fieldset.down input[placeholder] {
+            padding-left: 20px;
+            letter-spacing: -1px;
+        }
+
+        #login fieldset.down ul li {
+            margin: 10px 0;
+        }
+        #login fieldset.down input[type="submit"] {
+            background: #021f6b;
+            color:#fff; font-size: 18px; font-weight: bold; letter-spacing: -1px;
+        }
+        #login fieldset.down ul li button {
+            border: 0;
+            margin: 20px 0;
+        }
+        #login fieldset.down ul li button a {
+            display: inline-block;
+            width: 160px; height: 40px; line-height: 40px;
+            background: #fff; 
+            border: 1px solid #ddd;
+
+            color:#555; letter-spacing: -1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h2>welcome, ediya coffee</h2>
+        <p class="txt">이디야 커피에 오신것을 환영합니다.</p>
+
+        <form>
+            <fieldset class="up">
+                <ul>
+                    <li>이디야 회원이셨나요?</li>
+                    <li>이디야 멤버스가 새로워졌습니다.</li>
+                    <li><input type="button" value="이디야 멤버스 가입 정보 찾기"></li>
+                </ul>
+            </fieldset>
+
+            <fieldset class="down">
+                <ul>
+                    <li><input type="email" placeholder="이메일을 입력하세요."></li>
+                    <li><input type="password" placeholder="비밀번호를 입력하세요."></li>
+                    <li><input type="checkbox"> 이메일저장</li>
+                    <li><input type="submit" value="로그인"></li>
+                    
+                    <li>
+                        <button><a href="#a">회원가입</a></button>
+                        <button><a href="#a">이메일찾기</a></button>
+                        <button><a href="#a">비밀번호 찾기</a></button>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

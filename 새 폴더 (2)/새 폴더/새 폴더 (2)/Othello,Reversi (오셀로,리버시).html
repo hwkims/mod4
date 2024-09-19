@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://www.mins01.com/game/othello/game_othello.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<script src="./Othello,Reversi (오셀로,리버시)_files/ForGoogle.js.다운로드"></script>
+<!-- google analytics -->
+<script>ForGoogle.analytics()</script><script async="" src="./Othello,Reversi (오셀로,리버시)_files/js"></script>
+
+
+<link rel="stylesheet" href="./Othello,Reversi (오셀로,리버시)_files/_M.all.css">
+<link rel="stylesheet" href="./Othello,Reversi (오셀로,리버시)_files/game_othello.css">
+<script type="text/javascript" src="./Othello,Reversi (오셀로,리버시)_files/_M.all.js.다운로드"></script>
+<script type="text/javascript" src="./Othello,Reversi (오셀로,리버시)_files/game_othello.js.다운로드"></script>
+<script type="text/javascript" src="./Othello,Reversi (오셀로,리버시)_files/game_othello_ai.js.다운로드"></script>
+<script type="text/javascript">
+//<!--
+var debug = false;
+//var debug = true;
+var goth= new Game_othello;
+var gothAI = new Game_othello_AI;
+	gothAI.init(goth);
+	goth.set_game_othello_AI(gothAI,'w');
+window.onload = function(){
+	goth.init(_M.$id('board'));
+	goth.startGame();
+}
+function testAi(cnt){
+	if(cnt <=0){return ;}
+	gothAI.act(goth.turn,0);
+	setTimeout(
+		function(cnt){
+			return function(){
+				testAi(cnt);
+				//document.title = cnt;
+			}
+		}(cnt-1)
+	,100);
+}
+function testAi2(cnt){
+	if(cnt <=0){return ;}
+	if(goth.turn=='b'){
+		gothAI.AILevel = '6';
+	}else{
+	gothAI.AILevel = '3';
+	}
+	gothAI.act(goth.turn,0);
+	setTimeout(
+		function(cnt){
+			return function(){
+				testAi(cnt);
+				//document.title = cnt;
+			}
+		}(cnt-1)
+	,100);
+}
+function startTestAi(cnt){
+	testAi(cnt)
+}
+// -->
+</script>
+<title>Othello,Reversi (오셀로,리버시)</title>
+</head>
+
+<body>
+<h2 style="text-align:center">Othello,Reversi,오델로[<a href="http://www.mins01.com/game/othello/game_othello.html" target="_blank">NEW</a>]</h2>
+
+<table id="scoreBoard" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <th width="100" rowspan="2" align="center"><div id="divTurn" class="labelBlack">흑</div></th>
+    <th width="80" align="center" class="labelBlack">흑</th>
+    <th width="80" align="center" class="labelWhite">백</th>
+  </tr>
+  <tr>
+    <td align="center" style="font-weight:bold" class="labelBlack"><div id="divBScore">2</div></td>
+    <td align="center" style="font-weight:bold"><div id="divWScore">2</div></td>
+  </tr>
+  <tr>
+  	<th colspan="3" align="center"><input type="button" class="btn" value="재시작" onclick="goth.startGame();" id="btnStart">
+ 		<input type="button" class="btn" value="AI 훈수" onclick="gothAI.act(goth.turn,0);">
+		<input type="button" class="btn" value="AI 예측" onclick="gothAI.preAct(goth.turn,0);">
+
+		<input type="button" class="btn" value="TEST" onclick="startTestAi(64);">
+		<input type="button" class="btn" value="back" onclick="goth.backHistory(2)">
+<!--
+		<input type="button" class="btn" value="TEST2" onclick="testAi2(64);" />
+		<input type="button" class="btn" value="back1" onclick="goth.backHistory(1)" />
+-->
+	</th>
+ 	</tr>
+  <tr>
+    <th colspan="3" align="center">
+<form action="http://www.mins01.com/game/othello/game_othello.html">
+
+AI :
+<label><input type="radio" name="turnAI" value="b" onclick="goth.turnAI=&#39;b&#39;;goth.actAI(goth.turn)">흑</label>
+<label><input type="radio" name="turnAI" checked="checked" value="w" onclick="goth.turnAI=&#39;w&#39;;goth.actAI(goth.turn)">백</label>
+<label><input type="radio" name="turnAI" value="" onclick="goth.turnAI=&#39;n&#39;;goth.actAI(goth.turn)">X</label>
+<select onblur="gothAI.AILevel=this.value">
+	<option value="0">레벨:0</option>
+	<option value="1">레벨:1</option>
+	<option value="2">레벨:2</option>
+	<option value="3">레벨:3</option>
+	<option value="4">레벨:4</option>
+	<option value="5">레벨:5</option>
+	<option value="6" selected="selected">레벨:6</option>
+</select>
+</form>
+		</th>
+  </tr>
+</tbody></table>
+<div>
+<table border="0" cellpadding="0" cellspacing="0" id="board">
+    <tbody><tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+  </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class="c"><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class="c"><div></div></td>
+        <td class="w"><div></div></td><td class="b"><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class="b"><div></div></td><td class="w"><div></div></td><td class="c"><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class="c"><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+    <tr>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td><td class=""><div></div></td>
+        <td class=""><div></div></td><td class=""><div></div></td>
+    </tr>
+</tbody></table>
+<div style="width:320px;margin:2px auto" class="google_ad"><script>
+ForGoogle.ads.ads320x100()
+</script><script async="" src="./Othello,Reversi (오셀로,리버시)_files/f.txt"></script><ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-5804424351292113" data-ad-slot="6250234571" data-adsbygoogle-status="done"><iframe id="aswift_0" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;" src="./Othello,Reversi (오셀로,리버시)_files/saved_resource.html"></iframe><iframe id="google_ads_iframe_0" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;" src="./Othello,Reversi (오셀로,리버시)_files/saved_resource(1).html"></iframe></ins></div>
+
+<ul style="font-size:12px;">
+<li>크롬추천</li>
+<li>AI는... 멈청함.</li>
+</ul>
+</div>
+
+
+
+</body></html>

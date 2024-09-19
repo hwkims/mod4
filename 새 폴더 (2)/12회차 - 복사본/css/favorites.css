@@ -1,0 +1,198 @@
+/*웹폰트- 배달의민족 도현*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*상단배너*/
+#favorites_top {
+    width: 1280px; height: 600px;
+    background:url(../images/favorites_banner_bg.jpg);
+    margin: 0 auto;
+}
+
+#favorites_top h2 {
+    padding: 240px 0 0 100px;
+    color:#fff;
+    font-size: 70px;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    font-family: 'Impact';
+    font-weight: normal;
+}
+#favorites_top p {
+    padding: 20px 0 0 100px;
+    color:#fff; 
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+/*위치 표시줄*/
+#location_bar {
+    width: 1280px;
+    height: 80px;
+    /* background: pink; */
+    margin: 0 auto;
+    border-bottom: 1px solid #dedede;
+}
+
+#location_bar p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#location_bar p.home {
+    width: 65px;
+    height: 80px;
+    /* background: cyan; */
+    text-align: center;
+    line-height: 80px;
+
+    margin-left: 70px;
+
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+}
+
+#location_bar p.txt1 {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#location_bar p.txt2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*서브메뉴*/
+#sub_menu {
+    width: 1000px;
+    height: 100px;
+    /* background: yellow; */
+    margin: 80px auto;
+}
+
+#sub_menu li a {
+    display: block;
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    float: left;
+
+    text-align: center;
+    line-height: 100px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+#sub_menu li:nth-child(2) a {
+    border-left: 0;
+}
+
+#sub_menu li a:hover {
+    background: #cc0001;
+    color: #fff;
+}
+
+/*페이버릿 상품들*/
+#favorites_product {
+    width: 1280px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+#favorites_product ul {
+    width: 580px; height: 610px;
+    border: 1px solid #dedede;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 20px 10px;
+}
+#favorites_product ul li:nth-child(1) {
+    width: 580px; height: 390px;
+    background: orange;
+
+    position: relative;
+}
+#favorites_product ul li p.best {
+    position: absolute;
+    right: 20px; top:20px;
+}
+#favorites_product ul li p.best img {
+    width: 150px;
+}
+
+#favorites_product ul li div.box {
+    width: 580px; height: 390px;
+    background: rgba(0,0,0,0.7);
+
+    position: absolute;
+    left:0; top:0;
+
+    opacity: 0;
+}
+
+#favorites_product ul li:hover div.box {
+    opacity: 1;
+    transition: 1s;
+    cursor: pointer;
+} 
+ 
+#favorites_product ul li div.box h4 {
+    color:#fff;
+    font-size: 25px;
+    margin: 80px;
+}
+#favorites_product ul li div.box p.txt {
+    color:#fff;
+    opacity: 0.7;
+    margin: 50px;
+}
+#favorites_product ul li div.box p.btn {
+    color:#fff;
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+
+#favorites_product ul li:nth-child(2) {
+    padding-top: 40px;
+    color:#333; font-size: 24px;
+    letter-spacing: -2px;
+}
+
+#favorites_product ul li:nth-child(3){
+    width: 500px; height: 1px;
+    background: #dedede;
+    margin: 40px auto;
+}
+#favorites_product ul li:nth-child(4){
+font-size: 20px;
+}
+#favorites_product ul li img {
+    vertical-align: middle;
+}
+#favorites_product ul li span.line {
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 1px; height: 25px;
+    background: blue;
+    margin: 0 20px;
+}

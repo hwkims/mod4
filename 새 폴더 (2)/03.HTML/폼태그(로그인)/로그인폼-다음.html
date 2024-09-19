@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * { padding: 0; margin: 0;}
+        a { text-decoration: none;}
+        li { list-style: none;}
+
+        body { background: #ccc;}
+
+        #login { 
+            width: 1000px; background: #fff; 
+            border: 1px solid #ddd; margin: 0 auto;
+            text-align: center;
+        }
+        #login h2 {
+            padding-top: 70px;
+        }
+
+        #login p.top_txt {
+            padding: 30px 0 0 300px;
+            cursor: pointer;
+        }
+        #login p.top_txt img {
+            vertical-align: middle;
+        }
+
+        #login form fieldset {
+            width: 630px; 
+            margin: 0 auto;
+            border: 0;
+        }
+        #login form fieldset ul li {
+            margin: 10px 0;
+        }
+        input[type="text"], input[type="password"] {
+            width: 630px; height: 70px; border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 630px; height: 85px; background: #4c87ef;
+            border: 0; color:#fff; font-size: 20px; font-weight: bold; letter-spacing: -2px;
+            cursor: pointer;
+        }
+        input[type="checkbox"] {
+            width: 35px; height: 35px;
+            vertical-align: middle;
+        } 
+        #login form fieldset ul li:last-child {
+            text-align: left;
+            background: orange;
+            color:#333; font-size: 18px; font-weight: bold; letter-spacing: -1px;
+        }
+        #login form fieldset ul li:last-child b {
+            padding-left: 350px;
+        }
+        #login form fieldset ul li:last-child b span {
+            color:#4c87ef;
+        }
+        input[placeholder] {
+            padding-left: 10px;
+            font-size: 16px;
+            letter-spacing: -1px;
+        }
+
+        ::placeholder {
+            color:#999;
+        }
+
+        #login p.down {
+            margin: 20px 0;
+        }
+        #login p.down a {
+            color:#666; font-size: 16px; letter-spacing: -1px;
+        }
+        #login p.down span {
+            display: inline-block;
+            width: 1px; height: 10px;
+            background: red;
+            margin: 0 10px;
+        }
+        #login p.down a:hover {
+            color:#333;
+        }
+        #login p.banner {
+           margin: 100px 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="login">
+        <h2><a href="#a"><img src="images/daum.jpg"></a></h2>
+        <p class="top_txt"><img src="images/re_btn.jpg"> 다른방법으로 로그인</p>
+
+        <form>
+            <fieldset>
+                <ul>
+                    <li><input type="text" placeholder="아이디" autofocus></li>
+                    <li><input type="password" placeholder="비밀번호"></li>
+                    <li><input type="submit" value="로그인"></li>
+                    <li><input type="checkbox" checked> 로그인 상태 유지 <b>IP 보안 <span>ON</span></b></li>
+                </ul>
+            </fieldset>
+        </form>
+
+        <p class="down">
+            <a href="#a">아이디 찾기</a> <span></span> <a href="#a">비밀번호 찾기</a>
+        </p>
+
+        <p class="banner">
+            <a href="#a"><img src="images/daum_down.jpg"></a>
+        </p>
+
+    </div>
+</body>
+</html>

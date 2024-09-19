@@ -1,0 +1,222 @@
+/*웹폰트-배달의민족 을지로*/
+@font-face {
+    font-family: 'BMEULJIRO';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*웹폰트-배달의민족 도현체*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*웹폰트-배달의민족 연성체*/
+@font-face {
+    font-family: 'BMYEONSUNG';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMYEONSUNG.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*웹폰트-배달의민족 한나체pro*/
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*초기설정*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+/*레이아웃*/
+
+/*상단영역*/
+#header {
+    width: 1280px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+#header p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#header p.search input {
+    width: 400px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background: #fff url(../images/search_icon.jpg) no-repeat 360px center;
+    padding-left: 20px;
+
+}
+
+#header p[class *="icon"] a {
+    display: block;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid red;
+
+    background: url(../images/header_icon_bg.jpg);
+}
+
+#header p.icon1 {
+    margin-left: 400px;
+}
+
+#header p.icon2 a {
+    margin-left: 20px;
+    background-position: -50px 0;
+}
+
+#header p.icon3 a {
+    margin-left: 20px;
+    background-position: -100px 0;
+}
+
+
+
+/*메뉴영역*/
+#wrap_nav {
+    width: 100%;
+    height: 65px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+#nav {
+    width: 1280px;
+    height: 65px;
+    margin: 0 auto;
+}
+
+#nav>ul>li {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 65px;
+
+    position: relative;
+}
+
+
+
+
+/*전체메뉴 버튼*/
+#nav>ul>li:nth-child(1) {
+    width: 65px;
+    height: 65px;
+    background: yellow;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+#nav>ul>li:nth-child(1)>a {
+    margin: 0;
+    color: #666;
+    font-size: 24px;
+}
+
+/*프래그런스*/
+#nav>ul>li:nth-child(2) {
+    background: pink;
+    width: 180px;
+    height: 65px;
+    text-align: center;
+    line-height: 1;
+
+    padding-top: 13px;
+    box-sizing: border-box;
+}
+
+#nav>ul>li:nth-child(2)>a {
+    font-family: 'BMEULJIRO';
+
+    font-size: 20px;
+    color: #444;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+#nav>ul>li:nth-child(2) a span {
+    color: #fd6886;
+    font-size: 24px;
+}
+
+#nav>ul>li>a {
+    color: #222;
+    font-size: 16px;
+    letter-spacing: -1px;
+    font-weight: bold;
+
+    margin: 0 50px;
+}
+
+#nav>ul>li>a:hover {
+    color: #0f4138;
+}
+
+/*서브메뉴*/
+#nav>ul>li>ul.sub {
+    position: absolute;
+    left: 0;
+    top: 65px;
+
+    border: 1px solid #244f46;
+
+    display: none;
+}
+
+#nav>ul>li:hover>ul.sub {
+    display: block;
+}
+
+#nav>ul>li>ul.sub>li>a {
+    display: block;
+
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+    color: #244f46;
+    font-size: 16px;
+    letter-spacing: -1px;
+    font-weight: bold;
+
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+#nav>ul>li>ul.sub>li>a:hover {
+    background: #244f46;
+    color: #fff;
+}

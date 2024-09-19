@@ -1,0 +1,363 @@
+/*웹폰트- 배달의민족 도현*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*상단배너*/
+#membership_top {
+    width: 1280px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/*위치 표시줄*/
+#location_bar {
+    width: 1280px;
+    height: 80px;
+    /* background: pink; */
+    margin: 0 auto;
+    border-bottom: 1px solid #dedede;
+}
+
+#location_bar p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#location_bar p.home {
+    width: 65px;
+    height: 80px;
+    /* background: cyan; */
+    text-align: center;
+    line-height: 80px;
+
+    margin-left: 70px;
+
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+}
+
+#location_bar p.txt1 {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#location_bar p.txt2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*서브메뉴*/
+#sub_menu {
+    width: 1000px;
+    height: 100px;
+    /* background: yellow; */
+    margin: 80px auto;
+}
+
+#sub_menu li a {
+    display: block;
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    float: left;
+
+    text-align: center;
+    line-height: 100px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+#sub_menu li:nth-child(2) a {
+    border-left: 0;
+}
+
+#sub_menu li a:hover {
+    background: #cc0001;
+    color: #fff;
+}
+
+/*부메랑 클럽vip 배너*/
+#boomerang_section1 {
+    width: 1280px;
+    height: 400px;
+    /* background: yellow; */
+    margin: 50px auto;
+
+    position: relative;
+
+    overflow: hidden;
+    /*넘치는 영역 숨기기*/
+}
+
+#boomerang_section1 h2 {
+    padding: 50px 0 0 140px;
+    font-size: 28px;
+    letter-spacing: -2px;
+
+    line-height: 1;
+
+}
+#boomerang_section1 h2 span {
+    font-size: 16px;
+    letter-spacing: -1px;
+}
+
+#boomerang_section1 h4 {
+    padding: 50px 0 0 140px;
+    letter-spacing: -1px;
+
+    line-height: 1.6;
+
+    
+
+}
+#boomerang_section1 h4 span {    
+    font-weight: normal;
+}
+
+#boomerang_section1 p.boomerang {
+    position: absolute;
+    right: 0;
+    top:50px;
+}
+
+/*부메랑 혜택비교*/
+#boomerang_vs {
+    width: 1180px;
+    height: 560px;
+    /* background: pink; */
+    margin: 0 auto;
+}
+#boomerang_vs ul li {
+    width: 590px;
+    height: 560px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+#boomerang_vs ul li pre {
+    padding-top: 15px;
+
+    font-family: '맑은 고딕';
+    letter-spacing: -1px;
+    line-height: 1.6;
+    color:#666;
+}
+
+#boomerang_vs ul li pre strong {
+    font-size: 24px;
+}
+#boomerang_vs ul li pre strong span {
+    color:#cc0001;
+}
+#boomerang_vs ul li:nth-child(2){
+    background: #fafafa;
+    border-left: 0;
+}
+#boomerang_vs ul li p:hover img {
+    transform: rotate(-10deg);
+    transition: 1s;
+    cursor: pointer;
+}
+
+/*부메랑 쿠폰4단*/
+#boomerang_coupon {
+    width: 1180px;
+    /* background: pink; */
+    margin: 30px auto;
+}
+
+#boomerang_coupon ul li {
+    width: 1180px; height: 80px;
+    line-height: 80px;
+    border: 1px solid #ddd;
+    /* background: yellow; */
+    
+    border-top: 0;
+
+    position: relative;
+}
+
+#boomerang_coupon ul li p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#boomerang_coupon ul li:nth-child(1){
+    border-top: 1px solid #ddd;
+}
+
+#boomerang_coupon ul li p.red,
+#boomerang_coupon ul li p.black {
+    background: #cc0001;
+    width: 55px; height: 25px;
+    line-height: 25px;
+    text-align: center;
+
+    color:#fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    margin-left: 20px;
+}
+#boomerang_coupon ul li p.black {
+    background: #000;
+    margin-left: 0px;
+}
+
+#boomerang_coupon ul li p.txt1 {
+    color:#333; font-size: 18px;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+#boomerang_coupon ul li p.line {
+    width: 1px; height: 15px;
+    background: #ccc;
+    margin: 0 10px;
+}
+#boomerang_coupon ul li p.txt2 {
+    color:#666; font-size: 16px;
+    letter-spacing: -1px;
+}
+#boomerang_coupon ul li.last p.black {
+    margin-left: 20px;
+}
+
+#boomerang_coupon ul li p.btn {
+    position: absolute;
+    right: 50px;
+
+}
+
+#boomerang_coupon ul li i {
+    color:#333;
+    font-size: 28px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/*보여질박스*/
+#box1 {
+    width: 1180px; height: 300px;
+    background: #eee;
+    margin: 0 auto;
+    border: 1px solid blue;
+
+    display: none;
+}
+
+#box2 {
+    width: 1180px; height: 300px;
+    background: orange;
+    margin: 0 auto;
+    border: 1px solid blue;
+
+    display: none;
+
+}
+
+#box3 {
+    width: 1180px; height: 300px;
+    background: lawngreen;
+    margin: 0 auto;
+    border: 1px solid blue;
+
+    display: none;
+
+}
+
+#box4 {
+    width: 1180px; height: 300px;
+    background: lavender;
+    margin: 0 auto;
+    border: 1px solid blue;
+
+    display: none;
+
+}
+
+
+
+/*부메랑 포인트 적립*/
+#boomerang_point {
+    width: 1180px;
+    height: 560px;
+    background: pink;
+    margin: 60px auto;
+}
+#boomerang_point ul li {
+    width: 590px;
+    height: 560px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+#boomerang_point ul li pre {
+    padding-top: 50px;
+
+    font-family: '맑은 고딕';
+    letter-spacing: -1px;
+    line-height: 1.6;
+    
+}
+
+#boomerang_point ul li pre strong {
+    color:#333;
+    font-size: 18px;
+}
+
+#boomerang_point ul li:nth-child(2) {
+    border-left: 0;
+}
+#boomerang_point ul li p.t1,
+#boomerang_point ul li p.t2
+ {
+    margin-top: 5px;
+}
+#boomerang_point ul li p span {
+    display: inline-block;
+
+    background: #cc0001;
+    width: 55px; height: 25px;
+    line-height: 25px;
+    text-align: center;
+
+    color:#fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    margin-right: 5px;
+}
+#boomerang_point ul li p span.black {
+    background: #000;
+}
+#boomerang_point ul li p.title {
+    padding: 30px;
+    background: #ccc;
+}

@@ -1,0 +1,294 @@
+/*웹폰트- 배달의민족 도현*/
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#brand_top {
+    width: 1280px;
+    height: 500px;
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#brand_top div.box {
+    width: 1280px;
+    height: 500px;
+    line-height: 500px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    opacity: 0;
+}
+
+#brand_top div.box h2 {
+    color: #fff;
+    font-size: 38px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#brand_top:hover div.box {
+    opacity: 1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+/*위치 표시줄*/
+#location_bar {
+    width: 1280px;
+    height: 80px;
+    /* background: pink; */
+    margin: 0 auto;
+    border-bottom: 1px solid #dedede;
+}
+
+#location_bar p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#location_bar p.home {
+    width: 65px;
+    height: 80px;
+    /* background: cyan; */
+    text-align: center;
+    line-height: 80px;
+
+    margin-left: 70px;
+
+    border-left: 1px solid #bcbcbc;
+    border-right: 1px solid #bcbcbc;
+}
+
+#location_bar p.txt1 {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#location_bar p.txt2 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*서브메뉴*/
+#sub_menu {
+    width: 1000px;
+    height: 100px;
+    /* background: yellow; */
+    margin: 80px auto;
+}
+
+#sub_menu li a {
+    display: block;
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    float: left;
+
+    text-align: center;
+    line-height: 100px;
+
+    color: #333;
+    font-size: 24px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+#sub_menu li:nth-child(2) a {
+    border-left: 0;
+}
+
+#sub_menu li a:hover {
+    background: #cc0001;
+    color: #fff;
+}
+
+/*loveback 캠페인 영역*/
+#loveback_section1 {
+    width: 1280px;
+    height: 1000px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+#loveback_section1 ul li {
+    width: 450px;
+    height: 450px;
+    /* background: cyan; */
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 25px;
+    text-align: left;
+
+    position: relative;
+}
+
+#loveback_section1 ul li h2 {
+    font-family: 'Impact';
+    color: #333;
+    font-size: 60px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+#loveback_section1 ul li pre {
+    padding-top: 30px;
+    font-family: '맑은 고딕';
+    color: #222;
+    font-size: 18px;
+    letter-spacing: -1px;
+    line-height: 1.6;
+}
+
+#loveback_section1 ul li:nth-child(2) {
+    text-align: center;
+}
+
+#loveback_section1 ul li:nth-child(2) h4 {
+    padding-top: 150px;
+    color: #af0018;
+    font-size: 20px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+#loveback_section1 ul li:nth-child(2) p.txt1 {
+    padding-top: 30px;
+    color: #333;
+    font-size: 16px;
+    letter-spacing: -1px;
+}
+
+#loveback_section1 ul li:nth-child(2) p.icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+}
+
+#loveback_section1 ul li:hover img {
+    transform: rotate(-15deg);
+    transition: 1s;
+}
+
+p.line {
+    width: 1000px;
+    height: 1px;
+    /* background: red; */
+    margin: 50px auto;
+}
+
+/*사회공헌 3가지 테마*/
+#loveback_section2 {
+    width: 1280px;
+    height: 420px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+#loveback_section2 h2 {
+    text-align: left;
+    padding-left: 140px;
+}
+
+#loveback_section2 h2 img {
+    vertical-align: middle;
+}
+
+#loveback_section2 p.txt {
+    text-align: left;
+    padding: 10px 0 0 140px;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+#loveback_section2 ul li {
+    width: 250px;
+    height: 250px;
+    /* background: red; */
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 30px 50px;
+    font-size: 20px;
+}
+
+#loveback_section2 ul li 
+{
+    font-size: 20px;
+
+}
+#loveback_section2 ul li.line {
+    width: 1px;
+    height: 165px;
+    /* background: blue; */
+    margin: 0 10px;
+}
+
+/*2019년 사회공헌통계*/
+#loveback_section3 {
+    width: 1280px;
+    margin: 30px auto;
+    text-align: center;
+
+}
+
+#loveback_section3 h2 {
+    text-align: left;
+    padding-left: 140px;
+    letter-spacing: -2px;
+ 
+}
+
+#loveback_section3 h2 img {
+    vertical-align: middle;
+}
+
+/*표*/
+#loveback_section3 table {
+    border-collapse: collapse;
+    margin: 50px auto;
+    letter-spacing: -1px;
+
+}
+
+#loveback_section3 table td {
+    border: 1px solid #eaeaea;
+} 
+#loveback_section3 table td.left span{
+    font-size: 13px;
+    color: #777;
+}
+
+#loveback_section3 table td.left {
+    text-align: left;
+    padding-left: 20px;
+
+}
+
+#loveback_section3 table tr.title td {
+    background: #f9f9f9;
+    font-weight: bold;
+}

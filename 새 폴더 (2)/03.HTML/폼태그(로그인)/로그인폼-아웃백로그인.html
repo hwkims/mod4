@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { padding: 0; margin: 0;}
+        a { text-decoration: none;}
+        li { list-style: none;}
+
+        #login {
+            width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #login h2 {
+            padding-top: 60px;
+
+            color:#333; font-size: 38px;
+            letter-spacing: -3px;
+        }
+
+        #login h4 {
+            padding-top: 30px;
+
+            color:#666; font-size: 16px;
+            letter-spacing: -1px;
+            font-weight: normal;
+        }
+
+        #login fieldset {
+            width: 945px; height: 240px;
+            margin: 40px auto;
+            border: 1px solid #ddd;
+        }
+        #login ul { 
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 50px;
+        }
+        #login ul.left {
+            width: 320px; height: 110px;
+        }
+
+        #login ul.right {
+            width: 100px; height: 110px;
+        }
+
+        input[type="text"] {
+            width: 320px; height: 50px;
+            border: 1px solid #ccc;
+            background: #fff;
+            box-sizing: border-box;
+        }
+        input[type="password"] {
+            margin-top:10px;
+
+            width: 320px; height: 50px;
+            border: 1px solid #ccc;
+            background: #fff;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100px; height: 110px;
+            background: #cc0001;
+            color:#fff;
+            font-weight: bold;
+            letter-spacing: -1px;
+            border: 0;
+            cursor: pointer;
+        }
+        input[placeholder]{
+            padding-left: 10px;
+            font-size: 14px; font-weight: bold; letter-spacing: -1px;
+        }
+
+        #login fieldset p {
+            width: 425px;
+            margin: 10px auto;
+            background: cyan;
+            text-align: left;
+
+            color:#666; font-size: 14px; letter-spacing: -1px;
+        }
+
+
+        input[type="checkbox"] {
+            width: 25px; height: 25px;
+            vertical-align: middle;
+        }
+
+        #login fieldset p b { padding-left: 140px;}
+
+        #login fieldset p a {
+            color:#666; font-size: 14px;
+            letter-spacing: -1px; font-weight: bold;
+        }
+        #login fieldset p span {
+            display: inline-block;
+            width: 1px; height: 10px;
+            background: red; 
+            margin: 0 10px;
+        }
+
+        #login p.txt {
+            color:#888; font-size: 14px;
+            letter-spacing: -1px;   
+        }
+        #login p.btn {
+            width: 460px; height: 60px;
+            background: #333;
+            text-align: center;
+            line-height: 60px;
+
+            color:#fff; font-weight: bold;
+            font-size: 20px; letter-spacing: -1px;
+
+            margin: 30px auto;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="login">
+
+        <h2>아웃백 로그인</h2>
+        <h4>로그인을 하시면 아웃백의 다양한 서비스를 이용하실 수 있습니다.</h4>
+
+        <form>
+            <fieldset>
+                <ul class="left">
+                    <li><input type="text" placeholder="아이디 입력" autofocus></li>
+                    <li><input type="password" placeholder="비밀번호 입력"></li>
+                </ul>
+
+                <ul class="right">
+                    <li><input type="submit" value="로그인"></li>
+                </ul>
+
+            <p>
+                <input type="checkbox" checked> 아이디 저장 
+                <b></b> 
+                <a href="#a">아이디 찾기</a> 
+                <span></span>
+                <a href="#a">패스워드 찾기</a>
+            </p>
+            </fieldset>
+        </form>
+
+        <p class="txt">아직 아웃백 계정이 없으신가요?</p>
+        <p class="btn">회원가입</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,384 @@
+* {margin: 0px; padding: 0px;}
+* {text-decoration: none;}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+
+}
+
+/* web font */
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+/*메인화면*/
+#main {
+    width: 1280px;
+    height: 600px;
+    background: url(../images/main_bg.jpg);
+    margin: 0 auto;
+
+    position: relative;
+
+}
+
+#main h4 {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+#main h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#main h6 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+
+    color: #fff;
+    font-size: 44px;
+    letter-spacing: -4px;
+
+    /* background: linear-gradient(to right, #f56622, #f9a626);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+#main p {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+
+    text-align: center;
+    line-height: 70px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+#main p.prev {
+    left: 30px;
+}
+
+#main p.next {
+    right: 30px;
+}
+
+#main p:hover {
+    background: #000;
+}
+
+#main ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+}
+
+#main ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#main ul li a {
+    display: block;
+
+    width: 110px;
+    height: 110px;
+    background: #fff;
+    border-radius: 50%;
+
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#main ul li:nth-child(1) a {
+    background: #fff url(../images/main_bg_icon1.png) no-repeat center;
+}
+
+#main ul li:nth-child(2) a {
+    background: #fff url(../images/main_bg_icon2.png) no-repeat center;
+}
+
+#main ul li:nth-child(3) a {
+    background: #fff url(../images/main_bg_icon3.png) no-repeat center;
+}
+
+#main ul li:nth-child(1):hover a {
+    background: #f87545 url(../images/main_bg_icon1_r.png) no-repeat center;
+}
+
+#main ul li:nth-child(2):hover a {
+    background: #f87545 url(../images/main_bg_icon2_r.png) no-repeat center;
+}
+
+#main ul li:nth-child(3):hover a {
+    background: #f87545 url(../images/main_bg_icon3_r.png) no-repeat center;
+}
+
+/*시럽안내배너*/
+#syrup_app {
+    width: 1280px;
+    height: 900px;
+    background: #f0f0f0;
+    margin: 0 auto;
+
+    position: relative;
+}
+
+#syrup_app p.img {
+    position: absolute;
+    left: 150px;
+    top: 40px;
+}
+
+#syrup_app h2 {
+    position: absolute;
+    right: 130px;
+    top: 150px;
+
+    color: #333;
+    font-size: 74px;
+    font-weight: bold;
+    letter-spacing: -7px;
+}
+
+#syrup_app h2 span {
+    background: linear-gradient(to right, #f56622, #f9a626);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#syrup_app p.prev,
+#syrup_app p.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 70px;
+    height: 70px;
+    background: #999;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#syrup_app p.prev {
+    left: 30px;
+}
+
+#syrup_app p.next {
+    right: 30px;
+}
+
+#syrup_app p.prev:hover,
+#syrup_app p.next:hover {
+    background: #000;
+}
+
+#syrup_app ul {
+    position: absolute;
+    left: 710px;
+    bottom: 250px;
+}
+
+#syrup_app ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#syrup_app ul li a {
+    display: block;
+
+    width: 80px;
+    height: 80px;
+    background: #bbb url(../images/app_icon_bg.png);
+    border-radius: 50%;
+
+    margin: 0 5px;
+}
+
+#syrup_app ul li:nth-child(2) a {
+    background-position: -80px 0;
+}
+
+#syrup_app ul li:nth-child(1):hover a {
+    background-color: #fff;
+    background-position: 0 -80px;
+}
+
+#syrup_app ul li:nth-child(2):hover a {
+    background-color: #fff;
+    background-position: -80px -80px;
+}
+
+
+#syrup_app ol {
+    position: absolute;
+    left: 710px;
+    bottom: 150px;
+
+}
+
+#syrup_app ol li {
+    width: 30px;
+    height: 30px;
+    background: #bbb;
+    border-radius: 50%;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0 10px;
+}
+
+#syrup_app ol li:nth-child(1) {
+    width: 70px;
+    height: 30px;
+    background: #fa7646;
+    border-radius: 15px;
+}
+
+/*6단배너*/
+#banner {
+    width: 1280px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+#banner ul li {
+
+    position: relative;
+
+    width: calc(100%/3);
+    height: 300px;
+    line-height: 300px;
+    background: cyan;
+
+    float: left;
+
+    color: #fa7646;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: -6px;
+    text-align: center;
+    background: #fff;
+    text-transform: uppercase;
+    /*전부다 대문자*/
+}
+
+#banner ul li:nth-child(1) {
+    text-transform: capitalize;
+    /*앞글자만 대문자*/
+}
+
+#banner ul li:nth-child(3) {
+    background: #fff url(../images/middle_icon3.png) no-repeat right bottom;
+}
+
+#banner ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+#banner ul li div.box {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    background: rgba(135, 57, 19, 0.6);
+
+    display: none;
+}
+
+#banner ul li div.box p {
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: -2px;
+}
+
+#banner ul li:hover div.box {
+    display: block;
+    cursor: pointer;
+}
+
+/*미디어영역*/
+#media {
+    width: 1280px;
+    height: 600px;
+    background: url(../images/media_bg.jpg);
+    margin: 0 auto;
+    text-align: center;
+}
+
+#media h2 {
+    font-family: 'BMHANNAPro';
+
+    padding-top: 60px;
+    color: #fff;
+    font-size: 72px;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+#media p.play {
+    padding-top: 60px;
+}
+
+#media p.btn a {
+    display: block;
+
+    width: 285px;
+    height: 65px;
+    line-height: 65px;
+
+    background: #f1592a;
+    text-align: center;
+
+    margin: 60px auto;
+    border-radius: 60px;
+
+    color: #fff;
+    font-size: 28px;
+    font-family: 'BMHANNAPro';
+    letter-spacing: -1px;
+
+}
+
+/*지도맵*/
+#map {
+    width: 1280px;
+    height: 700px;
+    margin: 0 auto;
+}

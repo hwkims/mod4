@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #ex { 
+            width: 500px; height: 150px; border: 1px solid #aaa; margin: 0 auto;
+            border-radius: 30px; padding: 20px;
+         }
+         .box { width: 60px; height: 60px; background: orange; font-size: 12px; margin-bottom: 10px;}
+
+         #ex:hover .box {
+            margin-left: 420px;
+            transform: rotate(720deg);
+
+         }
+
+         #no-delay {
+            transition-duration: 3s;
+            border: 1px solid #ff6a00;
+         }
+
+         #delay {
+            transition-delay: 1s;
+            
+            transition-duration: 3s;
+            border: 1px solid #ff6a00;
+         }
+    </style>
+
+</head>
+<body>
+   <div id="ex">
+
+    <div id="no-delay" class="box">no-delay</div>
+    <div id="delay" class="box">delay</div>
+
+   </div>
+</body>
+</html>

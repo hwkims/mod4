@@ -1,0 +1,542 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="euc-kr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="../resources/pc/css/common.css" media="screen" rel="stylesheet">
+    <link href="../resources/pc/css/site.css" media="screen" rel="stylesheet">
+    <link href="../resources/pc/css/kcp_layer.css?20240708100445350" media="screen" rel="stylesheet">
+    <script src="../resources/pc/js/jquery-3.6.0.min.js"></script>
+    <script src="../resources/pc/js/common.js"></script>
+    <script src="../resources/pc/js/design.js"></script>
+
+    <title>휴대폰본인확인_문자(SMS)인증_NHN KCP</title>
+    <script>
+        var useCookie = "true";
+        var preSelectUserName = "";
+        var preSelectPhoneNo = "";
+    </script>
+    
+<script>
+//공용
+var TELCOM_SELECT_URL_RW       = "telcomSelect.jsp";
+
+// 모바일
+var MO_PUSH_ACTION_URL_RW      = "pushForm.jsp";
+var MO_PASS_ACTION_URL_RW      = "passConfrim.jsp";
+
+var MO_SMS_ACTION_URL_RW       = "smsForm.jsp";
+var MO_OTP_FORM_URL_RW         = "smsOtpForm.jsp";
+var MO_PUSH_CONFIRM_URL_RW     = "pushConfirm.jsp";
+
+var MO_SMS_FAIL_URL_RW         = "smsFail.jsp";
+var MO_PASS_FAIL_URL_RW        = "passFail.jsp";
+
+var MO_PASS_APP_INSTALL_RW     = "passInstall.jsp";
+
+var MO_CERT_TELCOM_RW          = "../proc/m_cert_telcom.jsp";
+var MO_CERT_OTP_TX_RW          = "../proc/m_cert_otp_tx.jsp";
+
+var MO_MVNO_TELCOM_RW          = "mvnoTelcomConfirm.jsp";
+
+// PC
+
+var PC_MVNO_TELCOM_RW          = "mvnoTelcomConfirm.jsp";
+
+var PC_PUSH_QR_ACTION_URL_RW   = "pushQRForm.jsp";
+var PC_PUSH_CONFIRM_URL_RW     = "pushConfirm.jsp";
+var PC_PUSH_QR_FAIL_URL_RW     = "pushQRFail.jsp";
+
+var PC_SMS_ACTION_URL_RW       = "smsForm.jsp";
+var PC_OTP_FORM_URL_RW         = "smsOtpForm.jsp";
+var PC_SMS_FAIL_URL_RW         = "smsFail.jsp";
+
+var PC_PASS_APP_INSTALL_RW     = "passInstall.jsp";
+
+var PC_CERT_TELCOM_RW          = "../proc/cert_telcom.jsp";
+var PC_CERT_OTP_TX_RW          = "../proc/cert_otp_tx.jsp";
+
+var CERT_RESULT_URL_RW         = "../common/result.jsp";
+
+// 공통
+var IFRAME_TX_APP_PROCESS_RW   = "../proc/iframe_tx_app_process.jsp";
+</script>
+    <script src="../js/common/certCommon.js?20240708100445350"></script>
+    <script src="../js/common/vaildChkUtil.js?20240708100445350"></script>
+    <script src="../js/common/certDataUtil.js?20240708100445350"></script>
+    <script src="../js/common/captcahUtil.js?20240708100445350"></script>
+    <script src="../js/common/localStorageUtil.js?20240708100445350"></script>
+    <script src="../js/common/popupUtil.js?20240708100445350"></script>
+    <script src="../js/common/iframeSizeUtil.js?20240708100445350"></script>
+    <script src="../js/common/comKcpLayer.js?20240708100445350"></script>
+    <script src="../js/common/preInputUtil.js?20240708100445350"></script>
+    <script src="../js/pc/smsForm.js?20240708100445350"></script>
+
+    <script type="text/javascript" src="/pluginfree/jsp/nppfs.script.jsp"></script>
+    <script type="text/javascript" src="/pluginfree/js/nppfs-1.9.0.js"></script>
+    <script type="text/javascript" src="/pluginfree/jsp/nppfs.kcp.jsp"></script>
+    
+    <script>
+        var PRE_USE_YN          = "N";
+        var PRE_CERT_FIXED_TYPE = "";
+        var PRE_CERT_MODIFY_YN  = "";
+        var PRE_MASK_YN         = "";
+        var PRE_INPUT_OLD_TYPE  = "";
+
+        var PRE_INPUT_USER_NAME = "";
+        var PRE_INPUT_PHONE_NO  = "";
+        var PRE_INPUT_BIRTH_DAY = "";
+        var PRE_INPUT_SSNO_CODE = "";
+    </script>
+</head>
+
+<body>
+<!-- 푸터 .is-fixed 제거시 #wrap에 .pd-0 추가 -->
+<!-- 배너 .is-fixed 제거시 #wrap에 .is-bannerfix 제거 -->
+<div id="wrap" class="">
+    <header id="header">
+        <h1>
+            <a href="javascript:;"><img src="../resources/pc/img/logo_pass.png" alt="PASS"></a>
+        </h1>
+
+        <ul class="gnb_wrap">
+            <li><a href="javascript:fn_goNext( PC_PUSH_QR_ACTION_URL );" id="qr_auth" title="선택하기">PASS로 인증하기</a></li>
+            <li class="on"><a href="javascript:;" id="sms_auth" title="선택됨">문자(SMS)로 인증하기</a></li>
+        </ul>
+    </header>
+
+    <section id="ct" class="certify_user2 certifyWrap certifyWrap_02">
+        <!-- [인증번호 재발송]유효키 매개변수 부정조작 방지 세팅.(KISA 웹 취약점 조치) - 2014.02.04 -->
+        <form name="form_hash" id="form_hash" method="post">
+            <input type="hidden" name="otp_hash_no" value="" />
+        </form>
+        <form name="form_auth" id="form_auth" method="post" action="./cert_telcom.jsp" onsubmit="return false;">
+
+            <div id="nppfs-loading-modal" style="display:none;"></div>
+            <div class="nppfs-elements"   style="display:none;"></div>
+            <div class="nppfs-keypad-div" style="display:none;"></div>
+
+            <div class="">
+                <fieldset>
+                    <legend>휴대폰 본인확인 입력</legend>
+                    <ul class="frm_type">
+                        <li class="name">
+                            <h3><label for="user_name">이름</label></h3>
+                            <div class="input input_del" id="divUserName">
+                            <!-- 2021-12-28 : title 추가 -->
+                                <input type="text" autocomplete="name" name="user_name" id="user_name" placeholder="성명입력" value="" title="성명입력">
+                            </div>
+                        </li>
+                        <li class="mynum">
+                            <h3><label for="mynum1">생년월일/성별</label></h3>
+                            <ul class="ui_cols">
+                                <li>
+										<span class="input input_mynum" id="spanMynum1">
+											<input type="text" name="mynum1" id="mynum1" maxlength="6" title="주민등록번호 앞 6자리"
+                                                   onkeyup="this.value=this.value.replace(/[^0-9]/g,'');checkLastInput(this);"
+                                                   onkeypress="setOnlyNumber(event);">
+											<span class="mark firsChild" id="mynum1_mark"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+										</span>
+                                </li>
+                                <li><i></i></li>
+                                <li>
+										<span class="input input_mynum last" id="spanMynum2">
+											<input type="text" name="mynum2" id="mynum2" maxlength="1" title="주민등록번호 뒤 첫번째 자리"
+                                                   onkeyup="this.value=this.value.replace(/[^0-9]/g,'');checkLastInput(this);"
+                                                   onkeypress="setOnlyNumber(event);">
+											<span class="mark firstChild" id="mynum2_mark"><i></i></span>
+										</span>
+                                    <span class="mynum_after"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3><label for="phone_no_rKey">휴대폰번호</label></h3>
+                            <div class="input input_del input-keypad" id="divPhoneNo">
+                                <button type="button" class="btn-keypad"
+                                        id="buttonKeypad"><span>보안키패드 전환</span></button>
+                                <!-- 보안키패드 활성화: .is-on -->
+                                <!-- <button type="button" class="btn-keypad is-on"><span>보안키패드 전환</span></button> -->
+
+                                <!--<input type="text" name="mobileno" id="mobileno" placeholder="숫자만 입력" title="숫자만 입력" maxlength="11"> -->
+                                <input type="text" id="phone_no_vKey" name="phone_no_vKey" title="휴대폰번호 입력" maxlength="11" placeholder="숫자만 입력"
+                                       value=""
+                                       autocomplete="off"
+                                       npkencrypt="on" data-keypad-type="num"
+                                       onkeyup="checkLastInput(this);"
+                                       style="ime-mode:disabled;"
+                                />
+
+                                <input type="tel" id="phone_no_rKey" name="phone_no_rKey" placeholder="숫자만 입력" maxlength="11" title="휴대폰번호 입력"
+                                       onkeyup="this.value=this.value.replace(/[^0-9]/g,'');checkLastInput(this);"
+                                       onkeypress="setOnlyNumber(event);">
+
+                            </div>
+                        </li>
+                        <li>
+                            <h3><label for="captcha_no">보안문자</label></h3>
+                            <div class="input input_del secur_wrap">
+                                <div class="num_area">
+                                    <!-- 보안숫자 영역 -->
+                                    <!-- kcp: 산출물에 존재하지 않는 파일 -->
+                                    <!-- <link type="text/css" rel="stylesheet" href="/botdetectcaptcha?get=layout-stylesheet&amp;t=1609981200" /> -->
+                                    <div class="BDC_CaptchaDiv " id="CAPTCHA_CaptchaDiv" style="width: 100% !important; height: 33px !important; ">
+                                        <div class="BDC_CaptchaImageDiv" id="CAPTCHA_CaptchaImageDiv" style="float:left; max-width: 166px !important;width:calc(100% - 23px) !important;">
+                                            <img class="BDC_CaptchaImage" id="CAPTCHA_CaptchaImage" src="../resources/pc/img/secur_num_dummy.png" alt="보안문자" />
+                                        </div>
+                                        <div class="BDC_CaptchaIconsDiv" id="CAPTCHA_CaptchaIconsDiv" style="display: inline-block; float: left; width: 19px !important; margin-left: 4px;">
+                                            <a class="BDC_ReloadLink" id="CAPTCHA_ReloadLink" href="javascript:;" title="보안문자 새로고침" onclick="fn_captchaReload();">
+                                                <img class="BDC_ReloadIcon" id="CAPTCHA_ReloadIcon" src="../resources/pc/img/return.png" alt="보안문자 새로고침" />
+                                            </a>
+                                            <a rel="nofollow" class="BDC_SoundLink" id="CAPTCHA_SoundLink" href="javascript:;" title="보안문자 음성듣기" onclick="fn_captchaSoundPlay();">
+                                                <img class="BDC_SoundIcon" id="CAPTCHA_SoundIcon" src="../resources/pc/img/audio.png" alt="보안문자 음성듣기" />
+                                            </a>
+                                            <div class="BDC_Placeholder" id="CAPTCHA_AudioPlaceholder">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ipt_area">
+                                    <div class="input input_del">
+                                        <!-- 2021-12-28 : title 추가 -->
+                                        <input type="text" autocomplete="off" name="captcha_no" id="captcha_no" placeholder="보안문자 입력" maxlength="5" value="" title="보안문자 입력"
+                                               onkeyup="this.value=this.value.replace(/[^0-9]/g,'');checkLastInput(this);"
+                                               onkeypress="setOnlyNumber(event);">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="myInfoSaveSelect">
+								<span class="checkbox check2">
+									<input type="checkbox" id="myInfoSave">
+									<label for="myInfoSave">인증정보(이름/휴대폰번호) 기억하기</label>
+									<label for="myInfoSave">인증정보(이름/휴대폰번호) 기억하기</label>
+								</span>
+                        </li>
+                    </ul>
+                </fieldset>
+                <div class="certi_btn_area">
+                    <ul class="btn_area2 bt2">
+                        <li><button type="button" id="btnCancel" class="btn_r btn_type6">취소</button></li>
+                        <li><button type="button" id="btnSubmit" class="btn_r btn_type btn_type3">확인</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 요청종류 -->
+            <input type="hidden" name="req_tx"            value="auth"                              />
+
+            <input type="hidden" name="shopInfo_require_yn" value=""/>
+
+            <!-- 인증종류 -->
+            <input type="hidden" name="cert_type"         value="01"/>
+            <!-- 주 거래구분 -->
+            <input type="hidden" name="tx_type"           value="0001"/>
+            <!-- 성별 -->
+            <input type="hidden" name="sex_code"          value="" id="sex_code" />
+            <input type="hidden" name="local_code"        value="" />
+            
+            <input type="hidden" name="month"             value="0"/>
+            <input type="hidden" name="day"               value="0"/>
+            <input type="hidden" name="year"              value="0"/>
+            
+            <!-- 주문번호 -->
+            <input type="hidden" name="ordr_idxx"         value="2024070810174423"/>
+            <!-- 주문번호 -->
+            <input type="hidden" name="auth_type"         value=""/>
+            <!-- otp 사용여부 -->
+            <input type="hidden" name="cert_otp_use"      value=""/>
+            <!-- cert_enc_use 필수 (빈값) -->
+            <input type="hidden" name="cert_enc_use"      value="Y"/>
+            <!-- cert_enc_use 필수 (빈값) -->
+            <input type="hidden" name="cert_enc_use_ext"  value="Y"/>
+            <!-- 통신사 코드 -->
+            <input type="hidden" name="comm_id"           value="KTF"/>
+            <!-- 사이트 코드 사용유무 -->
+            <input type="hidden" name="web_siteid_hashYN" value=""/>
+            <!-- 사이트 코드 -->
+            <input type="hidden" name="web_siteid"        value=""/>
+            <!-- 인증 종류 -->
+            <input type="hidden" name="cert_method"       value=""/>
+            <!-- up hmac -->
+            <input type="hidden" name="up_hash"           value="7B058DE57C1EA01F367D0CB0F19E44208BB0D084"/>
+            <input type="hidden" name="kcp_merchant_time" value=""/>
+            <!-- info_code -->
+            <input type="hidden" name="info_code"         value="077E06C4DD826B6D1344E9FC01261D0B"/>
+
+            <input type="hidden" name="site_name"         value=""/>
+            <input type="hidden" name="good_code"         value=""/>
+            <input type="hidden" name="b2b_yn"            value=""/>
+            <input type="hidden" name="cp_code"           value=""/>
+            <input type="hidden" name="app_time"          value=""/>
+
+            <input type="hidden" name="site_cd"           value="AK6MU"/>
+            <input type="hidden" name="site_key"          value=""/>
+
+            <input type="hidden" name="Ret_Noti"          value=""/>
+            <input type="hidden" name="Ret_URL"           value="https://cheatdot.com/plugin/kcpcert/kcpcert_result.php"/>
+            <input type="hidden" name="Logo_URL"          value="./images/logo_kcp.gif"/>
+
+            <input type="hidden" name="res_cd"            value=""                                  />
+            <input type="hidden" name="res_msg"           value=""                                  />
+
+            <input type="hidden" name="param_opt_1"       value="b3B0MQ=="/>
+            <input type="hidden" name="param_opt_2"       value="b3B0Mg=="/>
+            <input type="hidden" name="param_opt_3"       value="b3B0Mw=="/>
+
+            <input type="hidden" name="user_name_url_yn"  value=""/> 
+
+            <input type="hidden" name="cert_01_yn"        value="X"/>  <!-- 실명 여부 -->
+            <input type="hidden" name="cert_02_yn"        value="X"                                 />  <!-- 점유 여부 -->
+
+            <input type="hidden" name="log_trace_no"      value="AK6MUm0RhOjKEi55"/>
+
+            <input type="hidden" name="mvno_code"         value=""/>  <!-- 알뜰폰 통신사 구분코드 -->
+
+            <input type="hidden" name="per_cert_no"       value=""                                  />  <!-- KT 알뜰폰 인증번호 -->
+            <input type="hidden" name="cert_no"           value=""                                  />  <!-- KT 알뜰폰 인증번호 -->
+
+            <input type="hidden" name="cc"                value=""                                  />  
+
+            <input type="hidden" name="birth_day"         value=""                                  />  
+
+            <input type="hidden" name="mvno_name"         value=""                                  />  
+
+            <input type="hidden" name="cert_ui_type"      value="SMS"                               />  
+
+            <input type="hidden" name="cert_locale"       value=""                 />
+            <input type="hidden" name="cert_ver"          value=""                    />
+            <input type="hidden" name="kenc"             value="D7672958A83280D28B0135623DBB69CC2A458EA07E140CE57BACB67BA9CD8008309366803E60FBDF487E26FC1A86FFE701AC19F45821B7A9628E49681A6EE0D0BB9702FBF5398F51009F42833C14666F22C7627CDE10542486822ED2990A7BBC20AECD95E12CD71D389B70A6091D7DBD27A7FB8FF1B9B62DBDE98748C92A86E23F68E53BD3358BED74606315CF71374C09578655808961A9E3F2C3E33802F24ABC5B0C02F0FC4C52A0B226DCF94812A2B5FD8B27826447F99D7FD60545B23D3D"                       />
+
+            <input type="hidden" name="shop_order_type"      value=""                      />
+            <input type="hidden" name="ymd_autoset_yn"       value=""                       />
+
+            <input type="hidden" name="ruhs"       		value="60B5712A6786B8A634CF443CF7CF85AFC70ECAD3"                 />
+            <input type="hidden" name="accessTime"       	value="20240708101744794"                 />
+
+            <input type="hidden" name="CI"                value=""                                  />
+            <input type="hidden" name="DI"                value=""                                  />
+            <input type="hidden" name="CI_URL"            value=""                                  />
+            <input type="hidden" name="DI_URL"            value=""                                  />
+
+            <input type="hidden" name="server_hash"       value=""                                  />
+            <input type="hidden" name="site_url"          value=""                                  />
+
+            <input type="hidden" name="cert_guard_yn"     value=""                                  />
+
+            <input type="hidden" name="safe_guard_yn"     value=""                                  />
+            <input type="hidden" name="CI_ENC_YN"         value=""                                  />
+            
+            <input type="hidden" name="enc_cert_data2"    value=""                                               />  <!-- 암호화 데이터 2 -->
+            
+
+            <input type="hidden" name="otp_hash_no" value="" />
+
+            <input type="hidden" name="localStorageData"        value=""                 />
+            
+            <input type="hidden" name="PRE_USE_YN"        value="N"                 />
+        </form>
+        <div class="passCertiInfo">
+            <ul>
+                <li>
+                    <p>
+                        PASS앱 설치 및 가입 후 이용이 가능합니다. <br>
+                        앱마켓(구글 플레이스토어 / 애플 앱스토어) 에서
+                        <span class="highlighter"><strong>“PASS”</strong> 검색!</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- captcha 사용시 필요함-->
+    <iframe src="" id="kcp_captcha" name="kcp_captcha" title="보안문자_프레임" width="0" height="0" frameborder="0"></iframe>
+
+    <!-- 하단 배너 -->
+    <!-- .is-fixed: fix추가, .is-hide: 숨김 -->
+    <div id="footerBanner" class="footerBanner">
+        
+        <img src="../resources/pc/img/pc_bn_b2b_kt.png?ver=20230622" alt="인증을 넘어 일상으로 PASS">
+        
+    </div>
+    
+    <!-- footer 처리 -->
+    
+<!-- 푸터 숨김: class="is-hide" -->
+<div id="footer" class="is-fixed">
+    <div class="footer-kcp">
+        <!-- 240122 레이어팝업으로 수정 -->
+        <p class="txt"><a href="javascript:void(0);" class="footerAgreePop" id="footerAgree01" title="이용약관">이용약관</a> <span class="bar"></span> <a href="javascript:void(0);" class="footerAgreePop" id="footerAgree02" title="개인정보처리방침">개인정보처리방침</a> <br> 고객센터 : 1666-6410 </p>
+        <!-- <p class="txt"><a href="https://m.kcp.co.kr/popup/policy" target="_blank" title="새창열림">이용약관</a> <span class="bar"></span> <a href="https://m.kcp.co.kr/popup/privacy" target="_blank" title="새창열림">개인정보처리방침</a> <br> 고객센터 : 1666-6410 </p> -->
+        <!-- //240122 레이어팝업으로 수정 -->
+        
+        <div class="logo">
+            <span><img src="../resources/mo/img/logo_sa.png" alt="SA 소프트웨어 접근성 인증" class="img-logo"></span>
+            <span><img src="../resources/mo/img/logo_kcp.png" alt="NHN KCP" class="img-logo"></span>
+        </div>
+    </div>
+</div>
+
+<!-- 하단 레이어팝업 -->
+<div class="addInputPop layerPopupWrap" id="layerAgreePopFooter">
+    <div class="dim"></div>
+    <div class="layer-pop agreementFooter">
+        <div class="pop-tit" id="agreeTitleFooter">하단 개인정보처리방침</div>
+        <div class="pop-con" tabindex="0">
+            <!-- NICE평가정보㈜ (이하 "회사"라 함)는「신용정보의 이용 및 보호에 관한 법률」,「정보통신망 이용촉진 및 정보보호 등에 관한 법률」,「개인정보 보호법」 등 관련 법령에 따라 본 개인정보 처리방침을 정하 고, 개인정보주체의 개인
+            정보 보호에 최선을 다하고 있습니다.<br>
+            <br>
+            제1조 개인정보의 수집·이용·처리 목적, 수집하는 개인정보의 항목 및 수집방법<br>
+            회사는 개인(신용)정보를 「신용정보의 이용 및 보 호에 관한 법률」 및 같은 법 시행령에 따라 신용 조회업무를 위한 신용정보, 개인식별정보 및 주민 등 록번호, 「정보통신망 이용촉진 및 정보보호에 관한 법률」에 따른 본인확인업무를 위한 개인정보 등을 수집하여 처리하고 있습니다. 또한 아래와 같이 구체적인 업무에 따라 수집하는 개인정보의 항목이 달라집니다. -->
+            
+            <!-- kcp: iframe으로 구조 수정 -->
+            <!-- 240122 수정 -->
+            <div class="iframe-agree"><iframe id="agreePopIframe" src="pc_agree_00_1.html" title="이용약관"></iframe></div>
+        </div>
+        <div class="pop-btn wide">
+            <ul>
+                <li class="lastChild defaultBtn DefaultBtn darkGrayBtn">
+                    <button class="close agreeClose" onclick="pop_close()">닫기</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+	<!--  alert confirm 처리 -->
+	
+    <!-- KCP 레이어 팝업 호출  START -->
+    <!-- ALERT 레이어 팝업 -->
+    <div class='common__layerPop common__layerPop--dim' aria-modal='true' data-layerPop='kcp_layer_alert' data-shdow>
+        <div class='common__layerPop__container' title='레이어 팝업'>                         
+            <div class='common__layerPop--body ' data-focus-start='start'  tabindex='0'>
+                <div class='common__layerPop--body--contents'>
+                    <p></p>
+                </div>
+            </div>
+            <div class='common__layerPop--footer'>
+                <div class='button__container'>
+                    <button type='button' class='button--type--black' aria-label='확인' title='확인' id="kcpLayerOk" data-focus-last='last' data-layerPop-close>
+                        <span>확인</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class='dimmed'></div>
+    </div>
+    
+    <!-- CONFIRM 레이어 팝업 -->
+    <div class='common__layerPop common__layerPop--dim' aria-modal='true' data-layerPop='kcp_layer_confirm' data-shdow>
+        <div class='common__layerPop__container' title='레이어 팝업 확인 취소'>                         
+            <div class='common__layerPop--body' data-focus-start='start'  tabindex='0'>
+                <div class='common__layerPop--body--contents'>
+                    <p></p>
+                </div>
+            </div>
+            <div class='common__layerPop--footer'>
+                <div class='button__container'>
+                    <button type="button" class="button--type--gray" aria-label="취소" title="취소" id="kcpLayerCancle" data-layerPop-close>
+                        <span>취소</span>
+                    </button>
+                    <button type='button' class='button--type--black' aria-label='확인' title='확인' id="kcpLayerConfirm" data-focus-last='last' data-layerPop-close>
+                        <span>확인</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class='dimmed'></div>
+    </div>
+    <!-- KCP 레이어 팝업 호출  END -->
+
+</div>
+</body>
+
+</html>

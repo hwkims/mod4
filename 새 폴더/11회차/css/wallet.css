@@ -1,0 +1,210 @@
+/*월렛 시작 영역*/
+#wallet_section1 {
+    width: 1280px; height: 300px;
+    margin: 0 auto;
+    text-align: center;
+
+    position: relative;
+}
+
+#wallet_section1 h2 {
+    padding-top: 10px;
+
+    color:#333; font-size: 76px;
+    letter-spacing: -7px;
+    line-height: 1;
+}
+#wallet_section1 h2 span {
+    font-size: 42px;
+    letter-spacing: -2px;
+}
+
+#wallet_section1 p.txt {
+    padding-top: 30px;
+
+    color:#555; font-size: 24px;
+    letter-spacing: -2px;
+}
+
+#wallet_section1 p.won1 {
+    width: 30px; height: 30px;
+    background: #ffec01;
+    border-radius: 50%;
+
+    position: absolute;
+    right: 150px;
+    bottom: 80px;
+}
+
+#wallet_section1 p.won2 {
+    width: 15px; height: 15px;
+    background: #cbc6fc;
+    border-radius: 50%;
+
+    position: absolute;
+    right: 80px;
+    bottom: 30px;
+}
+
+
+
+/*app_btn*/
+#app_btn {
+    width: 1280px;
+    height: 65px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+#app_btn p {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0 40px;
+}
+
+#app_btn p a {
+    display: block;
+    width: 215px;
+    height: 65px;
+    line-height: 65px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #666;
+}
+
+#app_btn p a img {
+    vertical-align: middle;
+}
+
+#app_btn p a:hover {
+    background: #aaa;
+    color: #fff;
+}
+
+/*wallet_section2*/
+#wallet_section2 {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#wallet_section2 h3 {
+    padding-top: 100px;
+
+    color:#555; font-size: 46px;
+    letter-spacing: -4px;
+}
+
+#wallet_section2 p.txt {
+    padding-top: 30px;
+
+    color:#777; font-size: 28px;
+    letter-spacing: -2px;
+}
+
+/*wallet_section3*/
+#wallet_section3 {
+    width: 1280px; height: 550px;
+    background:#fafafa;   
+    margin: 0 auto;
+    text-align: center;
+
+    position: relative;
+}
+#wallet_section3 h3 {
+    padding-top: 80px;
+
+    color:#333; font-size: 42px;
+    letter-spacing: -4px;
+}
+#wallet_section3 p.txt {
+    padding-top: 30px;
+
+    color:#777; font-size: 22px;
+    letter-spacing: -2px;
+}
+
+#wallet_section3 p.btn {
+    width: 360px; height: 60px;
+    line-height: 60px;
+
+    background: #fff;
+    border: 1px solid #ccc;
+
+    border-radius: 20px;
+
+    margin: 80px auto;
+
+    color:#333; font-size: 20px;
+    letter-spacing: -2px;
+
+    box-shadow: 2px 6px 3px #ddd;
+    cursor: pointer;
+}
+#wallet_section3 p.btn img {
+    vertical-align: middle;
+}
+
+#wallet_section3 p.img1 {
+    position: absolute;
+    left:20px;
+    top:190px;
+}
+#wallet_section3 p.img2 {
+    position: absolute;
+    right:50px;
+    bottom:30px;
+}
+
+/*wallet_section4*/
+#wallet_section4 {
+    width: 1280px;
+    height: 660px;
+    background: #fafafa;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/*wallet_section5*/
+#wallet_section5 {
+    width: 1280px;
+    height: 360px;
+    margin: 0 auto;
+    text-align: center;
+
+    position: relative;
+}
+#wallet_section5 h2 {
+    padding-top: 100px;
+
+    color:#333; font-size: 56px;
+    letter-spacing: -5px;
+
+    position: relative;
+    z-index: 2;
+}
+
+#wallet_section5 p.bg1 {
+    position: absolute;
+    left:150px;
+    bottom: 50px;
+
+    z-index: 1;
+}
+
+#wallet_section5 p.bg2 {
+    position: absolute;
+    right:150px;
+    bottom: 80px;
+
+    width: 30px; height: 30px;
+    background: yellow;
+    border-radius: 50%;
+    
+}

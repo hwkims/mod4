@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="google-adsense-account" content="ca-pub-5115370026469477" />
+    <meta name="naver-site-verification" content="1f269e9a5afa81dba10e36d698b13a047d058d85" />
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+    <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202406250101/reactive_library_fy2021.js">
+</script>
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js">
+</script>
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-298656020-1&amp;l=dataLayer&amp;cx=c">
+</script>
+<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202406250101/show_ads_impl_fy2021.js">
+</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PG3NHKRPS5">
+</script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PG3NHKRPS5');
+    </script>
+    <!-- <script type="text/javascript" src="/src/global/redirection.js">
+</script> -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js">
+</script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#headers").load("./common/header.html");
+            $("#footers").load("common/footer.html");
+        });
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/images/logo.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5115370026469477" crossorigin="anonymous" data-checked-head="true">
+</script>
+    <title>메이플 주문서 시뮬레이터</title>
+    <script type="module" crossorigin="" src="/assets/index-D0N4QaqF.js">
+</script>
+    <link rel="stylesheet" crossorigin="" href="/assets/index-XYUFF7aa.css" />
+  <meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ==" />
+<meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ==" />
+<meta http-equiv="origin-trial" content="A9uiHDzQFAhqALUhTgTYJcz9XrGH2y0/9AORwCSapUO/f7Uh7ysIzyszNkuWDLqNYg8446Uj48XIstBW1qv/wAQAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3Mjc4MjcxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9" />
+<meta http-equiv="origin-trial" content="A9R+gkZL3TWq+Z7RJ2L0c7ZN7FZD5z4mHmVvjrPitg/EMz9P3j5d3W7Vw5ZR9jtJGmWKltM4BO3smNzpCgwYuwwAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3Mjc4MjcxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9" />
+</head>
+  <body aria-hidden="false" style="padding: 0px 0px 154px;">
+    <div id="root">
+<div class="row gongnomok-global">
+<div class="col col-lg-0 col-xxl-2">
+</div>
+<div class="col-lg-12 col-xxl-8">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<div class="container-fluid">
+<div class="header-title">
+<a class="navbar-brand" href="/">
+<img src="/images/logo.png" alt="gongnomok-home" />
+<span>메이플 주문서 시뮬레이터</span>
+</a>
+</div>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon">
+</span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item">
+<a class="nav-link" href="/login">관리자 로그인</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="shorcut-guide-section bg-success">
+<span class="shortcut-title">단축키</span>
+<div class="shortcut-info">
+<span class="shortcut-description">Q-10%적용</span>
+<span class="shortcut-description">W-60%적용</span>
+<span class="shortcut-description">E-100%적용</span>
+<span class="shortcut-description">R-아이템 리셋</span>
+<span class="shortcut-description">F-구매기록 리셋</span>
+</div>
+</section>
+<section class="item-simulator-root">
+<main class="item-simulator-section bg-light  my-3 mx-3 py-3 px-3">
+<section class="item-info-and-overflow-message">
+<section class="item-info-section-container">
+<section class="item-info-section mx-1">
+<span class="item-info-name white">노가다 목장갑</span>
+<div class="item-info-basic">
+<div class="item-img-container">
+<img class="item-img" src="/images/item/2060.png" />
+<img src="/images/etc/empty.png" class="scroll-animation" id="scroll-animation" />
+</div>
+<div class="item-info-required">
+<div class="item-status-required">
+<span class="item-status-required-description">REQ LEV </span>
+<span class="item-status-required-info">: 10</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ STR </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ DEX </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ INT </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ LUK </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ POP </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<span class="item-useless-info">ITEM LEV : -</span>
+<span class="item-useless-info">ITEM EXP : -</span>
+</div>
+</div>
+<div class="item-info-job">
+<span class="">초보자</span>
+<span class="">전사</span>
+<span class="">마법사</span>
+<span class="">궁수</span>
+<span class="">도적</span>
+<span class="">해적</span>
+</div>
+<hr />
+<div class="item-info-status">
+<span>장비분류 : 장갑</span>
+<span>물리방어력 : +2</span>
+<span>업그레이드 가능 횟수 : 5</span>
+</div>
+</section>
+</section>
+<section class="overflow-message">
+</section>
+<section class="item-record-challenge-section">
+<button class="item-record-challenge-btn">기록 도전</button>
+</section>
+</section>
+<div>
+<section class="d-flex justify-content-center">
+<section class="item-controller-section mx-1">
+<select class="form-select form-select-sm">
+<option value="GLOVES_PHY_ATK">장갑 공격력 주문서</option>
+<option value="GLOVES_SWIFT">장갑 민첩성 주문서</option>
+<option value="GLOVES_HEALTH">장갑 체력 주문서</option>
+</select>
+<section class="option-select-container">
+</section>
+<div class="scroll-select">
+<div class="scroll-info">
+<button id="scroll-button-10">
+<img src="/images/scroll/10.png" />
+</button>
+<span>장공10%</span>
+<span>물리공격력+3</span>
+</div>
+<div class="scroll-info">
+<button id="scroll-button-60">
+<img src="/images/scroll/60.png" />
+</button>
+<span>장공60%</span>
+<span>물리공격력+2</span>
+</div>
+<div class="scroll-info">
+<button id="scroll-button-100">
+<img src="/images/scroll/100.png" />
+</button>
+<span>장공100%</span>
+<span>물리공격력+1</span>
+</div>
+<div class="scroll-info">
+<button id="reset-button">
+<img src="/images/etc/reset.png" />
+</button>
+</div>
+</div>
+<div class="item-price-info">
+<div class="price-input-container">
+<span class="price-input-description">아이템 가격: </span>
+<input type="text" placeholder="0" value="0" />
+<span>1개</span>
+</div>
+<div class="price-input-container">
+<span class="price-input-description">10% 가격: </span>
+<input type="text" placeholder="0" value="0" />
+<span>0/0개</span>
+</div>
+<div class="price-input-container">
+<span class="price-input-description">60% 가격: </span>
+<input type="text" placeholder="0" value="0" />
+<span>0/0개</span>
+</div>
+<div class="price-input-container">
+<span class="price-input-description">100% 가격: </span>
+<input type="text" placeholder="0" value="0" />
+<span>0/0개</span>
+</div>
+<section class="total-price-info-section">
+<div class="total-price-info">
+<img src="/images/etc/meso.png" />
+<span>0</span>
+</div>
+<button class="total-price-reset-btn" id="purchase-reset-button">구매기록 리셋</button>
+</section>
+</div>
+</section>
+</section>
+</div>
+</main>
+<main class="item-best-record-root bg-light mx-3 mb-3 py-2 px-3">
+<span class="item-best-record-title">최고기록 (이름: 삼구두두둥장)</span>
+<div class="best-record-container">
+<section class="item-info-section-container black-border">
+<section class="item-info-section">
+<span class="item-info-name blue">노가다 목장갑(+5)</span>
+<div class="item-info-basic">
+<div class="item-img-container">
+<img class="item-img" src="/images/item/2060.png" />
+</div>
+<div class="item-info-required">
+<div class="item-status-required">
+<span class="item-status-required-description">REQ LEV </span>
+<span class="item-status-required-info">: 10</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ STR </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ DEX </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ INT </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ LUK </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<div class="item-status-required">
+<span class="item-status-required-description">REQ POP </span>
+<span class="item-status-required-info">: 0</span>
+</div>
+<span class="item-useless-info">ITEM LEV : -</span>
+<span class="item-useless-info">ITEM EXP : -</span>
+</div>
+</div>
+<div class="item-info-job">
+<span class="">초보자</span>
+<span class="">전사</span>
+<span class="">마법사</span>
+<span class="">궁수</span>
+<span class="">도적</span>
+<span class="">해적</span>
+</div>
+<hr />
+<div class="item-info-status">
+<span>장비분류 : 장갑</span>
+<span>공격력 : +14</span>
+<span>물리방어력 : +2</span>
+<span>업그레이드 가능 횟수 : 0</span>
+</div>
+</section>
+</section>
+</div>
+<section class="success-scroll-root">
+<div class="success-scroll-container">
+<div class="success-single-scroll-container">
+<img src="/images/scroll/10.png" />
+<span> × 4</span>
+</div>
+<div class="success-single-scroll-container">
+<img src="/images/scroll/60.png" />
+<span> × 1</span>
+</div>
+<div class="success-single-scroll-container">
+<img src="/images/scroll/100.png" />
+<span> × 0</span>
+</div>
+</div>
+</section>
+<span class="item-record-comment">※ 기록은 아이템 정옵 기준으로 등록됩니다</span>
+</main>
+</section>
+<section class="comment-container bg-light mx-3 mb-3 px-3 py-3">
+<span class="comment-area-title">댓글(31)</span>
+<div class="comment-content-root">
+<form>
+<textarea class="comment-content-area" placeholder="내용을 입력하세요. (최대 200자)" spellcheck="false">
+</textarea>
+<div class="comment-user-info-input">
+<div class="comment-user-info">
+<input type="text" placeholder="닉네임" value="" />
+<input type="password" placeholder="비밀번호" value="" />
+</div>
+<button type="submit">작성하기</button>
+</div>
+</form>
+</div>
+<div class="comment-error-container">
+</div>
+<section class="single-comment-container mt-2">
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">3</article>
+<span class="comment-created-time">2024-07-01 03:06</span>
+</div>
+<article>농협 356-1493-0630-13 돈 빌려 주세요</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">노가다목공소</article>
+<span class="comment-created-time">2024-06-28 11:02</span>
+</div>
+<article>ez</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">완두련ㅋㅋ</article>
+<span class="comment-created-time">2024-06-27 17:02</span>
+</div>
+<article>여기저기 다 10퍼 완작해놌네 매크로 </article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">빵호초기화</article>
+<span class="comment-created-time">2024-06-25 16:35</span>
+</div>
+<article>초기화하소</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">빵호</article>
+<span class="comment-created-time">2024-06-25 15:34</span>
+</div>
+<article>ez</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">ㅋ</article>
+<span class="comment-created-time">2024-06-25 10:49</span>
+</div>
+<article>12노목 1분만에 성공</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">누자베스</article>
+<span class="comment-created-time">2024-06-17 13:47</span>
+</div>
+<article>공10노목 1트 성공</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">전반숙</article>
+<span class="comment-created-time">2024-06-09 14:38</span>
+</div>
+<article>우왕 띄웠다</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">관리자</article>
+<span class="comment-created-time">2024-06-09 06:15</span>
+</div>
+<article>매크로 사용이 감지되어 기록이 초기화되었습니다.</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">관제 하자</article>
+<span class="comment-created-time">2024-05-08 09:40</span>
+</div>
+<article>rhkswp
+</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">메럔투프리</article>
+<span class="comment-created-time">2024-05-04 23:29</span>
+</div>
+<article>공10 첫성공@@@@@</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">ㅇㅇ</article>
+<span class="comment-created-time">2024-04-20 19:48</span>
+</div>
+<article>메랜에서 띄우는 새끼들은 어떻게 된 새끼들이야</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">레고대머리</article>
+<span class="comment-created-time">2024-04-17 00:46</span>
+</div>
+<article>zz
+</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">찢죄명</article>
+<span class="comment-created-time">2024-04-11 22:57</span>
+</div>
+<article>찢죄명</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">애***</article>
+<span class="comment-created-time">2024-03-30 15:17</span>
+</div>
+<article>15노목 ㅋㅋㅋ</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">ㅇㄹ</article>
+<span class="comment-created-time">2024-03-28 19:22</span>
+</div>
+<article>zzz</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">zl존주술사</article>
+<span class="comment-created-time">2024-03-28 19:21</span>
+</div>
+<article>ㅋㅋ</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">라온</article>
+<span class="comment-created-time">2024-03-28 12:54</span>
+</div>
+<article>이거 사이트에 강화하고 남은 공 몇짜리 장갑리스트 만들어지면 좋겠음</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">엄태한</article>
+<span class="comment-created-time">2024-03-27 01:00</span>
+</div>
+<article>과즙세연 파이팅!</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">래고</article>
+<span class="comment-created-time">2024-03-20 22:00</span>
+</div>
+<article>공15노목 성공 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">레고77</article>
+<span class="comment-created-time">2024-03-19 17:42</span>
+</div>
+<article>15성공</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">레고77</article>
+<span class="comment-created-time">2024-03-19 12:13</span>
+</div>
+<article>장공10^^
+</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">레고77</article>
+<span class="comment-created-time">2024-03-18 20:40</span>
+</div>
+<article>나 대머린데 공15 띠웠다</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">대머리</article>
+<span class="comment-created-time">2024-03-17 23:34</span>
+</div>
+<article>머머리</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">슬나임</article>
+<span class="comment-created-time">2024-03-17 23:30</span>
+</div>
+<article>공12가 딸리네</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">대머리</article>
+<span class="comment-created-time">2024-03-15 15:56</span>
+</div>
+<article>대머리</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">123</article>
+<span class="comment-created-time">2024-03-11 20:14</span>
+</div>
+<article>윤X태 바보</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">1234</article>
+<span class="comment-created-time">2024-03-10 19:23</span>
+</div>
+<article>ㅇㅇ</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">ㅇ</article>
+<span class="comment-created-time">2024-03-08 22:30</span>
+</div>
+<article>ㅅ</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">하찬2</article>
+<span class="comment-created-time">2024-03-08 09:25</span>
+</div>
+<article>하찬2바보</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div class="comment-item-root">
+<div>
+<div class="comment-item-top-container">
+<article class="comment-item-nickname">ㅇㅇ</article>
+<span class="comment-created-time">2024-03-07 20:37</span>
+</div>
+<article>캬</article>
+</div>
+<div class="comment-item-menu-container">
+<div class="comment-item-siren-container">
+<img class="comment-item-siren-icon" src="/images/etc/siren.png" />
+</div>
+<div class="comment-item-delete-container">
+<img class="comment-item-delete-icon" src="/images/etc/trashcan.png" />
+</div>
+</div>
+</div>
+<div style="height: 10px;">
+</div>
+</section>
+</section>
+</div>
+<div class="col-lg-0 col-xxl-2">
+</div>
+</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
+  
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled">
+<div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;">
+<iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-5115370026469477&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=6&amp;lmt=1718770324&amp;plat=3%3A16%2C4%3A16%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fgongnomok.site%2Fitem%2F2060&amp;pra=5&amp;wgl=1&amp;easpi=0&amp;aihb=0&amp;asro=0&amp;ailel=32~30~27~29~1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24&amp;aiael=32~30~27~29~1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24&amp;aifxl=32_18~30_19~27_15~29_10&amp;aiixl=32_9~30_6~27_3~29_5&amp;aslmct=0.7&amp;asamct=0.7&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTI2LjAuNjQ3OC4xMjciLG51bGwsMCxudWxsLCI2NCIsW1siTm90L0EpQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyNi4wLjY0NzguMTI3Il0sWyJHb29nbGUgQ2hyb21lIiwiMTI2LjAuNjQ3OC4xMjciXV0sMF0.&amp;dt=1719794223003&amp;bpp=4&amp;bdt=537&amp;idt=261&amp;shv=r20240625&amp;mjsv=m202406250101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=3364634434207&amp;frm=20&amp;pv=2&amp;ga_vid=344190219.1719794223&amp;ga_sid=1719794223&amp;ga_hid=692699169&amp;ga_fc=1&amp;u_tz=540&amp;u_his=2&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1598&amp;bih=908&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759927%2C44759842%2C95331689%2C95331832%2C95334511%2C95334525%2C95334573%2C95334578%2C95334829%2C95335896%2C95336522%2C95335290%2C31078663%2C31078668%2C31078670&amp;oid=2&amp;pvsid=1109478126710015&amp;tmod=691109225&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=30%2C185%2C30%2C185%2C1920%2C0%2C1631%2C1020%2C1615%2C925&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=33792&amp;bc=31&amp;bz=1.01&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=282" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true">
+</iframe>
+</div>
+</ins>
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="displayed" data-ad-status="filled" style="display: block; width: 100% !important; height: 129px !important; bottom: 0px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-anchor-shown="true">
+<div class="grippy-host">
+</div>
+<div id="aswift_2_host" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;">
+<iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/html/r20240625/r20110914/zrt_lookup_fy2021.html#RS-1-&amp;adk=1812271801&amp;client=ca-pub-5115370026469477&amp;fa=1&amp;ifi=3&amp;uci=a!3&amp;btvi=1" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CKbrmtvMhIcDFa5UwgUd15UHug" data-load-complete="true">
+</iframe>
+</div>
+</ins>
+<iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;">
+</iframe>
+</body>
+<iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20240625/r20110914/zrt_lookup_fy2021.html" style="display: none;">
+</iframe>
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true">
+<div id="aswift_1_host" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;">
+<iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/html/r20240625/r20110914/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271808&amp;client=ca-pub-5115370026469477&amp;fa=8&amp;ifi=2&amp;uci=a!2" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CKXrmtvMhIcDFa5UwgUd15UHug" data-load-complete="true">
+</iframe>
+</div>
+</ins>
+</html>

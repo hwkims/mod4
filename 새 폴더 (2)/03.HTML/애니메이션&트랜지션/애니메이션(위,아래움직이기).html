@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #popup {
+            display:inline-block ;
+            border: 1px solid red;
+            margin: 100px;
+
+            /* animation: move 1.5s linear infinite alternate; */
+
+            animation-name: move;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #popup img {
+            width: 200px;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-100px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+     
+    </style>
+
+</head>
+<body>
+    <div id="popup">
+        <a href="http://naver.com"><img src="images/popup.jpg" usemap="#popup"></a>
+
+        <map name="popup">
+            <area shape="rect" coords="150,25,190,55" href="#a" onclick="document.getElementById('popup').style.display='none'">
+        </map>
+    </div>
+</body>
+</html>

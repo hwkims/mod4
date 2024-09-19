@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아웃백</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+ 
+        }
+        h2{
+            font-size: 37px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+        h4{
+            font-weight: 400;
+            color: #999;
+            text-align: center;
+            margin: 40px;
+        }
+ 
+        form fieldset{
+            width: 945px;
+            height: 250px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            text-align: center;
+ 
+        }
+ 
+        input[type="text"]{
+            width: 320px;
+            height: 50px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+     
+            margin-top: 50px;
+
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        input[type="password"] {
+            width: 320px;
+            height: 50px;
+            border: 1px solid #ddd;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        input[placeholder] {
+            font-size: 18px;
+ 
+            letter-spacing: -1px;
+        }
+
+        /*색상변경시 불러오는방법*/
+        ::placeholder {
+            color: #999;
+        }
+
+        input[type="submit"] {
+            width: 100px;
+            height: 100px;
+            background: #cc0001;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            border: 0;
+            cursor: pointer;
+ 
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        form fieldset p.check {
+            width: 600px;
+            margin: 20px auto;
+            text-align: left;
+
+            color: #333;
+            font-size: 14px;
+            letter-spacing: -1px;
+            font-weight: bold;
+
+        }
+        p{
+            text-align: center;
+            margin: 0 auto;
+            color: #999;
+        }
+        ul{
+            width: 600px;
+       
+            margin: 0 auto;
+ 
+           position: relative;
+        }
+        .log{
+            position: absolute;
+            top: 50px;
+            right: 50px;
+        }
+.reg{
+    background: #282828;
+    width: 450px;
+height: 55px;
+color: #fff;
+text-align: center;
+line-height: 55px;
+font-size: 25px;
+cursor: pointer;
+margin: 0 auto;
+}
+    </style>
+
+</head>
+
+<body>
+    <h2>아웃백 로그인</h2>
+    <h4>로그인을 하시면 아웃백의 다양한 서비스를 이용하실 수 있습니다.</h4>
+    <form action="/login">
+        <fieldset>
+            <ul>
+                <li>
+                    <input type="text" placeholder="아이디 입력">
+                </li>
+                <li>
+                    <input type="password" placeholder="패스워드 입력">
+                </li>
+                <li class="log">
+                    <input type="submit" value="로그인"> <!-- Move the button outside the ul tag -->
+                </li>
+            </ul>
+           
+            <p><input type="checkbox">아이디저장 <b></b>아이디 찾기<span></span>패스워드 찾기</p>
+
+        </fieldset>
+    </form>
+    <p>아직 아웃백 계정이 없으신가요?</p>
+    <p class="reg">회원가입</p>
+ 
+</body>
+
+</html>

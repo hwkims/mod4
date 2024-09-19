@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴대폰본인확인_통신사선택_NHN KCP</title>
+    <link rel="icon" type="image/x-icon" href="favicon_kcp.png">
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        header{
+            background-color: #f8f8f8;
+            text-align: center;
+            width: 400px;
+            height: 52px;
+        }
+
+        fieldset p{
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+        input[type="radio"][name="agency"] {
+            display: none; /* hide the radio button */
+        }
+        label[for="agency_sk"] {
+            display: inline-block;
+            width: 149px;
+            height: 149px;
+            border: 1px solid #e1e1e1;
+            border-radius: 50%;
+            cursor: pointer;
+            background: url(logo_sk.png) no-repeat center;
+            background-size: 105px auto;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1><img src="logo_pass.png" alt="PASS"></h1>
+    </header>
+    <section>
+        <form action="">
+
+            <fieldset>
+                <p>이용중이신 통신사를 선택해주세요.</p>
+                <ul>
+                    <li>
+                        <input type="radio" name="agency" id="agency_sk">
+                        <label for="agency_sk"></label> <!-- add a label element -->
+                    </li>
+
+                </ul>
+
+            </fieldset>
+
+        </form>
+    </section>
+</body>
+</html>

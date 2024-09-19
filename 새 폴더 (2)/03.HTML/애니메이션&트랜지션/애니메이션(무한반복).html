@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            padding: 20px; height: 60px;
+            margin: 50px 0 0 100px;
+            
+            animation-name: moving; /*실행시킬 애니메이션 이름*/
+            animation-duration: 3s; /*실행시간*/
+
+            animation-delay: 1s; /*지연시간*/
+            animation-timing-function: ease-in; /*속도*/
+
+            animation-iteration-count: infinite; /*무한반복*/
+            animation-direction: alternate; /*좌우왕복*/
+
+            /*이름 실행시간 속도 지연시간 반복횟수 방향*/
+            animation: moving 3s;
+            
+        }
+
+        @keyframes moving {
+            0% {
+                width: 200px; background: orange;
+                opacity: 0.5; 
+                transform: scale(0.5) rotate(15deg);
+            }
+            100% {
+                width: 400px;
+                background: yellow;
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Animation</h3>
+    </div>
+
+</body>
+</html>

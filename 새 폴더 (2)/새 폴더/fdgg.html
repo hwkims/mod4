@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download Files</title>
+</head>
+<body>
+  <h1>Download Files</h1>
+  <ul id="file-list">
+    <!-- list of files will be generated here -->
+  </ul>
+
+  <script>
+    const fileList = document.getElementById('file-list');
+    const baseUrl = 'https://enter.nexon.com/qplay-avatar-assets/clothes/female/';
+    const fileIdStart = 400_050;
+    const fileIdEnd = 400_100; // adjust this to the last file ID you want to download
+
+    for (let i = fileIdStart; i <= fileIdEnd; i++) {
+      const fileName = `[${i}](female)_14_citemf${i}.png`;
+      const fileUrl = `${baseUrl}${fileName}`;
+      const link = document.createElement('a');
+      link.href = fileUrl;
+      link.download = fileName;
+      link.textContent = fileName;
+      fileList.appendChild(link);
+    }
+  </script>
+</body>
+</html>

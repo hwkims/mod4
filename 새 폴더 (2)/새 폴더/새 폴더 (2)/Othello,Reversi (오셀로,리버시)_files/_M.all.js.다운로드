@@ -1,0 +1,3576 @@
+/*_M.all.js 20150419*/ 
+/**
+* _M
+* mins01.com 에서 사용할 라이브러리 모음
+* 만든이 : 공대여자
+* 만든날 : 2011-03-31
+* 최종 수정일 : _M.info.ver 참고
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+
+/*
+네이밍 규칙
+_M.XXXX 에서 
+XXX가 Object이면 전부 대문자
+XXX가 function 이면 소문자대문자 혼합(헝거리언식) (될 수 있으면 한단어의 소문자로,짧게)
+*/
+
+var _M ={};
+
+
+/**
+* 정보관리
+*/
+
+_M.info = {
+	"ver":"20100421"
+}
+
+/**
+* DOM
+*/
+
+_M.DOM = {
+	"byId":function(id,doc){
+		if(!doc) doc = document;
+		return doc.getElementById(id);
+	}
+	,"byName":function(name,doc){
+		if(!doc) doc = document;
+		return doc.getElementsByName(name);
+	}
+	,"byTagName":function(tag,el){
+		if(!el){ 	el = document; }
+		return el.getElementsByTagName(tag);
+	}
+	,"attr":function(el,name,value){
+		if ( typeof value  == 'undefined' ) {
+			return el.getAttribute(name);
+		}else{
+			el.setAttribute(name,value);
+		}
+	}
+	,"create":function(tag,attributes){
+		if ( typeof proferty  == 'undefined' ) { proferty = []; }
+		var el = document.createElement(tag);
+		for(var x in attributes){
+			el.setAttribute(x,attributes[x]);
+		}
+		return el;
+	}
+	,"createText":function(text){
+		return document.createTextNode(text);
+	}
+	,"clone":function(node,cloneChildren){
+		if ( typeof cloneChildren  == 'undefined' ) { cloneChildren = false; }
+		return node.cloneNode(cloneChildren);
+	}
+	,"remove":function(node){
+		node.parentNode.removeChild(node);
+	}
+	//beforeBegin:0
+	//afterBegin:1
+	//beforeEnd:2 , default
+	//afterEnd:3
+	,"append":function(parent,node,InsertType){
+		if ( typeof InsertType  == 'undefined' ) { InsertType = 2; }
+		switch(InsertType){
+			case 'beforeBegin':
+			case 0: return parent.parentNode.insertBefore(node,parent);break;
+			case 'afterBegin':
+			case 1: return parent.insertBefore(node,parent.firstChild);break;
+			case 'beforeEnd':
+			case 2: return parent.appendChild(node);break;
+			case 'afterEnd':
+			case 3: 
+				if (parent.nextSibling){ return parent.parentNode.insertBefore(node,parent.nextSibling); }
+				else{ return parent.parentNode.appendChild(node); }
+			break;
+		}
+		return false;
+	}
+	//순수 TEXT로 삽입(innerHTML 문제 해결용)
+	,"setText":function(node,text){
+		node.innerHTML = '';
+		_M.DOM.append(node,_M.DOM.createText(text));
+	}
+}
+
+/**
+* $ ,  DOM 출력형
+*/
+_M.$ = function(sel,el){
+	if(!el){ 	el = document; }
+	if(sel.indexOf('#')==0){
+		return _M.$id(sel.substr(1));
+	}if(sel.indexOf('&')==0){ //바뀔 수 있음
+		return _M.$name(sel.substr(1));
+	}else{
+		return _M.$tag(sel,el);
+	}
+}
+_M.$id = function(id,doc){
+	if ( typeof id  == 'object' ) {
+		return id;
+	}
+	return _M.DOM.byId(id,doc);
+}
+_M.$name = function(name,doc){
+	return _M.DOM.byName(name,doc);
+}
+_M.$tag = function(tag,el){
+	if(!el){ 	el = document; }
+	return _M.DOM.byTagName(tag,el);
+}
+_M.$attr = function(el,name,value){
+	return _M.DOM.attr(el,name,value);
+}
+
+/**
+* error 관련
+*/
+_M.ERROR = {
+	 "msgs":[]
+	,"add":function(msg){
+		return this.error.msgs.push(msg);
+	}
+}
+/**
+* window 관련
+*/
+_M.WINDOW = {
+	"onload":function(fn){ //온로드 이벤트
+		_M.EVENT.adds(window,'onload',fn);
+	}
+}
+/**
+* document 관련
+*/
+_M.DOCUMENT = {
+	"onclick":function(fn){ //onclick 이벤트(다른 UI동작 초기화용으로 좋음)
+		_M.EVENT.adds(document,'onclick',fn);
+	}
+}
+
+/**
+* body 관련
+*/
+_M.BODY = {
+	"onload":_M.WINDOW.onload
+	,"onclick":function(fn){ //onclick 이벤트(다른 UI동작 초기화용으로 좋음)
+		_M.EVENT.adds(document.body,'onclick',fn);
+	}
+	,"scroll":function(){
+		if(document.documentElement){
+			var de0 = document.documentElement;
+			var de1 = document.body;
+			var left = Math.max(de0.scrollLeft,de1.scrollLeft);
+			var top = Math.max(de0.scrollTop,de1.scrollTop);
+			var height = Math.max(de0.scrollHeight,de1.scrollHeight);
+			var width = Math.max(de0.scrollWidth,de1.scrollWidth);
+		}else{
+			var de1 = document.body;
+			var left = de1.scrollLeft
+			var top =de1.scrollTop
+			var height = de1.scrollHeight
+			var width = de1.scrollWidth
+		}
+		var info = {
+		  "left":left
+		 ,"top":top
+		 ,"width":height
+		 ,"height":width
+		};
+
+	 return info;
+	}
+}
+/**
+* 이벤트 관련
+*/
+_M.EVENT = {
+	//== 이벤트 추가하기
+	"add":function(el,eventName,fn){
+		eventName = eventName.toLowerCase().replace(/^(on)/,'');
+		if(el.addEventListener){
+			return el.addEventListener(eventName,fn,false);
+		}else if(el.attachEvent){
+			eventName = 'on'+eventName;
+			return el.attachEvent(eventName,fn);
+		}else{
+			_M.ERROR.add("_M.event.add()");
+			return false;
+		}
+	}
+	//== 이벤트 삭제하기
+	,"remove":function(el,eventName,fn){
+		eventName = eventName.toLowerCase().replace(/^(on)/,'');
+		if(el.addEventListener){
+			return el.removeEventListener(eventName,fn,false);
+		}else if(el.attachEvent){
+			eventName = 'on'+eventName;
+			return el.detachEvent(eventName,fn);
+		}else{
+			_M.ERROR.add("_M.event.remove()");
+			return false;
+		}
+	}
+	/// 이벤트는 하나만 등록하고 동작 함수를 배열로 관리한다.
+	/// 함수는 event를 파라메터로 받는다.
+	,"adds":function(el,eventName,fn){
+		if ( typeof el._MEVENT == 'undefined') el._MEVENT = {};
+		if ( typeof el._MEVENT[eventName]  == 'undefined' ) {
+			el._MEVENT[eventName] = [];
+			_M.EVENT.add(el,eventName
+				,function(fnEvt){
+					return function(event){
+						for(var i=0,m=fnEvt.length;i<m;i++){
+							fnEvt[i](event);
+						}
+					}
+				}(el._MEVENT[eventName]))
+		}
+		el._MEVENT[eventName].push(fn);
+	}
+	/// 이벤트의 버블을 멈춘다.
+	,"stop":function(evt){
+		if(evt && evt.stopPropagation){
+			evt.stopPropagation(); 
+			evt.preventDefault();
+			evt.cancelBubble = true;		
+		}else if(evt){
+			 evt.keyCode = 0; 
+			 evt.cancelBubble = true;
+			 evt.returnValue = false;    
+		}else{
+			 window.event.keyCode = 0; 
+			 window.event.cancelBubble = true;
+			 window.event.returnValue = false;    
+		}
+		return false;
+	}
+	/// 사라질 메소드
+	,"_event":function(evt){
+		return _M.EVENT.getEvent(evt);
+	}
+	///IE와 비IE의 이벤트 호환
+	,"getEvent":function(evt){
+		if(window.event) evt = window.event;
+		var scl = _M.BODY.scroll();
+		if(!evt.target && evt.srcElement){
+			evt.target = evt.srcElement;
+		}
+		evt.X = evt.clientX+scl.left;
+		evt.Y = evt.clientY+scl.top;
+		if(evt.touches && evt.touches[0]){
+			for(var i=0,m=evt.touches.length;i<m;i++){
+				evt.touches[i].X = evt.touches[i].clientX+scl.left;
+				evt.touches[i].Y = evt.touches[i].clientY+scl.top;
+			}
+		}		
+		return evt;
+	}
+	/// 터치 지원
+	,"getTouches":function(evt){
+		//--- 더이상 필요 없다. getEvent 에서 처리됨
+	}	
+	,"target":function(evt){
+		var evt = _M.EVENT.getEvent(evt);
+		return evt.target?evt.target:evt.srcElement;
+	}
+	///shift 키를 눌렸는가?
+	,"shiftKey":function(evt){
+		var evt = _M.EVENT.getEvent(evt);
+		return evt.shiftKey;
+	}
+	///ctrl 키를 눌렸는가?
+	,"ctrlKey":function(evt){
+		var evt = _M.EVENT.getEvent(evt);
+		return evt.ctrlKey;
+	}
+	///alt 키를 눌렸는가?
+	,"altKey":function(evt){
+		var evt = _M.EVENT.getEvent(evt);
+		return evt.altKey;
+	}
+	/// 눌려진 키 코드 값
+	/// 동작이 바뀔 수 있음
+	,"keyCode":function(evt){
+		var evt = _M.EVENT.getEvent(evt);
+		return evt.keyCode;
+	}
+}
+
+/**
+* STRING 관련
+*/
+/*
+" " (ASCII 32 (0x20)), an ordinary space.
+"\t" (ASCII 9 (0x09)), a tab.
+"\n" (ASCII 10 (0x0A)), a new line (line feed).
+"\r" (ASCII 13 (0x0D)), a carriage return.
+"\0" (ASCII 0 (0x00)), the NUL-byte.
+"\x0B" (ASCII 11 (0x0B)), a vertical tab.
+*/
+_M.STRING = {
+	"trim":function(str){
+		return str.replace(/^( |\t|\n|\t|\x0B)+|( |\t|\n|\t|\x0B)+$/g,'');
+	}
+	,"numberFormat":function(str,decimals,dec_point,thousands_sep){
+		if(typeof decimals ==  "undefined") decimals = 0;
+		if(typeof dec_point ==  "undefined") dec_point = '.'
+		if(typeof thousands_sep ==  "undefined") thousands_sep = ','
+		str = parseFloat(str).toFixed(decimals).toString();
+		var t = str.split('.');
+		var r = [t[0].replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1'+thousands_sep),decimals>0?dec_point:'',decimals>0?t[1]:''];
+		return r.join('');
+		return parseFloat(str).toString()
+	}
+	,"byteFormat":function(byteStr,isLongUnit,space){
+		if(typeof isLongUnit ==  "undefined") isLongUnit = false;
+		if(typeof space ==  "undefined") space = ' ';
+		byteStr = parseInt(byteStr,10);
+		//1024 //K
+		//1048576 //M
+		//1073741824 //GB
+		//1099511627776 //TB
+		var r = '',u='';		
+		if(byteStr>=1099511627776){
+			r = Math.round(byteStr/1099511627776)
+			u = isLongUnit?"Tera Byte":"TB";
+		}else if(byteStr>=1073741824){
+			r = Math.round(byteStr/1073741824)
+			u = isLongUnit?"Giga Byte":"GB";
+		}else if(byteStr>=1048576){
+			r = Math.round(byteStr/1048576)
+			u = isLongUnit?"Mega Byte":"MB";
+		}else if(byteStr>=1024){
+			r = Math.round(byteStr/1024)
+			u = isLongUnit?"Kilo Byte":"KB";
+		}else{
+			r = Math.round(byteStr)
+			u = isLongUnit?"Byte":"B";
+		}
+		return r+space+u;
+	}
+	,"nl2br":function(str){
+		return str.replace(/\n/g,'<br />');
+	}
+	,"htmlspecialchars":function(str){
+		return str.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt").replace(/>/g,"&gt;");
+	}
+}
+/**
+* CLASS 관련
+*/
+_M.CLASS = {
+	"get":function(el){ //문자열
+		return _M.STRING.trim(el.className.replace(/\s{2,}/g,' '));
+	}
+	,"list":function(el){ //배열
+		return _M.CLASS.get(el).split(' ');
+	}
+	,"add":function(el,className){
+		if(_M.CLASS.has(el,className)){
+			return false; //중복된 className 추가 불가
+		}
+		el.className = _M.STRING.trim(_M.CLASS.get(el)+' '+className);
+		return true;
+	}
+	,"has":function(el,className){
+		var regexp = new RegExp("(^|\\s+)"+className+"($|\\s+)");
+		return regexp.test(_M.CLASS.get(el));
+	}
+	,"remove":function(el,className){
+		var regexp = new RegExp("(^|\\s+)"+className+"($|\\s+)",'g');
+		el.className = _M.STRING.trim(_M.CLASS.get(el).replace(regexp,'$1$2'));
+		return true;
+	}
+	,"replace":function(el,seaechClassName,replaceClassName){
+		var regexp = new RegExp("(^|\\s+)"+seaechClassName+"($|\\s+)",'g');
+		el.className = _M.STRING.trim(_M.CLASS.get(el).replace(regexp,"$1"+replaceClassName+"$2"));
+		return true;
+	}	
+	,"clear":function(el){
+		el.className = '';
+		return true;
+	}	
+}
+
+/**
+* OBJECT 관련 
+*/
+_M.OBJECT = {
+	/// obj1와 obj2를 합쳐 새로운 오브젝트를 반환. 중복되면 덮는다.
+	"merge":function(obj1,obj2){
+		var obj = {};
+		for(var t in obj1){
+			obj[t] = obj1[t];
+		}
+		for(var t in obj2){
+			obj[t] = obj2[t];
+		}
+		return obj;
+	}
+	/// obj1를 기준으로 obj2를 더해 새로운 오브젝트를 반환. 중복되면 덮는다.(obj1에 없다면 obj2의 값은 무시)
+	,"leftMerge":function(obj1,obj2){
+		var obj = {};
+		for(var t in obj1){
+			obj[t] = obj1[t];
+		}
+		for(var t in obj2){
+			if(t in obj1){
+				obj[t] = obj2[t];
+			}
+		}
+		return obj;
+	}
+	/// obj2의 내용을 obj1에 넣는다. 객체이기 때문에 obj1은 밖에서도 내용이 바뀌어있다.
+	,"fromMerge":function(obj1,obj2){
+		var obj = {};
+		for(var t in obj2){
+			obj1[t] = obj2[t];
+		}
+	}
+	///  obj2의 내용을 obj1에 넣는다. 중복되면 덮는다.(obj1에 없다면 obj2의 값은 무시)
+	,"fromLeftMerge":function(obj1,obj2){
+		var obj = {};
+		for(var t in obj2){
+			if(t in obj1){
+				obj1[t] = obj2[t];
+			}
+		}
+	}
+	// Object 와 그 속의 모든것을 = null 로 처리한다. 별로 효과는...
+	,"setNull":function(obj){
+		if(obj instanceof  Object){
+			for(var x in obj){
+				obj[x] = null;
+			}
+		}
+		obj = null;
+	}
+	,"serialize":function(obj,enc){
+		if(enc===undefined){enc = true;}
+		var arr = [];
+		var v = null;
+		
+		var _fromArray = function(k,v){
+			var arr = []
+			for(var i =0,m=v.length;i<m;i++){
+				if(v[i] instanceof Array){
+					arr.push(_fromArray(k,v[i]));
+				}else{
+					if(enc){
+						arr.push(encodeURIComponent(k)+'='+encodeURIComponent(v[i]));
+					}else{
+						arr.push((k)+'='+(v[i]));
+					}
+				}
+			}
+			return arr.join('&');
+		}
+		
+		for(var k in obj){
+			v = obj[k];
+			if(v instanceof Array){
+				arr.push(_fromArray(k,v));
+			}else{
+				if(enc){
+					arr.push(encodeURIComponent(k)+'='+encodeURIComponent(v));
+				}else{
+					arr.push((k)+'='+(v));
+				}
+			}
+		}
+		return arr.join('&');
+	}
+	,"unserialize":function(str,dec){
+		if(dec==undefined){dec = true;}
+    var pt = /(?:&|^)([^&=]+)=([^&=]*)(?:&|$)/;
+		var arr = str.split('&');
+		var ret = {}
+		var t;
+		for(var i=0,m=arr.length;i<m;i++){
+      t = arr[i].match(pt);
+  		if(t == null) continue;			
+			
+			var k = t[1];
+			var v = t[2]?t[2]:'';
+			if(dec){
+				k = decodeURIComponent(k.replace('+',' '));
+				v = decodeURIComponent(v.replace('+',' '));
+			}
+			t = null;
+			if(!ret.hasOwnProperty(k)){
+				ret[k] = v
+			}else if(!(ret[k] instanceof Array)){
+				ret[k] = [ret[k]];
+				ret[k].push(v);
+			}else if(ret[k] instanceof Array){
+				ret[k].push(v);
+			}
+		}
+		return ret;
+	}
+}
+/**
+* 배열관련
+*/
+_M.ARRAY = {
+	"has":function(array,neddle){
+		for(var i=0,m=array.length;i<m;i++){
+			if(neddle==array[i]){return true;}
+		}
+		return false;
+	}
+}
+
+/**
+* 드래그 관련
+*/
+_M.DRAG = {
+	/// elF 이벤트를 받을 개체, elT 움직일 개체
+	"setCfg":function(elF,iCfg){
+		var el =  elF;
+		if(el._MDRAG){
+			el._MDRAG.cfg = _M.OBJECT.merge(el._MDRAG.cfg,iCfg);
+		}else{
+			return false;
+		}
+		return true;
+	}
+	,"drag":function(elF,elT,iCfg){
+		if(!elF){ return false}
+		if(!elT){ elT = elF; }
+		if(!iCfg){ iCfg = {}; }
+		var cfg ={
+		 "able" : true
+		//,"toggle" : false
+		//,"stopArea" : false
+		,"onStart":function(){} //시작 이벤트
+		,"onFinish":null //끝 이벤트
+		,"onDrag":null //이동중 이벤트
+		,"zIndex":null
+		,"minLeft":0
+		,"minTop":0
+		,"minLimit":false //대상을 페이지 기준으로 이동을 제한한다. minLeft,minTop 만 제한
+		,"returnZero":false // onFinish 때 left:0, top:0 으로 이동한다
+		,"lockX":false //X축 잠금
+		,"lockY":false //Y축 잠금
+		,"cancelBubble":true //이벤트가 전파되지 않는다.
+		};
+		cfg = _M.OBJECT.merge(cfg,iCfg);
+		var V = {"drag":false,"left":0,"top":0}; //동작변수용 저장용
+		
+		if(cfg.zIndex) elT.style.zIndex = cfg.zIndex;
+		
+
+		if ( typeof elF._MDRAG == 'undefined'){
+			elF._MDRAG = {"elF":elF,"elT":elT,"cfg":cfg,"V":V};
+		}
+		var el = elF;
+		_M.CLASS.add(elF,'MDRAG_CURSOR');
+		_M.CLASS.add(elT,'MDRAG');
+		
+		var _mouseDown = function(el){
+			return function(event){
+				if(!el._MDRAG.cfg.able){return;}
+				var evt = _M.EVENT.getEvent(event);
+				if(evt.touches) evt = evt.touches[0]; 
+				
+				var DRAG = el._MDRAG;
+				var V = DRAG.V;
+				V.drag = true;
+				V.left =  evt.X;
+				V.top =  evt.Y;
+				_M.CLASS.add(DRAG.elT,'MDRAG_ING');
+				if(DRAG.cfg.cancelBubble){ _M.EVENT.stop(event); }
+				if(typeof DRAG.cfg.onStart == 'function'){return DRAG.cfg.onStart();}
+				
+			}
+		}(el)
+		var _mouseMove = function(el){
+			return function(event){
+				if(!el._MDRAG.V.drag){return;}
+				var evt = _M.EVENT.getEvent(event);
+				if(evt.touches) evt = evt.touches[0]; 
+				
+				var DRAG = el._MDRAG;
+				var cfg = DRAG.cfg;
+				var V = DRAG.V;
+				var left = evt.X - V.left;
+				var top = evt.Y - V.top;
+
+				var tl = isNaN(parseInt(DRAG.elT.style.left))?0:parseInt(DRAG.elT.style.left);
+				var tt = isNaN(parseInt(DRAG.elT.style.top))?0:parseInt(DRAG.elT.style.top);
+				if(!cfg.lockX) DRAG.elT.style.left = (tl + left)+'px';
+				if(!cfg.lockY) DRAG.elT.style.top = (tt + top)+'px';		
+				V.left = evt.X;
+				V.top = evt.Y;
+				
+				if(cfg.minLimit){ //최소 위치 제한
+					var b = _M.LAYER.bound(DRAG.elT);
+					if(b.left <= cfg.minLeft){
+						DRAG.elT.style.left = (parseInt(DRAG.elT.style.left)-(b.left - cfg.minLeft))+'px';
+					}
+					if(b.top <= cfg.minTop){
+						DRAG.elT.style.top = (parseInt(DRAG.elT.style.top)-(b.top - cfg.minTop))+'px';
+					}
+				}
+				if(DRAG.cfg.cancelBubble){ _M.EVENT.stop(event); }
+				if(typeof DRAG.cfg.onDrag == 'function'){return DRAG.cfg.onDrag();}
+				
+			}
+		}(el)
+		var _mouseUp = function(el){
+			return function(event){
+				if(!el._MDRAG.V.drag){return;}
+				var evt = _M.EVENT.getEvent(event);
+				if(evt.touches) evt = evt.touches[0]; 
+				
+				var DRAG = el._MDRAG;
+				var cfg = DRAG.cfg;
+				var V = DRAG.V;
+				V.drag = false;
+				_M.CLASS.remove(DRAG.elT,'MDRAG_ING');
+				if(cfg.returnZero){
+				DRAG.elT.style.left = 0;
+				DRAG.elT.style.top = 0;
+				}
+				if(DRAG.cfg.cancelBubble){ _M.EVENT.stop(event); }
+				if(typeof DRAG.cfg.onFinish == 'function'){return DRAG.cfg.onFinish();}
+			}
+		}(el)
+		el.onselectstart = function(event){ return _M.EVENT.stop(event);} //드래그 방지
+		//el.ondragstart = function(event){ return _M.EVENT.stop(event);} //드래그 방지
+		if('ontouchstart' in document){
+			_M.EVENT.add(el,'ontouchstart',_mouseDown);
+			_M.EVENT.add(document,'ontouchmove',_mouseMove);
+			_M.EVENT.add(document,'ontouchend',_mouseUp);
+		}else{
+			_M.EVENT.add(el,'onmousedown',_mouseDown);
+			_M.EVENT.add(document,'onmousemove',_mouseMove);
+			_M.EVENT.add(document,'onmouseup',_mouseUp);
+		}
+	}
+}
+
+/**
+* STYLE 관련
+*/
+_M.STYLE = {
+	"set":function(el,name,value){
+		el.style[name] = value;
+		//=== IE처리
+	}
+	,"_setIE":function(el,name,value){
+		///--------
+	}
+	,"opacity":function(el,opacity){
+		if ( typeof opacity  == 'undefined' ){
+			//IE외(CSS3)
+			if(typeof el.style.opacity != 'undefined') return parseFloat(el.style.opacity,10);
+			//IE
+			var f = el.style.filter;
+			f = parseInt(f.replace(/ /g,'').replace(/^.*opacity=(\d{1,3}).*$/i,'$1'),10);
+			if(!isNaN(f)){ return (f/100);}
+			return false;
+		}else{
+			el.style.opacity=opacity;
+			el.style.filter ="alpha(opacity="+(opacity*100)+")"
+			return true;
+		}
+	}
+}
+
+/**
+* LAYER 관련
+*/
+_M.LAYER = {
+	"show":function(el,display){
+		if ( typeof display  == 'undefined' ){ display = ''; }
+		el.style.display = display;
+	}
+	,"hide":function(el){
+		el.style.display = 'none';
+	}
+	,"toggle":function(el,display){
+		if ( typeof display  == 'undefined' ){ display = ''; }		
+		if(el.style.display=='none'){
+			_M.LAYER.show(el,display);
+		}else{
+			_M.LAYER.hide(el);
+		}
+	}
+	//레이어를 대상 기준으로 중앙을 위한 left,top값을 알려준다.
+	,"center":function(el,ta){
+		if(!ta) ta = document.body;
+		var tb = _M.LAYER.bound(ta);
+		var eb = _M.LAYER.bound(el);
+		var l = Math.floor((tb.width-eb.width)/2);
+		if(l <=0){l = 0;}
+		var lgap = l-eb.left;
+		if(!el.style.left){var left = 0;}
+		else{var left = parseInt(el.style.left);}
+		left = (left+lgap)+'px';
+		return [left,0];
+	}
+	/// 레이어의 페이지에서의 위치를 정보(left,top,width,height)
+	,"bound":function(el){
+		var ret = {}; 
+		var bodyElement = document.documentElement?document.documentElement:document.body;
+		if(el.hasOwnProperty('getBoundingClientRect')){  //IE8,FF3 용
+				var sl = _M.BODY.scroll();
+				var rect = el.getBoundingClientRect(); 
+				ret.width = rect.right - rect.left; 
+				ret.height = rect.bottom - rect.top; 
+				ret.left = rect.left + sl.left
+				ret.top = rect.top + sl.top;
+
+		}else if(document.hasOwnProperty('getBoxObjectFor')){ //FF2 
+				var box = document.getBoxObjectFor(obj); 
+				ret.left = box.x; 
+				ret.top = box.y; 
+				ret.width = box.width; 
+				ret.height = box.height; 
+		}else if(document.hasOwnProperty('all') && el.hasOwnProperty('getBoundingClientRect')) {  //IE
+				var sl = _M.BODY.scroll();
+				var rect = el.getBoundingClientRect(); 
+				ret.left = rect.left + sl.left
+				ret.top = rect.top + sl.top;
+				ret.width = rect.right - rect.left; 
+				ret.height = rect.bottom - rect.top; 
+		}else{ //OPERA,SAFARI 용(그외는 무시
+			var rect = new Object();
+			ret.left = el.offsetLeft;
+			ret.top = el.offsetTop;
+			var parent = el.offsetParent;
+			while(parent != bodyElement && parent){
+				ret.left += parent.offsetLeft;
+				ret.top += parent.offsetTop;
+				parent = parent.offsetParent;
+			}
+			//		ret.top -= bodyElement.scrollTop;
+			ret.width = el.offsetWidth;
+			ret.height = el.offsetHeight;		
+		}
+		return ret; 		
+	}
+}
+
+/**
+* COLOR 관련
+*/
+_M.COLOR = {};
+/// style의 backgroundColor나 borderColor에서 [R,G,B] 를 뽑나낸다.
+_M.COLOR.styleToColor = function(stC){
+	var c = [-1,-1,-1];
+	if(!stC){ return c;}
+	if(stC.indexOf('#')!=-1){
+		t = stC.replace('#','');
+		t2 = t.length/3;
+		var p = (t2==1)?2:1
+		c[0] = Math.pow(parseInt(t.substr(0*t2,t2),16),p);
+		c[1] = Math.pow(parseInt(t.substr(1*t2,t2),16),p);
+		c[2] = Math.pow(parseInt(t.substr(2*t2,t2),16),p);
+	}else{
+		t = stC.replace(/[^,0-9]/g,'');
+		t2 = t.split(',');
+		c[0] = parseInt(t2[0],10);
+		c[1] = parseInt(t2[1],10);
+		c[2] = parseInt(t2[2],10);
+	}
+	return c;
+}
+
+/**
+* COOKIE 관련
+*  http://www.qindex.info/Q_frame.php?s_clss=board&s_prcss=thrd&s_tmplt=&s_brd=5&s_thrd=33 를 참고 사용
+*/
+_M.COOKIE = {};
+_M.COOKIE.set = function(name,value,expires,path,domain,secure){
+	if((typeof expires =='string' && expires.length>0)  || typeof expires =='number'){
+		expires = _M.COOKIE.expires(expires,0,0,0);
+	}
+
+	document.cookie = name + '=' + escape(value) + ';'
+	+ ((expires) ? ' expires=' + expires.toGMTString() + ';' : '')
+	+ ((path) ? ' path=' + path + ';' : '')
+	+ ((domain) ? ' domain=' + domain + ';' : '')
+	+ ((secure) ? ' secure' + ';' : '');
+
+	return true;
+};
+_M.COOKIE.get = function(name){
+	var srch = name + '=';
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(srch);
+		if (offset != -1) {
+			offset += srch.length;
+			end = document.cookie.indexOf(';', offset);
+		if (end == -1) end = document.cookie.length;
+			return unescape(document.cookie.substring(offset, end));
+		} else {
+			return false;
+		}
+	} else {
+	return false;
+	}
+};
+_M.COOKIE.remove = function(name,path,domain){
+	if (_M.COOKIE.get(name))
+	document.cookie = name + '=;'
+	+ ' expires=Thu, 01-Jan-70 00:00:01 GMT;'
+	+ ((path) ? ' path=' + path + ';' : '')
+	+ ((domain) ? ' domain=' + domain + ';' : '');
+	return true;
+};
+_M.COOKIE.expires = function(second,minute,hour,day){ //만료시간 계산용
+	if(!day && !hour && !minute && !second){
+		return null;
+	}
+	var today = new Date();
+	var exprs = new Date();
+	exprs.setTime( today.getTime()
+	+1000*60*60*24 *day
+	+1000*60*60 *hour
+	+1000*60 *minute
+	+1000 *second );
+	return exprs;	
+}
+_M.COOKIE.keys = function(){ //쿠기의 키(인덱스)
+	var reg = /(^|; )([^=]*)(=)/g;
+	var t = document.cookie.match(reg);
+	for(var i=0,m=t.length;i<m;i++){
+		t[i] = t[i].replace(/(^; |=$)/g,'');
+	}
+	return t;
+}
+_M.COOKIE.cookies = function(){ //쿠키 연관배열
+	var keys = _M.COOKIE.keys();
+	var obj = {}
+	for(var i=0,m=keys.length;i<m;i++){
+		obj[keys[i]] = _M.COOKIE.get(keys[i]);
+	}
+	return obj;
+}
+
+_M.FORM = {}
+_M.FORM.serialize = function(f){
+	return _M.OBJECT.serialize(_M.FORM.elementsToObject(f));
+}
+_M.FORM.elementsToObject = function(f){
+	var obj = {};
+	var el = null;
+	for(var i = 0,m=f.elements.length;i<m;i++){
+		el = f.elements[i];
+		if(el.name.length==0 || el.disabled == true){
+			
+		}
+		if((el.type =='radio' || el.type =='checkbox') && !el.checked){
+			continue;
+		}
+		if(!obj[el.name]){
+			obj[el.name] = el.value;
+		}else if(!(obj[el.name] instanceof Array)){
+			var t= obj[el.name];
+			obj[el.name] = [];
+			obj[el.name].push(t);
+			obj[el.name].push(el.value);
+		}else if(obj[el.name] instanceof Array){
+			obj[el.name].push(el.value);
+		}
+	}
+	return obj;
+}
+
+
+//=== file 관련
+_M.FILE = {
+	"pathinfo":function(path){
+		var ret = {"dirname":"","basename":"","extension":"","filename":""}
+		//path = '/www/htdocs/inc/lib.inc.php'
+		//path = 'lib.inc.php'
+		var t = (new RegExp('(.*)(?:/[^/]*)$')).exec(path)
+		//alert(t);
+		ret["dirname"] = t?t[1]:"";
+		var t = (new RegExp('[^/]*$')).exec(path)
+		ret["basename"] = t?t[0]:"";
+		var t = (new RegExp('\.([^/\.]*)$')).exec(path)
+		ret["extension"] = t?t[1]:"";
+		ret["filename"] = ret["basename"].replace(new RegExp("."+ret["extension"]+"$"),'')
+		return ret
+	}
+}
+//=== xml 관련
+_M.XML = {
+	"nodeToObject":function(node){ //주의 attr과 자식노드의 이름이 같으면 같이 배열에 들어가 버린다! 사용에 주의!
+		var obj = {};
+		for(var i=0,m=node.attributes.length;i<m;i++){
+			obj[node.attributes[i].name] = node.attributes[i].value;
+		}
+		var n = null
+		for(node = node.firstChild; node; node = node.nextSibling){
+			var nodeName = node.nodeName;
+			var nodeType = node.nodeType;
+//			if(nodeType== 3){	nodeName = '#text'} //TextNode를 처리안함 무시
+			if(nodeType != 1){continue;} 
+			if(nodeType == 1){
+				var t = _M.XML.nodeToObject(node);
+			}else if(nodeType == 3){
+				var t = node.nodeValue;
+			}
+				if(obj[nodeName]){
+					if(obj[nodeName] instanceof Array){
+						obj[nodeName].push(t);
+					}else{
+						obj[nodeName] = [obj[nodeName]];
+						obj[nodeName].push(t);
+					}
+				}else{
+					obj[nodeName] = t;
+				}
+			
+		}
+		return obj;
+	}
+	,"objectToXML":function(obj,nodeName){
+		var n = '';
+		var attr = [];
+		var child = []
+		for(var x in obj){
+			switch(typeof obj[x]){
+				case "number":
+					attr.push(x+'="'+obj[x]+'"');	break;
+				case "string":
+					attr.push(x+'="'+_M.STRING.htmlspecialchars(obj[x])+'"');	break;
+				default:
+					if(obj[x] instanceof Array){
+						for(var i=0,m=obj[x].length;i<m;i++){
+							child.push(_M.XML.objectToXML(obj[x][i],x));
+						}
+					}else{
+						child.push(_M.XML.objectToXML(obj[x],x));
+					}
+				break;
+			}
+		}
+		n = '<'+nodeName;
+		if(attr.length>0){
+		n += ' '+attr.join(' ');
+		}
+		if(child.length>0){
+			n+='>';
+			n+=child.join('\n');
+			n+='</'+nodeName+'>'
+		}else{
+			n+=' />';
+		}
+		return n;
+	}
+}
+//=== date 관련
+_M.DATE = {
+	//PHP의 date함수 기준
+	"format":function(fmt,D){
+		if(!D) D = new Date();
+		var r = [];
+		var _fn = function(D,f){
+			var t = t2 = '';
+			var r = '';
+			var wday_D = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+			var wday_l = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+			var wday_N = [7,1,2,3,4,5,6];
+			var day_S = ['','st','nd','rd'];
+			var month_F = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+			var month_M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			
+			switch(f){
+				//--- Day
+				case 'd':t=D.getDate();r=t>9?t:'0'+t;break;
+				case 'D':r=wday_D[D.getDay()];break;
+				case 'j':r=D.getDate();break;
+				case 'l':r=wday_l[D.getDay()];break;
+				case 'N':r=wday_N[D.getDay()];break;
+				case 'S':t=D.getDate();r=day_S[t]?day_S[t]:'th';break;
+				case 'z':r=Math.floor((D.getTime() - (new Date(D.getFullYear(),0,1)).getTime())/86400000);break;
+				//--- Week
+				case 'W':r=Math.ceil((_fn(D,'z')-((D.getDay()+6)%7))/7);  break;
+				//--- Month
+				case 'F':r=month_F[D.getMonth()]; break;
+				case 'm':t=D.getMonth()+1;r=t>9?t:'0'+t;break;
+				case 'M':r=month_M[D.getMonth()]; break;
+				case 'n':r=D.getMonth()+1; break;
+				case 't':r=(new Date(D.getFullYear(),D.getMonth()+1,1,-1,0,0,0)).getDate();break;
+				//--- Year
+				case 'L':r=(new Date(D.getFullYear(),1,29).getMonth()==1?1:0); break;
+				case 'o':r=D.getFullYear(); break;
+				case 'Y':r=D.getFullYear(); break;
+				case 'y':r=D.getFullYear()%100; break;
+				//--- time
+				case 'a':r=D.getHours()<12?'am':'pm';break;
+				case 'A':r=_fn(D,'a').toUpperCase();break;
+				case 'B':r=Math.floor(((D.getUTCHours()+1)*60*60+D.getMinutes()*60+D.getSeconds())*1000/86400);break;
+				case 'g':r=(D.getHours()+11)%12+1;break;
+				case 'G':r=D.getHours();break;
+				case 'h':t=_fn(D,'g');r=t>9?t:'0'+t;break;
+				case 'H':t=_fn(D,'G');r=t>9?t:'0'+t;break;
+				case 'i':t=D.getMinutes();r=t>9?t:'0'+t;break;
+				case 's':t=D.getSeconds();r=t>9?t:'0'+t;break;
+				case 'u':t=D.getMilliseconds()*1000;r=('000000'+t).substr(-6);break; //사용을 추천하지 않는다. JS에는 Microseconds이 없어서 Millliseconds에 1000을 곱했다. PHP에서는 00000만 보인다.
+				//--- Timezone , 타임존 관련은 사용을 추천하지 않는다....
+				case 'e':r='';break;// JS에서는 못 알아내는것 같다.
+				case 'I':;t = (new Date(D.getFullYear(),0,1)).getTimezoneOffset()
+					for(var i=0,m=12;i<m;i++){t = Math.max(t,(new Date(D.getFullYear(),i,1)).getTimezoneOffset());}
+					r=(t!=D.getTimezoneOffset())?1:0;break;// 서머타임 적용유무 비추천, 최대값가지고 비교체크만 한다.
+				case 'O':t=D.getTimezoneOffset()*-1;r=(t>0?'+':'-')+(('00'+Math.floor(Math.abs(t)/60)).substr(-2))+('00'+Math.abs(t)%60).substr(-2);break;
+				case 'P':t=_fn(D,'O');r=t.substr(0,3)+':'+t.substr(-2);break;
+				case 'T':r='';break;//Timezone abbreviation 무시.
+				case 'Z':r=D.getTimezoneOffset()*60*-1;break;
+				//--- Full Date/Time
+				case 'c':r=_M.DATE.format('Y-m-d',D)+'T'+_M.DATE.format('H:i:sP',D);break;
+				case 'r':r=_M.DATE.format('D, d M Y H:i:s O',D);break;
+				case 'U':r=Math.floor(D.getTime()/1000);break;
+				default:r=f;break;
+			}
+			return r;
+		}
+		for(var i=0,m=fmt.length;i<m;i++){
+			r.push(_fn(D,fmt.charAt(i)).toString());
+		}
+		return r.join('');
+	}
+}
+
+//=== cilpboard관련 (IE전용)
+_M.CLIPBOARD = {
+	"type":"text"
+	,"clear":function(){
+		if(window.clipboardData && window.clipboardData.clearData){
+			return window.clipboardData.clearData();
+		}
+		return false;
+	}
+	,"set":function(str,type){
+		if(!type){type="Text";} //Text,URL
+		this.type = type;
+		if(window.clipboardData && window.clipboardData.setData){
+			return window.clipboardData.setData(type,str);
+		}
+		return false;
+	}
+	,"get":function(type){
+		if(!type){type=this.type;} //Text,URL
+		if(window.clipboardData && window.clipboardData.getData){
+			return window.clipboardData.getData(type);
+		}
+		return false;
+	}
+}
+
+//=== bookmark 관련
+// http://www.dynamicdrive.com/dynamicindex9/addbook.htm
+_M.BOOKMARK = {
+	"bookmark":function(title,url){
+		
+		if (window.sidebar){ // firefox
+			if(!confirm(title+" 페이지를 사이드바에 즐겨찾기를 추가하시겠습니까?\n(북마크에서 즐겨찾기된 사이트의 속성에서 \n\"현재 북마크를 사이드 바에서 읽기\" \n체크박스를 해제하시면 일반 즐겨찾기처럼 사용하실 수 있습니다.)")){return false;}
+			//window.sidebar.addPersistentPanel(title, url, ""); //addPanel 와 같다.
+			window.sidebar.addPanel(title, url, "");
+		}else if(window.opera && window.print){ // opera
+			// opara 11.11 에서 안됨
+			alert("사용중인 브라우저는 즐겨찾기 자동추가가 지원되지 않습니다");
+			return false;
+			var elem = document.createElement('a');
+			elem.setAttribute('href',url);
+			elem.setAttribute('title',title);
+			elem.setAttribute('rel','sidebar');
+			elem.click();
+		}else if(document.all && window.external){// ie
+			if(!confirm(title+" 페이지를 즐겨찾기를 추가하시겠습니까?")){return false;}
+			window.external.AddFavorite(url, title);
+		}else{
+			//크롬, 사파리에서 지원안됨
+			alert("사용중인 브라우저는 즐겨찾기 자동 추가가 지원되지 않습니다");
+		}
+		return true;
+	}
+}
+/**
+* AJAX 관련
+*/
+_M.AJAX = function(){
+}
+_M.AJAX.version="20110626";
+_M.AJAX.defCfg={
+	 "url":""		
+	,"data":""
+	,"contentType":"application/x-www-form-urlencoded"
+	,"charset":"UTF-8"
+	,"method":"get"
+	,"callback":null
+	,"refresh":false
+	,"async":true
+	,"user":""
+	,"password":""
+	,"dataType":"xml"
+	,"timeout":10000 //지정시간이 지나면 강제로 abort 시킨다.
+	,"onerror":null
+	,"onabort":null
+	,"onprogress":null
+	,"onload":null
+	,"onloadstart":null
+	,"ontimeout":null //커스텀 이벤트
+	,"_timmer":null
+	,"debug":false //디버그용
+}
+
+//단독 실행
+_M.AJAX.ajax = function(cfg){
+	return (new _M.AJAX).ajax(cfg);
+}
+_M.AJAX.get = function(url,callback,cfg){
+	if(typeof callback == "undefined"){callback = null;}
+	cfg = _M.OBJECT.merge(cfg,{"url":url,"callback":callback,"method":"get"});
+	return (new _M.AJAX).ajax(cfg);
+}
+_M.AJAX.post = function(url,callback,data,cfg){
+	if(typeof data == "undefined"){data = "";}
+	if(typeof callback == "undefined"){callback = null;}
+	cfg = _M.OBJECT.merge(cfg,{"url":url,"callback":callback,"data":data,"method":"post"});
+	return (new _M.AJAX).ajax(cfg);
+}
+
+
+//순차 실행용
+_M.AJAX.ajaxs = {"cfgs":[],"XHR":null,"onfinish":null,"status":0}
+_M.AJAX.ajaxs.get = function(url,callback,cfg){
+	if(typeof callback == "undefined"){callback = null;}
+	cfg = _M.OBJECT.merge(cfg,{"url":url,"callback":callback,"method":"get"});
+	return _M.AJAX.ajaxs.add(cfg);
+}
+_M.AJAX.ajaxs.post = function(url,callback,data,cfg){
+	if(typeof data == "undefined"){data = "";}
+	if(typeof callback == "undefined"){callback = null;}
+	cfg = _M.OBJECT.merge(cfg,{"url":url,"callback":callback,"data":data,"method":"post"});
+	return _M.AJAX.ajaxs.add(cfg);
+}
+
+_M.AJAX.ajaxs.add = function(cfg){
+	if(_M.AJAX.ajaxs.status != 0){return false;}
+	if(_M.AJAX.ajaxs.XHR==null){ _M.AJAX.ajaxs.XHR = _M.AJAX.createXHR(); }
+	_M.AJAX.ajaxs.cfgs.push(cfg);
+	return false
+}
+_M.AJAX.ajaxs.ajax = _M.AJAX.ajaxs.add;
+_M.AJAX.ajaxs.reset = function(){
+	_M.AJAX.ajaxs.status = 0;
+	_M.AJAX.ajaxs.cfgs = [];
+}
+_M.AJAX.ajaxs.run = function(){
+	if(_M.AJAX.ajaxs.status != 0){return false;}
+	_M.AJAX.ajaxs._run();
+	return true;
+}
+_M.AJAX.ajaxs._run = function(){
+	if(_M.AJAX.ajaxs.cfgs.length<=0){
+		if(_M.AJAX.ajaxs.onfinish) _M.AJAX.ajaxs.onfinish()
+		_M.AJAX.ajaxs.reset();
+		return;
+	}
+	var cfgs = _M.AJAX.ajaxs.cfgs;
+	if(_M.AJAX.ajaxs.XHR==null){ _M.AJAX.ajaxs.XHR = _M.AJAX.createXHR(); }
+	var cfg = cfgs.shift();
+	if(cfg.onload){
+		var t = function(onload){
+			return function(){
+				_M.AJAX.ajaxs._run()
+				onload();
+			}
+		}(cfg.onload);
+	}else{
+		var t = function(){
+			_M.AJAX.ajaxs._run()
+		}
+	}
+	var cfg = _M.OBJECT.merge(cfg,{"XHR":_M.AJAX.ajaxs.XHR,"onload":t});
+	_M.AJAX.ajax(cfg);
+	_M.AJAX.ajaxs.status = 1;
+}
+
+// AJAX클래스
+
+_M.AJAX.prototype = {"XHR":null};
+_M.AJAX.prototype.ajax = function(iCfg){
+	var cfg = _M.OBJECT.merge(_M.AJAX.defCfg,iCfg);
+	//var data = _M.AJAX.encodeData(cfg.data); //자동으로 안할꺼다! 외부에서 해라!
+	var data = cfg.data;
+	if(this.XHR == null ){ this.XHR = _M.AJAX.createXHR(); }
+	
+	_M.AJAX.configXHR(this.XHR,cfg)
+	var url = cfg.url;
+	if(cfg.refresh){
+		url+=((url.indexOf('?')===-1)?'?':'&')+'rt'+Math.round((Math.random()*10000))+'='+(new Date).getTime();
+	}
+	this.XHR.open(cfg.method,url,cfg.async,cfg.user,cfg.password);
+	_M.AJAX.setHeaderXHR(this.XHR,cfg);
+	cfg._timer = setTimeout(
+		function(XHR,cfg){ 
+			return function(){ 
+				if(cfg.ontimeout) cfg.ontimeout();
+				XHR.abort();
+			}
+		}(this.XHR,cfg)
+		,cfg.timeout);
+	this.XHR.send(data);
+}
+_M.AJAX.configXHR = function(XHR,cfg){
+	try{
+		XHR.onerror = cfg.onerror;
+		XHR.onabort = cfg.onabort;
+		XHR.onprogress = cfg.onprogress;
+		//XHR.onload = function(){alert('LOAD');} // IE때문에 XHR.onreadystatechange에서 대신 처리
+		XHR.onloadstart = cfg.onloadstart;
+		XHR.ontimeout = cfg.ontimeout;
+	}catch(e){
+	}
+	XHR.onreadystatechange = function(cfg,XHR){
+		return function(){
+			if ( XHR.readyState == 4 ){
+				//try{
+					if(cfg.callback){
+						
+						if(cfg.dataType =='xml'){
+							cfg.callback(XHR.responseXML);
+						}else if(cfg.dataType =='text'){
+							cfg.callback(XHR.responseText);
+						}
+					}
+					if(cfg.onload) cfg.onload();
+				//}catch(e){
+					//if(this.onerror) this.onerror(e);
+					if(cfg.debug){
+						alert("e.name : "+e.name+"\n"+"e.message : "+e.message);
+					}
+				//}
+				if(cfg._timer){ clearTimeout(cfg._timer); }
+				//this.abort();
+			}	
+		}
+	}(cfg,XHR);
+}
+_M.AJAX.createXHR = function(){
+	var XHR = null;
+	//XMLHttpRequest 를 생성한다.
+	if(window.XMLHttpRequest){
+	//IE를 제외한 브라우저
+		var XHR = new XMLHttpRequest() ;
+	} else 	if(window.ActiveXObject){
+	//Win IE4+
+		try {
+				var XHR = new ActiveXObject("Msxml2.XMLHTTP") ;
+		} catch (e) {
+			try {
+				var XHR = new ActiveXObject("Microsoft.XMLHTTP") ;
+			} catch (e2) {
+				//var XHR = null;
+				alert('ERROR:createXHR 1');
+				return XHR;
+			}
+		}
+	}else {
+		// XMLHttpRequest를 지원하지 않는 경우
+		//var XHR = null;
+		alert('ERROR:createXHR 2');
+		return XHR;
+	}
+	return XHR;
+}
+_M.AJAX.encodeData = function(data){
+	if(data === null || typeof data == 'undefined'){ return ""; }
+	if(data!=""){
+		//&와=로 일단 분해해서 encode
+		var encdata = '';
+		var arr_data = data.split('&');
+		for(i=0;i<arr_data.length;i++)
+		{
+			var dataq = arr_data[i].split('=');
+			encdata += '&'+encodeURIComponent(dataq[0])+'='+encodeURIComponent(dataq[1]);
+		}
+	} else {
+		encdata = "";
+	}
+	return encdata;
+}
+_M.AJAX.setHeaderXHR = function(XHR,cfg){
+	//var contentTypeUrlenc = 'application/x-www-form-urlencoded; charset=UTF-8';
+	//var contentTypeUrlenc_multipart = 'multipart/form-data; charset=UTF-8';
+	var ct = cfg.contentType+"; charset="+cfg.charset;
+	if(!window.opera){
+		XHR.setRequestHeader('Content-Type',ct);
+	} else {
+		if((typeof XHR.setRequestHeader) == 'function')
+			XHR.setRequestHeader('Content-Type',ct);
+	}
+	return true;
+}
+/**
+* BASE64 관련
+* 사용소스 : https://github.com/dankogai/js-base64
+* 모듈 사용 인터페이스만 제공
+*/
+
+
+_M.BASE64 = {
+	"encode":function(str){
+		if(!Base64 || !Base64.encode){alert('필요 파일이 없습니다.');return false;}
+		return Base64.encode(str);
+	}
+	,"encodeUrl":function(str){
+		if(!Base64 || !Base64.encode){alert('필요 파일이 없습니다.');return false;}
+		return Base64.encode(str);
+	}
+	,"decode":function(encstr){
+		if(!Base64 || !Base64.decode){alert('필요 파일이 없습니다.');return false;}
+		return Base64.decode(encstr);
+	}
+}// JavaScript Document
+_M.DEBUG = {};
+///DOM을 분석해서 생성 스크립트로 만든다.
+_M.DEBUG.rescriptDOM = function(el){
+	var c = _M.DEBUG.rescriptDOM.c;
+	c = {'ii':1,'pi':0};
+	var arr = new Array();
+	_M.DEBUG.rescriptDOM.next(el,arr,0);
+	return arr;
+};
+_M.DEBUG.rescriptDOM.c = {'ii':1,'pi':0};
+_M.DEBUG.rescriptDOM.next = function(el,arr,pi){
+	var c = _M.DEBUG.rescriptDOM.c;
+
+	var node = el
+	while(node){
+		if(node.nodeType!=3){
+			arr.push("var N_"+(c.ii)+ " = _M.DOM.create(\""+node.tagName+"\");");
+			if(node.className) arr.push("N_"+(c.ii)+".className=\""+node.className+"\";");
+			if(node.type) arr.push("N_"+(c.ii)+".type=\""+node.type+"\";");
+			if(node.value) arr.push("N_"+(c.ii)+".value=\""+node.value+"\";");
+			var pi = node.parentNode.getAttribute('rescriptDOMi');
+			if(!pi) pi = 0;
+			arr.push("_M.DOM.append(N_"+(pi)+",N_"+(c.ii)+");");
+			node.setAttribute('rescriptDOMi',c.ii);
+			_M.DEBUG.rescriptDOM.child(node,arr);
+		}else{
+			if(!(/^\s+/).test(node.nodeValue)){ 
+				var pi = node.parentNode.getAttribute('rescriptDOMi');
+				if(pi) pi = 0;
+				arr.push("var N_"+(c.ii)+ " = _M.DOM.createText(\""+node.nodeValue+"\")");
+				arr.push("_M.DOM.append(N_"+(pi)+",N_"+(c.ii)+");");
+				
+			}
+		}
+		
+		c.ii++;
+		node= node.nextSibling;
+	}
+}
+_M.DEBUG.rescriptDOM.child = function(el,arr){
+	var c = _M.DEBUG.rescriptDOM.c;
+	for(node = el.firstChild;node;node= node.nextSibling){
+		_M.DEBUG.rescriptDOM.next(node,arr);
+		try{
+		if(node.nodeType!=3){break;}
+		}catch(e){return;}
+	}
+}/**
+* DEFLATE compress 관련
+* 사용소스 : https://github.com/dankogai/js-deflate
+*/
+
+/*
+* 사용에 문제가 있음 큰 문자열 변환시 손실이 발생함!
+*/
+_M.DEFLATE = {
+	"compress" : function(uncompressed){  //한글처리 안됨
+	if(!RawDeflate || !RawDeflate.deflate){alert('필요 파일이 없습니다.');return false;}
+	return RawDeflate.deflate(uncompressed)
+	} 
+	,"decompress" : function(compressed) {   //한글처리 안됨
+	if(!RawDeflate || !RawDeflate.inflate){alert('필요 파일이 없습니다.');return false;}
+		return RawDeflate.inflate(compressed)
+	}
+	,"encode":function(uncompressed){
+//	return Base64.toBase64(RawDeflate.deflate(Base64.utob(uncompressed)));
+	return this._toBase64(RawDeflate.deflate(_M.DEFLATE._utob(uncompressed)));
+	}
+	,"decode":function(compressed){
+//		return Base64.btou(RawDeflate.inflate(Base64.fromBase64(compressed)));
+		return this._btou(RawDeflate.inflate(this._fromBase64(compressed)));
+	}
+	
+/**
+* Uncaught RangeError: Maximum call stack size exceeded 때문에 함수를 하나로 합쳐서 사용한다....chrome에서 계속 나오는데 딱히 방법이 없다.
+* String.fromCharCode.apply() 때문인데, ... 루프문으로 바꿨다.
+* 이 밑은 그 때문에 변환한 소스
+*/
+	,"_utob":function(uniStr){
+		var uni = this._stringToArray(uniStr);uniStr= null; delete uniStr;
+    var bin = [];
+    for (var i = 0, l = uni.length; i < l; i++){
+        var n = uni[i];
+        if (n < 0x80)
+            bin.push(n);
+        else if (n < 0x800)
+            bin.push(
+                0xc0 | (n >>>  6),
+                0x80 | (n & 0x3f));
+        else
+            bin.push(
+                0xe0 | ((n >>> 12) & 0x0f),
+                0x80 | ((n >>>  6) & 0x3f),
+                0x80 |  (n         & 0x3f));
+    }
+		return this._arrayToString(bin);
+	}
+	,"_btou":function(binStr){
+		var bin = this._stringToArray(binStr);binStr= null; delete binStr;
+    var uni = [];
+    for (var i = 0, l = bin.length; i < l; i++){
+        var c0 = bin[i];
+        if    (c0 < 0x80){
+            uni.push(c0);
+        }else{
+            var c1 = bin[++i];
+            if (c0 < 0xe0){
+                uni.push(((c0 & 0x1f) << 6) | (c1 & 0x3f));
+            }else{
+                var c2 = bin[++i];
+                uni.push(
+                       ((c0 & 0x0f) << 12) | ((c1 & 0x3f) << 6) | (c2 & 0x3f)
+                );
+            }
+        }
+    }
+    return this._arrayToString(uni);
+	}
+	,"_b64chars":'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+	,"_b64charcodes":null
+	,"_b64tab":null
+	,"init_b64tab":function(bin){
+			var bin = this._b64chars;
+			var t = {};
+			for (var i = 0, l = bin.length; i < l; i++) t[bin.charAt(i)] = i;
+			this._b64tab =t;
+	}
+	,"init_b64charcodes":function(){
+			var a = [];
+			var codeA = 'A'.charCodeAt(0);
+			var codea = 'a'.charCodeAt(0);
+			var code0 = '0'.charCodeAt(0);
+			for (var i = 0; i < 26; i ++) a.push(codeA + i);
+			for (var i = 0; i < 26; i ++) a.push(codea + i);
+			for (var i = 0; i < 10; i ++) a.push(code0 + i);
+			a.push('+'.charCodeAt(0));
+			a.push('/'.charCodeAt(0));
+			this._b64charcodes = a;
+	}
+	,"_toBase64":function(binStr){
+		if(!this._b64charcodes){
+			this.init_b64charcodes();
+		}
+		var b64charcodes = this._b64charcodes
+		var bin = this._stringToArray(binStr);binStr= null; delete binStr;
+    var padlen = 0;
+    while (bin.length % 3){
+        bin.push(0);
+        padlen++;
+    };
+    var b64 = [];
+    for (var i = 0, l = bin.length; i < l; i += 3){
+        var c0 = bin[i], c1 = bin[i+1], c2 = bin[i+2];
+        if (c0 >= 256 || c1 >= 256 || c2 >= 256)
+            throw 'unsupported character found';
+        var n = (c0 << 16) | (c1 << 8) | c2;
+        b64.push(
+            b64charcodes[ n >>> 18],
+            b64charcodes[(n >>> 12) & 63],
+            b64charcodes[(n >>>  6) & 63],
+            b64charcodes[ n         & 63]
+        );
+    }
+    while (padlen--) b64[b64.length - padlen - 1] = '='.charCodeAt(0);
+		return this._arrayToString(b64);
+	}
+	,"_fromBase64":function(b64){
+    b64 = b64.replace(/[^A-Za-z0-9+\/]+/g, '');
+		if(!this._b64tab){
+			this.init_b64tab();
+		}
+		var b64tab = this._b64tab;
+    var bin = [];
+    var padlen = b64.length % 4;
+    for (var i = 0, l = b64.length; i < l; i += 4){
+        var n = ((b64tab[b64.charAt(i  )] || 0) << 18)
+            |   ((b64tab[b64.charAt(i+1)] || 0) << 12)
+            |   ((b64tab[b64.charAt(i+2)] || 0) <<  6)
+            |   ((b64tab[b64.charAt(i+3)] || 0));
+        bin.push(
+            (  n >> 16 ),
+            ( (n >>  8) & 0xff ),
+            (  n        & 0xff )
+        );
+    }
+    bin.length -= [0,0,2,1][padlen];
+		return this._arrayToString(bin);
+    //return bin;
+	}
+	,"_stringToArray":function(s){
+    var a = [];
+    for (var i = 0, l = s.length; i < l; i ++) a[i] = s.charCodeAt(i);
+    return a;
+	}
+	,"_arrayToString":function(a){
+		var s = []
+		for (var i = 0, l = a.length; i < l; i++){
+			s[i] = String.fromCharCode(a[i]);
+		}
+		return s.join('');
+	}
+}/**
+* LZW compress 관련(무손실 압축 방식)
+* 사용소스 : http://rosettacode.org/wiki/LZW_compression#JavaScript
+* 사용소스 : http://stackoverflow.com/questions/294297/javascript-implementation-of-gzip
+* 참고 : http://en.wikipedia.org/wiki/Lempel-Ziv-Welch
+* 한글지원안됨! 256byte안의 글자만 허용됨
+*/
+
+
+_M.LZW = {
+	"encode":function(uncompressed){
+		var out = this.compress(uncompressed);
+    for (var i=0; i<out.length; i++) {
+        out[i] = String.fromCharCode(out[i]);
+    }
+    return out.join("");
+	}
+	,"decode":function(s){
+    var dict = {};
+    var data = (s + "").split("");
+    var currChar = data[0];
+    var oldPhrase = currChar;
+    var out = [currChar];
+    var code = 256;
+    var phrase;
+    for (var i=1; i<data.length; i++) {
+        var currCode = data[i].charCodeAt(0);
+        if (currCode < 256) {
+            phrase = data[i];
+        }
+        else {
+           phrase = dict[currCode] ? dict[currCode] : (oldPhrase + currChar);
+        }
+        out.push(phrase);
+        currChar = phrase.charAt(0);
+        dict[code] = oldPhrase + currChar;
+        code++;
+        oldPhrase = phrase;
+    }
+    return out.join("");
+	}
+	,"compress" : function(uncompressed) 
+	{
+			// Build the dictionary.
+			var dictSize = 256;
+			var dictionary = {};
+			for (var i = 0; i < 256; i++)
+			{
+					dictionary[String.fromCharCode(i)] = i;
+			}
+	
+			var w = "";
+			var result = [];
+			for (var i = 0; i < uncompressed.length; i++) 
+			{
+				var c = uncompressed.charAt(i);
+					var wc = w + c;
+					if (dictionary[wc])
+							w = wc;
+					else {
+							result.push(dictionary[w]);
+							// Add wc to the dictionary.
+							dictionary[wc] = dictSize++;
+							w = "" + c;
+					}
+			}
+	
+			// Output the code for w.
+			if (w != "")
+					result.push(dictionary[w]);
+			return result;
+	} 
+	,"decompress" : function(compressed) {
+			// Build the dictionary.
+			var dictSize = 256;
+			var dictionary = [];
+			for (var i = 0; i < 256; i++)
+			{
+					dictionary[i] = String.fromCharCode(i);
+			}
+
+			var w = String.fromCharCode(compressed[0]);
+			var result = w;
+			for (var i = 1; i < compressed.length; i++) {
+					var entry = "";
+					var k = compressed[i];
+					if (dictionary[k])
+							entry = dictionary[k];
+					else if (k == dictSize)
+							entry = w + w.charAt(0);
+					else
+							return null;
+
+					result += entry;
+
+					// Add w+entry[0] to the dictionary.
+					dictionary[dictSize++] = w + entry.charAt(0);
+
+					w = entry;
+			}
+			return result;
+	}
+}// JavaScript Document
+
+if(!_M){
+	alert('필수 라이브러리가 없습니다.');
+}
+
+_M.EMBED = {};
+
+
+//<embed id="_MEMBEDWACOMTABLET" name="_MEMBEDWACOMTABLET" type="application/x-wacom-tablet" HIDDEN="TRUE"></embed>
+//<object id='Wacom' classid='CLSID:449E4080-7C69-4767-A1AE-6AAE25B0B906'codebase="<your path>/WacomIE.cab"></object> for IE
+//<object id='Wacom' classid='CLSID:449E4080-7C69-4767-A1AE-6AAE25B0B906'codebase="<your path>/WacomIE.cab#version=-1,-1,-1,-1"></object> for IE
+//http://www.wacom.com/CustomerCare/Plugin.aspx
+//http://www.wacomeng.com/web/release_notes.htm
+//http://www.wacomeng.com/web/index.html
+_M.EMBED.WACOMTABLET = {
+	"id":"_MEMBEDWACOMTABLET"
+	,"used":false
+	,"plugin ":null
+	,"isWritePlugInTag":false
+	,"_wacomProp":[
+		 "isEraser"
+		,"isWacom"
+		,"pointerType"
+		,"posX"
+		,"posY"
+		,"pressure"
+		,"rotationDeg" //Only Professional
+		,"rotationRad" //Only Professional
+		,"sysX"
+		,"sysX"
+		,"tabX"
+		,"tabY"
+		//,"SetFocus" //writeOnly
+		,"TabletModel"
+		,"TabletModelID"
+		,"tangentialPressure" //Only Professional
+		,"tiltX" //Only Professional
+		,"tiltY" //Only Professional
+		,"version"
+		]
+	//필수 선행!
+	,"writePlugInTag":function(){
+		document.writeln('<!--[if IE]>'
+										+'<object id="_MEMBEDWACOMTABLET-ie" classid="CLSID:449E4080-7C69-4767-A1AE-6AAE25B0B906"></object>'
+										+'<![endif]-->');
+		if(navigator.mimeTypes["application/x-wacom-tablet"]){									
+			document.writeln('<embed name="_MEMBEDWACOMTABLET" id="_MEMBEDWACOMTABLET" type="application/x-wacom-tablet" hidden="true" pluginspage="http://www.wacom.com/productsupport/plugin.php"></embed>'										);
+		}
+		this.isWritePlugInTag = true;
+	}
+	,"init":function(){
+		if(!this.isWritePlugInTag){
+			alert("writePlugInTag()가 선행되야합니다!");
+			return false;
+		}
+		if(this.used){ return true;}
+		this.plugin = (window["_MEMBEDWACOMTABLET-ie"] || document.embeds["_MEMBEDWACOMTABLET"]);
+		if(!this.plugin){return false;}
+		for(var i = 0,m=this._wacomProp.length;i<m;i++){
+			var x = this._wacomProp[i];
+			this[x] = function(plugin,x){
+				return function(){
+					return plugin[x];
+				}
+			}(this.plugin,x)
+		}
+		if(this.isWacom || this.isWacom()){
+			_M.EVENT.adds(window,'onfocus',this.onsetfocus)	;
+			this.used = true;
+		}
+		return true;
+	}
+	,"getPressure":function(){
+		if(!this.used || !this.isWacom || !this.isWacom()){return false;}
+		return this.plugin.pressure;
+	}
+	,"onsetfocus":function(){
+		_M.EMBED.WACOMTABLET.setfocus(true);
+	}
+	,"setfocus":function(b){
+		this.plugin.SetFocus = b;
+	}
+}/**
+*
+*  Base64 encode / decode
+*  http://www.webtoolkit.info/
+*
+**/
+ 
+var Base64 = {
+ 
+	// private property
+	_keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+ 
+	// public method for encoding
+	encode : function (input) {
+		var output = "";
+		var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+		var i = 0;
+ 
+		input = Base64._utf8_encode(input);
+ 
+		while (i < input.length) {
+ 
+			chr1 = input.charCodeAt(i++);
+			chr2 = input.charCodeAt(i++);
+			chr3 = input.charCodeAt(i++);
+ 
+			enc1 = chr1 >> 2;
+			enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+			enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+			enc4 = chr3 & 63;
+ 
+			if (isNaN(chr2)) {
+				enc3 = enc4 = 64;
+			} else if (isNaN(chr3)) {
+				enc4 = 64;
+			}
+ 
+			output = output +
+			this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+			this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+ 
+		}
+ 
+		return output;
+	},
+ 
+	// public method for decoding
+	decode : function (input) {
+		var output = "";
+		var chr1, chr2, chr3;
+		var enc1, enc2, enc3, enc4;
+		var i = 0;
+ 
+		input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+ 
+		while (i < input.length) {
+ 
+			enc1 = this._keyStr.indexOf(input.charAt(i++));
+			enc2 = this._keyStr.indexOf(input.charAt(i++));
+			enc3 = this._keyStr.indexOf(input.charAt(i++));
+			enc4 = this._keyStr.indexOf(input.charAt(i++));
+ 
+			chr1 = (enc1 << 2) | (enc2 >> 4);
+			chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+			chr3 = ((enc3 & 3) << 6) | enc4;
+ 
+			output = output + String.fromCharCode(chr1);
+ 
+			if (enc3 != 64) {
+				output = output + String.fromCharCode(chr2);
+			}
+			if (enc4 != 64) {
+				output = output + String.fromCharCode(chr3);
+			}
+ 
+		}
+ 
+		output = Base64._utf8_decode(output);
+ 
+		return output;
+ 
+	},
+ 
+	// private method for UTF-8 encoding
+	_utf8_encode : function (string) {
+		string = string.replace(/\r\n/g,"\n");
+		var utftext = "";
+ 
+		for (var n = 0; n < string.length; n++) {
+ 
+			var c = string.charCodeAt(n);
+ 
+			if (c < 128) {
+				utftext += String.fromCharCode(c);
+			}
+			else if((c > 127) && (c < 2048)) {
+				utftext += String.fromCharCode((c >> 6) | 192);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+			else {
+				utftext += String.fromCharCode((c >> 12) | 224);
+				utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+ 
+		}
+ 
+		return utftext;
+	},
+ 
+	// private method for UTF-8 decoding
+	_utf8_decode : function (utftext) {
+		var string = "";
+		var i = 0;
+		var c = c1 = c2 = 0;
+ 
+		while ( i < utftext.length ) {
+ 
+			c = utftext.charCodeAt(i);
+ 
+			if (c < 128) {
+				string += String.fromCharCode(c);
+				i++;
+			}
+			else if((c > 191) && (c < 224)) {
+				c2 = utftext.charCodeAt(i+1);
+				string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+				i += 2;
+			}
+			else {
+				c2 = utftext.charCodeAt(i+1);
+				c3 = utftext.charCodeAt(i+2);
+				string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+				i += 3;
+			}
+ 
+		}
+ 
+		return string;
+	}
+ 
+}// JavaScript Document
+/**
+* _M.UI
+* UI의 기본 객체와 기본 기능
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+if(!_M.UI){
+	_M.UI = {};
+}
+
+_M.UI.BG = {
+	"style":{"opacity":0.3,"backgroundColor":"#000","zIndex":null}
+	,"bg":null
+	,"cfg":{"onclick":null,"ondblclick":null}
+	,"defCfg":{"onclick":null,"ondblclick":null}
+	,"setStyle":function(iStyle){
+		var style =iStyle?_M.OBJECT.merge(_M.UI.BG.style,iStyle):_M.UI.BG.style;
+		if(_M.UI.BG.bg!=null){
+			for(var x in style){
+				if(style[x]!=null && style[x]!='')
+					_M.STYLE.set(_M.UI.BG.bg,x,style[x]);
+			}
+
+		}
+	}
+	,"setCfg":function(cfg){
+		_M.UI.BG.cfg =cfg?_M.OBJECT.merge(_M.UI.BG.defCfg,cfg):_M.UI.BG.defCfg;
+	}
+	,"show":function(style,cfg){
+		if(_M.UI.BG.bg==null){
+			_M.UI.BG.bg = document.createElement('div');
+			_M.UI.BG.bg.className = "MUIBG";
+			_M.UI.BG.bg.onclick = function(){ 
+					if(typeof _M.UI.BG.cfg.onclick =='function'){
+					_M.UI.BG.cfg.onclick();
+					}
+			}
+			_M.UI.BG.bg.ondblclick = function(){ 
+					if(typeof _M.UI.BG.cfg.ondblclick =='function'){
+					_M.UI.BG.cfg.ondblclick();
+					}
+			}
+				
+			_M.UI.BG.bg.onselectstart=function(){return false;}
+			document.body.appendChild(_M.UI.BG.bg);
+			_M.UI.BG.setStyle()
+		}
+		_M.UI.BG.setStyle(style);
+		_M.UI.BG.setCfg(cfg);
+
+
+		var sb =_M.BODY.scroll();
+		var bb = _M.LAYER.bound(document.body);
+		_M.STYLE.set(_M.UI.BG.bg,"minHeight",sb.height+'px');
+		_M.STYLE.set(_M.UI.BG.bg,"_width",Math.max(sb.width,bb.width)+'px');
+		_M.STYLE.set(_M.UI.BG.bg,"height",Math.max(sb.height,bb.height)+'px');
+		_M.STYLE.set(_M.UI.BG.bg,"display","");
+	}
+	,"hide":function(){
+		if(_M.UI.BG.bg!=null)
+		_M.STYLE.set(_M.UI.BG.bg,"display","none");
+	}
+}
+
+_M.UI.RESIZER = {
+	"defCfg":{
+		"forWidth":null
+		,"forHeight":null
+		,"resizeType":'both' //both, width , height
+		,"onFinish":null
+	}
+	,"initPostion":function(el){
+		if(el.initPostion){
+			el.initPostion();
+		}
+	}
+	//el은 postion이 relative나 absolute여야한다
+	,"resizer":function(el,iCfg){
+		el._MUIRESIZER = {};
+		if(!iCfg){iCfg={};}
+		var cfg = _M.OBJECT.merge(_M.UI.RESIZER.defCfg,iCfg);
+		if(!cfg.forWidth) cfg.forWidth = el;
+		if(!cfg.forHeight) cfg.forHeight = el;
+		el._MUIRESIZER.cfg = cfg;		
+		
+		
+		var tag = _M.DOM.create("div");
+		tag.className = "MUIRESIZER";
+		var icon = _M.DOM.create("div");
+		icon.className = "MUIRESIZER_ICON_"+cfg.resizeType;
+		_M.DOM.append(tag,icon);
+		//_M.DOM.append(document.body,tag);
+		_M.DOM.append(el,tag);
+		el._MUIRESIZER.tag = tag;
+		el._MUIRESIZER.icon = icon;
+		_M.DRAG.drag(icon,icon,{
+		"minLimit":true
+		,"returnZero":true
+		,"lockX":(cfg.resizeType=='height')?true:false
+		,"lockY":(cfg.resizeType=='width')?true:false
+		,"onStart":function(el){
+			return function(){
+				var eb = _M.LAYER.bound(el);
+				var forWidth = el._MUIRESIZER.cfg.forWidth;
+				var forHeight = el._MUIRESIZER.cfg.forHeight;
+				var ebL = _M.LAYER.bound(forWidth);
+				var ebT = _M.LAYER.bound(forHeight);
+				var icon = el._MUIRESIZER.icon
+				var ib = _M.LAYER.bound(icon);
+				
+				_M.DRAG.setCfg(el._MUIRESIZER.icon,{"minLeft":ebL.left,"minTop":ebT.top});
+				return false;
+			}
+		}(el) //시작 이벤트
+		,"onFinish":function(el,cfg){
+			return function(){
+				el.initPostion();
+				if(cfg.onFinish) cfg.onFinish()
+			}
+		}(el,cfg) //끝 이벤트
+		,"onDrag":function(el,cfg){
+			return function(){
+
+				var eb = _M.LAYER.bound(el);
+				var forWidth = el._MUIRESIZER.cfg.forWidth;
+				var forHeight = el._MUIRESIZER.cfg.forHeight;
+				var ebL = _M.LAYER.bound(forWidth);
+				var ebT = _M.LAYER.bound(forHeight);
+				var icon = el._MUIRESIZER.icon
+				var ib = _M.LAYER.bound(icon);
+				if(cfg.resizeType!='width') forHeight.style.height = (parseInt(forHeight.style.height)+ parseInt(icon.style.top))+"px";
+				if(cfg.resizeType!='height') forWidth.style.width = (parseInt(forWidth.style.width)+ parseInt(icon.style.left))+"px";
+				icon.style.top = 0;
+				icon.style.left = 0;
+			
+				_M.DRAG.setCfg(el._MUIRESIZER.icon,{"minLeft":ebL.left,"minTop":ebT.top});
+				return false;
+
+			}
+		}(el,cfg) //이동중 이벤트
+		});
+		el.initPostion = function(){
+			var el = this;
+			var eb = _M.LAYER.bound(el);
+			var forWidth = el._MUIRESIZER.cfg.forWidth;
+			var forHeight = el._MUIRESIZER.cfg.forHeight;
+			var ebL = _M.LAYER.bound(forWidth);
+			var ebT = _M.LAYER.bound(forHeight);
+			var icon = el._MUIRESIZER.icon
+			var ib = _M.LAYER.bound(icon);
+			
+			_M.DRAG.setCfg(el._MUIRESIZER.icon,{"minLeft":ebL.left,"minTop":ebT.top});
+			
+		}
+		el._MUIRESIZER.tagBound = _M.LAYER.bound(tag);
+		el.initPostion();
+	}
+}
+
+_M.UI.AREASELECTOR = (function(){
+	var div = _M.DOM.create('div');
+	var prop = {
+		 "cfg":{"ondblclick":null,"onmousedown":null}
+		,"inited":false
+		,"dCfg":{"ondblclick":function(event){_M.UI.AREASELECTOR.hide.call(_M.UI.AREASELECTOR)},"onmousedown":null}
+		,"ing":false
+		,"_create":function(){
+			//this.tag = _M.DOM.create('div');
+			this.className = "MUIAREASELECTOR";
+			this.innerDIV = _M.DOM.create('div');
+			this.innerDIV.className = "MUIAREASELECTOR_innerDIV";
+			_M.DOM.append(this,this.innerDIV);
+			_M.EVENT.add(document,'onmousemove',function(event){ _M.UI.AREASELECTOR.onmousemove.call(_M.UI.AREASELECTOR,event) });
+			_M.EVENT.add(document,'onmouseup',function(event){ _M.UI.AREASELECTOR.onmouseup.call(_M.UI.AREASELECTOR,event)});
+			
+		var dragCfg = {
+				"onStart":function(){
+				}
+				,"onDrag":function(){
+				}
+				,"onFinish":function(){
+				}
+			}
+		_M.DRAG.drag(this.innerDIV,this,dragCfg); //드래그
+		_M.UI.RESIZER.resizer(this); //리사이저
+		
+		}
+		,"showAsEvent":function(event,parent,iCfg){
+			var pb = _M.LAYER.bound(parent);
+			var evt = _M.EVENT.getEvent(event);
+			var left = evt.X - pb.left
+			var top = evt.Y - pb.top
+			this.show(parent,left,top,iCfg);
+		}
+		,"show":function(parent,left,top,iCfg){
+			if(!iCfg) iCfg = {}
+			this.cfg = _M.OBJECT.merge(this.dCfg,iCfg);
+			this.parent = parent;
+			if(this.inited ==false){this._create();this.inited = true;}
+			_M.DOM.append(parent,this);
+			this.style.left = left+'px';
+			this.style.top = top+'px';
+			this.style.width = '10px';
+			this.style.height = '10px';
+			this.ing = true;
+		}
+		,"hide":function(){
+			if(this.parentNode) _M.DOM.remove(this);
+		}
+		,"onmousedown":function(event){
+			if(this.cfg.onmousedown){
+				this.cfg.onmousedown()
+			}
+			_M.EVENT.stop(event);
+		}
+		,"ondblclick":function(event){
+			if(this.cfg.ondblclick){
+				this.cfg.ondblclick()
+				_M.EVENT.stop(event);
+			}
+		}
+		,"onclick":function(event){
+			if(!this.ing){return;}
+			if(this.cfg.ondblclick){
+				this.cfg.ondblclick()
+			}
+			_M.EVENT.stop(event);
+		}
+		,"onmousemove":function(event){
+			if(!this.ing){return;}
+			var evt = _M.EVENT.getEvent(event);
+			var tb = _M.LAYER.bound(this);
+			this.style.width = (evt.X - tb.left)+'px';
+			this.style.height = (evt.Y - tb.top)+'px';
+		}
+		,"onmouseup":function(){
+			this.ing = false;
+		}
+		,"getBound": function(){
+			if(!this){
+				return false;
+			}
+			return _M.LAYER.bound(this);
+		}
+	}
+	for(var x in prop){
+		div[x] = prop[x];
+	}
+	return div;
+})();if(!_M){alert('_M 라이브러리는 필수입니다.')}
+if(!_M.UI){alert('_M.UI 라이브러리는 필수입니다.')}
+if(!_M.AJAX){alert('_M.AJAX 라이브러리는 필수입니다.')}
+if(!_M.AJAX){alert('_M.AJAX 라이브러리는 필수입니다.')}
+
+_M.UI.FILELIST = function(cfg){
+	this.init(cfg);
+}
+_M.UI.FILELIST.cfg = {
+	"XMLURL":"_M.UI.FILELIST.xml.php"
+	,"lwindowCfg":{
+		"parentNode":null
+		,"className":"MUILWINDOW_bw"
+		,"left":0
+		,"top":0
+		,"width":500
+		,"height":"auto"
+		,"bodyHeight":200
+		,"title":"#title#"
+		,"body":"#body#"
+		,"zIndex":5000
+		,"zIndexGap":900 // LWINDOW에 포커스가 옮겨지면, 이 값만큼 zIndex에 더해진다.
+		,"useCloseButton":true
+		,"useResizer":true
+		,"dragCfg":{"minLeft":0,"minTop":0,"minLimit":true}
+		,"onfocus":null
+		,"onbeforeclose":function(){return true}
+		,"onclose":null
+		,"autoHide":true
+	}
+}
+_M.UI.FILELIST.html =
+//<div class="MUIFILELIST">
+'<table class="MUIFILELIST_tbl" width="100%" border="0" cellpadding="0" cellspacing="0">'
++'		<tr>'
++'			<th class="MUIFILELIST_file">FILE [<span id="WFL_tblFile_dir"></span>]</th>'
++'			<th class="MUIFILELIST_size">SIZE</th>'
++'			<th class="MUIFILELIST_mtime">MTIME</th>'
++'		</tr>'
++'</table>'
++'<div class="buttons"><input type="button" value="CONFRIM"/><input type="button" value="CANCEL" /></div>'
+;
+//</div>
+_M.UI.FILELIST.prototype = {
+	"cfg":null
+	,"tag":null
+	,"selectedInfo":null
+	,"init":function(cfg){
+		this.setCfg(cfg);
+		this._create();
+	}
+	,"setCfg":function(cfg){
+		this.cfg = _M.OBJECT.merge(_M.UI.FILELIST.cfg,cfg);
+		if(cfg && cfg.lwindowCfg){
+			this.cfg.lwindowCfg = _M.OBJECT.merge(_M.UI.FILELIST.cfg.lwindowCfg,cfg.lwindowCfg);
+		}
+	}
+	,"_create":function(){
+		this.tag = _M.DOM.create('div');
+		this.tag.className = 'MUIFILELIST';
+		this.tag.innerHTML = _M.UI.FILELIST.html;
+		this.tag.onselectstart = function(){return false;}
+		this.tag.tbl = _M.$tag('table',this.tag)[0];
+		this.tag.dirname = _M.$tag('span',this.tag)[0];
+		var t =  _M.$tag('input',this.tag);
+		this.tag.confirm = t[0];
+		this.tag.confirm.onclick = function(thisC){
+			return function(){
+				thisC._onconfirm(thisC);
+			}
+		}(this)
+		this.tag.cancel = t[1];
+		this.tag.cancel.onclick = function(thisC){
+			return function(){
+				thisC._oncancel(thisC);
+			}
+		}(this)		
+//		_M.DOM.append(document.body,this.tag);
+		var lCfg = _M.OBJECT.merge(this.cfg.lwindowCfg,{"title":"FILE LIST"});
+		lCfg.body = this.tag;
+		this.lwindow = new _M.UI.LWINDOW(lCfg);
+		
+	}
+	,"show":function(){
+		this.lwindow.focus();
+		this.lwindow.show();
+	}
+	,"hide":function(){
+		this.lwindow.hide();
+	}
+	,"getInfo":function(dir){
+		var url = this.cfg.XMLURL;
+		var cfg_post = {
+			"refresh":true
+			,"onerror":function(){alert('목록읽기에 문제가 발생하였습니다.(에러)')}
+			,"ontimeout":function(){alert('목록읽기에 문제가 발생하였습니다.(타임아웃)')}
+			,"debug":true
+		};
+		var data = _M.OBJECT.serialize({"dir":dir});
+		url+='?'+data;
+		var callback = function(thisC){
+			return function(xml){
+				thisC.ajaxCallback.call(thisC,xml);
+			}
+		}(this)
+		_M.AJAX.get(url,callback,data,cfg_post);
+	}
+	,"ajaxCallback":function(xml){
+		var tbl = this.tag.tbl
+		var dirname = this.tag.dirname
+		var root = _M.$tag('xml',xml)[0];
+		var error = _M.DOM.attr(root,'error');
+		var dir = _M.DOM.attr(root,'dir');
+		dirname.innerHTML = dir;	
+		if(error){
+		 alert(error);
+		 if(dir==''){return false;}
+		 this.getInfo('')
+		 return false;
+		}
+		var files = _M.$tag('file',xml);
+		this.resetRows();
+		for(var i=0,m=files.length;i<m;i++){
+			var file = files[i];
+			var type= _M.DOM.attr(file,'type');
+			var name= _M.DOM.attr(file,'name');
+			var size= _M.DOM.attr(file,'size');
+			var mtime= _M.DOM.attr(file,'mtime');
+			this.addRow(dir,type,name,size,mtime);
+		}
+	}
+	,"resetRows":function(){
+		var tbl = this.tag.tbl
+		var rows = tbl.rows;
+		for(var i=0,m=rows.length-1;i<m;i++){
+			tbl.deleteRow(1);
+		}
+	}
+	,"onconfirm":function(info){
+	}
+	,"oncancel":function(){
+	}
+	,"_onconfirm":function(){
+		if(this.onconfirm) this.onconfirm(this.selectedInfo);
+		if(this.autoHide) this.hide();
+	}
+	,"_oncancel":function(){
+		if(this.oncancel) this.oncancel();
+		this.hide();
+	}
+	,"_onclick":function(tr){
+		var info = tr.info;
+		if(info.type=='dir'){
+			this.getInfo(info.path);
+			this.selectedInfo = null;
+		}else{
+			//파일일 경우 선택
+			this.selectedInfo = info;
+			this.selectTr(tr);
+		}
+	}
+	,"selectTr":function(tr){
+		var tbl = this.tag.tbl;
+		var trs = _M.$tag('tr',tbl);
+		for(var i=0,m=trs.length;i<m;i++){
+			_M.CLASS.remove(trs[i],'selected');
+		}
+		_M.CLASS.add(tr,'selected');
+	}
+	,"addRow":function(dir,type,file,size,mtime){
+		var tbl = this.tag.tbl
+		if((dir == '' || dir== '/') && file =='..'){
+			return false;
+		}else if(file =='..'){
+			var path = dir.replace(/\/[^/]*$/,'');	
+		}else{
+			var path = dir+'/'+file;
+		}
+		path = path.replace('//','/');			
+		
+		var tr = tbl.insertRow(-1);
+		var t = _M.FILE.pathinfo(file);
+		var ext = t['extension'];
+		tr.info ={"dir":dir,"type":type,"file":file,"size":size,"mtime":mtime,"path":path,'ext':ext}
+		tr.onclick = function(thisC){ return function(){ thisC._onclick(this);}}(this)
+		var D = new Date(mtime*1000);
+		if(type=='dir'){
+			var td = tr.insertCell(-1);
+			td.className = 'MUIFILELIST_file dir';
+	//		td.innerHTML = '['+file+']'+path;
+			td.innerHTML = '['+file+']';
+			var td = tr.insertCell(-1);
+			td.className = 'MUIFILELIST_size';
+			td.innerHTML = 'DIR';
+			var td = tr.insertCell(-1);
+			td.className = 'MUIFILELIST_mtime';
+			td.innerHTML = _M.DATE.format('Y-m-d H:i:s',D);
+		}else{
+			var td = tr.insertCell(-1);
+			td.className = 'MUIFILELIST_file file';
+			td.innerHTML = file;
+			var td = tr.insertCell(-1);
+			td.className = 'MUIFILELIST_size';
+			td.innerHTML = _M.STRING.byteFormat(size);
+			var td = tr.insertCell(-1);
+			td.className = 'MUIFILELIST_mtime';
+			td.innerHTML = _M.DATE.format('Y-m-d H:i:s',D);
+
+		}
+	}
+}
+/**
+* _M.UI.FLOATINGLAYER
+* 떠있는 레이어(퀵메뉴)를 만든다.(top의 높이만 변경한다.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+
+_M.UI.FLOATINGLAYER = {
+	"evented":false
+	,"layers":[]
+	,"add":function(layer){
+		if ( typeof type == 'undefined'){type = 0;}
+		layer.style.top = '0px';
+		layer.style.left = '0px';
+		_M.UI.FLOATINGLAYER.layers.push(layer);
+		layer._MUIFL = {};
+		layer._MUIFL.type = type;
+		if(!_M.UI.FLOATINGLAYER.evented){
+			_M.UI.FLOATINGLAYER.documentOnscroll();
+		}
+		_M.UI.FLOATINGLAYER.syncLayer();
+	}
+	,"documentOnscroll":function(){
+		_M.UI.FLOATINGLAYER.bodyBound =  _M.LAYER.bound(document.body);
+		_M.EVENT.add(document,"onscroll",_M.UI.FLOATINGLAYER.syncLayer);
+	}
+	,"syncLayer":function(){
+		var layers = _M.UI.FLOATINGLAYER.layers;
+		var layer = null;
+//		var sl =_M.UI.FLOATINGLAYER.bodyScroll
+		var bb = _M.LAYER.bound(document.body);
+		var sl = _M.BODY.scroll();
+		
+		
+		for(var i=0,m=layers.length;i<m;i++){
+			layer = layers[i];
+			var lb = _M.LAYER.bound(layer);
+			var pb = _M.LAYER.bound(layer.parentNode);
+			if(layer._MUIFL.type==0 || layer._MUIFL.type==1){
+				var chkTop = lb.top+lb.height+sl.top-parseInt(layer.style.top,10);
+				if(chkTop < bb.height){
+					layer.style.top = sl.top+'px';
+				}else{
+					var top = Math.max(0,bb.height-lb.height-lb.top);
+					layer.style.top = (parseInt(layer.style.top,10)+top)+'px';
+				//	layer.style.top = sl.top+'px';
+				}
+			}
+		}
+	}
+}/**
+* _M.UI.IMGLAYER
+* 이미지 보기용 레이어
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+
+_M.UI.IMGLAYER = {
+	"_imglayer":null
+	,"_html":''
+//+'<div class="MUIIMGLAYER" title="close = dubble click">'
++'	<dl>'
++'		<dt><div>#IMGLAYER#</div></dt>'
++'		<dd><div><div class="MUIIMGLAYER_CLOSE_DIV"><div title="close" class="MUIIMGLAYER_CLOSE_BTN"></div></div><img src="about:blank" alt="" /></div></dd>'
++'	</dl>'
+//+'</div>'
+	,"_timer":null
+	,"_src":""
+	,"title":"#IMGLAYER#"
+	,"init":function(){
+		var _imglayer = _M.DOM.create('div');
+		_imglayer.className = "MUIIMGLAYER";
+		_imglayer.ondblclick = _M.UI.IMGLAYER.hide;
+		_imglayer.onselectstart=function(){return false;}
+		_imglayer.innerHTML = _M.UI.IMGLAYER._html;
+		_imglayer.dt_div = _M.$tag('div',_M.$tag('dt',_imglayer)[0])[0];
+		_imglayer.dd = _M.$tag('dd',_imglayer)[0];
+		_imglayer.dd_div = _M.$tag('div',_M.$tag('dd',_imglayer)[0])[0];
+		_imglayer._MUIIMGLAYER_CLOSE_DIV = _M.$tag('div',_M.$tag('dd',_imglayer)[0])[1];
+		_imglayer._MUIIMGLAYER_CLOSE_BTN = _M.$tag('div',_M.$tag('dd',_imglayer)[0])[2];
+		_imglayer._MUIIMGLAYER_CLOSE_BTN.onclick = _M.UI.IMGLAYER.hide;
+		_imglayer.dd_img = _M.$tag('img',_M.$tag('dd',_imglayer)[0])[0];
+	
+		_M.UI.IMGLAYER._imglayer = _imglayer;
+		
+		_M.DOM.append(document.body,_imglayer);
+		if(_M.UI.SHORTCUT){ //단축키 적용
+			_M.UI.SHORTCUT.add(_M.UI.SHORTCUT.parseKey('ESC',0,0,0),function(){_M.UI.IMGLAYER.hide(); });
+			_M.UI.SHORTCUT.start();
+		}else{
+			_M.EVENT.add(document,'onkeyup',function(){	_M.UI.IMGLAYER.hide();});
+		}
+		_imglayer.dd_img.onerror = function(e){
+			alert("이미지 로드에 에러가 발생하였습니다!")
+			_M.UI.IMGLAYER.hide();
+		}
+		_imglayer.dd_img.onload = function(e){
+			if(_M.UI.IMGLAYER._timer === null){
+				clearTimeout(_M.UI.IMGLAYER._timer);
+			}
+			_M.UI.IMGLAYER._timer = setTimeout(function(){
+				_M.UI.IMGLAYER._imglayer.dd.className = "MUIIMGLAYER_IMG_SHOW";
+			},500);
+			_M.UI.IMGLAYER._posMiddle(this);
+		}
+		
+	}
+	,"show":function(src,iTitle){
+		var title = iTitle || _M.UI.IMGLAYER.title
+		if( _M.UI.IMGLAYER._imglayer == null){
+			_M.UI.IMGLAYER.init();
+		}
+		var _imglayer = _M.UI.IMGLAYER._imglayer;
+		var bgStyle = {"opacity":0.5,"backgroundColor":"#000","zIndex":9900}
+		var scri = _M.BODY.scroll();
+		_imglayer.dt_div.innerHTML = title;
+
+
+		_imglayer.style.zIndex = bgStyle.zIndex+1;
+		_imglayer.style.top = scri.top+'px';
+		_M.UI.BG.show(bgStyle,{"ondblclick":function(){_M.UI.IMGLAYER.hide()}});
+		_M.UI.IMGLAYER._imglayer.style.display = '';
+		_imglayer.dd.className = "MUIIMGLAYER_IMG_HIDE";
+
+		if(_M.UI.IMGLAYER._src == src){
+			_imglayer.dd_img.onload(); 
+		}else{
+			_imglayer.dd_img.src = src;
+			_M.UI.IMGLAYER._src = src;
+		}
+		return true;
+	}
+	,"hide":function(){
+		if(_M.UI.IMGLAYER._imglayer != null){
+			_M.UI.IMGLAYER._imglayer.style.display = 'none';
+			_M.UI.BG.hide();
+		}
+	}
+	,"_posMiddle":function(img){
+		var _imglayer = _M.UI.IMGLAYER._imglayer;
+		var bb = _M.LAYER.bound(document.body);
+		var sb = _M.BODY.scroll();
+		var ib = _M.LAYER.bound(img);
+		_imglayer.dd.style.marginTop = 0+'px';
+		if(ib.width <= bb.width*0.95){
+			_imglayer._MUIIMGLAYER_CLOSE_DIV.style.width = ib.width+'px';
+		}else{
+			img.width = bb.width*0.95;
+			_imglayer._MUIIMGLAYER_CLOSE_DIV.style.width = (bb.width*0.95)+'px';
+		}
+	}
+}/**
+* _M.UI.LWINDOW
+* 레이어 윈도우를 만든다.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+
+_M.UI.LWINDOW = function(cfg){ this.init(cfg); }
+_M.UI.LWINDOW.lwindows = [];
+_M.UI.LWINDOW.cfg = {
+	"parentNode":null
+	,"className":"MUILWINDOW"
+	,"left":0
+	,"top":0
+	,"width":300
+	,"height":"auto"
+	,"bodyHeight":200
+	,"title":"#title#"
+	,"body":"#body#"
+	,"zIndex":5000
+	,"zIndexGap":900 // LWINDOW에 포커스가 옮겨지면, 이 값만큼 zIndex에 더해진다.
+	,"useCloseButton":true
+	,"useResizer":false
+	,"dragCfg":{"minLeft":0,"minTop":0,"minLimit":true}
+	,"onfocus":null
+	,"onbeforeclose":function(){return true}
+	,"onclose":null
+};
+_M.UI.LWINDOW.html_LWINDOW = ''
+//	+'<div class="MUILWINDOW">'
+	+'<dl  class="MUILWINDOW_DL">'
+	+'	<dt>'
+	+'<table  class="MUILWINDOW_TITLEBAR"  cellpadding="0" cellspacing="0" border="0"><tr>'
+	+'<td class="MUILWINDOW_TITLE">#TITLE#</td>'
+	+'<td class="MUILWINDOW_BUTTONS"><div class="MUILWINDOW_CLOSEBUTTON" title="close"> </div></td>'
+	+'</tr></table>'	
+//	+'		<ul>'
+//	+'			<li class="MUILWINDOW_BUTTONS"><div class="MUILWINDOW_CLOSEBUTTON" title="close"> </div></li>'
+//	+'			<li class="MUILWINDOW_TITLE">#TITLE#</li>'
+//	+'		</ul>'
+//	+'		<div class="M_clearB"></div>'
+	+'	</dt>'
+	+'	<dd class="MUILWINDOW_BODY">#BODY#</dd>'
+	+'</dl>'
+//	+'</div>'
+;
+//기본틀 만들기
+_M.UI.LWINDOW._destroy = function(lw){
+	for(var i=0,m=this.lwindows.length;i<m;i++){
+		if(this.lwindows[i]===lw){
+			this.lwindows.splice(i,1);
+			break;
+		}
+	}
+	_M.OBJECT.setNull(lw);
+	lw = null;
+}
+_M.UI.LWINDOW._create = function(cfg){
+	var div = _M.DOM.create("div");	
+	div.innerHTML = _M.UI.LWINDOW.html_LWINDOW;
+	var tds = _M.$tag("td",div);
+	var LAYER = div;
+	LAYER.MUILWINDOW = div;
+	LAYER.className=cfg.className+" MDRAG_ABSOLUTE";
+	LAYER.MUILWINDOW_DL = _M.$tag("dl",div)[0]
+	LAYER.MUILWINDOW_DT = _M.$tag("dt",div)[0]
+	LAYER.MUILWINDOW_DT.className="MDRAG_CURSOR";
+	
+	LAYER.MUILWINDOW_TITLE = tds[0];
+	LAYER.MUILWINDOW_CLOSEBUTTON = _M.$tag("div",tds[1])[0];
+	LAYER.MUILWINDOW_BODY = _M.$tag("dd",div)[0];		
+
+	var dragCfg = _M.OBJECT.merge(_M.UI.LWINDOW.dragCfg, cfg.dragCfg);
+	dragCfg = _M.OBJECT.merge(dragCfg,{
+			"onDrag":function(MUILWINDOW_BODY){
+				return function(){
+					_M.UI.RESIZER.initPostion(MUILWINDOW_BODY)
+				}
+			}(LAYER.MUILWINDOW_BODY) //이동중 이벤트
+		});
+
+	_M.DRAG.drag(LAYER.MUILWINDOW_DT,div,dragCfg);
+	
+	if(cfg.useResizer){
+	_M.UI.RESIZER.resizer(LAYER,{"forHeight":LAYER.MUILWINDOW_BODY,"forWidth":LAYER});
+	}
+	
+	return LAYER;
+}
+_M.UI.LWINDOW.onmousedown = function(lwindow){
+	for(var i=0,m=_M.UI.LWINDOW.lwindows.length;i<m;i++){
+		var lw = _M.UI.LWINDOW.lwindows[i];
+		var t = lw.cfg.className+'_FOCUS';
+		if( _M.CLASS.has(lw.LAYER.MUILWINDOW,t) ){
+			_M.CLASS.remove(lw.LAYER.MUILWINDOW,t)
+			lw.LAYER.MUILWINDOW.style.zIndex = lw.cfg.zIndex
+		}
+		if(lw !== lwindow){
+			lw.vars.isFocus = false;
+		}
+	}
+	var t = lwindow.cfg.className+'_FOCUS';
+	_M.CLASS.add(lwindow.LAYER.MUILWINDOW,t)
+	lwindow.LAYER.MUILWINDOW.style.zIndex = lwindow.cfg.zIndex+lwindow.cfg.zIndexGap;
+	if(!lwindow.vars.isFocus){
+		lwindow.vars.isFocus = true;
+		lwindow.onfocus();
+	}
+}
+_M.UI.LWINDOW.prototype = {
+	 "cfg":null
+	,"LAYER":null
+	,"vars":null
+	,"init":function(iCfg){
+		this.cfg = _M.OBJECT.merge(_M.UI.LWINDOW.cfg,iCfg);
+		var cfg = this.cfg;
+		this.vars = {"isFocus":false};
+		this.LAYER = _M.UI.LWINDOW._create(this.cfg);
+		this.LAYER.onmousemove = function(thisC){
+			return function(){ 
+				thisC.onmousemove();
+			}
+		}(this)
+		this.setSize(cfg.width,cfg.height);
+		this.setBodyHeight(cfg.bodyHeight);
+		this.setPosition(cfg.left,cfg.top);
+		this.setUseCloseButton(cfg.useCloseButton);
+		
+		this.setZindex(cfg.zIndex);
+		this.setTitle(cfg.title);
+		this.setBody(cfg.body);
+		_M.UI.LWINDOW.lwindows.push(this);
+//		this.MUILWINDOW
+		
+		_M.EVENT.add(this.LAYER.MUILWINDOW,'onmousedown',
+			function(thisC){ 
+				return function(){
+					_M.UI.LWINDOW.onmousedown(thisC);
+				}
+			}(this)
+		);
+		_M.EVENT.add(this.LAYER.MUILWINDOW_CLOSEBUTTON,'onclick',
+			function(thisC){ 
+				return function(){
+					_M.UI.LWINDOW.onmousedown(thisC);
+					if(thisC.onbeforeclose()){
+						thisC.hide();
+						thisC.onclose();
+					}
+				}
+			}(this)
+		);
+		
+		this.focus();
+		_M.DOM.append(cfg.parentNode==null?document.body:cfg.parentNode,this.LAYER.MUILWINDOW);
+		_M.UI.RESIZER.initPostion(this.LAYER.MUILWINDOW);
+	}
+	,"getElements":function(){
+		return this.LAYER;
+	}
+	,"setSize":function(width,height){
+		this.LAYER.MUILWINDOW.style.width = isNaN(width)?width:width+'px';
+		this.LAYER.MUILWINDOW.style.height = isNaN(height)?height:height+'px';
+	}
+	,"setBodyHeight":function(height){
+		this.LAYER.MUILWINDOW_BODY.style.height = isNaN(height)?height:height+'px';
+		this.LAYER.MUILWINDOW_BODY.style.overflow = isNaN(height)?"visible":"auto";
+	}
+	,"setPosition":function(left,top){
+		if(typeof left != 'undefined') this.LAYER.MUILWINDOW.style.left = isNaN(left)?left:left+'px';
+		if(typeof top != 'undefined') this.LAYER.MUILWINDOW.style.top = isNaN(top)?top:top+'px';
+	}
+	,"setZindex":function(zIndex){
+		this.LAYER.MUILWINDOW.style.zIndex = zIndex;
+	}
+	,"setTitle":function(html){
+		if(typeof html =='string'){
+			this.LAYER.MUILWINDOW_TITLE.innerHTML=html;
+		}else{
+			this.LAYER.MUILWINDOW_TITLE.innerHTML='';
+			_M.DOM.append(this.LAYER.MUILWINDOW_TITLE,html);
+		}
+	}
+	,"setBody":function(html){
+		if(typeof html =='string'){
+			this.LAYER.MUILWINDOW_BODY.innerHTML=_M.STRING.nl2br(_M.STRING.htmlspecialchars(html));
+		}else{
+			this.LAYER.MUILWINDOW_BODY.innerHTML='';
+			_M.DOM.append(this.LAYER.MUILWINDOW_BODY,html);
+		}
+	}
+	,"setUseCloseButton":function(b){
+		if(b){
+			this.LAYER.MUILWINDOW_CLOSEBUTTON.style.display = '';
+		}else{
+			this.LAYER.MUILWINDOW_CLOSEBUTTON.style.display = 'none';
+		}
+	}
+	,"show":function(){
+		_M.LAYER.show(this.LAYER.MUILWINDOW);
+	}
+	,"hide":function(){
+		_M.LAYER.hide(this.LAYER.MUILWINDOW);
+	}
+	,"destroy":function(){
+		_M.DOM.remove(this.LAYER.MUILWINDOW);
+		_M.UI.LWINDOW._destroy(this);
+	}
+	,"focus":function(){
+		_M.UI.LWINDOW.onmousedown(this);
+	}
+	,"onfocus":function(){
+		if(this.cfg.onfocus){
+			this.cfg.onfocus.call(this);
+		}
+	}
+	,"onclose":function(){
+		if(this.cfg.onclose){
+			this.cfg.onclose.call(this);
+		}
+	}
+	,"onmousemove":function(){
+		if(this.cfg.onmousemove){
+			this.cfg.onmousemove.call(this);
+		}
+	}
+	,"onbeforeclose":function(){
+		if(this.cfg.onbeforeclose){
+			return this.cfg.onbeforeclose.call(this);
+		}
+		return true;
+	}
+}// JavaScript Document
+
+if ( typeof _M.UI == 'undefined'){	 _M.UI = {}; }
+
+/**
+* _M.UI.MSGBOX
+*/
+_M.UI.MSGBOX = {
+
+};/**
+* _M.UI.PALLETE
+* 컬러 선택용 파레트를 만든다.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+_M.UI.PALLETE = {};
+_M.UI.PALLETE.inf0 = '20110410'
+_M.UI.PALLETE._MUIPALLETE = null;
+_M.UI.PALLETE.cfg = {"callback":null,"palletType":0,"isShow":false};
+_M.UI.PALLETE.vars = {"brightness":0}
+_M.UI.PALLETE.setCallback = function(callback){
+	_M.UI.PALLETE.cfg.callback = callback;
+}
+_M.UI.PALLETE.setPalletType = function(palletType){
+	if(typeof palletType != 'undefined'){
+		_M.UI.PALLETE.cfg.palletType = palletType;
+	}
+	if(_M.UI.PALLETE._MUIPALLETE){
+		_M.CLASS.remove(_M.UI.PALLETE._MUIPALLETE.dl,'rgba');
+		_M.CLASS.remove(_M.UI.PALLETE._MUIPALLETE.dl,'rgb');
+		_M.CLASS.add(_M.UI.PALLETE._MUIPALLETE.dl,_M.UI.PALLETE.cfg.palletType==0?'rgba':'rgb');
+	}
+}
+_M.UI.PALLETE._html = ''+'<dl class="rgba">'
++'	<dt>'
++'		<ul>'
++'			<li class="left">PALLETE</li>'
++'			<li class="right"><input type="button" value="X" style="width:2em;height:2em" /></li>'
++'		</ul>'
++'		<div class="clearB"></div>'
++'	</dt>'
++'	<dd>'
++'		<div class="paletteBG">'
++'			<ul>'
++'				<li class="left bgBlack"><div class="paletteRGB"></div></li>'
++'				<li class="left"><div class="paletteBrightness"></div></li>'
++'				<li class="left a_hidden"><div class="paletteA"></div></li>'
++'			</ul>'
++'			<div class="clearB"></div>'
++'		</div>'
++'		<div class="clearB"></div>'
++'	</dd>'
++'	<dd class="color16" title="16 colors">'
++'		<ul class="ui_colors">'
++'			<li style="background-color:#FFFFFF" ></li>'
++'			<li style="background-color:#FFFF00" ></li>'
++'			<li style="background-color:#FF00FF" ></li>'
++'			<li style="background-color:#FF0000" ></li>'
++'			<li style="background-color:#C0C0C0" ></li>'
++'			<li style="background-color:#808080" ></li>'
++'			<li style="background-color:#808000" ></li>'
++'			<li style="background-color:#800080" ></li>'
++'			<li style="background-color:#800000" ></li>'
++'			<li style="background-color:#00FFFF" ></li>'
++'			<li style="background-color:#00FF00" ></li>'
++'			<li style="background-color:#008080" ></li>'
++'			<li style="background-color:#008000" ></li>'
++'			<li style="background-color:#0000FF" ></li>'
++'			<li style="background-color:#000080" ></li>'
++'			<li style="background-color:#000000" ></li>'
++'		</ul>'
++'		<div class="clearB"></div>'
++'	</dd>'
++'	<dd class="colorRecent" title="recent colors">'
++'		<ul class="ui_colors">'
++'			<li style="background-color:#FFFFFF" ></li>'
++'			<li style="background-color:#000000" ></li>'
++'		</ul>'
++'		<div class="clearB"></div>'
++'	</dd>'
++'	<dd class="buttons">'
++'		<input class="text_pre" disabled type="text" value="" size="2" title="PREVIEW" />'
++'		<input class="text_r" type="text" value="0" size="2" title="RED" />'
++'		<input class="text_g" type="text" value="0" size="2" title="GREEN" />'
++'		<input class="text_b" type="text" value="0" size="2" title="BLUE" />'
++'		<input class="text_a a_hidden" type="text" value="1" size="2" title="ALPHA" />'
++'		<input type="button" class="OK" value="SELECT" />'
++'		<input type="button" class="CANCEL" value="CANCEL" />'
++'	</dd>'
++'</dl>'
+;
+_M.UI.PALLETE.position = function(left,top){
+	_M.UI.PALLETE._MUIPALLETE.style.left = left+'px';
+	_M.UI.PALLETE._MUIPALLETE.style.top = top+'px';
+}
+_M.UI.PALLETE.show = function(color,obj,iPosAttr){
+	var posAttr = {'left':0,'top':0};
+	posAttr = _M.OBJECT.merge(posAttr,iPosAttr);
+	
+	if(_M.UI.PALLETE._MUIPALLETE==null){
+		_M.UI.PALLETE.create();
+	}
+
+	if(_M.UI.PALLETE._MUIPALLETE){
+		_M.LAYER.show(_M.UI.PALLETE._MUIPALLETE);
+		_M.UI.PALLETE.cfg.isShow = true;
+		 
+	 	if(typeof obj != 'undefined' && obj){
+			var t = _M.LAYER.bound(obj);
+			_M.UI.PALLETE.position(t.left+posAttr.left,t.top+t.height+posAttr.top);
+		}
+	 	if(typeof color != 'undefined' && color){
+			if(_M.UI.PALLETE.cfg.palletType != 0){
+				if(color.length==4){
+					color.pop();
+				}
+			}
+			_M.UI.PALLETE._setColor(color);
+			_M.UI.PALLETE._previewRGBA(color[0],color[1],color[2],color[3])
+		}
+		
+	}
+}
+_M.UI.PALLETE.hide = function(){
+	if(_M.UI.PALLETE._MUIPALLETE){
+		_M.LAYER.hide(_M.UI.PALLETE._MUIPALLETE);
+		_M.UI.PALLETE.cfg.isShow = false;
+	}
+}
+
+_M.UI.PALLETE.create = function(){
+	var B = document.body;
+	if(_M.UI.PALLETE._MUIPALLETE){return false;}
+	var _MUIPALLETE = _M.DOM.create("DIV");
+	_M.UI.PALLETE._MUIPALLETE = _MUIPALLETE;
+	_MUIPALLETE.inputs = {'r':null,'g':null,'b':null,'a':null,'ok':null,'cancel':null};
+	_MUIPALLETE.palettes = {'rgb':null,'brightness':null,'a':null};
+	_MUIPALLETE.className = 'MUIPALLETE';
+	_MUIPALLETE.innerHTML = _M.UI.PALLETE._html;
+	var t = _M.$tag('dl',_MUIPALLETE);
+	_MUIPALLETE.dl = t[0];
+//	_MUIPALLETE.dl.className = 'rgba';
+	var t = _M.$tag('dt',_MUIPALLETE);
+	_MUIPALLETE.dt = t[0];
+	var t = _M.$tag('dd',_MUIPALLETE);
+	_MUIPALLETE.dd_pallete = t[0];
+	_MUIPALLETE.dd_color16 = t[1];
+	_MUIPALLETE.dd_colorRecent = t[2];
+	_MUIPALLETE.dd_buttons = t[3];
+	
+	//--- 이벤트 등록
+	_MUIPALLETE.onselectstart = function(){return false;}
+	//16컬러
+	_MUIPALLETE.dd_color16.onclick = function(event){
+		var evt = _M.UI.PALLETE._convertEvent(event);
+		_M.EVENT.stop(event);
+		if(!evt.target || evt.target.tagName !='LI'){return false;}
+		var t = _M.COLOR.styleToColor(evt.target.style.backgroundColor);
+		_M.UI.PALLETE._previewRGBA(t[0],t[1],t[2],-1);
+		return true;
+	}
+	_MUIPALLETE.dd_color16.ondblclick = function(event){ if(!this.onclick(event)){return false;} _M.UI.PALLETE._submit(); _M.UI.PALLETE.hide() }
+	//최근컬러
+	_MUIPALLETE.dd_colorRecent.onclick = function(event){
+		var evt = _M.UI.PALLETE._convertEvent(event);
+		_M.EVENT.stop(event);
+		if(!evt.target || evt.target.tagName !='LI'){return false;}
+		var t = _M.COLOR.styleToColor(evt.target.style.backgroundColor);
+		_M.UI.PALLETE._previewRGBA(t[0],t[1],t[2],-1);
+		return true;
+	}
+	_MUIPALLETE.dd_colorRecent.ondblclick = function(event){ if(!this.onclick(event)){return false;} _M.UI.PALLETE._submit(); _M.UI.PALLETE.hide() }
+	
+	
+	var t = _M.$tag('input',_MUIPALLETE.dt);
+	t[0].onclick = _M.UI.PALLETE.hide;
+	var t = _M.$tag('div',_MUIPALLETE.dd_pallete);
+	//palleteRGB
+	t[1].onclick=function(event){
+		var evt = _M.UI.PALLETE._convertEvent(event);
+		var t = _M.UI.PALLETE._getColorRGB(evt.target,evt.X,evt.Y);
+		if(t !== false) _M.UI.PALLETE._previewRGBA(t[0],t[1],t[2],-1)
+	}
+	t[1].onmousemove=function(event){
+		var evt = _M.UI.PALLETE._convertEvent(event);
+		var t = _M.UI.PALLETE._getColorRGB(evt.target,evt.X,evt.Y);
+		if(t !== false) _M.UI.PALLETE._hoverRGBA(t[0],t[1],t[2],-1)
+	}
+	t[1].ondblclick=function(event){ 
+		this.onclick(event); 
+		_M.UI.PALLETE._submit();
+		_M.UI.PALLETE._saveRecent(); 
+		_M.UI.PALLETE.hide();
+		return false;
+	}
+	//paleteBrightness
+	t[2].onclick=function(_MUIPALLETE){
+		return function(event){
+			var evt = _M.UI.PALLETE._convertEvent(event);
+			var b = _M.LAYER.bound(evt.target);
+			var t = (5-Math.round(evt.Y/b.height*10));
+			t = t/10;
+			_M.UI.PALLETE._setPalleteBrightness(t);
+		}
+	}(_MUIPALLETE);
+	//palleteA
+	t[3].onclick=function(_MUIPALLETE){
+		return function(event){
+			var evt = _M.UI.PALLETE._convertEvent(event);
+			var t = _M.UI.PALLETE._getColorA(evt.target,evt.X,evt.Y);
+			if(t !== false) _M.UI.PALLETE._previewRGBA(-1,-1,-1,t[3])
+		}
+	}(_MUIPALLETE);
+	t[3].ondblclick=function(event){ this.onclick(event); _M.UI.PALLETE._submit();_M.UI.PALLETE._saveRecent(); _M.UI.PALLETE.hide() }
+	_MUIPALLETE.palettes.rgb = t[1];
+	_MUIPALLETE.palettes.brightness = t[2];
+	_MUIPALLETE.palettes.a = t[3];
+	_M.STYLE.opacity(_MUIPALLETE.palettes.rgb,1);
+	
+	
+	var t = _M.$tag('input',_MUIPALLETE.dd_buttons);
+	_MUIPALLETE.inputs.pre = t[0];	
+	_MUIPALLETE.inputs.r = t[1];
+	_MUIPALLETE.inputs.g = t[2];
+	_MUIPALLETE.inputs.b = t[3];
+	_MUIPALLETE.inputs.a = t[4];
+	_MUIPALLETE.inputs.ok = t[5];
+	_MUIPALLETE.inputs.cancel = t[6];
+
+	_MUIPALLETE.inputs.r.onblur 
+	= _MUIPALLETE.inputs.g.onblur
+	= _MUIPALLETE.inputs.b.onblur
+	= _MUIPALLETE.inputs.a.onblur
+	= _MUIPALLETE.inputs.r.onkeydown 
+	= _MUIPALLETE.inputs.g.onkeydown
+	= _MUIPALLETE.inputs.b.onkeydown
+	= _MUIPALLETE.inputs.a.onkeydown
+	= function(){
+		_M.UI.PALLETE._previewSetRGBA();
+	}
+
+	_MUIPALLETE.inputs.ok.onclick = function(){ _M.UI.PALLETE._submit();_M.UI.PALLETE._saveRecent(); _M.UI.PALLETE.hide() } //OK, select
+	_MUIPALLETE.inputs.cancel.onclick = _M.UI.PALLETE.hide; //CANCEL
+	
+	_MUIPALLETE.dl.onclick
+	= _MUIPALLETE.dl.ondblclick = function(event){
+		_M.EVENT.stop(event);
+	}
+
+	_M.UI.PALLETE.setPalletType();
+	
+	_M.DOM.append(B,_MUIPALLETE);
+	_M.UI.PALLETE.hide();
+	
+}
+_M.UI.PALLETE.DRAG = function(cfg){
+	var _MUIPALLETE = _M.UI.PALLETE._MUIPALLETE;
+	//드래그 가능하게
+	_M.CLASS.add(_M.UI.PALLETE._MUIPALLETE.dt,'MDRAG_CURSOR');
+	_M.DRAG.drag(_MUIPALLETE.dt,_MUIPALLETE,cfg);	
+}
+_M.UI.PALLETE._previewRGBA = function(r,g,b,a){
+	var inputs = _M.UI.PALLETE._MUIPALLETE.inputs;
+	if(r>-1) inputs.r.value =  r;
+	if(g>-1) inputs.g.value =  g
+	if(b>-1) inputs.b.value =  b
+	if(a !='undefined'&&  a>-1) inputs.a.value = Math.round(a*10)/10;
+	_M.UI.PALLETE._previewSetRGBA();
+}
+_M.UI.PALLETE._previewSetRGBA = function(){
+	var inputs = _M.UI.PALLETE._MUIPALLETE.inputs;
+	inputs.pre.style.backgroundColor = "rgb("+inputs.r.value+","+inputs.g.value+","+inputs.b.value+")";
+	_M.STYLE.opacity(inputs.pre,inputs.a.value);
+
+}
+_M.UI.PALLETE._hoverRGBA = function(r,g,b,a){
+	var inputs = _M.UI.PALLETE._MUIPALLETE.inputs;
+	inputs.pre.style.borderColor = "rgb("+r+","+g+","+b+")";
+	if(a>-1) _M.STYLE.opacity(inputs.pre,a);
+}
+_M.UI.PALLETE._saveRecent = function(){
+	var _MUIPALLETE = _M.UI.PALLETE._MUIPALLETE;	
+	var c = _M.UI.PALLETE._getColor();
+
+	var uls = _M.$tag('ul',_MUIPALLETE.dd_colorRecent);
+	var lis = _M.$tag('li',uls[0]);
+	if(lis.length>=16){
+		_M.DOM.remove(lis[0]);
+	}
+	var li = _M.DOM.create('li');
+	li.style.backgroundColor = 'rgb('+c[0]+','+c[1]+','+c[2]+')';
+	if(typeof c[3]!='undefined') _M.STYLE.opacity(li,c[3]);
+	_M.DOM.append(uls[0],li,1);
+}
+_M.UI.PALLETE._setPalleteBrightness = function(num){
+	var _MUIPALLETE = _M.UI.PALLETE._MUIPALLETE;
+	var palletergb = _MUIPALLETE.palettes.rgb;
+	var p = palletergb.parentNode;
+	_M.UI.PALLETE.vars.brightness = num;
+	
+	_M.CLASS.remove(p,'bgBlack');
+	_M.CLASS.remove(p,'bgWhite');
+	
+	if(num >0){
+		_M.CLASS.add(p,'bgWhite');
+	}else{
+		_M.CLASS.add(p,'bgBlack');
+	}
+	_M.STYLE.opacity(palletergb,1-Math.abs(num));
+}
+_M.UI.PALLETE._getColor = function(){
+	var inputs = _M.UI.PALLETE._MUIPALLETE.inputs;
+	if(_M.UI.PALLETE.cfg.palletType==0){
+		var c = [inputs.r.value
+						,inputs.g.value
+						,inputs.b.value
+						,inputs.a.value];	
+	}else{
+		var c = [inputs.r.value
+						,inputs.g.value
+						,inputs.b.value];
+	}
+	return c;
+}
+_M.UI.PALLETE._setColor = function(iC){
+	var inputs = _M.UI.PALLETE._MUIPALLETE.inputs;
+
+	inputs.r.value = iC[0];
+	inputs.g.value = iC[1];
+	inputs.b.value = iC[2];
+	if(typeof iC[3] !='undefined') inputs.a.value = iC[3];
+}
+_M.UI.PALLETE._submit = function(){
+	var inputs = _M.UI.PALLETE._MUIPALLETE.inputs;
+	var c = _M.UI.PALLETE._getColor();
+	if(typeof _M.UI.PALLETE.cfg.callback == 'function'){
+		_M.UI.PALLETE.cfg.callback(c);
+	}
+}
+_M.UI.PALLETE._getColorRGB = function(img,x,y){
+		//--- X축(색상)
+		var posp = [[255,0,0],	[255,255,0],	[0,255,0],	[0,255,255],	[0,0,255],	[255,0,255],	[0,0,0]];
+		var posm = [[  0,1,0],	[ -1,  0,0],	[0,  0,1],	[0, -1,  0],	[1,0,  0],	[  0,0, -1],	[0,0,0]];
+		var w = img.offsetWidth;
+		var gw = w/7;
+		var pos = Math.floor(x/gw); //포지션
+		var px = Math.round((x%gw)/gw*256); //퍼센트
+		var c = [0,0,0,1];
+		var cp = posp[pos];
+		var cm = posm[pos];
+		//document.title = "x:"+x+",y:"+y;
+		//document.title += ","+pos+":"+px+":"+c;
+		c[0]+=cp[0];c[1]+=cp[1];c[2]+=cp[2];
+		//document.title +="  =  "+c;
+		c[0]+=cm[0]*px;c[1]+=cm[1]*px;c[2]+=cm[2]*px;
+		//document.title +="  =  "+c;
+		//--- Y축(밝기)
+		var h = img.offsetHeight-1; //y가 0부터 시작하므로 그 차이 처리
+		var hh = h/2;
+		var y2 = h-y; //반전
+		var y2h = y2-hh; //반으로 나눈값
+		
+		if(pos!=6){
+			var y2hp = Math.round(y2h/hh*255);
+		}else{
+			var y2hp = Math.round(y2/h*255);
+		}
+		//document.title = y+":"+y2+"-"+hh+"="+y2h+"  :"+y2h+"/"+hh+"*255="+y2hp;
+		c[0]+=y2hp;c[1]+=y2hp;c[2]+=y2hp;
+		c[0] = Math.max(0,c[0]);c[0] = Math.min(255,c[0]);
+		c[1] = Math.max(0,c[1]);c[1] = Math.min(255,c[1]);
+		c[2] = Math.max(0,c[2]);c[2] = Math.min(255,c[2]);
+		//document.title = c;
+		var vb = _M.UI.PALLETE.vars.brightness;
+		c[0] = Math.round(Math.min(255,c[0]*(1+vb)));
+		c[1] = Math.round(Math.min(255,c[1]*(1+vb)));
+		c[2] = Math.round(Math.min(255,c[2]*(1+vb)));
+		return c	
+}
+_M.UI.PALLETE._getColorA = function(img,x,y){
+		//--- X축(NONE)
+		//--- Y축(알파)
+		var h = img.offsetHeight; //y가 0부터 시작하므로 그 차이 처리
+		var y2 = h-y; //반전
+		var y2hp = Math.round(y2/h*100)/100;
+		var c = [0,0,0,y2hp];
+		//document.title = c;
+		return c
+	}
+_M.UI.PALLETE._convertEvent = function(event){
+	var evt = _M.EVENT.getEvent(event);
+	var scl = _M.BODY.scroll();
+	var r = {"X":0,"Y":0,"target":null};
+	r.target = _M.EVENT.target(evt);
+	var t = _M.LAYER.bound(r.target)
+	r.X = evt.clientX+scl.left-t.left;
+	r.Y = evt.clientY+scl.top-t.top;
+	return r;
+	
+}
+
+// JavaScript Document
+/**
+* _M.UI.POPLAYER
+* 팝업 레이어를 출력한다.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+_M.UI.POPLAYER = function(){
+	this.init();
+}
+_M.UI.POPLAYER.prototype ={
+	"_body":null
+	,"_close":null
+	,"_content":null
+	,"_bg":null
+	,"isShow":false
+	,"targetElement":null
+	,"fn_window_onresize":null
+	,"enableWindowOnResize":false
+	,"init":function(){
+		this._body = _M.DOM.create('div',{"class":"_M-UI-POPLAYER-body _M-UI-POPLAYER-body-hide"});
+		this._close = _M.DOM.create('div',{"class":"_M-UI-POPLAYER-close"});
+		this._close.innerHTML = 'x';
+		this._close.onclick = function(thisC){ return function(){ thisC.close(); } }(this)
+		this._content = _M.DOM.create('div',{"class":"_M-UI-POPLAYER-content"});
+		this._bg = _M.DOM.create('div',{"class":"_M-UI-POPLAYER-bg"});
+		_M.DOM.append(this._body,this._close);
+		_M.DOM.append(this._body,this._bg);
+		_M.DOM.append(this._body,this._content);
+		_M.DOM.append(document.body,this._body);
+		this.fn_window_onresize = this.window_onresize();
+		_M.EVENT.add(window,'onresize',this.fn_window_onresize)
+	}
+	,'window_onresize':function(){
+		var thisC = this
+		return function(){
+			thisC._window_onresize()
+		}
+	}
+	,"_window_onresize":function(){
+		if(this.enableWindowOnResize && this.targetElement){
+			this.openByElement(this.targetElement);
+			this.onwindowresize();
+		}
+	}
+	,"onopen":function(){
+	}
+	,"onclose":function(){
+	}
+	,"onwindowresize":function(){
+	}
+	,"remove":function(){
+		_M.EVENT.remove(window,'onresize',this.fn_window_onresize);
+		_M.DOM.remove(this._body);
+		this.close();
+	}
+	,"open":function(width,height,left,top,element){
+		 _M.STYLE.set(this._body,'width',width+'px');
+		 _M.STYLE.set(this._body,'height',height+'px');
+		 _M.STYLE.set(this._body,'left',left+'px');
+		 _M.STYLE.set(this._body,'top',top+'px');
+		 _M.CLASS.remove(this._body,"_M-UI-POPLAYER-body-hide");
+		 _M.CLASS.add(this._body,"_M-UI-POPLAYER-body-show");
+		this.onopen();
+		this.isShow = true;
+		if(!element) element = null;
+		this.targetElement = element;
+	}
+	,"openByElement":function(element){
+		var b = _M.LAYER.bound(element);
+		this.open(b.width,b.height,b.left,b.top,element);
+	}
+	,"reopen":function(){
+		 _M.CLASS.remove(this._body,"_M-UI-POPLAYER-body-hide");
+		 _M.CLASS.add(this._body,"_M-UI-POPLAYER-body-show");
+		this.isShow = true;
+	}
+	,"close":function(){
+		_M.CLASS.remove(this._body,"_M-UI-POPLAYER-body-show");
+		_M.CLASS.add(this._body,"_M-UI-POPLAYER-body-hide");
+		this.onclose();
+		this.isShow = false;
+	}
+	,"html":function(html){
+		this._content.innerHTML = '';
+		if(typeof html ==='string'){
+			this._content.innerHTML = html;
+		}else if(typeof html ==='object' && html.nodeType && html.nodeType == Node.ELEMENT_NODE){
+			_M.DOM.append(this._content,html);
+		}
+	}
+	,"getNodeBody":function(){
+		return this._body
+	}
+	,"getNodeBg":function(){
+		return this._bg
+	}
+	,"getNodeContent":function(){
+		return this._content
+	}
+	,"getNodeClose":function(){
+		return this._close
+	}
+}/**
+* _M.UI.SHORTCUT
+* 단축키를 설정한다.
+* document.onKeyUp 에서 동작하도록 했음.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+_M.UI.SHORTCUT = {
+	 "fns":{}
+	,"byPassTextbox":false //textbox,textarea등에서의 동작은 무시한다.
+	,"isAttach":false
+	,"isStart":false
+	,"_fn":function(event){
+		var evt = _M.EVENT.getEvent(event);
+		var SC = _M.UI.SHORTCUT;
+		if(!SC.isStart){ return; }
+		if(SC.byPassTextbox){
+			if(evt.target.tagName=='INPUT' && evt.target.type=='text'){
+				return;
+			}
+			if(evt.target.tagName=='TEXTAREA'){
+				return;
+			}
+		}
+		var inputStr =SC.parseInput(evt);
+		//alert('_fn:'+inputStr); //디버그용
+		var iKey = inputStr+evt.type;
+		if(!SC.fns[iKey]){
+		 return ; 
+		}else{
+			SC.fns[iKey](evt);
+			_M.EVENT.stop(evt);
+		}
+	}
+	,"add":function(iKey,fn,targetEvent){
+		if(!targetEvent) targetEvent = 'keyup';
+		_M.UI.SHORTCUT.fns[iKey+targetEvent] = fn;
+		_M.UI.SHORTCUT.fns[iKey+targetEvent].targetEvent = targetEvent
+	}
+	,"remove":function(iKey){
+		_M.UI.SHORTCUT.fns[iKey] = null;
+		delete(_M.UI.SHORTCUT.fns[iKey]);
+	}
+	,"start":function(){
+		if(!_M.UI.SHORTCUT.isAttach){
+			_M.EVENT.adds(document,'onkeydown',_M.UI.SHORTCUT._fn)
+			_M.EVENT.adds(document,'onkeyup',_M.UI.SHORTCUT._fn)
+			_M.UI.SHORTCUT.isAttach = true;
+		}
+		_M.UI.SHORTCUT.isStart = true;
+	}
+	,"stop":function(){
+		_M.UI.SHORTCUT.isStart = false;
+	}
+	,"parseInput":function(evt){
+		var EVT = _M.EVENT;
+		var spKey = 0;
+		if(EVT.shiftKey(evt)) spKey |=1;	
+		if(EVT.ctrlKey(evt)) spKey |=2;
+		if(EVT.altKey(evt)) spKey |=4;		
+		var keyCode = EVT.keyCode(evt);
+		var str = spKey.toString()+":"+evt.keyCode.toString();
+		return str;
+	}
+	,"parseKey":function(key,shiftKey,ctrlKey,altKey){
+		//onkeydown,onkeyup 시 입력되는 키코드와 입력되는 글자의 charcode는 다를 수 있다.
+		//보통 다른 경우는 (Shift를 눌러야하는)특수기호키와 특수키일 경우다.
+		//Shift를 눌러야하는 특수기호키는 Shift를 안 눌렸을 때의 키로 대치된다. 단축키 중복에 주의
+		// 특수기호키는 보통 단축키로 안쓴다.
+		// qwerty 기준
+	
+		if(!key){return false;}
+		var keyCharCode;
+		var convertKey = { //입력키코드 기준 매칭변환
+			'k45':189 //-
+			,'k61':187 //=
+			,'k92':220 //\
+			,'k96':192 //` 
+			,'k33':49 //!
+			,'k64':50 //@
+			,'k35':51 //#
+			,'k36':52 //$
+			,'k37':53 //%
+			,'k94':54 //^
+			,'k38':55 //&
+			,'k42':56 //*
+			,'k40':57 //(
+			,'k41':48 //)
+			,'k95':189 //_
+			,'k43':187 //+
+			,'k124':220 //|
+			,'k126':192 //~
+			,'k91':219 //[
+			,'k93':221 //]
+			,'k123':219 //{
+			,'k125':221 //}
+			,'k59':186 //;
+			,'k39':222 //'
+			,'k58':186 //:
+			,'k34':222 //"
+			,'k44':188 //, 
+			,'k46':190 //.
+			,'k47':191 ///
+			,'k60':188 //<
+			,'k62':190 //>
+			,'k63':191 //?
+			,'F1':112 // F1
+			,'F2':113 // F2
+			,'F3':114 // F3
+			,'F4':115 // F4
+			,'F5':116 // F5
+			,'F6':117 // F6
+			,'F7':118 // F7
+			,'F8':119 // F8
+			,'F9':120 // F9
+			,'F10':121 // F10
+			,'F11':122 // F11
+			,'F12':123 // F12
+			,'ESC':27 // ESC
+			,'TAB':9 // TAB 
+			,'BACKSPACE':8 // TAB
+			,'ENTER':13 // ENTER , RETURN
+			,'WINKEY':91 // Win Key
+			,'LEFT':37 // Arrow LEFT
+			,'UP':38 // Arrow UP
+			,'RIGHT':39 // Arrow RIGHT
+			,'DOWN':40 // Arrow DOWN
+			,'PAGEUP':33 // Page UP
+			,'PAGEDOWN':34 // Page Down
+			,'END':35 // END
+			,'HOME':36 // HOME
+			,'PRINTSCREEN':44 // Print Screen
+			,'PAUSE':19 // Pause , Break
+			,'CAPSLOCK':20 // Caps Lock
+			,'SCROLLLOCK':145 // Scroll Lock
+			,'SHIFT':16 // Shift
+			,'ALT':18 // Alt
+			,'CONTROL':17 // Control
+			,'INSERT':45 // Insert
+			,'DELETE':46 //Delete
+		}
+		if(key.length==1){
+			key = key.toUpperCase();
+			keyCharCode = key.charCodeAt(0);
+			if(convertKey['k'+keyCharCode.toString(10)]){ //특수키인가?
+				keyCharCode = convertKey['k'+keyCharCode.toString(10)];
+			}else{
+				keyCharCode = key.charCodeAt(0);
+			}
+		}else{
+			if(convertKey[key]){ //특수키인가?
+				keyCharCode = convertKey[key];
+			}else{
+				return false;
+			}
+		}
+		
+		var spKey = 0;
+		if(shiftKey) spKey |=1;	
+		if(ctrlKey) spKey |=2;
+		if(altKey) spKey |=4;		
+		
+		var str = spKey.toString()+":"+keyCharCode;
+		return str;
+	}
+};/**
+* _M.UI.TOOLTIP
+* 툴팁(도움말풍선)을 만든다.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+
+_M.UI.TOOLTIP = {
+	"tooltip":null
+	,"el":null
+	,"init":function(el,msg,prop){
+		var tt = _M.UI.TOOLTIP;
+		if(tt.tooltip == null){
+			tt.tooltip = _M.DOM.create('div');
+			_M.CLASS.add(tt.tooltip,'MUITOOLTIP');
+			_M.DOM.append(document.body,tt.tooltip);
+			_M.DOM.append(document.body,tt.tooltip);
+		}
+		el._MUITOOLTIP = {"msg":msg};
+		tt.tooltip.innerHTML = msg;
+		el.onmouseover = null;
+		el.onmouseover = function(event){ tt.onmouseover(event) };
+		el.onmousemove = function(event){ tt.onmousemove(event) };
+		el.onmouseout = function(event){ tt.onmouseout(event) };
+	}
+	,"show":function(el,msg,prop){
+		var tt = _M.UI.TOOLTIP;
+		if(typeof el._MUITOOLTIP == 'undefined'){
+			tt.init(el,msg);
+			var t = _M.LAYER.bound(el);
+			el.onmouseover(t.left,t.top);
+		}else{
+			if(_M.UI.TOOLTIP.el!==el){
+				tt.tooltip.innerHTML = msg;
+			}
+			tt.tooltip.style.display ='';
+		}
+	}
+	,"hide":function(){
+		var tt = _M.UI.TOOLTIP;
+		if(tt.tooltip == null){
+			return
+		}
+		tt.tooltip.style.display ='none';
+	}
+	,"pos":function(x,y){
+		var tt = _M.UI.TOOLTIP;
+		tt.tooltip.style.left = x + 5 +'px';
+		tt.tooltip.style.top = y + 5+ 'px';
+	}
+	,"onmouseover":function(event){
+		var scl = _M.BODY.scroll();
+		var el = _M.EVENT.target(event);
+		var evt = _M.EVENT.getEvent(event);
+		_M.UI.TOOLTIP.show(el,el._MUITOOLTIP.msg);
+		_M.UI.TOOLTIP.pos(evt.clientX+scl.left,evt.clientY+scl.top);
+
+	}
+	,"onmousemove":function(event){
+		var scl = _M.BODY.scroll();
+		var evt = _M.EVENT.getEvent(event);
+		var el = _M.EVENT.target(evt);
+		_M.UI.TOOLTIP.show(el,el._MUITOOLTIP.msg);
+		_M.UI.TOOLTIP.pos(evt.clientX+scl.left,evt.clientY+scl.top);
+
+	}
+	,"onmouseout":function(event){
+		_M.UI.TOOLTIP.hide();
+	}
+}// JavaScript Document
+/**
+* _M.UI.TOPMENU
+* UL & LI 구조로 상단메뉴(TOPMENU)를 만든다.
+* make({대상|아이디},[방식]) : 방식이 0이면 마우스오버, 1이면 마우스 클릭
+* 적용해제는 안 만든다. 웹에서 그런게 필요 없을 것 같다.
+* mins01.com / "공대여자는 예쁘다"를 알아야 쓸 수 있다. / 임의 수정 금지
+*/
+_M.UI.TOPMENU = {
+	"make":function(el,mode){
+		if ( typeof mode == 'undefined'){	mode = 0; }
+		if(mode == 0){
+			return _M.UI.TOPMENU.makeOver(el);
+		}else if(mode == 1){
+			return _M.UI.TOPMENU.makeClick(el);
+		}
+		return false;		
+	}
+	,"makeOver":function(el){
+		var uiTM = _M.$id(el);
+		_M.CLASS.add(uiTM,'MUITM');
+		var lis = _M.$tag('li',uiTM);
+		if(!lis){ return false; }
+		for(var i=0,m=lis.length;i<m;i++){
+			var t = _M.$tag('li',lis[i]);
+			if(t && t.length>0){
+				_M.CLASS.add(lis[i],'hasSub')
+			}
+		}
+		return true;
+	}
+	,"makeClick":function(el){
+		var uiTM = _M.$id(el);
+		_M.CLASS.add(uiTM,'MUITMc');
+		//uiTM.onclick= function(){blur();}
+		var lis = _M.$tag('li',uiTM);
+		if(!lis){ return false; }
+		
+		//모두 닫기 함수
+		var fnDoc = function(lis){
+			return function(){
+				for(var i=0,m=lis.length;i<m;i++){
+					_M.CLASS.remove(lis[i],'hover');
+				}
+			}
+		}(lis);
+		_M.DOCUMENT.onclick(fnDoc); //페이지 클릭시
+		_M.EVENT.add(uiTM,'onclick',fnDoc); //메뉴 클릭시(이벤트 버블로 잡음)
+		
+		//서브메뉴가 있는 메뉴 클릭시 동작 정의
+		var fnSub = function(fnDoc,uiTM){
+			return function(event){
+				if(_M.EVENT.target(event) != this){ return;} //지정된 객체의 이벤트만 처리, 버블링 이벤트 무시
+				_M.EVENT.stop(event);
+				if(this.className == 'hover'){
+					_M.CLASS.remove(this,'hover');
+				}else{
+					fnDoc();
+					var el = this;
+					while(uiTM!==el){
+						if(_M.CLASS.has(el,'hasSub')){
+							_M.CLASS.add(el,'hover');
+						}
+						el = el.parentNode;
+					}
+				}
+				return false;
+			}
+		}(fnDoc,uiTM)
+		
+		for(var i=0,m=lis.length;i<m;i++){
+			var t = _M.$tag('li',lis[i]);
+			if(t && t.length>0){
+				lis[i].onclick = fnSub;
+				//_M.EVENT.add(lis[i],'onclick',fnSub); //이벤트 버블이 생겨서 상위메뉴의 이벤트가 실행될 수 있으니 사용 안한다.
+				_M.CLASS.add(lis[i],'hasSub')
+			}
+		}
+	}
+};if(!_M){alert('_M 라이브러리는 필수입니다.')}
+if(!_M.UI){alert('_M.UI 라이브러리는 필수입니다.')}
+
+
+_M.UI.TREE = function(tag,cfg){
+	this._init(tag)
+}
+_M.UI.TREE.prototype = {
+	"tag":null
+	,"_init":function(tag){
+		this.tag = tag;
+		//this.tag.onclick = _M.UI.TREE._onclick;
+		_M.EVENT.add(this.tag,'onclick',_M.UI.TREE._onclick);
+		//this.tag.onselectstart = _M.UI.TREE._onselectstart
+		_M.CLASS.add(this.tag,'MUITRM')
+		this.draw();
+	}
+	,"redraw":function(){
+		this.draw();
+	}
+	,"draw":function(){
+		var tag = this.tag;
+		var lis = _M.$tag('li',tag);
+		for(var i=0,m=lis.length;i<m;i++){
+			var t = _M.$tag('ul',lis[i]);
+			if(t.length>0){
+				if(!_M.CLASS.has(lis[i],'open') && !_M.CLASS.has(lis[i],'close')){
+					_M.CLASS.add(lis[i],'open')
+				}
+			}else{
+				//_M.CLASS.remove(lis[i],'open');_M.CLASS.remove(lis[i],'close');
+			}
+		}
+	}
+}
+_M.UI.TREE.dCfg = {
+	
+}
+_M.UI.TREE._onselectstart = function(event){
+	return false;
+}
+_M.UI.TREE._onclick = function(event){
+	var evt = _M.EVENT.getEvent(event);
+	var ta = evt.target;
+	if(ta.tagName =='LI' && (_M.CLASS.has(ta,'open') ||_M.CLASS.has(ta,'close')) ){
+		_M.UI.TREE._toggle(ta);
+	}
+}
+_M.UI.TREE._toggle = function(li){
+	if(_M.CLASS.has(li,'open')){
+		_M.CLASS.replace(li,'open','close')
+	}else if(_M.CLASS.has(li,'close')){
+		_M.CLASS.replace(li,'close','open')
+		if(li.parentNode && li.parentNode && _M.CLASS.has(li,'close')){
+			_M.UI.TREE._toggle(li.parentNode)
+		}
+	}
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keyboard Balance Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+   .component {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+   .component:hover {
+      background-color: #f0f0f0;
+    }
+   .component.selected {
+      background-color: #ccc;
+    }
+    #budget {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Keyboard Balance Game</h1>
+  <p>Build a keyboard within a budget of ₩17,000.</p>
+  <div id="budget">₩17,000</div>
+  <div id="components">
+    <div class="component" data-price="2000" data-name="2.4GHz Wireless">2.4GHz Wireless (₩2,000)</div>
+    <div class="component" data-price="2000" data-name="Bluetooth">Bluetooth (₩2,000)</div>
+    <div class="component" data-price="2000" data-name="Wired">Wired (₩2,000)</div>
+    <div class="component" data-price="2000" data-name="PCB">PCB (₩2,000)</div>
+    <div class="component" data-price="4000" data-name="Switch">Switch (₩4,000)</div>
+    <div class="component" data-price="4000" data-name="Keycap">Keycap (₩4,000)</div>
+    <div class="component" data-price="1000" data-name="Housing">Housing (₩1,000)</div>
+  </div>
+  <div id="keyboard">
+    <p>Your keyboard:</p>
+    <ul id="keyboard-components"></ul>
+  </div>
+
+  <script>
+    let budget = 17000;
+    let keyboardComponents = [];
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const components = document.querySelectorAll(".component");
+      components.forEach(component => {
+        component.addEventListener("click", function() {
+          const price = parseInt(component.getAttribute("data-price"));
+          const name = component.getAttribute("data-name");
+          if (budget >= price) {
+            budget -= price;
+            keyboardComponents.push({ name, price });
+            updateKeyboard();
+            updateBudget();
+          } else {
+            alert("Not enough budget!");
+          }
+        });
+      });
+    });
+
+    function updateKeyboard() {
+      const keyboardComponentsList = document.getElementById("keyboard-components");
+      keyboardComponentsList.innerHTML = "";
+      keyboardComponents.forEach(component => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${component.name} (₩${component.price})`;
+        keyboardComponentsList.appendChild(listItem);
+      });
+    }
+
+    function updateBudget() {
+      const budgetElement = document.getElementById("budget");
+      budgetElement.textContent = `₩${budget}`;
+    }
+  </script>
+</body>
+</html>

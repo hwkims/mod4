@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴대폰본인인증_통신사선택_NHN KCP</title>
+    <script>
+        // 로컬 스토리지에서 불러온 통신사
+        var preSelectCommID = "";
+    </script>
+    <link href="./files/common.css" media="screen" rel="stylesheet">
+    <link href="./files/site.css" media="screen" rel="stylesheet">
+    <link href="./files/kcp_layer.css" media="screen" rel="stylesheet">
+    <script src="./files/jquery-3.6.0.min.js"></script>
+    <script src="./files/common.js"></script>
+    <script src="./files/design.js"></script>
+<script>
+    window.open('index.html', '_blank', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes');
+</script>
+
+    <script>
+        window.scrollTo(0, 1);
+       
+//공용
+// var TELCOM_SELECT_URL_RW       = "telcomSelect.jsp";
+
+// 모바일
+    //    var MO_PUSH_ACTION_URL_RW      = "pushForm.jsp";
+    //    var MO_PASS_ACTION_URL_RW      = "passConfrim.jsp";
+       
+    //    var MO_SMS_ACTION_URL_RW       = "smsForm.jsp";
+    //    var MO_OTP_FORM_URL_RW         = "smsOtpForm.jsp";
+    //    var MO_PUSH_CONFIRM_URL_RW     = "pushConfirm.jsp";
+       
+    //    var MO_SMS_FAIL_URL_RW         = "smsFail.jsp";
+    //    var MO_PASS_FAIL_URL_RW        = "passFail.jsp";
+       
+    //    var MO_PASS_APP_INSTALL_RW     = "passInstall.jsp";
+       
+    //    var MO_CERT_TELCOM_RW          = "../proc/m_cert_telcom.jsp";
+    //    var MO_CERT_OTP_TX_RW          = "../proc/m_cert_otp_tx.jsp";
+       
+    //    var MO_MVNO_TELCOM_RW          = "mvnoTelcomConfirm.jsp";
+       
+    //    // PC
+       
+    //    var PC_MVNO_TELCOM_RW          = "mvnoTelcomConfirm.jsp";
+       
+    //    var PC_PUSH_QR_ACTION_URL_RW   = "pushQRForm.jsp";
+    //    var PC_PUSH_CONFIRM_URL_RW     = "pushConfirm.jsp";
+    //    var PC_PUSH_QR_FAIL_URL_RW     = "pushQRFail.jsp";
+       
+    //    var PC_SMS_ACTION_URL_RW       = "smsForm.jsp";
+    //    var PC_OTP_FORM_URL_RW         = "smsOtpForm.jsp";
+    //    var PC_SMS_FAIL_URL_RW         = "smsFail.jsp";
+       
+    //    var PC_PASS_APP_INSTALL_RW     = "passInstall.jsp";
+       
+    //    var PC_CERT_TELCOM_RW          = "../proc/cert_telcom.jsp";
+    //    var PC_CERT_OTP_TX_RW          = "../proc/cert_otp_tx.jsp";
+       
+    //    var CERT_RESULT_URL_RW         = "../common/result.jsp";
+// 공통
+    //    var IFRAME_TX_APP_PROCESS_RW   = "../proc/iframe_tx_app_process.jsp";
+       </script>
+    <!-- TODO : 공통되다면 header 로 이동하자. 개발자 추가 JS-->
+<script src="./files/certCommon.js"></script>
+<script src="./files/popupUtil.js"></script>
+<script src="./files/iframeSizeUtil.js"></script>
+<script src="./files/telcomSelect.js"></script>
+<script src="./files/comKcpLayer.js"></script>
+<script>
+    var PRE_USE_YN          = "N";
+    var PRE_CERT_FIXED_TYPE = "";
+    var PRE_CERT_MODIFY_YN  = "";
+    var PRE_MASK_YN         = "";
+    var PRE_INPUT_OLD_TYPE  = "";
+
+    var PRE_INPUT_USER_NAME = "";
+    var PRE_INPUT_PHONE_NO  = "";
+    var PRE_INPUT_BIRTH_DAY = "";
+    var PRE_INPUT_SSNO_CODE = "";
+</script>
+
+<script>
+    //중요!! comKcpLayer.js 이후 호출
+    $(document).ready(function() {
+        try
+        {
+            if( "N" == "Y")
+            {
+                alert("- 작업 공지-\nSKT PASS 시스템 대개체 작업으로\n아래 작업시간 동안\nSKT, SKT 알뜰폰 PASS인증 불가합니다.\n(SKT 문자인증, KT, LGU+는 정상 이용가능)\n작업일시 : 05/23(화) 02:00 ~ 05:00");
+            }
+        }
+        catch(e){ void(0); }
+    });
+    </script>
+
+
+</head>
+
+<body>
+    <!-- 푸터 .is-fixed 제거시 #wrap에 .pd-0 추가 -->
+    <div id="wrap">
+        <header id="header" class="step1header">
+            <h1>
+                <a href="javascript:;"><img src="./files/logo_pass.png" alt="PASS"></a>
+            </h1>
+        </header>
+    
+        <section id="ct">
+            <form name="frm" id="frm" method="post" autocomplete="off" onsubmit="return false;">
+                <input type="hidden" name="m" value="auth_mobile01">
+                <input type="hidden" name="agreeOptionYn" id="agreeOptionYn" value="N">
+                <fieldset class="ui_cover agency_select">
+                    <p>이용중이신 통신사를 선택해주세요.</p>
+                    <!-- <legend>통신사 선택</legend> -->
+                        <!-- kcp 알뜰폰을 버튼 타입으로 변경 -->
+                    <ul class="agency_select__items">
+                        <li>
+                            <input type="radio" name="agency" id="agency-sk" value="SKT" title="SK telecom" aria-label="SK telecom">
+                            <label for="agency-sk" class="ui_align_mid checked"></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="agency" id="agency-kt" value="KTF" title="KT" aria-label="KT">
+                            <label for="agency-kt" class="ui_align_mid checked"></label>
+                        </li>
+                        <li>
+                            <input type="radio" name="agency" id="agency-lgu" value="LGT" title="LG U+" aria-label="LG U+">
+                            <label for="agency-lgu" class="ui_align_mid checked"></label>
+                        </li>
+                        <li>
+                                <button type="button" id="agency-and" class="ui_align_mid agency-and checked active" value="MVNO" title="알뜰폰 선택 됨" role="button" aria-pressed="false">알뜰폰</button>
+                        </li>
+                    </ul>
+    
+                    <!-- 전체동의 -->
+                    <ul class="agreelist all">
+                        <li><div class="checkbox check2"><input type="checkbox" name="agree" id="agree_all"><label for="agree_all">전체 동의하기</label><label for="agree_all">전체 동의</label></div></li>
+                    </ul>
+    
+                    <!-- 필수항목 -->
+                    <ul class="agreelist required">
+                        <li>
+                                <div class="checkbox check2">
+                                    <input type="checkbox" name="agree1" id="agree1" value="Y">
+                                <label for="agree1" class="">개인정보이용 동의하기</label>
+                                    <button type="button" class="btn_agree_popup" id="agree1Pop" title="개인정보이용동의 레이어 팝업 열기">개인정보이용동의</button>
+                                </div>
+                        </li>
+                        <li>
+                                <div class="checkbox check2">
+                                    <input type="checkbox" name="agree2" id="agree2" value="Y">
+                                    <label for="agree2" class="">고유식별정보처리 동의하기</label>
+                                    <button type="button" class="btn_agree_popup" id="agree2Pop" title="고유식별정보처리동의 레이어 팝업 열기">고유식별정보처리동의</button>
+                                </div>
+                        </li>
+                        <li>
+                                <div class="checkbox check2">
+                                    <input type="checkbox" name="agree3" id="agree3" value="Y">
+                                    <label for="agree3" class="">서비스이용약관 동의하기</label>
+                                    <button type="button" class="btn_agree_popup" id="agree3Pop" title="서비스이용약관동의 레이어 팝업 열기">서비스이용약관동의</button>
+                                </div>
+                        </li>
+                        <li>
+                                <div class="checkbox check2">
+                                    <input type="checkbox" name="agree4" id="agree4" value="Y">
+                                    <label for="agree4" class="">통신사이용약관 동의하기</label>
+                                    <button type="button" class="btn_agree_popup" id="agree4Pop" title="통신사이용약관동의 레이어 팝업 열기">통신사이용약관동의</button>
+                                </div>
+                        </li>
+                            <li style="display: list-item;">
+                                <div class="checkbox check2">
+                                    <input type="checkbox" name="agree5" id="agree5" value="Y">
+                                    <label for="agree5" class="">제3자정보제공동의</label>
+                                    <button type="button" class="btn_agree_popup" id="agree5Pop" title="제3자정보제공동의 레이어 팝업 열기">제3자정보제공동의</button>
+                                </div>
+                            </li>
+                    </ul>
+    
+                    <button type="button" id="btnPass" value="PASS" class="btn_r btn_type6 btn_r btn_skip">PASS로 인증하기</button>
+                    <button type="button" id="btnSms" value="SMS" class="btn_r btn_type6 btn_r btn_skip2">문자(SMS)로 인증하기</button>
+                </fieldset>
+            </form>
+            <!-- 가상키패드 방식만 사용하므로 프로그램 설치 안함 - jhpark01
+            <div class="ceri_last_wrap security_guide_txt" id="touchEnKeyBox">
+                <p class="cau">
+                    안전한 본인 확인을 위해 키보드 보안 프로그램을 설치해주세요. <br>
+                    <a href="#" id="btnTouchEnKeyInstall">설치</a>
+                </p>
+            </div>
+            -->
+        </section>
+    
+        <!-- 알뜰폰 레이어 팝업 -->
+        <div class="layerPopupWrap">
+            <div class="dim" style="display: none;"></div>
+            <div class="layer-pop agency_select__popup" style="display: none;">
+                <form name="frmPop" method="post" action="javascript:void(0);" autocomplete="off" onsubmit="return false;">
+                    <div class="pop-tit">알뜰폰 사업자를 선택해주세요.</div>
+                        <!-- 2022-02-16 :: radio 버튼으로 수정 -->
+                        <div class="pop-con_02" aria-label="알뜰폰 사업자 리스트">
+                        <ul class="licensee-list">
+                            <li>
+                                <input type="radio" name="agencyMvno" id="agency-popup-sk" value="SKM" class="agency-radio licensee_title" title="SKT(알뜰폰) 사업자목록 축소됨" aria-label="SKT(알뜰폰) 사업자목록 축소됨 선택 시 사업자 목록 확장됨">
+                                <label for="agency-popup-sk" aria-hidden="true">
+                                        <span class="ele sk"><img src="./files/logo_sk.png" alt="SK telecom"></span>
+                                            <span class="ele_title">사업자목록 <i class="icon_arrow down"></i> </span>
+                                    </label>
+                                <div class="licensee_info" aria-hidden="true" tabindex="0">
+                                    <p>KCT(티플러스), 아이즈비전(아이즈모바일), 유니컴즈(모빙), 큰사람(이야기모바일), 스마텔(스마텔), SK텔링크(SK세븐모바일), 이마트(이마트알뜰폰), 에스원(안심모바일), 프리텔레콤(프리티), LG헬로비전(헬로모바일), 조이텔(조이텔), 토스모바일(토스모바일), KB국민은행(리브모바일), 스테이지파이브(핀다이렉트)</p>
+                                </div>
+                            </li>
+                            <li>
+                                <input type="radio" name="agencyMvno" id="agency-popup-kt" value="KTM" class="agency-radio licensee_title" title="KT(알뜰폰) 사업자목록 축소됨" aria-label="KT(알뜰폰) 사업자목록 축소됨 선택 시 사업자 목록 확장됨">
+                                <label for="agency-popup-kt" aria-hidden="true">
+                                        <span class="ele kt"><img src="./files/logo_kt.png" alt="KT"></span>
+                                            <span class="ele_title">사업자목록 <i class="icon_arrow down"></i> </span>
+                                    </label>
+                                <div class="licensee_info" aria-hidden="true" tabindex="0">
+                                    <p>(주)LG헬로비전(헬로모바일), (주)니즈텔레콤(니즈모바일), (주)더원플랫폼(아이플러스유), (주)미니게이트(M2모바일), (주)스테이지파이브(핀플레이), (주)와이엘랜드(여유알뜰폰), (주)위너스텔(웰), (주)파인디지털, (주)한국케이블텔레콤(티플러스), ACN코리아(플래시모바일), KT스카이라이프(스카이라이프모바일), KT엠모바일(Kt M 모바일), KT텔레캅, 드림라인(주)(드림모바일), 로카모빌리티(주), 토스모바일(주), 아이디스파워텔㈜, 앤알커뮤니케이션(앤텔레콤), 에스원(안심모바일), 장성모바일, ㈜세종텔레콤(스노우맨), ㈜씨엔커뮤니케이션(씨앤컴), ㈜아이즈비전(아이즈모바일), ㈜에넥스텔레콤(A모바일), ㈜에이프러스(아시아모바일), ㈜유니컴즈(모빙), ㈜제이씨티, ㈜코드모바일(이지모바일), ㈜큰사람커넥트(이야기모바일), ㈜프리텔레콤(프리티), 한국피엠오(주)(밸류컴), (주)스마텔, KB국민은행(리브엠), (주)한국이텔레콤(PNT), (주)고고팩토리(GGF), (주)더피엔엘(PNL), (주)에르엘(ERL), (주)핀샷(FNS), (주)오파스넷(OPS), (주)친구아이앤씨(CGM), (주)한패스인터내셔널(HPS)</p>
+                                </div>
+                            </li>
+                            <li>
+                                <input type="radio" name="agencyMvno" id="agency-popup-lgu" value="LGM" class="agency-radio licensee_title" title="LGU+(알뜰폰) 사업자목록 축소됨" aria-label="LGU+(알뜰폰) 사업자목록 축소됨 선택 시 사업자 목록 확장됨">
+                                <label for="agency-popup-lgu" aria-hidden="true">
+                                        <span class="ele lgu"><img src="./files/logo_lgu.png" alt="LG U+"></span>
+                                        <span class="ele_title">사업자목록 <i class="icon_arrow down"></i> </span>
+                                    </label>
+                                <div class="licensee_info" aria-hidden="true" tabindex="0">
+                                    <p>ACN코리아(플래시모바일), (주)에넥스텔레콤(A모바일), (주)에이프러스(아시아모바일), (주)CK커뮤스트리(슈가모바일), SL리테일(셀모바일), (주)코드모바일(이지모바일), 에르엘모바일, (주)아이즈비전(아이즈모바일), (주)핀샷, LG헬로비전(헬로모바일), 한패스모바일, (주)보스(화인통신), 사람과연결, 인스코리아, 조이텔, 국민은행(리브모바일), 제주방송, (주)코나아이, (주)KG모빌리언스(KG모바일), (주)큰사람커넥트(이야기모바일), 토스모바일, (주)미디어로그(U+유모바일), (주)마블프로듀스(마블링), 니즈텔레콤, (주)앤알커뮤니케이션(앤텔레콤), 엔티온텔레콤, 원텔레콤, (주)스테이지파이브(핀플레이), 한국피엠오㈜(벨류컴), (주)레그원(온국민폰), 에스원안심모바일, 서경모바일, 세종텔레콤(스노우맨), 스마텔, (주)인스코비(프리티), (주)한국케이블텔레콤(티플러스), (주)유니컴즈(모빙), (주)와이드모바일(도시락모바일), (주)위너스텔(well), (주)와이엘랜드(여유텔레콤), 글로벌머니익스프레스(GME모바일), (주)친구아이앤씨(친구모바일)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="pop-btn pop-btn_02">
+                        <ul>
+                                <!--
+                                    * 2022-01-16 수정
+                                    선택 버튼 close 클래스 제거 onclick="pop_close('agency-and')" 추가
+                                -->
+                            <li class="firstChild activeLightGray"><button type="button" id="btnMvnoCancel" onclick="pop_close(&#39;agency-and&#39;)" class="btn_r btn_type6">취소</button></li>
+                            <li class="lastChild activeDarkGray"><button type="button" id="btnMvnoSelect" onclick="pop_close(&#39;agency-and&#39;)" class="btn_r btn_type btn_type3">선택</button></li>
+                        </ul>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
+    
+        <!-- 약관 레이어-->
+        <div class="layerPopupWrap" id="layerAgreePop">
+            <div class="dim"></div>
+            <div class="layer-pop agreement">
+                <div class="pop-tit" id="agreeTitle">개인정보 처리방침</div>
+                <div class="pop-con">
+                    <!-- NICE평가정보㈜ (이하 "회사"라 함)는「신용정보의 이용 및 보호에 관한 법률」,「정보통신망 이용촉진 및 정보보호 등에 관한 법률」,「개인정보 보호법」 등 관련 법령에 따라 본 개인정보 처리방침을 정하 고, 개인정보주체의 개인
+                    정보 보호에 최선을 다하고 있습니다.<br>
+                    <br>
+                    제1조 개인정보의 수집·이용·처리 목적, 수집하는 개인정보의 항목 및 수집방법<br>
+                    회사는 개인(신용)정보를 「신용정보의 이용 및 보 호에 관한 법률」 및 같은 법 시행령에 따라 신용 조회업무를 위한 신용정보, 개인식별정보 및 주민 등 록번호, 「정보통신망 이용촉진 및 정보보호에 관한 법률」에 따른 본인확인업무를 위한 개인정보 등을 수집하여 처리하고 있습니다. 또한 아래와 같이 구체적인 업무에 따라 수집하는 개인정보의 항목이 달라집니다. -->
+    
+                    <!-- kcp: iframe으로 구조 수정 -->
+                    <div class="iframe-agree" title="빈프레임"><iframe src="./files/pc_agree_01_skt.html" title="개인정보이용동의(skt)"></iframe></div>
+                </div>
+                <div class="pop-btn wide">
+                    <ul>
+                        <li class="lastChild defaultBtn DefaultBtn">
+                            <button class="close agreeClose" onclick="pop_close()">닫기</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    <!-- footer 처리 -->
+    
+    <!-- 푸터 숨김: class="is-hide" -->
+    <div id="footer" class="is-fixed">
+        <div class="footer-kcp">
+            <!-- 240122 레이어팝업으로 수정 -->
+            <p class="txt"><a href="javascript:void(0);" class="footerAgreePop" id="footerAgree01" title="이용약관">이용약관</a> <span class="bar"></span> <a href="javascript:void(0);" class="footerAgreePop" id="footerAgree02" title="개인정보처리방침">개인정보처리방침</a> <br> 고객센터 : 1666-6410 </p>
+            <!-- <p class="txt"><a href="https://m.kcp.co.kr/popup/policy" target="_blank" title="새창열림">이용약관</a> <span class="bar"></span> <a href="https://m.kcp.co.kr/popup/privacy" target="_blank" title="새창열림">개인정보처리방침</a> <br> 고객센터 : 1666-6410 </p> -->
+            <!-- //240122 레이어팝업으로 수정 -->
+            
+            <div class="logo">
+                <span><img src="./files/logo_sa.png" alt="SA 소프트웨어 접근성 인증" class="img-logo"></span>
+                <span><img src="./files/logo_kcp.png" alt="NHN KCP" class="img-logo"></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 하단 레이어팝업 -->
+    <div class="addInputPop layerPopupWrap" id="layerAgreePopFooter">
+        <div class="dim"></div>
+        <div class="layer-pop agreementFooter">
+            <div class="pop-tit" id="agreeTitleFooter">하단 개인정보처리방침</div>
+            <div class="pop-con" tabindex="0">
+                <!-- NICE평가정보㈜ (이하 "회사"라 함)는「신용정보의 이용 및 보호에 관한 법률」,「정보통신망 이용촉진 및 정보보호 등에 관한 법률」,「개인정보 보호법」 등 관련 법령에 따라 본 개인정보 처리방침을 정하 고, 개인정보주체의 개인
+                정보 보호에 최선을 다하고 있습니다.<br>
+                <br>
+                제1조 개인정보의 수집·이용·처리 목적, 수집하는 개인정보의 항목 및 수집방법<br>
+                회사는 개인(신용)정보를 「신용정보의 이용 및 보 호에 관한 법률」 및 같은 법 시행령에 따라 신용 조회업무를 위한 신용정보, 개인식별정보 및 주민 등 록번호, 「정보통신망 이용촉진 및 정보보호에 관한 법률」에 따른 본인확인업무를 위한 개인정보 등을 수집하여 처리하고 있습니다. 또한 아래와 같이 구체적인 업무에 따라 수집하는 개인정보의 항목이 달라집니다. -->
+                
+                <!-- kcp: iframe으로 구조 수정 -->
+                <!-- 240122 수정 -->
+                <div class="iframe-agree"><iframe id="agreePopIframe" src="./files/pc_agree_00_1.html" title="이용약관"></iframe></div>
+            </div>
+            <div class="pop-btn wide">
+                <ul>
+                    <li class="lastChild defaultBtn DefaultBtn darkGrayBtn">
+                        <button class="close agreeClose" onclick="pop_close()">닫기</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--  alert confirm 처리 -->
+    
+        <!-- KCP 레이어 팝업 호출  START -->
+        <!-- ALERT 레이어 팝업 -->
+        <div class="common__layerPop common__layerPop--dim" aria-modal="true" data-layerpop="kcp_layer_alert" data-shdow="">
+            <div class="common__layerPop__container" title="레이어 팝업">                         
+                <div class="common__layerPop--body " data-focus-start="start" tabindex="0">
+                    <div class="common__layerPop--body--contents">
+                        <p>통신사를 선택해주세요.</p>
+                    </div>
+                </div>
+                <div class="common__layerPop--footer">
+                    <div class="button__container">
+                        <button type="button" class="button--type--black" aria-label="확인" title="확인" id="kcpLayerOk" data-focus-last="last" data-layerpop-close="">
+                            <span>확인</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="dimmed"></div>
+        </div>
+        
+        <!-- CONFIRM 레이어 팝업 -->
+        <div class="common__layerPop common__layerPop--dim" aria-modal="true" data-layerpop="kcp_layer_confirm" data-shdow="">
+            <div class="common__layerPop__container" title="레이어 팝업 확인 취소">                         
+                <div class="common__layerPop--body" data-focus-start="start" tabindex="0">
+                    <div class="common__layerPop--body--contents">
+                        <p>통신사를 선택해주세요.</p>
+                    </div>
+                </div>
+                <div class="common__layerPop--footer">
+                    <div class="button__container">
+                        <button type="button" class="button--type--gray" aria-label="취소" title="취소" id="kcpLayerCancle" data-layerpop-close="">
+                            <span>취소</span>
+                        </button>
+                        <button type="button" class="button--type--black" aria-label="확인" title="확인" id="kcpLayerConfirm" data-focus-last="last" data-layerpop-close="">
+                            <span>확인</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="dimmed"></div>
+        </div>
+        <!-- KCP 레이어 팝업 호출  END -->
+    </div>
+    
+    
+    
+    <!-- 인증 데이터 Form -->
+    <form name="form_auth" id="form_auth" method="post">
+        <!-- 응답데이터 -->
+        <input type="hidden" name="app_token" value="">
+        <input type="hidden" name="comm_id" value="">
+        <input type="hidden" name="order_id" value="">
+        <input type="hidden" name="per_cert_no" value="">
+        <input type="hidden" name="session_id" value="">
+        <input type="hidden" name="van_tx_id" value="">
+    
+        <input type="hidden" name="tx_type" value="">
+        <input type="hidden" name="phone_no" value="">
+        <input type="hidden" name="shopInfo_require_yn" value="">
+    
+        <input type="hidden" name="month" value="">
+        <input type="hidden" name="day" value="">
+        <input type="hidden" name="year" value="">
+        
+        <input type="hidden" name="user_name" value="">
+        <input type="hidden" name="local_code" value="">
+        <input type="hidden" name="sex_code" value="">
+        
+        <input type="hidden" name="cert_enc_use" value="Y">
+        <input type="hidden" name="cert_enc_use_ext" value="Y">
+        
+        <input type="hidden" name="Ret_URL" value="https://hpauthdream.godo.co.kr/module/kcp/mobileKcpCertResponse.php?reqShopUrl=https%3A%2F%2Fwww.paiksool.com%3A443%2Fmember%2Fauthcellphone%2Fdreamsecurity_result.php&amp;ssCallType=joinmembermobile&amp;clntReqNum=AFSTL66907f0d3b457&amp;returnUrl=&amp;i=">
+        
+        <input type="hidden" name="log_trace_no" value="AFSTLYJistxi9kck">
+        
+        <input type="hidden" name="veri_up_hash" value="">
+        
+        <input type="hidden" name="ordr_idxx" value="AFSTL66907f0d3b457">
+        
+        <input type="hidden" name="web_siteid_hashYN" value="">
+    
+    
+        <input type="hidden" name="cert_otp_use" value="Y">
+    
+        <input type="hidden" name="site_cd" value="AFSTL">
+    
+        <input type="hidden" name="cert_method" value="01">
+    
+        <input type="hidden" name="web_siteid" value="">
+    
+        <input type="hidden" name="param_opt_1" value="QUZTVEw=">
+        <input type="hidden" name="param_opt_2" value="UVVaVFZFdz0=">
+        <input type="hidden" name="param_opt_3" value="UVVaVFZFeEJSbE5VVERZMk9UQTNaakJrTTJJME5UY3dNREF3TURBPQ==">
+        <input type="hidden" name="user_name_url_yn" value=""> 
+    
+        <input type="hidden" name="cert_able_yn" value="">
+    
+        <input type="hidden" name="info_code" value="">
+    
+        <input type="hidden" name="up_hash" value="D4FDAF5D04068A03C448209307D6E98BF77E00DD">
+        <input type="hidden" name="kcp_merchant_time" value="">
+    
+        <input type="hidden" name="res_cd" value="">
+    
+        <input type="hidden" name="res_msg" value="">
+        <input type="hidden" name="agree5" value=""> <!-- 선택 약관 앱 -->
+    
+        <input type="hidden" name="cert_locale" value="">
+        <input type="hidden" name="cert_ver" value="">
+    
+        <input type="hidden" name="kenc" value="69E09444B1AF1BAAA73A7F1B6AF9A405347659E53A442B7D32BF3FCC85E9C419002098ADC19DC4C36387E20E80AD8AF6579A46231B26ED16B73A3A756FBFF61E4B0535E111DFE16437C6D8734548C73667C59F8CE38101D396FABE4D3628763171AB35440BD00BE96B396B82224ADB88B121EEE78531C492C766C2D4AB867B7C61CA0C5EA69CFABE232419A9F5EB80F22C9F2891D6478EE4A6E39248EDD386D409B8698D571E1C6F73727741F657DBB4">
+    
+        <input type="hidden" name="ruhs" value="6EF1A35CAA6C59FD6E0B3677A31C116C32A56950">
+        <input type="hidden" name="accessTime" value="20240712095541677">
+    
+        <input type="hidden" name="localStorageData" value="">
+        
+        <input type="hidden" name="PRE_USE_YN" value="N">
+    
+    </form>
+    
+    
+    
+    
+    </body><divcat-extension id="divcat-id"><template shadowrootmode="open">
+        
+       <link rel="stylesheet" href="style.css">
+    </html>

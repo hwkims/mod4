@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item Enhancement Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Item Enhancement Game</h1>
+  <p>Current Attack Power: <span id="attack-power">0</span></p>
+  <button id="enhance-btn">Enhance Item</button>
+  <p id="result"></p>
+
+  <script>
+  const attackPowerElement = document.getElementById('attack-power');
+const resultElement = document.getElementById('result');
+const enhanceBtn = document.getElementById('enhance-btn');
+
+let attackPower = localStorage.getItem('attackPower')? parseInt(localStorage.getItem('attackPower')) : 0;
+
+attackPowerElement.textContent = `Current Attack Power: ${attackPower}`;
+
+enhanceBtn.addEventListener('click', () => {
+  const successProbability = 0.5; // 50% success rate
+  const randomValue = Math.random();
+
+  if (randomValue < successProbability) {
+    attackPower++;
+    resultElement.textContent = `Success! Attack Power increased by 1.`;
+  } else {
+    attackPower--;
+    resultElement.textContent = `Failure! Attack Power decreased by 1.`;
+  }
+
+  localStorage.setItem('attackPower', attackPower);
+  attackPowerElement.textContent = `Current Attack Power: ${attackPower}`;
+});</script>
+</body>
+</html>

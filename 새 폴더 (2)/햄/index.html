@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Game</title>
+   <style>
+   body {
+    font-family: 'Binggrae', sans-serif;
+    background-color: #f0f0f0;
+}
+
+#game-area {
+    width: 900px;
+    height: 600px;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+#button-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+#score-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#score-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Hamburger Game</h1>
+    </header>
+    <main>
+        <section id="game-area">
+            <!-- Game canvas will go here -->
+            <canvas id="game-canvas" width="900" height="600"></canvas>
+        </section>
+        <section id="button-area">
+            <!-- Buttons will go here -->
+            <button id="up-bread-btn">위빵</button>
+            <button id="cheese-btn">치즈</button>
+            <button id="patty-btn">패티</button>
+            <button id="down-bread-btn">아래빵</button>
+            <button id="lettuce-btn">양상추</button>
+            <button id="tomato-btn">토마토</button>
+        </section>
+        <section id="score-area">
+            <!-- Score display will go here -->
+            <p id="score-display">최고점수: 0, 현재점수: 0</p>
+        </section>
+    </main>
+    <script>
+	// Game constants
+const GAME_WIDTH = 900;
+const GAME_HEIGHT = 600;
+const BUTTON_WIDTH = 100;
+const BUTTON_HEIGHT = 50;
+const SCORE_FONT_SIZE = 24;
+const SCORE_FONT_WEIGHT = 'bold';
+const SCORE_COLOR = '#333';
+
+// Game variables
+let score = 0;
+let highscore = 0;
+let makeCode = '';
+let goalCode = '';
+let timer = null;
+let startTime = 0;
+let endTime = 0;
+
+// Game elements
+const gameCanvas = document.getElementById('game-canvas');
+const ctx = gameCanvas.getContext('2d');
+const buttonArea = document.getElementById('button-area');
+const scoreDisplay = document.getElementById('score-display');
+const buttons = [
+  { id: 'up-bread-btn', label: '위빵', code: 'ub' },
+  { id: 'cheese-btn', label: '치즈', code: 'c' },
+  { id: 'patty-btn', label: '패티', code: 'p' },
+  { id: 'down-bread-btn', label: '아래빵', code: 'db' },
+  { id: 'lettuce-btn', label: '양상추', code: 'l' },
+  { id: 'tomato-btn', label: '토마토', code: 't' },
+];
+
+// Game images
+const bgImg = new Image();
+bgImg.src = 'img/background.png';
+const goalImgs = [
+  new Image(),
+  new Image(),
+  new Image(),
+  new Image(),
+  new Image(),
+];
+goalImgs[0].src = 'img/goal1.png';
+goalImgs[1].src = 'img/goal2.png';
+goalImgs[2].src = 'img/goal3.png';
+goalImgs[3].src = 'img/goal4.png';
+goalImgs[4].src = 'img/goal5.png';
+
+// Game logic
+function startGame() {
+  score = 0;
+  highscore = 0;
+  makeCode = '';
+  goalCode = '';
+  timer = null;
+  startTime = new Date().getTime();
+  endTime = startTime + 60 * 1000; // 1 minute
+  drawGameCanvas();
+  drawButtons();
+  drawScoreDisplay();
+  generateGoalCode();
+}
+
+function generateGoalCode() {
+  const goalImgIndex = Math.floor(Math.random() * goalImgs.length);
+  goalCode = goalImgs[goalImgIndex].alt;
+  drawGoalImage();
+}
+
+function drawGameCanvas() {
+  ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+  ctx.drawImage(bgImg, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+}
+
+function drawButtons() {
+  buttons.forEach((button) => {
+    const buttonElement = document.getElementById(button.id);
+    buttonElement.style.width = `${BUTTON_WIDTH}px`;
+    buttonElement.style.height = `${BUTTON_HEIGHT}px`;
+    buttonElement.style.fontSize = '18px';
+    buttonElement.style.fontWeight = 'bold';
+    buttonElement.style.margin = '10px';
+    buttonElement.style.border = 'none';
+    buttonElement.style.borderRadius = '10px';
+    buttonElement.style.backgroundColor = '#4CAF50';
+    buttonElement.style.color = '#fff';
+    buttonElement.style.cursor = 'pointer';
+    buttonElement.addEventListener('click', () => {
+      handleButtonClick(button.code);
+    });
+  });
+}
+
+function drawScoreDisplay() {
+  scoreDisplay.style.fontSize = `${SCORE_FONT_SIZE}px`;
+  scoreDisplay.style.fontWeight = SCORE_FONT_WEIGHT;
+  scoreDisplay.style.color = SCORE_COLOR;
+  scoreDisplay.innerHTML = `최고점수: ${highscore}, 현재점수: ${score}`;
+}
+
+function drawGoalImage() {
+  ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+  ctx.drawImage(goalImgs[goalCode], 0, 0, GAME_WIDTH, GAME_HEIGHT);
+}
+
+function handleButtonClick(code) {
+  makeCode += code;
+  if (makeCode === goalCode) {
+    score++;
+    updateScoreDisplay();
+    generateGoalCode();
+  } else if (makeCode.length > goalCode.length) {
+    score = 0;
+    updateScoreDisplay();
+    generateGoalCode();
+  }
+}
+
+function updateScoreDisplay() {
+  scoreDisplay.innerHTML = `최고점수: ${highscore}, 현재점수: ${score}`;
+  if (score > highscore) {
+    highscore = score;
+  }
+}
+
+function checkTime() {
+  const currentTime = new Date().getTime();
+  if (currentTime >= endTime) {
+    alert('Time\'s up!');
+    startGame();
+  } else {
+    timer = setTimeout(checkTime, 1000);
+  }
+}
+
+// Initialize game
+startGame();
+checkTime();
+	</script>
+</body>
+</html>
