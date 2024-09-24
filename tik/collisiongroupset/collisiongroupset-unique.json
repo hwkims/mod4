@@ -1,0 +1,56 @@
+{
+	"uniqueIdentifier": "052915b3380c438999776ed6d293c133",
+	"bundleIdentifier": "e340a7c6f9284ae4aee73c8d483c56bd",
+	"category": "collisiongroupset",
+	"entryId": "unique",
+	"contents": [
+		{
+		    "Groups": [
+		        {
+		            "Id": "b1d5b4354eba4cccb2f4ae2952cc6ac4",
+		            "Name": "Default"
+		        },
+		        {
+		            "Id": "MOD@TriggerBox",
+		            "Name": "TriggerBox"
+		        },
+		        {
+		            "Id": "MOD@HitBox",
+		            "Name": "HitBox"
+		        },
+		        {
+		            "Id": "MOD@Interaction",
+		            "Name": "Interaction"
+		        },
+		        {
+		            "Id": "MOD@Portal",
+		            "Name": "Portal"
+		        },
+		        {
+		            "Id": "MOD@Climbable",
+		            "Name": "Climbable"
+		        }
+		    ],
+		    "Matrix": {
+		        "b1d5b4354eba4cccb2f4ae2952cc6ac4": [
+		            "b1d5b4354eba4cccb2f4ae2952cc6ac4"
+		        ],
+		        "MOD@TriggerBox": [
+		            "MOD@TriggerBox"
+		        ],
+		        "MOD@HitBox": [
+		            "MOD@HitBox"
+		        ],
+		        "MOD@Interaction": [
+		            "MOD@Interaction"
+		        ],
+		        "MOD@Portal": [
+		            "MOD@Portal"
+		        ],
+		        "MOD@Climbable": [
+		            "MOD@Climbable"
+		        ]
+		    }
+		}
+	]
+}

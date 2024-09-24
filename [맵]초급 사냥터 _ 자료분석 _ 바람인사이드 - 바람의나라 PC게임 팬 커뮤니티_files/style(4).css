@@ -1,0 +1,11 @@
+.random{position:relative;float:left;width:200px;margin-top:5px;border:1px
+solid #d1d1d1;font-family:"맑은 고딕","Malgun Gothic"}.random
+ul{margin:0;padding:0;list-style:none}.random li
+a{display:block;padding:5px
+0 5px 8px}.random li:hover{background:#f3f3f3}.random
+a{text-decoration:none}.random
+.title{display:block;padding:7px
+0;text-align:center;border-bottom:1px solid #DDD;background:#ff8080;background:-webkit-linear-gradient(45deg,#FF5252 0%,#f48fb1 100%);background:linear-gradient(45deg,#FF5252 0%,#f48fb1 100%);background:-moz-linear-gradient(-45deg, #03e196 0%, #14cae0 100%);filter:progid:DXImageTransform.Microsoft.gradie}.random .title
+a{color:#FFF}.random
+.info{display:block;width:100%;text-align:center;background:#f3f3f3;padding:7px
+0;border-top:1px solid #e0e0e0;color:#666;letter-spacing:-0.5px;font-size:11px;cursor:default}

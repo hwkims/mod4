@@ -1,0 +1,20 @@
+{
+	"uniqueIdentifier": "b7eaeda1c2cc4c98b62198806c4c7e2a",
+	"bundleIdentifier": "e340a7c6f9284ae4aee73c8d483c56bd",
+	"category": "directory",
+	"entryId": "4bd2a3a055d04e0eb0812bf27259707b",
+	"contents": [
+		{
+		    "entry_id": "directory://4bd2a3a055d04e0eb0812bf27259707b",
+		    "name": "MyDesk",
+		    "lock": false,
+		    "folding": false,
+		    "nameEditable": false,
+		    "child_list": [
+		        "codeblock://15873444-8d16-4d28-9091-9c623fda5224",
+		        "codeblock://63fe07f0-2bcd-462c-8157-d6031e053b5e",
+		        "tileset://5e94f3ca-0fef-44b8-a040-9ec4607b988a"
+		    ]
+		}
+	]
+}

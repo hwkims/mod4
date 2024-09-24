@@ -1,0 +1,55 @@
+.pp_ol{position:relative;padding:15px
+15px 11px 14px;background:#F6F6F6;border:1px
+solid #c7c7c7}.pp_ol
+h2{margin:0;padding:0;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}.pp_ol
+ul{margin:0;padding:0;list-style:none}.pp_ol_top{position:relative;padding:11px
+15px 10px 14px;height:20px;background:#f7f7f7;border-bottom:1px solid #dedbde}.pp_ol2{position:relative;background:#fff;border-bottom:1px solid #dedbde}.pp_ol2
+h2{margin:0;padding:0;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}.pp_ol2
+ul{margin:0;padding:0;list-style:none}.pp_ol2
+a.btn_adm{width:auto;height:15px;padding:0
+3px;border:1px
+solid #ef5118;border-radius:60px;background:#ef5118;color:#fff;font-family:tahoma;font-size:11px}.pp_ol2 a.btn_adm:focus, .ol a.btn_admin:hover{text-decoration:none}#pp_ol_before{}#pp_ol_before
+fieldset{position:relative}#pp_ol_id{display:block;margin:0
+0 5px !important;margin:0
+0 3px;padding:0
+5px;width:160px;height:19px;border-top:1px solid #b5b5b5;border-left:1px solid #b5b5b5;border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;background:#fff;line-height:1.6em;font-size:11px}#pp_ol_id:focus{border:1px
+solid #6b6b6b}.pp_ol_idlabel{position:absolute;line-height:2.0em;left:5px;color:#999;font-size:11px;letter-spacing:-1px}#pp_ol_pw{display:block;margin:0
+0 5px !important;margin:0
+0 3px;padding:0
+5px;width:160px;height:18px;border-top:1px solid #b5b5b5;border-left:1px solid #b5b5b5;border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;background:#fff;vertical-align:top;line-height:1.6em;font-size:11px}#pp_ol_pw:focus{border:1px
+solid #6b6b6b}.pp_ol_pwlabel{position:absolute;line-height:2.0em;left:5px;color:#999;font-size:11px;letter-spacing:-1px}#auto_login{}#auto_login_label{letter-spacing:-0.1em;font-size:11px}#pp_ol_submit{display:inline-block;margin-top:-26px}.btn_login{width:53px;height:47px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat;cursor:pointer;text-indent:-9999px;border:0}#pp_ol_before
+a{letter-spacing:-0.15em}#pp_ol_svc{float:left;margin:5px
+0 0;font-size:11px}#pp_ol_svc
+span{color:#cecece;margin:0
+2px 0 3px}#pp_ol_svc
+a.register{color:#333}#pp_ol_svc
+a.lost{color:#333}#pp_ol_password_lost{display:inline-block;color:#333}#pp_ol_auto{position:relative;float:right;margin:5px
+3px 0 0}#pp_ol_auto
+label{letter-spacing:-0.1em}#pp_ol_auto
+input{width:13px;height:13px;vertical-align:bottom}#pp_ol_auto .auto_login
+a{float:right;cursor:pointer;padding-right:2px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat 0 -59px;width:48px;height:13px;text-indent:-9000px;overflow:hidden}#pp_ol_auto .auto_login
+a.on{background-position:0 -82px}.loginbox2{background:#f6f6f6}.loginbox2
+.char_info{padding:10px
+10px 4px 10px;border:1px
+solid #c7c7c7;border-bottom:none}.loginbox2 .char_info
+.char_thumb{position:relative;float:left;margin-right:10px;width:36px;height:36px}.loginbox2 .char_info .char_thumb
+.char_img{float:left;width:36px;height:36px;border:1px
+solid #d9d9d9;text-indent:-9000px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat 0 -109px}.loginbox2 .char_info
+.char_head{height:19px}.loginbox2 .char_info .char_head
+.txt_nick{float:left;padding-top:1px;padding-top:2px\9;line-height:18px;font-weight:bold;color:#383838}.loginbox2 .char_info .char_head
+.btn_mypage{float:right;margin-right:3px;width:17px;height:17px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat 0 -212px;overflow:hidden;font-size:0}.loginbox2 .char_info .char_head
+.btn_logout{float:right;width:45px;height:17px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat 0 -188px;overflow:hidden;font-size:0}.loginbox2 .char_info
+ul.char_brief{height:23px;padding:0;margin:0}.loginbox2 .char_info ul.char_brief
+li{float:left;list-style:none}.loginbox2 .char_info ul.char_brief li
+a{float:left;width:14px;height:22px;padding:0
+25px 0 30px;line-height:22px;font-family:tahoma;font-size:11px;color:#444;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat}.loginbox2 .char_info ul.char_brief
+li.first{background:none}.loginbox2 .char_info ul.char_brief li.first
+a{padding-left:15px}.loginbox2 .char_info ul.char_brief li
+a.btn_top_point{background-position:0 -232px}.loginbox2 .char_info ul.char_brief li
+a#btn_memo{background-position:13px -249px}.btn_info{float:left;width:67px;height:49px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat;background-position:0 -278px;font-size:0;margin-right:-2px}.btn_point{float:left;width:67px;height:49px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat;background-position:-68px -278px;font-size:0;margin-right:-2px}.btn_exp{float:left;width:67px;height:49px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat;background-position:-136px -278px;font-size:0;margin-right:-2px}.btn_scrap{float:left;width:67px;height:49px;background:url('/skin/outlogin/basic/img/sprites_connect.png') no-repeat;background-position:-204px -278px;font-size:0;margin-right:-2px}#login_content{position:relative;width:262px;height:49px;cursor:pointer}#login_content .content_btn_click1
+a{display:inline;width:67px;height:49px;background-position:0 -327px}#login_content .content_btn_click2
+a{display:inline;width:67px;height:49px;background-position:-68px -327px}#login_content .content_btn_click3
+a{display:inline;width:67px;height:49px;background-position:-136px -327px}#login_content .content_btn_click4
+a{display:inline;width:67px;height:49px;background-position:-204px -327px}#content_tab1 .btn_info:active{display:inline;width:67px;height:49px;background-position:0 -377px}#content_tab2 .btn_point:active{display:inline;width:67px;height:49px;background-position:-68px -377px}#content_tab3 .btn_exp:active{display:inline;width:67px;height:49px;background-position:-136px -377px}#content_tab4 .btn_scrap:active{display:inline;width:67px;height:49px;background-position:-204px -377px}#sub_form{position:block;display:none;background:#FFF;border:1px
+solid #b7b9bc;border-top:0;width:260px;height:173px}#sub_form
+.content{width:100%;height:170px}

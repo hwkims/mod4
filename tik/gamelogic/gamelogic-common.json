@@ -1,0 +1,29 @@
+{
+	"uniqueIdentifier": "61f129daae8645b6a7f9c859360268c5",
+	"bundleIdentifier": "e340a7c6f9284ae4aee73c8d483c56bd",
+	"category": "gamelogic",
+	"entryId": "fbf7eb3044f54ca495bc098a92256f0f",
+	"contents": [
+		{
+			"entryId": "d953dc0d-f95f-461f-8d41-4f802f8fb0bc",
+			"entryPath": "/common",
+			"contents": [
+				{
+				    "name": "common",
+				    "path": "/common",
+				    "nameEditable": false,
+				    "enable": true,
+				    "visible": true,
+				    "displayOrder": 0,
+				    "pathConstraints": "/",
+				    "revision": 1,
+				    "modelId": null,
+				    "@components": [],
+				    "@version": 1
+				}
+			],
+			"miscs": [
+			]
+		}
+	]
+}

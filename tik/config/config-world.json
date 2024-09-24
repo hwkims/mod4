@@ -1,0 +1,20 @@
+{
+	"uniqueIdentifier": "ab58339a49d946d39f98f1a4726dbe68",
+	"bundleIdentifier": "e340a7c6f9284ae4aee73c8d483c56bd",
+	"category": "config",
+	"entryId": "world",
+	"contents": [
+		{
+		    "LegacyAnimationSupport": false,
+		    "PlayerEntityAuthorityCheck": false,
+		    "ServiceAuthorityCheck": false,
+		    "RestrictedPlayerEntitySync": false,
+		    "SourceLanguage": "ko",
+		    "UseExtendedScriptFormat": false,
+		    "UseFadeInOut": false,
+		    "FadeInTime": 0.0,
+		    "FadeOutTime": 0.0,
+		    "config_id": "config://world"
+		}
+	]
+}

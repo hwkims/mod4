@@ -1,0 +1,18 @@
+{
+	"uniqueIdentifier": "042735fc10e64c2e9b152bb80f13fa68",
+	"bundleIdentifier": "e340a7c6f9284ae4aee73c8d483c56bd",
+	"category": "directory",
+	"entryId": "f903a65dba93468b92f1761732c75de3",
+	"contents": [
+		{
+		    "entry_id": "directory://f903a65dba93468b92f1761732c75de3",
+		    "name": "RootDesk",
+		    "lock": false,
+		    "folding": false,
+		    "nameEditable": false,
+		    "child_list": [
+		        "directory://4bd2a3a055d04e0eb0812bf27259707b"
+		    ]
+		}
+	]
+}
