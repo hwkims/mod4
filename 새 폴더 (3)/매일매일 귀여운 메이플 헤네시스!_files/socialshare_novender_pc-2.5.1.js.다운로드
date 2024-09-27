@@ -1,0 +1,1420 @@
+(function (exports) {
+    /* 이 파일은 자동 생성됩니다. 직접 수정 금지 */
+    !function (a, b, c) {
+        "use strict";
+        function d() {
+            for (var a = b.querySelectorAll(p), c = 0, d = a.length; d > c; c += 1){
+                e(a[c]);
+            }
+        }
+
+        function e(a) {
+            if (!a[q]) {
+                a[q] = !0;
+                var b = i(a, "type"), c = i(a, "action");
+                b && c && k(a, "click", function (d) {
+                    d.preventDefault(), f(b, c, j(a));
+                });
+            }
+        }
+
+        function f(a, b, d) {
+            switch (a) {
+                case n.DIALOG:
+                    switch (b) {
+                        case o.SHARE:
+                            g(d);
+                            break;
+                        default:
+                            c.error("bad or missing action: " + b);
+                    }
+                    break;
+                default:
+                    c.error("bad or missing type: " + a);
+            }
+        }
+
+        function g(b) {
+            var d = b.link;
+            if (!d){
+                throw new Error("bad or missing link: " + d);
+            }
+            var e = b.next || a.location.href, f = b.target || "_self", g = l + "?link=" + encodeURIComponent(d) + "&next=" + encodeURIComponent(e), i = a.open(g, f);
+            if (a !== i.opener) {
+                c.log("popup!");
+                var j = setInterval(function () {
+                    h(i) && j && (clearInterval(j), j = null);
+                }, 1e3);
+            }
+        }
+
+        function h(a) {
+            if (a.location.hash) {
+                var b = m.exec(a.location.hash);
+                if (b) {
+                    var c = b[2];
+                    if (a.confirm("등록된 글을 카페에서 확인하시겠습니까?")){
+                        return a.location.replace(c), !0;
+                    }
+                    a.location.hash = a.location.hash.replace(m, "");
+                }
+            }
+        }
+
+        function i(a, b) {
+            return a.dataset ? a.dataset[b] : a.getAttribute("data-" + b);
+        }
+
+        function j(a) {
+            if (a.dataset){
+                return a.dataset;
+            }
+            for (var b = {}, c = a.attributes, d = 0, e = c.length; e > d; d += 1) {
+                var f = c[d], g = r.exec(f.name);
+                g && (b[g[1]] = f.value);
+            }
+            return b;
+        }
+
+        function k(a, b, c) {
+            a.addEventListener ? a.addEventListener(b, c, !1) : a.attachEvent && a.attachEvent("on" + b, c);
+        }
+
+        var l = a.__CAFE_SHARE_DIALOG_ENDPOINT__ || "http://m.cafe.daum.net/_dialogs/share", m = /(#|&)__cafe_link__=(.+)/, n = {DIALOG: "dialog"}, o = {SHARE: "share"}, p = ".cafe-widget", q = "__cafe_widget__";
+        setTimeout(function () {
+            h(a) || d();
+        }, 1);
+        var r = /^data-(\w+)$/i;
+        a.DaumCafe = a.DaumCafe || {}, a.DaumCafe.Widget = a.DaumCafe.Widget || {}, a.DaumCafe.Widget.connect = f;
+    }(window, document, console);
+})();
+var socialshareRenewal = (function () {
+  'use strict';
+
+  function kakaoTalk() {
+    //카카오링크4.0 api
+    function kakaoLinkShareHandler(context) {
+      // if (ua.platform === 'pc') {
+      //     alert('모바일 기기에서 이용 가능한 기능입니다.\n카카오톡이 설치된 스마트폰에서 이용해 주세요.');
+      // } else {
+      //     Kakao.Link.sendScrap(context.kakaoAPI.kakaoLinkData);
+      // }
+      var kakaoLinkContext = context.kakaoAPI.kakaoLinkData;
+      Kakao.Link[kakaoLinkContext.shareType](kakaoLinkContext.shareData);
+    }
+
+    return {
+      share: function share(context) {
+
+        kakaoLinkShareHandler(context);
+      }
+    };
+  }
+
+  var htmlElement = typeof HTMLElement !== 'undefined' ? HTMLElement : Element;
+
+  var attachEventListener = function attachEventListener(fn, target) {
+    return function () {
+      var e = window.event;
+      fn({
+        target: e.srcElement,
+        currentTarget: target,
+        preventDefault: function preventDefault() {
+          e.returnValue = false;
+        }
+      });
+    };
+  };
+
+  function eventBind(type, listener, target) {
+    if (target.addEventListener) {
+      target.addEventListener(type, listener, false);
+    } else {
+      var attachListener = attachEventListener(listener, target);
+      target.attachEvent('on' + type, attachListener);
+    }
+  }
+
+  function on(type, listener, target) {
+    if (target && target.length && target[0] instanceof htmlElement) {
+      for (var i = 0, len = target.length; i < len; i++) {
+        eventBind(type, listener, target[i]);
+      }
+    } else {
+      eventBind(type, listener, target);
+    }
+  }
+
+  var TYPE = {
+    RESIZE: 'resize',
+    CLICK: 'click',
+    LONGPRESS: 'contextmenu',
+    TOUCH_END: 'touchend',
+    TOUCH_MOVE: 'touchmove',
+    HOVER: 'mouseenter'
+  };
+
+  var EventManager = {
+    on: on,
+    TYPE: TYPE
+  };
+
+  // 티아라 로그 관련 코드
+  var clickLog = function clickLog(category, service) {
+    var tiaraTracker = window.TiaraTracker;
+    var _window = window,
+        _tiq = _window._tiq;
+
+
+    if (tiaraTracker && tiaraTracker.getInstance()) {
+      var eventProps = {
+        te1: "util",
+        te2: category
+      };
+      if (service) {
+        eventProps.te3 = service;
+      }
+
+      tiaraTracker.getInstance().trackEvent('clickLog').customProps(eventProps).track();
+    } else if (_tiq) {
+      var arr = ['__trackEvent', 'util', category];
+      if (service) {
+        arr.push(service);
+      }
+
+      _tiq.push(arr);
+    }
+  };
+
+  var userAgent = function userAgent() {
+    var ua = window.navigator.userAgent.toString().toLowerCase();
+    function checkUserAgent(ua) {
+      var browser = {};
+      var match = /(dolfin)[ \/]([\w.]+)/.exec(ua) || /(edge)[ \/]([\w.]+)/.exec(ua) || /(chrome)[ \/]([\w.]+)/.exec(ua) || /(opera)(?:.*version)?[ \/]([\w.]+)/.exec(ua) || /(webkit)(?:.*version)?[ \/]([\w.]+)/.exec(ua) || /(msie) ([\w.]+)/.exec(ua) || ua.indexOf('compatible') < 0 && /(mozilla)(?:.*? rv:([\w.]+))?/.exec(ua) || ['', 'unknown'];
+      if (match[1] === 'webkit') {
+        match = /(iphone|ipad|ipod)[\S\s]*os ([\w._\-]+) like/.exec(ua) || /(android)[ \/]([\w._\-]+);/.exec(ua) || [match[0], 'safari', match[2]];
+      } else if (match[1] === 'mozilla') {
+        if (/trident/.test(ua)) {
+          match[1] = 'msie';
+        } else {
+          match[1] = 'firefox';
+        }
+      } else if (match[1] === 'edge') {
+        match[1] = 'spartan';
+      } else if (/polaris|natebrowser|([010|011|016|017|018|019]{3}\d{3,4}\d{4}$)/.test(ua)) {
+        match[1] = 'polaris';
+      }
+
+      browser[match[1]] = true;
+      browser.name = match[1];
+      browser.version = setVersion(match[2]);
+
+      return browser;
+    }
+
+    function setVersion(versionString) {
+      var version = {};
+
+      var versions = versionString ? versionString.split(/\.|-|_/) : ['0', '0', '0'];
+      version.info = versions.join('.');
+      version.major = versions[0] || '0';
+      version.minor = versions[1] || '0';
+      version.patch = versions[2] || '0';
+
+      return version;
+    }
+
+    function checkPlatform(ua) {
+      if (isPc(ua)) {
+        return 'pc';
+      } else if (isTablet(ua)) {
+        return 'tablet';
+      } else if (isMobile(ua)) {
+        return 'mobile';
+      } else {
+        return '';
+      }
+    }
+    function isPc(ua) {
+      if (ua.match(/linux|windows (nt|98)|macintosh|cros/) && !ua.match(/android|mobile|polaris|lgtelecom|uzard|natebrowser|ktf;|skt;/)) {
+        return true;
+      }
+      return false;
+    }
+    function isTablet(ua) {
+      if (ua.match(/ipad/) || ua.match(/android/) && !ua.match(/mobi|mini|fennec/)) {
+        return true;
+      }
+      return false;
+    }
+    function isMobile(ua) {
+      if (!!ua.match(/ip(hone|od)|android.+mobile|windows (ce|phone)|blackberry|bb10|symbian|webos|firefox.+fennec|opera m(ob|in)i|polaris|iemobile|lgtelecom|nokia|sonyericsson|dolfin|uzard|natebrowser|ktf;|skt;/)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function checkOs(ua) {
+      var os = {},
+          match = /(iphone|ipad|ipod)[\S\s]*os ([\w._\-]+) like/.exec(ua) || /(android)[ \/]([\w._\-]+);/.exec(ua) || (/android/.test(ua) ? ['', 'android', '0.0.0'] : false) || (/polaris|natebrowser|([010|011|016|017|018|019]{3}\d{3,4}\d{4}$)/.test(ua) ? ['', 'polaris', '0.0.0'] : false) || /(windows)(?: nt | phone(?: os){0,1} | )([\w._\-]+)/.exec(ua) || (/(windows)/.test(ua) ? ['', 'windows', '0.0.0'] : false) || /(mac) os x ([\w._\-]+)/.exec(ua) || (/(linux)/.test(ua) ? ['', 'linux', '0.0.0'] : false) || (/webos/.test(ua) ? ['', 'webos', '0.0.0'] : false) || /(cros)(?:\s[\w]+\s)([\d._\-]+)/.exec(ua) || /(bada)[ \/]([\w._\-]+)/.exec(ua) || (/bada/.test(ua) ? ['', 'bada', '0.0.0'] : false) || (/(rim|blackberry|bb10)/.test(ua) ? ['', 'blackberry', '0.0.0'] : false) || ['', 'unknown', '0.0.0'];
+
+      if (match[1] === 'iphone' || match[1] === 'ipad' || match[1] === 'ipod') {
+        match[1] = 'ios';
+      } else if (match[1] === 'windows' && match[2] === '98') {
+        match[2] = '0.98.0';
+      }
+      if (match[1] === 'cros') {
+        match[1] = 'chrome';
+      }
+      os[match[1]] = true;
+      os.name = match[1];
+      os.version = setVersion(match[2]);
+      return os;
+    }
+
+    function checkApp(ua) {
+      var app = {},
+          match = /(crios)[ \/]([\w.]+)/.exec(ua) || /(daumapps)[ \/]([\w.]+)/.exec(ua) || ['', ''];
+
+      if (match[1]) {
+        app.isApp = true;
+        app.name = match[1];
+        app.version = setVersion(match[2]);
+      } else {
+        app.isApp = false;
+      }
+
+      return app;
+    }
+
+    return {
+      ua: ua,
+      browser: checkUserAgent(ua),
+      platform: checkPlatform(ua),
+      os: checkOs(ua),
+      app: checkApp(ua)
+    };
+  };
+
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
+
+  /**
+     오브젝트의 key-value 데이터를 주어진 separator 값으로 연결된 스트링 값으로 변환한다.
+
+     @method queryStringify
+     @static
+     @param obj {Object} data object
+     @param separator {String} data key-value 값들을 연결한 구분자 (Optional, 기본값 '&')
+     @return {String} data object의 key-value 값들을 구분자로 연결한 스트링 데이터
+     **/
+  var queryStringify = function queryStringify(obj) {
+    var pairs = [];
+    if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object') {
+
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          var value = obj[key];
+          if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.length) {
+            pairs.push(toValuesString(key, value));
+          } else {
+            pairs.push(key + '=' + value.toString());
+          }
+        }
+      }
+    }
+
+    return pairs.join('&');
+  };
+
+  function toValuesString(key, values) {
+    return values.map(function (value) {
+      return key + '=' + value;
+    }).join('&');
+  }
+
+  var web2app = function () {
+    var TIMEOUT_IOS = 2 * 1000,
+        TIMEOUT_ANDROID = 3 * 100,
+        INTERVAL = 100,
+        ua = userAgent(),
+        os = ua.os,
+        intentNotSupportedBrowserList = ['firefox', 'opr/'];
+
+    function moveToStore(storeURL) {
+      top.window.location.href = storeURL;
+    }
+
+    function web2app(context) {
+      var willInvokeApp = typeof context.willInvokeApp === 'function' ? context.willInvokeApp : function () {},
+          onAppMissing = typeof context.onAppMissing === 'function' ? context.onAppMissing : moveToStore,
+          onUnsupportedEnvironment = typeof context.onUnsupportedEnvironment === 'function' ? context.onUnsupportedEnvironment : function () {};
+
+      willInvokeApp();
+
+      if (os.android) {
+        if (isIntentSupportedBrowser() && context.intentURI && !context.useUrlScheme) {
+          web2appViaIntentURI(context.intentURI);
+        } else if (context.storeURL) {
+          web2appViaCustomUrlSchemeForAndroid(context.urlScheme, context.storeURL, onAppMissing);
+        }
+      } else if (os.ios && context.storeURL) {
+        web2appViaCustomUrlSchemeForIOS(context.urlScheme, context.storeURL, onAppMissing, context.universalLink);
+      } else {
+        setTimeout(function () {
+          onUnsupportedEnvironment();
+        }, 100);
+      }
+    }
+
+    // chrome 25 and later supports intent. https://developer.chrome.com/multidevice/android/intents
+    function isIntentSupportedBrowser() {
+      var supportsIntent = ua.browser.chrome && +ua.browser.version.major >= 25;
+      var blackListRegexp = new RegExp(intentNotSupportedBrowserList.join('|'), 'i');
+      return supportsIntent && !blackListRegexp.test(ua.ua);
+    }
+
+    function web2appViaCustomUrlSchemeForAndroid(urlScheme, storeURL, fallback) {
+      deferFallback(TIMEOUT_ANDROID, storeURL, fallback);
+      launchAppViaHiddenIframe(urlScheme);
+    }
+
+    function deferFallback(timeout, storeURL, fallback) {
+      var clickedAt = new Date().getTime();
+      return setTimeout(function () {
+        var now = new Date().getTime();
+        if (isPageVisible() && now - clickedAt < timeout + INTERVAL) {
+          fallback(storeURL);
+        }
+      }, timeout);
+    }
+
+    function web2appViaIntentURI(launchURI) {
+      if (ua.browser.chrome) {
+        move();
+      } else {
+        setTimeout(move, 100);
+      }
+
+      function move() {
+        top.window.location.href = launchURI;
+      }
+    }
+
+    function web2appViaCustomUrlSchemeForIOS(urlScheme, storeURL, fallback, universalLink) {
+      var tid = deferFallback(TIMEOUT_IOS, storeURL, fallback);
+
+      if (parseInt(ua.os.version.major, 10) < 8) {
+        bindPagehideEvent(tid);
+      } else {
+        bindVisibilityChangeEvent(tid);
+      }
+
+      // https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12
+      if (isSupportUniversalLinks()) {
+        if (universalLink === undefined) {
+          universalLink = urlScheme;
+        } else {
+          clearTimeout(tid);
+        }
+        launchAppViaChangingLocation(universalLink);
+      } else {
+        launchAppViaHiddenIframe(urlScheme);
+      }
+    }
+
+    function bindPagehideEvent(tid) {
+      window.addEventListener('pagehide', function clear() {
+        if (isPageVisible()) {
+          clearTimeout(tid);
+          window.removeEventListener('pagehide', clear);
+        }
+      });
+    }
+
+    function bindVisibilityChangeEvent(tid) {
+      document.addEventListener('visibilitychange', function clear() {
+        if (isPageVisible()) {
+          clearTimeout(tid);
+          document.removeEventListener('visibilitychange', clear);
+        }
+      });
+    }
+
+    function isPageVisible() {
+      var attrNames = ['hidden', 'webkitHidden'];
+      for (var i = 0, len = attrNames.length; i < len; i++) {
+        if (typeof document[attrNames[i]] !== 'undefined') {
+          return !document[attrNames[i]];
+        }
+      }
+      return true;
+    }
+
+    function launchAppViaChangingLocation(urlScheme) {
+      console.log('launchAppViaChangingLocation');
+      top.window.location.href = urlScheme;
+    }
+
+    function launchAppViaHiddenIframe(urlScheme) {
+      setTimeout(function () {
+        var iframe = createHiddenIframe('appLauncher');
+        iframe.src = urlScheme;
+      }, 100);
+    }
+
+    function createHiddenIframe(id) {
+      var iframe = document.createElement('iframe');
+      iframe.id = id;
+      iframe.style.border = 'none';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.display = 'none';
+      iframe.style.overflow = 'hidden';
+      document.body.appendChild(iframe);
+      return iframe;
+    }
+
+    function isSupportUniversalLinks() {
+      return parseInt(ua.os.version.major, 10) > 8 && ua.os.ios;
+    }
+
+    /**
+     * app.을 실행하거나 / store 페이지에 연결하여 준다.
+     * @function
+     * @param context {object} urlScheme, intentURI, storeURL, appName, onAppMissing, onUnsupportedEnvironment, willInvokeApp
+     * @example daumtools.web2app({ urlScheme : 'daumapps://open', intentURI : '', storeURL: 'itms-app://...', appName: '다음앱' })
+     */
+
+    return web2app;
+  }();
+
+  var util = {
+    type: function type(target) {
+      return Object.prototype.toString.call(target);
+    },
+    throwError: function throwError(messages) {
+      throw new Error(messages);
+    },
+    addClass: function addClass(el, cName) {
+      function has(el, cname) {
+        return el.className && (' ' + el.className + ' ').lastIndexOf(' ' + cname + ' ') > -1;
+      }
+      if (!el.className) {
+        el.className = cName;
+      } else if (!has(el, cName)) {
+        el.className += ' ' + cName;
+      }
+    },
+    removeClass: function removeClass(el, cName) {
+      if (el.className) {
+        el.className = (' ' + el.className + ' ').replace(' ' + cName + ' ', ' ').replace(/^\s+|\s+$/g, '');
+      }
+    },
+    EventManager: EventManager,
+    userAgent: userAgent,
+    queryStringify: queryStringify,
+    web2app: web2app,
+    clickLog: clickLog
+  };
+
+  function facebook(isMobile) {
+    return {
+      share: function share(context) {
+        var link = context.link;
+        var ua = util.userAgent().platform;
+        var device = ua === 'mobile' ? 'm' : 'www';
+        var address = 'https://' + device + '.facebook.com/sharer.php?u=' + encodeURIComponent(link);
+        var option = 'width=580, height=255, resizable=no, scrollbars=no, status=no';
+
+        if (isMobile) {
+          window.open(address, '', '');
+        } else {
+          window.open(address, '', option);
+        }
+      }
+    };
+  }
+
+  function twitter(isMobile) {
+    return {
+      share: function share(context) {
+        var link = context.link;
+        var param = {
+          url: encodeURIComponent(link),
+          text: encodeURIComponent(context.prefix)
+        };
+        var webIntent = 'https://twitter.com/intent/tweet?' + util.queryStringify(param);
+
+        if (context.service_name) {
+          webIntent += encodeURIComponent(' | ' + context.service_name);
+        }
+
+        if (isMobile) {
+          top.location.href = webIntent;
+        } else {
+          var option = 'width=580, height=255, resizable=no, scrollbars=yes, status=no';
+          var popWindow = window.open('', '', option);
+          popWindow.location.href = webIntent;
+        }
+      }
+    };
+  }
+
+  function daumCafe(isMobile) {
+
+    return {
+      share: function share(context) {
+        if (isMobile) {
+          DaumCafe.Widget.connect('dialog', 'share', { link: context.link });
+        } else {
+          if (context.cafe) {
+            window.open(encodeURI(context.cafe), '', 'width=620, height=450, resizable=yes, scrollbars=yes');
+          } else {
+            DaumCafe.Widget.connect('dialog', 'share', { link: context.link });
+          }
+        }
+      }
+    };
+  }
+
+  function mail(isMobile) {
+    return {
+      share: function share(context) {
+        var link = context.link,
+            param = {
+          'opentype': 'compose',
+          'serviceId': 'socialshareRenewal',
+          'menubar': 'true',
+          'SUBJECT': encodeURIComponent(context.prefix),
+          'BODY': encodeURIComponent('"' + context.prefix + '"\r\n' + link),
+          'LINK': encodeURIComponent(link)
+        };
+
+        if (isMobile) {
+          top.location.href = 'https://m.mail.daum.net/goto?type=write&' + util.queryStringify(param);
+        } else {
+          var option = 'width=1000, height=550, resizable=yes, scrollbars=yes';
+          var popWindow = window.open('', '', option);
+          var isBetaService = context.isBetaService ? context.isBetaService : false;
+          var mailUrl = isBetaService ? 'https://beta-mail.daum.net/goto/compose?' : 'https://mail.daum.net/goto/compose?';
+          popWindow.location.href = mailUrl + util.queryStringify(param);
+        }
+      }
+    };
+  }
+
+  var htmlElement$1 = typeof HTMLElement !== 'undefined' ? HTMLElement : Element;
+
+  var attachEventListener$1 = function attachEventListener(fn, target) {
+    return function () {
+      var e = window.event;
+      fn({
+        target: e.srcElement,
+        currentTarget: target,
+        preventDefault: function preventDefault() {
+          e.returnValue = false;
+        }
+      });
+    };
+  };
+
+  function eventBind$1(type, listener, target) {
+    if (target.addEventListener) {
+      target.addEventListener(type, listener, false);
+    } else {
+      var attachListener = attachEventListener$1(listener, target);
+      target.attachEvent('on' + type, attachListener);
+    }
+  }
+
+  function on$1(type, listener, target) {
+    if (target && target.length && target[0] instanceof htmlElement$1) {
+      for (var i = 0, len = target.length; i < len; i++) {
+        eventBind$1(type, listener, target[i]);
+      }
+    } else {
+      eventBind$1(type, listener, target);
+    }
+  }
+
+  var TYPE$1 = {
+    RESIZE: 'resize',
+    CLICK: 'click',
+    LONGPRESS: 'contextmenu',
+    TOUCH_END: 'touchend',
+    TOUCH_MOVE: 'touchmove',
+    HOVER: 'mouseenter'
+  };
+
+  var EventManager$1 = {
+    on: on$1,
+    TYPE: TYPE$1
+  };
+
+  // 티아라 로그 관련 코드
+  var clickLog$1 = function clickLog(category, service) {
+    var tiaraTracker = window.TiaraTracker;
+    var _window = window,
+        _tiq = _window._tiq;
+
+
+    if (tiaraTracker && tiaraTracker.getInstance()) {
+      var eventProps = {
+        te1: "util",
+        te2: category
+      };
+      if (service) {
+        eventProps.te3 = service;
+      }
+
+      tiaraTracker.getInstance().trackEvent('clickLog').customProps(eventProps).track();
+    } else if (_tiq) {
+      var arr = ['__trackEvent', 'util', category];
+      if (service) {
+        arr.push(service);
+      }
+
+      _tiq.push(arr);
+    }
+  };
+
+  var userAgent$1 = function userAgent() {
+    var ua = window.navigator.userAgent.toString().toLowerCase();
+    function checkUserAgent(ua) {
+      var browser = {};
+      var match = /(dolfin)[ \/]([\w.]+)/.exec(ua) || /(edge)[ \/]([\w.]+)/.exec(ua) || /(chrome)[ \/]([\w.]+)/.exec(ua) || /(opera)(?:.*version)?[ \/]([\w.]+)/.exec(ua) || /(webkit)(?:.*version)?[ \/]([\w.]+)/.exec(ua) || /(msie) ([\w.]+)/.exec(ua) || ua.indexOf('compatible') < 0 && /(mozilla)(?:.*? rv:([\w.]+))?/.exec(ua) || ['', 'unknown'];
+      if (match[1] === 'webkit') {
+        match = /(iphone|ipad|ipod)[\S\s]*os ([\w._\-]+) like/.exec(ua) || /(android)[ \/]([\w._\-]+);/.exec(ua) || [match[0], 'safari', match[2]];
+      } else if (match[1] === 'mozilla') {
+        if (/trident/.test(ua)) {
+          match[1] = 'msie';
+        } else {
+          match[1] = 'firefox';
+        }
+      } else if (match[1] === 'edge') {
+        match[1] = 'spartan';
+      } else if (/polaris|natebrowser|([010|011|016|017|018|019]{3}\d{3,4}\d{4}$)/.test(ua)) {
+        match[1] = 'polaris';
+      }
+
+      browser[match[1]] = true;
+      browser.name = match[1];
+      browser.version = setVersion(match[2]);
+
+      return browser;
+    }
+
+    function setVersion(versionString) {
+      var version = {};
+
+      var versions = versionString ? versionString.split(/\.|-|_/) : ['0', '0', '0'];
+      version.info = versions.join('.');
+      version.major = versions[0] || '0';
+      version.minor = versions[1] || '0';
+      version.patch = versions[2] || '0';
+
+      return version;
+    }
+
+    function checkPlatform(ua) {
+      if (isPc(ua)) {
+        return 'pc';
+      } else if (isTablet(ua)) {
+        return 'tablet';
+      } else if (isMobile(ua)) {
+        return 'mobile';
+      } else {
+        return '';
+      }
+    }
+    function isPc(ua) {
+      if (ua.match(/linux|windows (nt|98)|macintosh|cros/) && !ua.match(/android|mobile|polaris|lgtelecom|uzard|natebrowser|ktf;|skt;/)) {
+        return true;
+      }
+      return false;
+    }
+    function isTablet(ua) {
+      if (ua.match(/ipad/) || ua.match(/android/) && !ua.match(/mobi|mini|fennec/)) {
+        return true;
+      }
+      return false;
+    }
+    function isMobile(ua) {
+      if (!!ua.match(/ip(hone|od)|android.+mobile|windows (ce|phone)|blackberry|bb10|symbian|webos|firefox.+fennec|opera m(ob|in)i|polaris|iemobile|lgtelecom|nokia|sonyericsson|dolfin|uzard|natebrowser|ktf;|skt;/)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function checkOs(ua) {
+      var os = {},
+          match = /(iphone|ipad|ipod)[\S\s]*os ([\w._\-]+) like/.exec(ua) || /(android)[ \/]([\w._\-]+);/.exec(ua) || (/android/.test(ua) ? ['', 'android', '0.0.0'] : false) || (/polaris|natebrowser|([010|011|016|017|018|019]{3}\d{3,4}\d{4}$)/.test(ua) ? ['', 'polaris', '0.0.0'] : false) || /(windows)(?: nt | phone(?: os){0,1} | )([\w._\-]+)/.exec(ua) || (/(windows)/.test(ua) ? ['', 'windows', '0.0.0'] : false) || /(mac) os x ([\w._\-]+)/.exec(ua) || (/(linux)/.test(ua) ? ['', 'linux', '0.0.0'] : false) || (/webos/.test(ua) ? ['', 'webos', '0.0.0'] : false) || /(cros)(?:\s[\w]+\s)([\d._\-]+)/.exec(ua) || /(bada)[ \/]([\w._\-]+)/.exec(ua) || (/bada/.test(ua) ? ['', 'bada', '0.0.0'] : false) || (/(rim|blackberry|bb10)/.test(ua) ? ['', 'blackberry', '0.0.0'] : false) || ['', 'unknown', '0.0.0'];
+
+      if (match[1] === 'iphone' || match[1] === 'ipad' || match[1] === 'ipod') {
+        match[1] = 'ios';
+      } else if (match[1] === 'windows' && match[2] === '98') {
+        match[2] = '0.98.0';
+      }
+      if (match[1] === 'cros') {
+        match[1] = 'chrome';
+      }
+      os[match[1]] = true;
+      os.name = match[1];
+      os.version = setVersion(match[2]);
+      return os;
+    }
+
+    function checkApp(ua) {
+      var app = {},
+          match = /(crios)[ \/]([\w.]+)/.exec(ua) || /(daumapps)[ \/]([\w.]+)/.exec(ua) || ['', ''];
+
+      if (match[1]) {
+        app.isApp = true;
+        app.name = match[1];
+        app.version = setVersion(match[2]);
+      } else {
+        app.isApp = false;
+      }
+
+      return app;
+    }
+
+    return {
+      ua: ua,
+      browser: checkUserAgent(ua),
+      platform: checkPlatform(ua),
+      os: checkOs(ua),
+      app: checkApp(ua)
+    };
+  };
+
+  /**
+     오브젝트의 key-value 데이터를 주어진 separator 값으로 연결된 스트링 값으로 변환한다.
+
+     @method queryStringify
+     @static
+     @param obj {Object} data object
+     @param separator {String} data key-value 값들을 연결한 구분자 (Optional, 기본값 '&')
+     @return {String} data object의 key-value 값들을 구분자로 연결한 스트링 데이터
+     **/
+  var queryStringify$1 = function queryStringify(obj) {
+    var pairs = [];
+    if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object') {
+
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          var value = obj[key];
+          if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.length) {
+            pairs.push(toValuesString$1(key, value));
+          } else {
+            pairs.push(key + '=' + value.toString());
+          }
+        }
+      }
+    }
+
+    return pairs.join('&');
+  };
+
+  function toValuesString$1(key, values) {
+    return values.map(function (value) {
+      return key + '=' + value;
+    }).join('&');
+  }
+
+  var web2app$1 = function () {
+    var TIMEOUT_IOS = 2 * 1000,
+        TIMEOUT_ANDROID = 3 * 100,
+        INTERVAL = 100,
+        ua = userAgent$1(),
+        os = ua.os,
+        intentNotSupportedBrowserList = ['firefox', 'opr/'];
+
+    function moveToStore(storeURL) {
+      top.window.location.href = storeURL;
+    }
+
+    function web2app(context) {
+      var willInvokeApp = typeof context.willInvokeApp === 'function' ? context.willInvokeApp : function () {},
+          onAppMissing = typeof context.onAppMissing === 'function' ? context.onAppMissing : moveToStore,
+          onUnsupportedEnvironment = typeof context.onUnsupportedEnvironment === 'function' ? context.onUnsupportedEnvironment : function () {};
+
+      willInvokeApp();
+
+      if (os.android) {
+        if (isIntentSupportedBrowser() && context.intentURI && !context.useUrlScheme) {
+          web2appViaIntentURI(context.intentURI);
+        } else if (context.storeURL) {
+          web2appViaCustomUrlSchemeForAndroid(context.urlScheme, context.storeURL, onAppMissing);
+        }
+      } else if (os.ios && context.storeURL) {
+        web2appViaCustomUrlSchemeForIOS(context.urlScheme, context.storeURL, onAppMissing, context.universalLink);
+      } else {
+        setTimeout(function () {
+          onUnsupportedEnvironment();
+        }, 100);
+      }
+    }
+
+    // chrome 25 and later supports intent. https://developer.chrome.com/multidevice/android/intents
+    function isIntentSupportedBrowser() {
+      var supportsIntent = ua.browser.chrome && +ua.browser.version.major >= 25;
+      var blackListRegexp = new RegExp(intentNotSupportedBrowserList.join('|'), 'i');
+      return supportsIntent && !blackListRegexp.test(ua.ua);
+    }
+
+    function web2appViaCustomUrlSchemeForAndroid(urlScheme, storeURL, fallback) {
+      deferFallback(TIMEOUT_ANDROID, storeURL, fallback);
+      launchAppViaHiddenIframe(urlScheme);
+    }
+
+    function deferFallback(timeout, storeURL, fallback) {
+      var clickedAt = new Date().getTime();
+      return setTimeout(function () {
+        var now = new Date().getTime();
+        if (isPageVisible() && now - clickedAt < timeout + INTERVAL) {
+          fallback(storeURL);
+        }
+      }, timeout);
+    }
+
+    function web2appViaIntentURI(launchURI) {
+      if (ua.browser.chrome) {
+        move();
+      } else {
+        setTimeout(move, 100);
+      }
+
+      function move() {
+        top.window.location.href = launchURI;
+      }
+    }
+
+    function web2appViaCustomUrlSchemeForIOS(urlScheme, storeURL, fallback, universalLink) {
+      var tid = deferFallback(TIMEOUT_IOS, storeURL, fallback);
+
+      if (parseInt(ua.os.version.major, 10) < 8) {
+        bindPagehideEvent(tid);
+      } else {
+        bindVisibilityChangeEvent(tid);
+      }
+
+      // https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12
+      if (isSupportUniversalLinks()) {
+        if (universalLink === undefined) {
+          universalLink = urlScheme;
+        } else {
+          clearTimeout(tid);
+        }
+        launchAppViaChangingLocation(universalLink);
+      } else {
+        launchAppViaHiddenIframe(urlScheme);
+      }
+    }
+
+    function bindPagehideEvent(tid) {
+      window.addEventListener('pagehide', function clear() {
+        if (isPageVisible()) {
+          clearTimeout(tid);
+          window.removeEventListener('pagehide', clear);
+        }
+      });
+    }
+
+    function bindVisibilityChangeEvent(tid) {
+      document.addEventListener('visibilitychange', function clear() {
+        if (isPageVisible()) {
+          clearTimeout(tid);
+          document.removeEventListener('visibilitychange', clear);
+        }
+      });
+    }
+
+    function isPageVisible() {
+      var attrNames = ['hidden', 'webkitHidden'];
+      for (var i = 0, len = attrNames.length; i < len; i++) {
+        if (typeof document[attrNames[i]] !== 'undefined') {
+          return !document[attrNames[i]];
+        }
+      }
+      return true;
+    }
+
+    function launchAppViaChangingLocation(urlScheme) {
+      console.log('launchAppViaChangingLocation');
+      top.window.location.href = urlScheme;
+    }
+
+    function launchAppViaHiddenIframe(urlScheme) {
+      setTimeout(function () {
+        var iframe = createHiddenIframe('appLauncher');
+        iframe.src = urlScheme;
+      }, 100);
+    }
+
+    function createHiddenIframe(id) {
+      var iframe = document.createElement('iframe');
+      iframe.id = id;
+      iframe.style.border = 'none';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.display = 'none';
+      iframe.style.overflow = 'hidden';
+      document.body.appendChild(iframe);
+      return iframe;
+    }
+
+    function isSupportUniversalLinks() {
+      return parseInt(ua.os.version.major, 10) > 8 && ua.os.ios;
+    }
+
+    /**
+     * app.을 실행하거나 / store 페이지에 연결하여 준다.
+     * @function
+     * @param context {object} urlScheme, intentURI, storeURL, appName, onAppMissing, onUnsupportedEnvironment, willInvokeApp
+     * @example daumtools.web2app({ urlScheme : 'daumapps://open', intentURI : '', storeURL: 'itms-app://...', appName: '다음앱' })
+     */
+
+    return web2app;
+  }();
+
+  var util$1 = {
+    type: function type(target) {
+      return Object.prototype.toString.call(target);
+    },
+    throwError: function throwError(messages) {
+      throw new Error(messages);
+    },
+    addClass: function addClass(el, cName) {
+      function has(el, cname) {
+        return el.className && (' ' + el.className + ' ').lastIndexOf(' ' + cname + ' ') > -1;
+      }
+      if (!el.className) {
+        el.className = cName;
+      } else if (!has(el, cName)) {
+        el.className += ' ' + cName;
+      }
+    },
+    removeClass: function removeClass(el, cName) {
+      if (el.className) {
+        el.className = (' ' + el.className + ' ').replace(' ' + cName + ' ', ' ').replace(/^\s+|\s+$/g, '');
+      }
+    },
+    EventManager: EventManager$1,
+    userAgent: userAgent$1,
+    queryStringify: queryStringify$1,
+    web2app: web2app$1,
+    clickLog: clickLog$1
+  };
+
+  var isMobile = util$1.userAgent().platform === 'mobile';
+
+  var SNS_MODULE = {
+    kakaoTalk: 'kakaotalk',
+    facebook: 'facebook',
+    twitter: 'twitter',
+    daumCafe: 'daumcafe',
+    mail: 'mail'
+  };
+
+  var snsFactory = function snsFactory() {
+    return {
+      create: function create(snsName) {
+        var sns = null;
+        switch (snsName) {
+          case SNS_MODULE.kakaoTalk:
+            sns = kakaoTalk();
+            break;
+          case SNS_MODULE.facebook:
+            sns = facebook(isMobile);
+            break;
+          case SNS_MODULE.twitter:
+            sns = twitter(isMobile);
+            break;
+          case SNS_MODULE.daumCafe:
+            sns = daumCafe(isMobile);
+            break;
+          case SNS_MODULE.mail:
+            sns = mail(isMobile);
+            break;
+
+          default:
+            sns = null;
+        }
+
+        return sns;
+      }
+    };
+  };
+
+  var socialSharer = function socialSharer(snsFactory, shareData) {
+    if (!shareData) {
+      throw new Error(socialSharer.messages.noShareData);
+    }
+    // 카카오톡 쉐어랑 관련된 코드
+    var Kakao = window.Kakao || shareData.Kakao || null;
+
+    if (Kakao) {
+      if (Kakao.Auth) ; else {
+        var kakaoLinkDaumAppKey = void 0;
+        try {
+          if (shareData.kakaoAPI.appkey) {
+            kakaoLinkDaumAppKey = shareData.kakaoAPI.appkey;
+          }
+          Kakao.init(kakaoLinkDaumAppKey);
+        } catch (e) {
+          throw new Error(e.message + ' 및 ' + socialSharer.messages.confirmKakaoApi);
+        }
+      }
+    }
+
+    return {
+      shareSns: function shareSns(snsName) {
+        if (!snsName) throw new Error(socialSharer.messages.noSnsName);
+
+        var sns = snsFactory.create(snsName);
+        if (!sns) {
+          throw new Error(socialSharer.noSnsModule(snsName));
+        }
+
+        sns.share(shareData);
+      }
+    };
+  };
+
+  socialSharer.messages = {
+    noSnsName: 'sns 이름을 인자로 받아야 합니다.',
+    noSnsModule: '_ 이란 sns모듈은 없습니다. sns 이름을 확인하세요',
+    noShareData: 'sns 모듈에 전달할 data를 넣어야 합니다. 옵션값의 두번째 인자를 확인하세요',
+    confirmKakaoApi: 'Kakao api data가 필요합니다.'
+  };
+
+  socialSharer.noSnsModule = function (name) {
+    return socialSharer.messages.noSnsModule.replace('_', name);
+  };
+
+  /**
+   *
+   * @param {*} socialSharer
+   * @param {NodeList} snsItemList
+   * @return {Object} 
+   */
+  var ATTR_NAME = 'data-handler';
+  var socialshareViewer = function socialshareViewer(socialSharer, snsItemList) {
+
+    var view = {
+      share: function share(socialName) {
+        socialSharer.shareSns(socialName);
+        util$1.clickLog('layer', socialName);
+      }
+    };
+
+    var handleClick = function handleClick(e) {
+      e.preventDefault();
+      var targetEl = e.currentTarget;
+      var socialName = targetEl.getAttribute(ATTR_NAME);
+      view.share(socialName);
+    };
+
+    EventManager$1.on(EventManager$1.TYPE.CLICK, handleClick, snsItemList);
+
+    return view;
+  };
+
+  var SocialShare = {
+    snsFactory: snsFactory,
+    socialSharer: socialSharer,
+    socialshareViewer: socialshareViewer
+  };
+
+  var SNS_LIST = ['kakaotalk', 'facebook', 'twitter', 'mail', 'daumcafe'];
+
+  var SNS_DATA = {
+    kakaotalk: {
+      iconClassName: 'ico_sns_kt',
+      name: '카카오톡'
+    },
+    facebook: {
+      iconClassName: 'ico_sns_fb',
+      name: '페이스북'
+    },
+    twitter: {
+      iconClassName: 'ico_sns_tw',
+      name: '엑스'
+    },
+    mail: {
+      iconClassName: 'ico_sns_mail',
+      name: '다음메일'
+    },
+    daumcafe: {
+      iconClassName: 'ico_sns_cafe',
+      name: '다음카페'
+    }
+  };
+
+  var viewData = {
+    SNS_LIST: SNS_LIST,
+    SNS_DATA: SNS_DATA,
+    link: ''
+  };
+
+  var CLOSE_BTN_CLASSNAME = '.btn_close';
+  // const COPY_BTN_CLASSNAME = '.txt_copy'
+  var COPY_BTN_CLASSNAME = '.link_copyurl';
+
+  var bindEvent = function bindEvent(viewer, layerContainer) {
+    var ua = util.userAgent();
+    var isIE = ua.browser.name.indexOf('msie') > -1 ? parseInt(ua.browser.version.major) : false;
+    var isLowIE = isIE && isIE < 10 ? true : false;
+    var closeBtnEl = layerContainer.querySelectorAll(CLOSE_BTN_CLASSNAME);
+    var copyBtn = layerContainer.querySelector(COPY_BTN_CLASSNAME);
+
+    var delay = null;
+
+    var closeLayer = function closeLayer(e) {
+      e.preventDefault();
+      viewer.hide();
+      if (delay) {
+        viewer.hideMsgLayer();
+        clearTimeout(delay);
+      }
+    };
+
+    var copyUrl = function copyUrl(e) {
+      e.preventDefault();
+      viewer.copyEvent();
+      delay = setTimeout(function () {
+        viewer.hideMsgLayer();
+        closeLayer(e);
+      }, 2000);
+    };
+
+    for (var i = 0; i < closeBtnEl.length; i++) {
+      EventManager.on(EventManager.TYPE.CLICK, closeLayer, closeBtnEl[i]);
+    }
+    if (!isLowIE) {
+      EventManager.on(EventManager.TYPE.CLICK, copyUrl, copyBtn);
+    }
+  };
+
+  var ua = util.userAgent();
+  var isLowIE = ua.browser.name.indexOf('msie') > -1 ? parseInt(ua.browser.version.major) : false;
+
+  var template = function template(viewData) {
+    var link = viewData.link;
+    var URL_VIEW_IE = '<div class="sns_copyurl sns_copyurl_type2">\n  <span class="link_copyurl"><input type="text" class="tf_url" title="\uD604\uC7AC\uD398\uC774\uC9C0 URL\uBCF5\uC0AC" value="' + link + '"></span>\n  <p class="desc_tip">\uC704 URL\uC744 \uBCF5\uC0AC(Ctrl+C)\uD558\uC5EC \uC6D0\uD558\uB294 \uACF3\uC5D0 <br>\uBD99\uC5EC\uB123\uAE30(Ctrl+V)\uD574\uC8FC\uC138\uC694.</p>\n  </div>';
+
+    var URL_VIEW_LATEST = '<div class="sns_copyurl">\n    <a href="#none" class="link_copyurl">\n    <span class="screen_out">\uD604\uC7AC\uD398\uC774\uC9C0 URL\uBCF5\uC0AC</span>\n    <span class="txt_url">' + link + '</span>\n    <span class="txt_copy">URL\uBCF5\uC0AC</span>\n    </a>\n    </div>';
+
+    var URL_VIEW_TEMPLATE = isLowIE && isLowIE < 10 ? URL_VIEW_IE : URL_VIEW_LATEST;
+
+    var MSG_TEMPLATE = '<div class="sns_comm_p copyurl_layer hide">\n  <div class="inner_copyurl">\n  <p class="desc_copyurl">\uC8FC\uC18C\uAC00 \uBCF5\uC0AC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.<br>\uC6D0\uD558\uB294\uACF3\uC5D0 \uBD99\uC5EC\uB123\uAE30(Ctrl+V)\uD574\uC8FC\uC138\uC694.</p>\n  <button class="btn_close"><span class="img_social ico_close">\uACF5\uC720\uBAA9\uB85D \uB2EB\uAE30</span>\n  </button>';
+
+    var container = document.createElement('div');
+    container.className = 'social_comm_p';
+
+    var SNS_TEMPLATE = '<div class="sns_comm_p share_layer">\n    <strong class="screen_out">SNS\uB85C \uACF5\uC720\uD558\uAE30 \uD3BC\uCCD0\uC9D0</strong>\n    <ul class="list_sns"></ul>\n    <div class="copyUrl">' + URL_VIEW_TEMPLATE + '</div>\n    <button class="btn_close"><span class="img_social ico_close">\uACF5\uC720\uBAA9\uB85D \uB2EB\uAE30</span></button>\n    </div>' + MSG_TEMPLATE + '\n  ';
+
+    container.innerHTML = SNS_TEMPLATE;
+
+    var listSnsEl = container.querySelector('.list_sns');
+    var snsList = viewData.SNS_LIST;
+
+    var snsListHtml = function snsListHtml(snsList) {
+      var buffer = [];
+      for (var i = 0; i < snsList.length; i++) {
+        var snsName = snsList[i];
+        var invisibleSns = snsName === 'daumcafe' ? 'style="display: none"' : '';
+        var temp = '<li ' + invisibleSns + '>\n        <a href="#none" class="link_sns" data-handler="' + snsName + '">\n        <span class="img_social ' + viewData.SNS_DATA[snsName].iconClassName + '">\n        </span>' + viewData.SNS_DATA[snsName].name + '</a></li>';
+
+        buffer.push(temp);
+      }
+      return buffer.join('');
+    };
+    listSnsEl.innerHTML = snsListHtml(snsList);
+    return container;
+  };
+
+  var htmlElement$4 = typeof HTMLElement !== 'undefined' ? HTMLElement : Element;
+
+  var layerViewer = function layerViewer(triggerEl, opts) {
+    var messages = layerViewer.messages;
+
+    if (!(triggerEl instanceof htmlElement$4)) {
+      util.throwError(messages.failTriggerEl);
+    }
+
+    viewData.link = opts.link || '';
+
+    var layerContainer = template(viewData);
+    var msgLayer = layerContainer.querySelector('.copyurl_layer');
+    var shareLayer = layerContainer.querySelector('.share_layer');
+    var linkTxt = layerContainer.querySelector('.txt_url');
+
+    var viewer = {
+      render: function render(moreViewContainer) {
+        if (!(moreViewContainer instanceof htmlElement$4)) {
+          util.throwError(layerViewer.failArgument(messages.failRenderArgument, moreViewContainer));
+        }
+        moreViewContainer.appendChild(this.getView());
+        bindEvent(viewer, layerContainer);
+        this.hide();
+      },
+      getView: function getView() {
+        return layerContainer;
+      },
+      show: function show() {
+        if (layerContainer) {
+          util.clickLog('btn_share');
+          util.removeClass(layerContainer, 'hide');
+        }
+      },
+      hide: function hide() {
+        util.addClass(layerContainer, 'hide');
+      },
+      showMsgLayer: function showMsgLayer() {
+        util.removeClass(msgLayer, 'hide');
+        util.addClass(shareLayer, 'hide');
+      },
+      hideMsgLayer: function hideMsgLayer() {
+        util.addClass(msgLayer, 'hide');
+        util.removeClass(shareLayer, 'hide');
+      },
+      changeLink: function changeLink(url) {
+        if (layerContainer) {
+          var urlEl = layerContainer.querySelector('.txt_url');
+          urlEl.innerHTML = url;
+        }
+      },
+      copyEvent: function copyEvent() {
+        this.copyUrl(linkTxt);
+        this.showMsgLayer();
+        util.clickLog('layer', 'copyUrl');
+      },
+      copyUrl: function copyUrl(targetTxt) {
+        var range = document.createRange();
+        range.selectNodeContents(targetTxt);
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        document.execCommand('copy');
+        selection.removeAllRanges();
+      }
+    };
+
+    EventManager.on(EventManager.TYPE.CLICK, function (e) {
+      e.preventDefault();
+      viewer.show();
+    }, triggerEl);
+
+    if (opts.action && opts.action === 'hover') {
+      EventManager.on(EventManager.TYPE.HOVER, function (e) {
+        e.preventDefault();
+        viewer.show();
+      }, triggerEl);
+    }
+
+    return viewer;
+  };
+
+  layerViewer.messages = {
+    failRenderArgument: '_은 moreViewContainer 옵션으로 잘못된 타입 입니다. DOM객체가 주입되어야 합니다.',
+    failTriggerEl: '트리거 버튼 타입이 잘못되었습니다. Element 타입으로 넣어주세요.'
+  };
+
+  layerViewer.failArgument = function failArgument(message, arguemnt) {
+    return message.replace('_', util.type(arguemnt));
+  };
+
+  function styleInject(css, ref) {
+    if ( ref === void 0 ) ref = {};
+    var insertAt = ref.insertAt;
+
+    if (!css || typeof document === 'undefined') { return; }
+
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var style = document.createElement('style');
+    style.type = 'text/css';
+
+    if (insertAt === 'top') {
+      if (head.firstChild) {
+        head.insertBefore(style, head.firstChild);
+      } else {
+        head.appendChild(style);
+      }
+    } else {
+      head.appendChild(style);
+    }
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+  }
+
+  var css = "/* global */\n.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}\n.show{display:block}\n.hide{display:none}\n\n/* PC Social Share */\n/* 2018-04-25 수정 시작 */\n.social_comm_p{position:absolute;z-index:1000;}\n.social_comm_p .img_social{display:block;overflow:hidden;font-size:0;background:url(//t1.daumcdn.net/daumtop_deco/images/common/social/img_social_231109.png) no-repeat 0 0;text-indent:-9999px}\n.social_comm_p .sns_comm_p{overflow:hidden;position:relative;border:1px solid #e2e2e2;font-size:11px;color:#222;background-color:#fff;letter-spacing:-0.025em}\n.social_comm_p .btn_close{position:absolute;top:5px;right:5px;width:24px;height:24px}\n.social_comm_p .ico_close{width:15px;height:16px;margin:5px;background-position:-150px 0}\n.social_comm_p .share_layer{position:relative;width:260px;min-height:228px}\n.social_comm_p .list_sns{overflow:hidden;margin:26px 14px 0}\n.social_comm_p .list_sns li{float:left;width:77px;height:78px}\n.social_comm_p .list_sns .link_sns{display:block;text-align:center;text-decoration:none}\n.social_comm_p .list_sns .link_sns .img_social{width:43px;height:43px;margin:0 auto 4px}\n.social_comm_p .list_sns .tit_sns{display:block;margin-top:7px;font-weight:normal;line-height:16px}\n.social_comm_p .list_sns .ico_sns_fb{background-position:-100px 0}\n.social_comm_p .list_sns .ico_sns_tw{background-position:0 -50px}\n.social_comm_p .list_sns .ico_sns_cafe{background-position:-100px -50px}\n.social_comm_p .list_sns .ico_sns_mail{background-position:-50px -50px}\n.social_comm_p .list_sns .ico_sns_kt{background-position:0 0}\n.social_comm_p .sns_copyurl{margin:-1px 26px 0;padding-bottom:23px}\n.social_comm_p .sns_copyurl .link_copyurl{display:block;overflow:hidden;position:relative;height:23px;line-height:23px;border:1px solid #d0d0d0;background-color:#f8f8f8;text-decoration:none}\n.social_comm_p .sns_copyurl .txt_url{display:block;overflow:hidden;padding:0 64px 0 7px;color:#2695f8;white-space:nowrap;text-overflow:ellipsis}\n.social_comm_p .sns_copyurl .txt_copy{position:absolute;top:0;right:0;width:47px;height:25px;border-left:1px solid #d0d0d0;background-color:#fff;text-align:center}\n.social_comm_p .copyurl_layer{width:254px;height:78px;text-align:center}\n.social_comm_p .inner_copyurl{display:table;width:100%;height:100%}\n.social_comm_p .inner_copyurl .desc_copyurl{display:table-cell;padding:18px 0 17px;line-height:19px;vertical-align:middle}\n.social_comm_p .sns_copyurl_type2 .tf_url{display:block;width:210px;height:25px;padding:0 10px;border:0 none;color:#2695f8;background-color:transparent}\n.social_comm_p .sns_copyurl_type2 .desc_tip{padding:13px 0;line-height:18px;color:#888;text-align:center;letter-spacing:0}\n\n@media\nonly screen and (-webkit-min-device-pixel-ratio: 1.5),\nonly screen and (min-device-pixel-ratio: 1.5),\nonly screen and (min-resolution: 144dpi),\nonly screen and (min-resolution: 1.5dppx) {\n    .social_comm_p .img_social{background-image:url(//t1.daumcdn.net/daumtop_deco/images/common/social/rtn/img_social_231109.png);background-size:170px 100px}\n}";
+  styleInject(css);
+
+  var socialshareRenewal = {};
+
+  function Main(el, options) {
+    if (!(this instanceof Main)) {
+      return new Main(el, options);
+    }
+
+    this.el = el;
+    this.options = options;
+
+    this.viewer = layerViewer(this.el, options);
+    this.viewer.render(this.options.moreViewContainer);
+
+    var snsFactory = SocialShare.snsFactory();
+    var share = SocialShare.socialSharer(snsFactory, this.options);
+    var snsItemEl = options.moreViewContainer.querySelectorAll('.link_sns');
+
+    SocialShare.socialshareViewer(share, snsItemEl, this.options.prefix);
+  }
+
+  Main.prototype = {
+    close: function close() {
+      this.viewer.hide();
+    },
+    open: function open() {
+      this.viewer.show();
+    },
+    share: function (_share) {
+      function share(_x) {
+        return _share.apply(this, arguments);
+      }
+
+      share.toString = function () {
+        return _share.toString();
+      };
+
+      return share;
+    }(function (snsName) {
+      share.shareSns(snsName);
+    }),
+    updateContext: function updateContext(options) {
+      var link = window.location || '';
+      if (options) {
+        this.options = options;
+        link = this.options.link || '';
+      }
+      this.viewer.changeLink(link);
+    }
+  };
+
+  socialshareRenewal.Main = Main;
+
+  return socialshareRenewal;
+
+}());

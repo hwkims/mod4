@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Pragmatica-ExtendedBold';
+  font-weight: 700;
+  font-display: fallback;
+  src: local('Pragmatica-ExtendedBold'),
+    url('pragmatica/Pragmatica-ExtendedBold.woff2') format('woff2'),
+    url('pragmatica/Pragmatica-ExtendedBold.woff') format('woff');
+}

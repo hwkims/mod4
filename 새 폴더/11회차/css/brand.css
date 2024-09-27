@@ -1,0 +1,148 @@
+#brand_section1 {
+    width: 1280px; height: 1500px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+#brand_section1 h2 {
+    padding: 100px 0;
+    color:#666; font-size: 62px;
+    letter-spacing: -6px;
+}
+#brand_section1 h2 span {
+    color: #f3744b;
+}
+
+#brand_section1 ul {
+    width: 600px; height: 260px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 20px 10px;
+}
+#brand_section1 ul li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 25px 10px;
+}
+
+#brand_section1 ul li:nth-child(1) {
+    width: 200px; height: 200px;
+    line-height: 200px;
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+}
+
+#brand_section1 ul li:nth-child(1) img {
+    vertical-align: middle;
+}
+
+#brand_section1 ul li:nth-child(2) {
+    width: 330px; height: 200px;
+    /* background: cyan; */
+    text-align: left;
+}
+
+#brand_section1 ul li:nth-child(2) h3 {
+    padding-top: 30px;
+
+    color:#555; font-size: 24px;
+    letter-spacing: -2px;
+}
+
+#brand_section1 ul li:nth-child(2) p {
+    padding-top: 20px;
+
+    color:#888;
+    font-size: 16px;
+    letter-spacing: -1px;
+}
+#brand_section1 ul.last {
+    border: 1px solid white;
+}
+#brand_section1 ul:hover {
+    border: 1px solid #f3744b;
+    cursor: pointer;
+}
+
+#brand_section1 ul.last:hover{
+    border: 1px solid #fff;
+    cursor: default;
+ 
+}
+
+/*2번*/
+#brand_section2 {
+    width: 1280px; height: 220px;
+    background: #fbfbfb;
+    margin: 50px auto;
+    text-align: center;
+}
+#brand_section2 ul li {
+    width: 200px; height: 180px;
+    /* background: cyan; */
+
+    display: inline-block;
+    vertical-align: middle;
+}
+#brand_section2 ul li.line {
+    width: 1px; height: 160px;
+    background: #ddd;
+
+    margin: 30px 50px;
+
+}
+
+#brand_section2 ul li p.img {
+    padding-top: 20px;
+}
+#brand_section2 ul li p.txt {
+    padding-top: 10px;
+    color: #666;
+    font-size: 16px;
+    letter-spacing: -3px;
+}
+
+#brand_section2 ul li p.txt span {
+    color:#666;
+    font-size: 20px;
+    font-weight: bold;
+}
+#brand_section2 ul li:hover p.txt span {
+    color:#f3744b;
+ 
+}
+
+
+/*3번*/
+#brand_section3 {
+    width: 1280px; 
+    margin: 0px auto;
+    text-align: center;
+}
+
+#brand_section3 h2 {
+    padding: 100px 0;
+    color:#666; font-size: 62px;
+    letter-spacing: -6px;
+}
+#brand_section3 h2 span {
+    color: #f3744b;
+}
+
+#brand_section3 table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+#brand_section3 table td {
+    border: 1px solid #ddd;
+    height: 55px;
+    letter-spacing: -1px;
+}
+#brand_section3 table tr.first td {
+    background: #f3744b;
+    color:#fff; font-weight: bold;
+}

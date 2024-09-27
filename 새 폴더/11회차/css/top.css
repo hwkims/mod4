@@ -1,0 +1,77 @@
+/* 웹폰트 - 배달의민족 한나PRO */
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* 기본 스타일 초기화 */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit; /* 기본 텍스트 색상 상속 */
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  /* 레이아웃 */
+  
+  /* 상단 메뉴 */
+  #wrap_header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff; /* 배경색 추가 */
+    position: fixed; /* 고정 위치 설정 */
+    top: 0;
+    z-index: 10; /* 높은 z-index 값으로 다른 요소 위에 표시 */
+    
+  }
+  body{
+    padding-top: 80px;
+  }
+ 
+  #header {
+    width: 1280px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex; /* flexbox 사용 */
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: space-between; /* 공간 분배 */
+ 
+}
+  
+  #header ul {
+    display: flex;
+    gap: 80px; /* 요소 간 간격 설정 */
+  }
+  
+  #header ul li {
+    font-family: 'BMHANNAPro', sans-serif; /* 웹폰트 적용 */
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+  /* 라인 높이 조정 */
+  }
+  
+  #header ul li a {
+    color: #333;
+    transition: color 0.3s ease; /* 부드러운 전환 효과 추가 */
+    line-height: 80px; /* 텍스트 높이 조정 */
+  }
+  
+  #header ul li:hover a {
+    color: #f87545;
+  }
+  
+  /* 공통 상단 영역 끝 */

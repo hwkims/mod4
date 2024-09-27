@@ -1,0 +1,219 @@
+/*웹폰트-배달의민족 주아체*/
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*웹폰트-배달의민족 연성체*/
+@font-face {
+    font-family: 'BMYEONSUNG';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMYEONSUNG.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#pratnership_section1 {
+    width: 1280px;
+    height: 520px;
+    background: linear-gradient(to right, #ff4a7f, #df8246);
+    margin: 0 auto;
+    text-align: center;
+}
+
+#pratnership_section1 p.txt1 {
+    padding-top: 30px;
+
+    color:#fff; font-size: 33px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+#pratnership_section1 p.txt1 span {
+    font-family: 'BMYEONSUNG';
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+#pratnership_section1 p.txt1 img {
+    vertical-align: middle;
+}
+
+#pratnership_section1 h2 {
+    padding-top: 10px;
+
+    color:#fff; font-size: 70px;
+    letter-spacing: -5px;
+    text-shadow: 2px 2px 8px #d75555;
+}
+
+#pratnership_section1 p.txt2 {
+    padding-top: 20px;
+
+    color:#fff; font-size: 30px;
+    letter-spacing: -2px;
+}
+#pratnership_section1 p.won {
+    width: 150px; height: 150px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 30px auto;
+    line-height: 150px;
+
+    color:#ff4a7f;
+    font-size: 40px;
+    letter-spacing: -4px;
+    font-weight: bold;
+
+    box-shadow: 4px 4px 8px #d75555;
+}
+
+#pratnership_section1 p.txt3 {
+
+    color:#ffc934; font-size: 30px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+/*2번*/
+#pratnership_section2 {
+    width: 1280px;
+    height: 860px;
+    /* background: cyan; */
+    margin: 0 auto;
+    text-align: center;
+}
+#pratnership_section2 h2 {
+    padding-top: 50px;
+
+    color:#333; font-size: 48px;
+    letter-spacing: -5px;
+}
+#pratnership_section2 h2 span {
+    font-size: 34px;
+    letter-spacing: -3px;
+}
+
+#pratnership_section2 ul li {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 50px 30px;
+}
+
+#pratnership_section2 ul li:nth-child(odd) {
+    width: 230px;
+    height: 200px;
+    /* background: yellow; */
+
+    
+}
+#pratnership_section2 ul li:nth-child(even){
+    font-size: 50px;
+    color:#333;
+    margin-top: -50px;
+}
+
+#pratnership_section2 ul li h3{
+    color:#fa377b;
+    font-size: 90px;
+    letter-spacing: -5px;
+    font-weight: bold;
+}
+#pratnership_section2 ul li h3 span {
+    font-size: 42px;
+}
+
+#pratnership_section2 p.txt {
+    padding-top: 10px;
+    color:#999;
+    font-size: 22px;
+    letter-spacing: -2px;
+    
+}
+#pratnership_section2 p.txtb {
+    font-weight: 800;
+    color: #888;
+}
+
+#pratnership_section2 p.btn {
+    width: 730px; height: 110px;
+    line-height: 110px;
+    background: #000; color:#fff;
+    border-radius: 80px;
+font-size: 30px;
+    margin: 30px auto;
+    text-transform: uppercase;
+}
+
+/*3번*/
+#pratnership_section3 {
+    width: 1280px;
+    height: 420px;
+    /* background: yellow; */
+    margin: 0 auto;
+    text-align: center;
+}
+#pratnership_section3 h2 {
+    text-align: left;
+
+    padding: 50px 0 0 110px;
+    color:#333;
+    font-size: 30px;
+    letter-spacing: -3px;
+}
+
+#pratnership_section3 p.txt {
+    text-align: left;
+
+    padding: 30px 0 0 110px;
+    color:#666;
+    font-size: 16px;
+    letter-spacing: -1px;
+     
+}
+#pratnership_section3 ul {
+    width: 320px;
+    height: 150px;
+    /* border: 1px solid red; */
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 30px 20px;
+}
+
+#pratnership_section3 ul li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+#pratnership_section3 ul li img{
+    width: 80px;
+    height: 80px;
+}
+#pratnership_section3 ul li:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    /* background: orange; */
+    border-radius: 50%;
+}
+#pratnership_section3 ul li:nth-child(2) {
+    width: 200px;
+    height: 130px;
+    /* background: cyan; */
+    text-align: left;
+}
+#pratnership_section3 ul li:nth-child(2) h3 {
+    color:#333;
+    letter-spacing: -1px;
+}
+#pratnership_section3 ul li:nth-child(2) p.down_txt {
+    padding-top: 10px;
+    
+    color:#666;
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 1.6;
+}
